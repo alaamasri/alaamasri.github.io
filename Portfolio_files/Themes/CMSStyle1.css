@@ -6,7 +6,7 @@ html {
     font-family: 'Open Sans', sans-serif;
     transition: all .5s;
     font-weight: 300;
-    /*perspective:3000px;*/
+    
 }
 
 :focus {
@@ -17,6 +17,10 @@ html {
     transition: all .5s;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    -webkit-perspective: 1000px;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    backface-visibility: hidden;
 }
 
 .main-menu .container-fluid {
