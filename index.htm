@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./Portfolio_files/Themes/bootstrap.css" rel="stylesheet">
+    <link href="./Portfolio_files/Themes/animate.css" rel="stylesheet">
+    <link href="./Portfolio_files/Themes/CMSStyle1.css" rel="stylesheet" type="text/css">
+    <link href="./Portfolio_files/Themes/NivoLightboxTheme/default.css" rel="stylesheet" type="text/css">
+    <link href="./Portfolio_files/Themes/NivoLightboxTheme/nivo-lightbox.css" rel="stylesheet" type="text/css">
+    <title>
+        Ala'a Almasri's Portfolio
+    </title>
+    <script src="./Portfolio_files/jquery.min.js"></script>
+    <script src="./Portfolio_files/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="scripts">
+        <!-- Scroll Animation -->
+        <script>
+
+            $(document).ready(function () {
+                var $blocks = $('.animBlock.notViewed');
+                var $window = $(window);
+
+                $window.on('scroll', function (e) {
+                    $blocks.each(function (i, elem) {
+                        if ($(this).hasClass('viewed'))
+                            return;
+
+                        isScrolledIntoView($(this));
+                    });
+                });
+            });
+            /* http://stackoverflow.com/a/488073/477958 */
+            function isScrolledIntoView(elem) {
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+                var elemOffset = 0;
+
+                if (elem.data('offset') != undefined) {
+                    elemOffset = elem.data('offset');
+                }
+                var elemTop = $(elem).offset().top;
+                var elemBottom = elemTop + $(elem).height();
+
+                if (elemOffset != 0) { // custom offset is updated based on scrolling direction
+                    if (docViewTop - elemTop >= 0) {
+                        // scrolling up from bottom
+                        elemTop = $(elem).offset().top + elemOffset;
+                    } else {
+                        // scrolling down from top
+                        elemBottom = elemTop + $(elem).height() - elemOffset
+                    }
+                }
+
+                if ((elemBottom <= docViewBottom) && (elemTop >= docViewTop)) {
+                    // once an element is visible exchange the classes
+                    $(elem).removeClass('notViewed').addClass('viewed');
+                    if ($(elem).hasClass('progress')) {
+                        var progressWidth = $(elem).children('span').attr('width-value');
+
+
+                        $(elem).children('span').width(progressWidth.replace(';', ''));
+
+                    }
+                    var animElemsLeft = $('.animBlock.notViewed').length;
+                    if (animElemsLeft == 0) {
+                        // with no animated elements left debind the scroll event
+                        $(window).off('scroll');
+                    }
+                }
+            }
+        </script>
+        <script src="./Portfolio_files/jquery.mixitup.min.js"></script>
+        <!-- My Portfolio -->
+        <script src="./Portfolio_files/nivo-lightbox.min.js"></script>
+
+        <script src="./Portfolio_files/wow.min.js"></script>
+        <script>
+            new WOW({ offset: 150 }).init();
+            $(document).ready(function () {
+                $('#AboutMe,.main-menu').addClass('animated fadeIn');
+                $('.mix-container').mixItUp();
+                $('.portfolio-pop').nivoLightbox({
+                    effect: 'fade',                             // The effect to use when showing the lightbox
+                    theme: 'default',                           // The lightbox theme to use
+                    keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
+                    clickOverlayToClose: true,
+
+                });
+
+            });
+
+            // Menu on Scroll Effects
+
+            $(document).scroll(function () {
+                var y = $(document).scrollTop(),
+                    header = $(".main-menu");
+
+                if (y >= 70) {
+                    header.addClass('main-menu-fixed');
+                } else {
+                    header.removeClass('main-menu-fixed');
+                }
+
+                $('div[nav-selected]').each(function (index) {
+                    var nxtDivPos = $(this).parents('.section').next().position().top;
+                    var divPos = $(this).position().top;
+                    var offset = divPos - $(this).attr('offset');
+
+
+
+
+                    if (y >= offset && y <= nxtDivPos) {
+
+
+                        var menuItem = ".main-menu a[href='#" + $(this).attr('id') + "']";
+                        $('.main-menu li').removeClass('active');
+                        $(menuItem).parent().addClass('active');
+                        if (y < 450 || ((1000 < y) && (y < 1500))) { $('.main-menu li').removeClass('active'); }
+                    }
+
+                })
+
+
+            });
+            /* Smooth Scroll + Scroll offset */
+            $(function () {
+                $('.nav a').on('click', function () {
+                    $(".navbar-toggle").click() //bootstrap 3.x by Richard
+                });
+                $('.main-menu a').click(function () {
+                    var scroll = $($(this).attr('href')).offset().top - 200;
+                    $('html, body').animate({
+                        scrollTop: $($(this).attr('href')).offset().top - 70
+                    }, 500);
+                    return false;
+                });
+
+                /* Skills More than 4*/
+                $('.my-skills .skills-item:gt(3)').addClass('skills-more');
+            })
+
+        </script>
+
+
+    </div>
+    <div class="main-menu animated fadeIn">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><span>Ala'a</span> Almasri</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="#Skills" title="My Skills">Skills</a></li>
+
+                        <li><a href="#Education" title="Education">Education</a></li>
+                        <li><a href="#WorkExperience" title="Work Experience">Work Experience</a></li>
+                        <li><a href="#Portfolio" title="My Portfolio">Portfolio</a></li>
+                        <li><a href="#ContactMe" title="Contact Me">Contact Me</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="content">
+        <div class="section section1">
+            <div class="container animated fadeIn" id="AboutMe" nav-selected="0">
+                <div class="about-me-image">
+                    <div id="ctl08_dvHtml"><img alt="Ala&#39;a Al-masri" src="./Portfolio_files/Images/portrait.jpg"></div>
+                </div>
+                <div class="about-me-content">
+                    <div id="ctl09_dvHtml">
+                        <h2>About Me</h2>
+                        <div class="row"><span class="label">Name:</span><span>Ala’ Mahdi Almasri</span></div>
+                        <div class="row"><span class="label">Nationality:</span><span>Jordanian</span></div>
+                        <div class="row"><span class="label">Date of birth:</span><span>11 / 5 /1989</span></div>
+                        <div class="row"><span class="label">Phone:</span><span>0795874954</span></div>
+                        <div class="row"><span class="label">E-Mail:</span><span><a href="mailto:ala_masri@hotmail.com">ala_masri@hotmail.com</a></span></div>
+                        <div class="row"><span class="label">Address:</span><span>Amman, Jordan</span></div>
+                        <div class="general-skills">
+                            <span class="fed">FRONT DEVLOPMENT</span>
+                            <span class="web">WEB DESIGN</span>
+                            <span class="game-dev">3D GAMES MODELING &amp; DEVELOPMENT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section2">
+            <div class="container my-skills" id="Skills" nav-selected="1" offset="300">
+                <h2>My Skills</h2>
+                <div class="skills-item">
+                    <span class="label">Autodesk Maya</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="30%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item">
+                    <span class="label">Unity 3D</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="30%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item">
+                    <span class="label">Adobe Premier</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="40%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item">
+                    <span class="label">Adobe AfterEffects </span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="30%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">Toonboom DigitalPro </span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="50%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">Ms Office</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="80%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">XSLT</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="80%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">Photoshop</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="90%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">HTML / CSS</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="90%">
+                        </span>
+                    </div>
+                </div>
+                <div class="skills-item skills-more">
+                    <span class="label">jQuery</span>
+                    <div class="progress animBlock notViewed">
+                        <span width-value="70%">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section1">
+            <div class="container resume wow fadeInDown animated" id="Resume" nav-selected="0" style="visibility: visible; -webkit-animation: fadeInDown;">
+                <div id="ctl11_dvHtml">
+                    <h2>Resume</h2>
+                    <p>Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.</p>
+                    <a class="btn" href="#" title="Download Alaa&#39;s Resume">Download Resume</a>
+                </div>
+            </div>
+        </div>
+        <div class="section section2">
+            <div class="container my-info">
+                <div class="my-info-section" id="Education" nav-selected="1" offset="100">
+                    <h2 class="wow fadeInUp">My Education</h2>
+                    <div class="my-info-left wow fadeInUp">Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.      </div>
+                    <div class="my-info-content wow fadeInRight">
+                        <div class="edu-item">
+                            <span class="edu-title">B.Sc. In Computer Graphics &amp; Animation Science</span>
+                            <span class="edu-date">September 2007 - May 2011</span>
+                            <div class="clear">
+                            </div>
+                            <p class="edu-description">Princess Sumaya University For Technology Faculty of King Hussein for Information Technology</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="my-info-section" id="WorkExperience" nav-selected="1" offset="90">
+                    <h2 class="wow fadeInUp">Work Experience</h2>
+                    <div class="my-info-left wow fadeInUp">
+                        Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat.<br><br> Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei, cum ne periculis molestiae pri.
+
+                        Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est.
+                    </div>
+                    <div class="my-info-content wow fadeInRight">
+                        <div class="work-item">
+                            <span class="work-title">Game Operator and Food Services</span>
+                            <span class="work-main">Morey’s Piers Parks, USA / June 2011 - October 2011</span>
+                            <span class="work-date">3 Months</span>
+                            <div class="clear">
+                            </div>
+                            <p class="work-description"></p>
+                        </div>
+                        <div class="work-item">
+                            <span class="work-title">Front End Devoloper</span>
+                            <span class="work-main">ESKADENIA Software, Jordan / December 2011 - Present</span>
+                            <span class="work-date">2 Years</span>
+                            <div class="clear">
+                            </div>
+                            <p class="work-description"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section section2">
+            <div class="container my-portfolio" id="Portfolio" nav-selected="1" offset="150">
+                <h2>My Portfolio</h2>
+                <div class="mix-controls">
+                    <span class="filter active" data-filter="all">All</span>
+                    <span class="filter" data-filter=".category-1">Front-End</span>
+                    <span class="filter" data-filter=".category-2">Web Design</span>
+                    <span class="filter" data-filter=".category-3">Others</span>
+                </div>
+                <div class="mix-container" id="MixItUpF62C26">
+                    <div class="mix category-2" data-myorder="1" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/622f7fca-ba5a-4f49-b090-b9681ba19e08.png" alt="Bank Website Design">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/622f7fca-ba5a-4f49-b090-b9681ba19e08.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-2" data-myorder="2" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/359f60ba-9131-4197-88e2-345eea8e5233.png" alt="Non-profit Organization design">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/359f60ba-9131-4197-88e2-345eea8e5233.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-2" data-myorder="3" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/9f1c8861-82b2-4e7c-9c43-45d8ecd076cf.png" alt="CMS Design">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/9f1c8861-82b2-4e7c-9c43-45d8ecd076cf.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-2" data-myorder="4" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/12d5ff6a-a08a-483f-a72c-4a04ff680444.png" alt="CMS Design 3">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/12d5ff6a-a08a-483f-a72c-4a04ff680444.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-2" data-myorder="5" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/87cfaca5-3d2c-429c-8fb8-7db30250c41f.png" alt="CMS Design Login">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/87cfaca5-3d2c-429c-8fb8-7db30250c41f.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-3" data-myorder="6" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/d2a3f2e7-e5a9-45f9-ac5d-bb19401776bb.png" alt="PSUT Virtual Tour (Game Development)">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/d2a3f2e7-e5a9-45f9-ac5d-bb19401776bb.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-3" data-myorder="7" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/4650fd28-1378-492b-99c2-683f2c07b84e.png" alt="2D Sample Animation">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/4650fd28-1378-492b-99c2-683f2c07b84e.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="8" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/4f263226-9891-4205-a265-8969ed090773.png" alt="Saraya Holdings">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/4f263226-9891-4205-a265-8969ed090773.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.sarayaholdings.com/" class="portfolio-link" title="Visit Saraya Holdings Official Website" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="9" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/0970b88f-ea05-4d7c-8887-8011d633ad41.png" alt="Asia Insurance">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/0970b88f-ea05-4d7c-8887-8011d633ad41.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.asiainsurance.net/" class="portfolio-link" title="Visit Asia Insurance Company - Iraq (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="10" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/2875924e-2aba-4db2-8aa5-739428721113.png" alt="Injaz Jordan">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/2875924e-2aba-4db2-8aa5-739428721113.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://injaz.org.jo/" class="portfolio-link" title="Visit Injaz Jordan Website (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="11" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/131db9e4-856c-4856-8ec4-b3715f630b9a.png" alt="Tabbaa Kitchens">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/131db9e4-856c-4856-8ec4-b3715f630b9a.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://localhost:12668/~/NewsDetails.aspx?ArticleID=21" class="portfolio-link" title="Visit Tabbaa Kitchens (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="12" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/0222b678-66b9-4302-9f40-44ae2b51473a.png" alt="Zalatimo Sweets">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/0222b678-66b9-4302-9f40-44ae2b51473a.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://zalatimo.com/" class="portfolio-link" title="Visit Zalatimo Brothers for Sweets (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="13" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/a96e976e-37c2-4adc-abb6-03a3b0f401c3.png" alt="Welfare Association">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/a96e976e-37c2-4adc-abb6-03a3b0f401c3.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.en.welfareassociation.org/" class="portfolio-link" title="Visit Welfare Association Palestine (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="mix category-1" data-myorder="14" style="display: inline-block;">
+                        <img src="./Portfolio_files/Images/Thumb/561243fe-5688-4ff9-94d0-5da200efe2df.png" alt="AMCHAM Jordan">
+                        <div class="portfolio-hover"> <a href="./Portfolio_files/Images/large/561243fe-5688-4ff9-94d0-5da200efe2df.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://amcham.jo/" class="portfolio-link" title="Visit American Chamber of Commerce - Jordan (CMS)" target="_blank">Website Link</a> </div>
+                    </div>
+                    <div class="gap"> </div>
+                    <div class="gap"> </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="section section3">
+            <div class="container contact-me" id="ContactMe" nav-selected="1" offset="150">
+                <h2>Contact Me</h2>
+                <div id="ctl15_dvHtml">
+                    <div class="left-side">
+                        <p>Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est, eam dicam soluta ei. Vel dicam vivendo accusata ei.</p>
+                        <p>
+                        </p>
+                    </div>
+                    <div class="right-side">
+                        <div>
+                            <span class="label">Name</span>
+                            <input class="form-txt" name="user" data-validation="length alphanumeric" data-validation-length="8-12" data-validation-error-msg="between 8-12 alphanumeric characters">
+                        </div>
+                        <div>
+                            <span class="label">Email</span>
+                            <input class="form-txt" name="email" data-validation="email" data-validation-error-msg="Incorrect e-mail address">
+                        </div>
+                        <div>
+                            <span class="label">Note</span>
+                            <textarea></textarea>
+                        </div>
+                        <div class="action">
+                            <input type="submit" value="Send">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section4">
+            <div class="container social" id="Social">
+                <div id="ctl16_dvHtml">
+                    <a title="Ala&#39;a Almasri&#39;s Facebook" target="_blank" href="https://www.facebook.com/alaamasri89"><img style="Ala&#39;a Almasri&#39;s Facebook" src="./Portfolio_files/images/facebook.png"></a>
+                    <a title="Ala&#39;a Almasri&#39;s LinkedIn" target="_blank" href="#"><img style="Ala&#39;a Almasri&#39;s LinkedIn" src="./Portfolio_files/images/linkedIn.png"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
