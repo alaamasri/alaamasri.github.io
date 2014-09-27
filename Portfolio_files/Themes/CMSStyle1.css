@@ -6,7 +6,6 @@ html {
     font-family: 'Open Sans', sans-serif;
     transition: all .5s;
     font-weight: 300;
-    
 }
 
 :focus {
@@ -15,7 +14,6 @@ html {
 
 * {
     transition: all .5s;
-    
 }
 
 .main-menu .container-fluid {
@@ -73,6 +71,8 @@ html {
 
 .section {
     width: 100%;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
 }
 
 .section1 {
@@ -200,6 +200,10 @@ h2 {
         width: 0px;
         height: 100%;
         top: 0px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 
 /* .progress span:after {
@@ -238,6 +242,10 @@ h2 {
 .resume {
     text-align: center;
     padding-bottom: 10px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 p {
@@ -261,6 +269,10 @@ p {
     display: inline-block;
     float: right;
     width: 45%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .my-info-left {
@@ -270,6 +282,10 @@ p {
     font-size: 20px;
     max-width: 45%;
     padding-top: 2px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .my-info-content .edu-title, .my-info-content .work-title {
@@ -378,7 +394,6 @@ p {
     position: absolute;
     left: 0px;
     top: 0px;
-    
 }
 
 
@@ -802,6 +817,7 @@ p {
     .mix-container .mix {
         height: 120px;
     }
+
     .mix .portfolio-hover:hover .portfolio-link {
         background: url(../../Portfolio_files/Images/hover-links-small.png) 11px 10px no-repeat #00bbcc;
         left: 22px;
@@ -819,24 +835,21 @@ p {
 
 @media only screen and (max-width : 1024px) and ( min-width : 768px) and (orientation: landscape) {
 
-     .mix-container .mix,
+    .mix-container .mix,
     .mix-container .gap {
         width: 210px;
     }
 
 
     .mix .portfolio-hover:hover .portfolio-link {
-        
         left: 45px;
     }
 
     .mix .portfolio-hover:hover .portfolio-pop {
-        
         right: 45px;
     }
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 76px !important ;
+        right: 76px !important;
     }
-
 }
