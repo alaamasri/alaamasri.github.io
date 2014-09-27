@@ -360,6 +360,8 @@ p {
     padding: 2% 2% 0;
     text-align: justify;
     font-size: 0.1px;
+    -webkit-perspective:1000px;
+    perspective:1000px;
     -webkit-backface-visibility: hidden;
 }
 
@@ -387,6 +389,11 @@ p {
         height: 175px;
         overflow: hidden;
         border: 1px solid #f2f2f2;
+           -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
     }
 
 .mix img {
