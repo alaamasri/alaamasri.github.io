@@ -141,9 +141,8 @@
                 /* Skills More than 4*/
                 $('.my-skills .skills-item:gt(3)').addClass('skills-more');
 
-                $('#contactForm').submit(function (event) {
-                    event.preventDefault();
-
+                $('#contactForm').submit(function () {
+                    return false;
                 });
             })
 
