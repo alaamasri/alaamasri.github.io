@@ -450,7 +450,7 @@ p {
             padding: 2%;
         }
 
-textarea {
+textarea {  
     transition: none;
 }
 
@@ -465,6 +465,9 @@ textarea {
     margin: 15px 2% 0 0;
     padding: 7px 15px;
     text-transform: uppercase;
+}
+.form-error {
+margin-bottom:0;
 }
 
 .social {
