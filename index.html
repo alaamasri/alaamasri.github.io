@@ -141,7 +141,7 @@
                 /* Skills More than 4*/
                 $('.my-skills .skills-item:gt(3)').addClass('skills-more');
 
-                $('#contactSubmit').submit(function (event) {
+                $('#contactForm').submit(function (event) {
                     event.preventDefault();
 
                 });
@@ -415,7 +415,7 @@
                         <p>
                         </p>
                     </div>
-                    <form class="right-side" action="http://getsimpleform.com/messages?form_api_token=c016ab231858a267f3838a5fe71b91f7" method="post">
+                    <form class="right-side" id="contactForm" action="http://getsimpleform.com/messages?form_api_token=c016ab231858a267f3838a5fe71b91f7" method="post">
                         <input type='hidden' name='redirect_to' value="<http://alaagh20.github.io>" />
                         <div>
                             <span class="label">Name</span>
@@ -430,7 +430,7 @@
                             <textarea class="form-textarea" name="note" data-validation-error-msg="This field Cannot be empty !"></textarea>
                         </div>
                         <div class="action">
-                            <input type="submit" value="Send" id="contactSubmit">
+                            <input type="submit" value="Send">
                         </div>
 
                     </form>
