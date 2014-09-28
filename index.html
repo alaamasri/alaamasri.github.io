@@ -140,6 +140,11 @@
 
                 /* Skills More than 4*/
                 $('.my-skills .skills-item:gt(3)').addClass('skills-more');
+
+                $('#contactSubmit').submit(function (event) {
+                    event.preventDefault();
+
+                });
             })
 
         </script>
@@ -425,7 +430,7 @@
                             <textarea class="form-textarea" name="note" data-validation-error-msg="This field Cannot be empty !"></textarea>
                         </div>
                         <div class="action">
-                            <input type="submit" value="Send">
+                            <input type="submit" value="Send" id="contactSubmit">
                         </div>
 
                     </form>
@@ -440,7 +445,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </body>
 </html>
