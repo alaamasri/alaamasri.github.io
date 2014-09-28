@@ -450,6 +450,10 @@ p {
             border: 0px solid;
             padding: 2%;
         }
+textarea
+{
+    transition:none;
+}
 
     .contact-me .action input {
         background: none repeat scroll 0 0 #191f21;
