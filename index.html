@@ -147,6 +147,8 @@
 
                 /* Skills More than 4*/
                 $('.my-skills .skills-item:gt(3)').addClass('skills-more');
+
+
             })
 
         </script>
@@ -417,9 +419,10 @@
                         <p>
                         </p>
                     </div>
-                    
-                    <form class="right-side" id="contactForm" action="http://getsimpleform.com/messages?form_api_token=c016ab231858a267f3838a5fe71b91f7" method="post">
-                        <input type="hidden" name="redirect_to" value="http://alaagh20.github.io" />
+                    <!--action="http://getsimpleform.com/messages?form_api_token=c016ab231858a267f3838a5fe71b91f7 " method="Post"-->
+
+                    <form class="right-side" id="contactForm">
+                        <!--<input type="hidden" name="redirect_to" value="http://alaagh20.github.io" />-->
                         <div>
                             <span class="label">Name</span>
                             <input class="form-txt" type='text' name="name" data-validation="required alphanumeric length" data-validation-length="min3" data-validation-allowing=" " data-validation-error-msg="Please type your name (Minimum 3 characters)">
@@ -433,10 +436,42 @@
                             <textarea class="form-textarea form-txt" name="note" data-validation="required" data-validation-allowing=" " data-validation-error-msg="This field cannot be empty !"></textarea>
                         </div>
                         <div class="action">
-                            <input type="submit" value="Send">
+                            <button type="submit">
+                            <span class="original">Send</span>
+                            <span class="done"></span>
+                            <span class="bg"></span>
+                            </button>
                         </div>
                         <script>
-                            $.validate();
+                            $.validate({
+                                form: '#contactForm',
+                                onSuccess: function () {
+                                    /* Form Submit */
+
+                                    $.ajax({
+                                        dataType: 'jsonp',
+                                        url: "http://getsimpleform.com/messages/ajax?form_api_token=c016ab231858a267f3838a5fe71b91f7",
+                                        data: $('#contactForm').serialize()
+                                    }).done(function () {
+                                        //callback which can be used to show a thank you message
+                                        //and reset the form
+                                        $('.action button').attr('disabled', true);
+                                        $('button .bg').animate({ width: '100%' }, 4000, 'swing', function () {
+                                            $('#contactForm').get(0).reset();
+                                        });
+                                        $('button .original').delay(4000).animate({ marginTop: '-40px' }, 500,'swing');
+                                        $('button .original').delay(500).animate({ marginTop: '0px' }, 500, 'swing');
+                                        $('button .bg').delay(1500).animate({ width: '0%' }, 0, 'linear');
+                                        setTimeout(function () { $('.action button').attr('disabled', false); }, 5000);
+
+                                      
+                                        
+                                    });
+
+                                    return false; // Will stop the submission of the form
+                                },
+
+                            });
                         </script>
                     </form>
                 </div>

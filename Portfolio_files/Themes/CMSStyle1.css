@@ -450,11 +450,11 @@ p {
             padding: 2%;
         }
 
-textarea {  
+textarea {
     transition: none;
 }
 
-.contact-me .action input {
+.contact-me .action button {
     background: none repeat scroll 0 0 #191f21;
     border: 0 solid;
     color: white;
@@ -462,12 +462,42 @@ textarea {
     display: inline-block;
     float: right;
     font-size: 18px;
-    margin: 15px 2% 0 0;
+    margin: 15px 2% 0;
     padding: 7px 15px;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    height: 37px;
+}
+
+    .contact-me .action button span {
+        transition: none;
+    }
+
+    
+.contact-me .action button .original,.contact-me .action button .done  {
+    position: relative;
+    z-index: 3;
+    float:left;
+    clear:left;
+    margin-bottom: 15px;
+    width: 100%;
+    height:100%;
+}
+button .done {
+    background: url(../../Portfolio_files/Images/submit.png) no-repeat center center;
+    }
+
+button span.bg {
+    background: #00A0Af;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    top: 0px;
+    width: 0%;
 }
 .form-error {
-margin-bottom:0;
+    margin-bottom: 0;
 }
 
 .social {
@@ -550,12 +580,13 @@ margin-bottom:0;
     right: 93px !important;
 }
 
-.btn:hover, .contact-me .action input:hover {
+.btn:hover, .contact-me .action button:hover {
     color: white;
     background: #00BBCC;
+    transition: all .5s;
 }
 
-.btn:active, .mix-controls .filter:active, .contact-me .action input:active {
+.btn:active, .mix-controls .filter:active, .contact-me .action button:active {
     transition: all .1s;
     transform: scale(.96);
 }
@@ -696,9 +727,12 @@ margin-bottom:0;
             min-height: 100px;
         }
 
-    .contact-me .action input {
+    .contact-me .action button {
         width: 100%;
-        padding: 10px 15px;
+    }
+    .contact-me .action button:active
+    {
+        transform:none;
     }
 
     .mix-controls .filter {
@@ -866,3 +900,4 @@ margin-bottom:0;
         right: 76px !important;
     }
 }
+
