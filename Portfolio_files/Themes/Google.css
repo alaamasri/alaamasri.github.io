@@ -1,0 +1,208 @@
+.og-grid {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+ 
+.og-grid li {
+    display: inline-block;
+    margin: 10px 5px 0 5px;
+    vertical-align: top;
+    height: 155px;
+}
+/* The links and images will be displayed as block elements and we’ll remove some default styling: */
+.og-grid li > a,
+.og-grid li > a img {
+    border: none;
+    outline: none;
+    display: block;
+    position: relative;
+}
+
+/* When we click on an item, we will give a special class to the respective list item which will be called og-expanded. We’ll add a little arrow as pseudo-element to the anchor: */
+
+.og-grid li.og-expanded > a::after {
+    top: auto;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #ddd;
+    border-width: 15px;
+    left: 50%;
+    margin: -20px 0 0 -15px;
+}
+/*The preview itself will have the class og-expander and we’ll position that element absolutely. The initial height of the preview will be 0 and we’ll set the overflow to hidden:*/
+.og-expander {
+    position: absolute;
+    background: #ddd;
+    top: auto;
+    left: 0;
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+}
+ 
+.og-expander-inner {
+    padding: 50px 30px;
+    height: 100%;
+}
+
+/* The inner division will have some paddings and a height of 100%. The cross for closing the preview will be created using pseudo-elements, i.e. two rotated lines: */
+
+.og-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+ 
+.og-close::before,
+.og-close::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1px;
+    background: #888;
+    transform: rotate(45deg);
+}
+ 
+.og-close::after {
+    transform: rotate(-45deg);
+}
+ 
+.og-close:hover::before,
+.og-close:hover::after {
+    background: #333;
+}
+/* The wrappers for the image and for the details will be 50% wide and we’ll make them float next to each other: */
+.og-fullimg,
+.og-details {
+    width: 45%;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+/* The details wrapper will have some padding and we’ll center the image inside of the image wrapper by setting the text-align to center and the image itself to display: inline-block. The image will also have a max-height and max-width of 100% so that it adjusts its size to the surrounding container: */
+
+.og-details {
+    padding: 0 40px 0 20px;
+}
+ 
+.og-fullimg {
+    text-align: center;
+}
+ 
+.og-fullimg img {
+    display: inline-block;
+    max-height: 100%;
+    max-width: 87%;
+}
+
+/* Let’s style the text elements and the link: */
+
+.og-details h3 {
+    font-weight: 300;
+    font-size: 52px;
+    padding: 40px 0 10px;
+    margin-bottom: 10px;
+}
+ 
+.og-details p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #999;
+}
+ 
+.og-details a {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border: 3px solid #333;
+    display: inline-block;
+    margin: 30px 0 0;
+    outline: none;
+}
+ 
+.og-details a::before {
+    content: '\2192';
+    display: inline-block;
+    margin-right: 10px;
+}
+ 
+.og-details a:hover {
+    border-color: #999;
+    color: #999;
+}
+
+/* The loading element will be in the same container as the image and we’ll not use any images but this CSS-only technique. We’ll create a little circle and set three box shadows: one for making the circle itself look a bit smoother and two for “copying” the element. Then we create an animation that will change the background color and the box shadow colors sequentially: */
+
+.og-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ddd;
+    box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    animation: loader 0.5s infinite ease-in-out both;
+}
+ 
+@keyframes loader {
+    0% { background: #ddd; }
+    33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+    66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+/* The loading element will be in the same container as the image and we’ll not use any images but this CSS-only technique. We’ll create a little circle and set three box shadows: one for making the circle itself look a bit smoother and two for “copying” the element. Then we create an animation that will change the background color and the box shadow colors sequentially: */
+
+.og-loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ddd;
+    box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    animation: loader 0.5s infinite ease-in-out both;
+}
+ 
+@keyframes loader {
+    0% { background: #ddd; }
+    33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
+    66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
+}
+
+/* Last, but not least, we’ll add two media queries for adjusting the text a bit and for hiding the full image once the screen gets so small that the preview image is not really useful anymore (we’ll also not load it in the JavaScript then). */
+
+@media screen and (max-width: 830px) {
+ 
+    .og-expander h3 { font-size: 32px; }
+    .og-expander p { font-size: 13px; }
+    .og-expander a { font-size: 12px; }
+ 
+}
+ 
+@media screen and (max-width: 650px) {
+ 
+    .og-fullimg { display: none;}
+    .og-details { float: none; width: 100%; }
+}
