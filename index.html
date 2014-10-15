@@ -102,7 +102,7 @@
             // Menu on Scroll Effects
 
             $(document).scroll(function () {
-                var y = $(document).scrollTop(),
+                var y = $(document).scrollTop();
                     header = $(".main-menu");
 
                 if (y >= 70) {
@@ -127,7 +127,7 @@
                         $(menuItem).parent().addClass('active');
                         if (y < 450 || ((1000 < y) && (y < 1500))) { $('.main-menu li').removeClass('active'); }
                     }
-
+                    if (y < 100) { $('.main-menu li').removeClass('active'); }
                 })
 
 
@@ -148,7 +148,7 @@
                 /* Skills More than 4*/
                 $('.my-skills .skills-item:gt(3)').addClass('skills-more');
 
-
+               
             })
 
         </script>
