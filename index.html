@@ -103,7 +103,7 @@
 
             $(document).scroll(function () {
                 var y = $(document).scrollTop();
-                    header = $(".main-menu");
+                header = $(".main-menu");
 
                 if (y >= 70) {
                     header.addClass('main-menu-fixed');
@@ -146,9 +146,24 @@
                 });
 
                 /* Skills More than 4*/
-                $('.my-skills .skills-item:gt(3)').addClass('skills-more');
-
+                console.log(screen.width)
+                if (screen.width <= 480) { $('.my-skills .skills-item:gt(4)').addClass('skills-more'); }
+                else { $('.my-skills .skills-item:gt(9)').addClass('skills-more'); }
                
+                $('.skills-more-link').click(
+                    function () {
+                        $('.skills-more-link').toggleClass('skills-less');
+                        $('.skills-more').slideToggle('medium', function () {
+                            if ($('.skills-more').is(':visible'))
+                            { $('.skills-more').css('display', 'inline-block'); }
+                           
+                        });
+
+                    }
+
+
+                    );
+
             })
 
         </script>
@@ -240,48 +255,49 @@
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">Toonboom DigitalPro </span>
                     <div class="progress animBlock notViewed">
                         <span width-value="50%">
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">Ms Office</span>
                     <div class="progress animBlock notViewed">
                         <span width-value="80%">
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">XSLT</span>
                     <div class="progress animBlock notViewed">
                         <span width-value="80%">
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">Photoshop</span>
                     <div class="progress animBlock notViewed">
                         <span width-value="90%">
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">HTML / CSS</span>
                     <div class="progress animBlock notViewed">
                         <span width-value="90%">
                         </span>
                     </div>
                 </div>
-                <div class="skills-item skills-more">
+                <div class="skills-item">
                     <span class="label">jQuery</span>
                     <div class="progress animBlock notViewed">
                         <span width-value="70%">
                         </span>
                     </div>
                 </div>
+                <span class="skills-more-link">more</span>
             </div>
         </div>
         <div class="section section1">
@@ -437,9 +453,9 @@
                         </div>
                         <div class="action">
                             <button type="submit">
-                            <span class="original">Send</span>
-                            <span class="done"></span>
-                            <span class="bg"></span>
+                                <span class="original">Send</span>
+                                <span class="done"></span>
+                                <span class="bg"></span>
                             </button>
                         </div>
                         <script>
@@ -459,13 +475,13 @@
                                         $('button .bg').animate({ width: '100%' }, 4000, 'swing', function () {
                                             $('#contactForm').get(0).reset();
                                         });
-                                        $('button .original').delay(4000).animate({ marginTop: '-40px' }, 500,'swing');
+                                        $('button .original').delay(4000).animate({ marginTop: '-40px' }, 500, 'swing');
                                         $('button .original').delay(500).animate({ marginTop: '0px' }, 500, 'swing');
                                         $('button .bg').delay(1500).animate({ width: '0%' }, 0, 'linear');
                                         setTimeout(function () { $('.action button').attr('disabled', false); }, 5000);
 
-                                      
-                                        
+
+
                                     });
 
                                     return false; // Will stop the submission of the form
