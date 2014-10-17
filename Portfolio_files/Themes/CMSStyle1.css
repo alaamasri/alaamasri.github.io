@@ -251,14 +251,15 @@ h2 {
     font-size: 0px;
     text-indent: -9999px;
     background: url(../../Portfolio_files/Images/skills-more.png) center center no-repeat;
+}
 
-}
-.skills-more-link:hover {
-    opacity:.6;
-    filter:alpha(opacity=6);
-}
+    .skills-more-link:hover {
+        opacity: .6;
+        filter: alpha(opacity=6);
+    }
+
 .skills-less {
-    transform:rotateZ(90deg) scale3d(.8,.8,.8);
+    transform: rotateZ(90deg) scale3d(.8,.8,.8);
 }
 
 .resume {
@@ -807,6 +808,18 @@ button span.bg {
         .skills-item .label {
             font-size: 18px;
         }
+
+    .skills-more {
+        display: none;
+    }
+
+    .skills-more-link {
+        margin: 0 0 15px;
+    }
+    .skills-less
+    {
+        margin:10px 0 25px;
+    }
 
     p {
         font-size: 14px;

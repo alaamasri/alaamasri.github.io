@@ -146,8 +146,8 @@
                 });
 
                 /* Skills More than 4*/
-                console.log(screen.width)
-                if (screen.width <= 480) { $('.my-skills .skills-item:gt(4)').addClass('skills-more'); }
+                var resolution = $(window).width();
+                if (resolution <= 480) { $('.my-skills .skills-item:gt(4)').addClass('skills-more'); }
                 else { $('.my-skills .skills-item:gt(9)').addClass('skills-more'); }
                
                 $('.skills-more-link').click(
