@@ -133,14 +133,17 @@
 
             });
             /* Smooth Scroll + Scroll offset */
+            var fixedMenuHeight = 0;
             $(function () {
                 $('.nav a').on('click', function () {
                     $(".navbar-toggle").click() //bootstrap 3.x by Richard
                 });
+
                 $('.main-menu a').click(function () {
+                    if ($(document).scrollTop() <= 70) { fixedMenuHeight = 60 } else { fixedMenuHeight = 0 }
                     var scroll = $($(this).attr('href')).offset().top - 200;
                     $('html, body').animate({
-                        scrollTop: $($(this).attr('href')).offset().top - 70
+                        scrollTop: $($(this).attr('href')).offset().top - 70 - fixedMenuHeight
                     }, 500);
                     return false;
                 });
@@ -149,7 +152,7 @@
                 var resolution = $(window).width();
                 if (resolution <= 480) { $('.my-skills .skills-item:gt(4)').addClass('skills-more'); }
                 else { $('.my-skills .skills-item:gt(9)').addClass('skills-more'); }
-               
+
                 $('.skills-more-link').click(
                     function () {
                         if (
@@ -158,8 +161,7 @@
                             $('.skills-more-link').toggleClass('skills-less');
                             $('.skills-more').toggleClass('skills-more-visible');
                         }
-                 else
-                        {
+                        else {
                             $('.skills-more-link').toggleClass('skills-less');
                             $('.skills-more').toggleClass('skills-more-visible');
                             $('.skills-more').slideDown('medium', function () {
@@ -168,7 +170,7 @@
                             });
                         }
 
-                }
+                    }
 
                     );
 
@@ -226,7 +228,7 @@
                         <div class="general-skills">
                             <span class="fed">FRONT-END DEVELOPMENT</span>
                             <span class="web">WEB DESIGN</span>
-                            <span class="game-dev">3D GAMES MODELING &amp; DEVELOPMENT</span>
+                            <!--<span class="game-dev">3D GAMES MODELING &amp; DEVELOPMENT</span>-->
                         </div>
                     </div>
                 </div>
@@ -305,7 +307,7 @@
                         </span>
                     </div>
                 </div>
-                
+
                 <span class="skills-more-link">more</span>
             </div>
         </div>
@@ -342,7 +344,7 @@
                         Lorem ipsum dolor sit amet, ea doming epicuri iudicabit nam, te usu virtute placerat. Purto brute disputando cu est.
                     </div>
                     <div class="my-info-content wow fadeInRight">
-                        
+
                         <div class="work-item">
                             <span class="work-title">Front End Devoloper</span>
                             <span class="work-main">ESKADENIA Software, Jordan / December 2011 - Present</span>
@@ -358,7 +360,7 @@
                             </div>
                             <p class="work-description"></p>
                         </div>
-                        
+
                     </div>
                 </div>
 
