@@ -152,15 +152,23 @@
                
                 $('.skills-more-link').click(
                     function () {
-                        $('.skills-more-link').toggleClass('skills-less');
-                        $('.skills-more').slideToggle('medium', function () {
-                            if ($('.skills-more').is(':visible'))
-                            { $('.skills-more').css('display', 'inline-block'); }
-                           
-                        });
+                        if (
+                            $('.skills-more-visible').length) {
+                            $('.skills-more').slideUp();
+                            $('.skills-more-link').toggleClass('skills-less');
+                            $('.skills-more').toggleClass('skills-more-visible');
+                        }
+                 else
+                        {
+                            $('.skills-more-link').toggleClass('skills-less');
+                            $('.skills-more').toggleClass('skills-more-visible');
+                            $('.skills-more').slideDown('medium', function () {
+                                if ($('.skills-more').is(':visible'))
+                                { $('.skills-more').css('display', 'inline-block'); }
+                            });
+                        }
 
-                    }
-
+                }
 
                     );
 
