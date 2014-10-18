@@ -15,7 +15,9 @@ html {
 * {
     transition: all .5s;
 }
-
+.main-menu * {
+       transition: none;
+}
 .main-menu .container-fluid {
     width: 80%;
     margin: 0 auto;
