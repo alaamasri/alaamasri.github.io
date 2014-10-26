@@ -15,9 +15,11 @@ html {
 * {
     transition: all .5s;
 }
+
 .main-menu * {
-       transition: none;
+    transition: none;
 }
+
 .main-menu .container-fluid {
     width: 80%;
     margin: 0 auto;
@@ -89,7 +91,8 @@ html {
 .section3 {
     background: #252e30;
     color: #919191;
-    padding-bottom: 53px;
+    padding-bottom: 35px;
+    border-bottom: 10px solid #191f21;
 }
 
 .section4 {
@@ -528,15 +531,14 @@ button span.bg {
 }
 
 .social {
-    text-align: center;
     padding: 20px 0;
 }
 
-    .social div a {
+    .social a {
         margin: 0 10px 0 0;
     }
 
-        .social div a img {
+        .social a img {
             filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
             -webkit-filter: grayscale(90%);
             -moz-filter: grayscale(90%);
@@ -544,7 +546,7 @@ button span.bg {
             filter: gray;
         }
 
-        .social div a:hover img {
+        .social a:hover img {
             filter: none;
             -webkit-filter: grayscale(00%);
             -moz-filter: grayscale(0%);
@@ -623,8 +625,22 @@ button span.bg {
     filter: alpha(opacity=70);
 }
 
+.footer-link {
+    color: white;
+    border-bottom: 1px dotted;
+    text-decoration: none !important;
+}
 
+    .footer-link:hover {
+        color: #00bbcc;
+    }
 
+    .contact-me .left-side span
+    {
+        display:block;
+        margin-bottom:7px;
+        font-size: .8em;
+    }
 /* Jquery Mix Media Queries*/
 
 @media all and (min-width: 420px) {
@@ -640,7 +656,6 @@ button span.bg {
         width: 23.5%;
     }
 }
-
 /*=========================================================*/
 
 
@@ -738,7 +753,8 @@ button span.bg {
     }
 
     .contact-me .left-side {
-        display: none;
+        width: 100%;
+margin-bottom: 10px;
     }
 
     .contact-me .right-side {
@@ -818,9 +834,9 @@ button span.bg {
     .skills-more-link {
         margin: 0 0 15px;
     }
-    .skills-less
-    {
-        margin:10px 0 25px;
+
+    .skills-less {
+        margin: 10px 0 25px;
     }
 
     p {
