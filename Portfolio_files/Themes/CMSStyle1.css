@@ -635,12 +635,11 @@ button span.bg {
         color: #00bbcc;
     }
 
-    .contact-me .left-side span
-    {
-        display:block;
-        margin-bottom:7px;
-        font-size: .8em;
-    }
+.contact-me .left-side span {
+    display: block;
+    margin-bottom: 7px;
+    font-size: .8em;
+}
 /* Jquery Mix Media Queries*/
 
 @media all and (min-width: 420px) {
@@ -754,7 +753,7 @@ button span.bg {
 
     .contact-me .left-side {
         width: 100%;
-margin-bottom: 10px;
+        margin-bottom: 10px;
     }
 
     .contact-me .right-side {
@@ -954,5 +953,82 @@ margin-bottom: 10px;
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
         right: 76px !important;
+    }
+}
+
+#print {
+    display: none;
+    color: #383838;
+    font-family: arial;
+    margin: 0 auto;
+    width: 924px;
+}
+
+    #print h1 {
+        color: #0470BC;
+        font-size: 36px;
+        margin: 0;
+        padding: 0px 0 0;
+    }
+
+    #print h2 {
+        border-bottom: 2px solid;
+        color: #0470BC;
+        font-size: 22px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        margin-top: 50px;
+        padding: 0 0 6px;
+        width: 100%;
+    }
+
+    #print table td {
+        min-width: 170px;
+        padding: 0 0 10px;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    #print .date {
+        font-weight: bold;
+    }
+
+    #print .info-table td span {
+        clear: left;
+        float: left;
+        font-size: 13px;
+    }
+
+    #print .info-table td strong {
+        float: left;
+        padding-bottom: 2px;
+        width: 100%;
+    }
+
+    #print ul {
+        line-height: 28px;
+        margin-top: 0;
+        padding: 0 0 0 20px;
+    }
+
+    #print li {
+        color: #0470BC;
+        list-style: square outside none;
+        float: left;
+        min-width: 300px;
+    }
+
+        #print li span {
+            color: #383838;
+            padding-left: 4px;
+        }
+
+@media print {
+    .section, .main-menu {
+        display: none;
+    }
+
+    #print {
+        display: block;
     }
 }
