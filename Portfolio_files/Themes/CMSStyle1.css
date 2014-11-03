@@ -164,7 +164,7 @@ h2 {
         font-size: 20px;
         float: left;
         margin: 0 40px 30px 0;
-        padding: 7px 0 7px 65px;
+        padding: 7px 0 12px 65px;
         background: url(../../Portfolio_files/Images/about-me-icons.png) no-repeat 0 0;
     }
 
@@ -413,6 +413,7 @@ p {
         text-align: left;
         margin-bottom: 2%;
         display: none;
+        max-width:244px;
         position: relative;
         height: 175px;
         overflow: hidden;
@@ -932,6 +933,9 @@ button span.bg {
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
         right: 48px !important;
+    }
+    .nivo-lightbox-theme-default .nivo-lightbox-title {
+    font-size:22px !important;
     }
 }
 
