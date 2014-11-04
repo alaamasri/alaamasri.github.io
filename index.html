@@ -75,7 +75,7 @@
                 }
             }
         </script>
-        
+
 
 
         <script>
@@ -84,22 +84,38 @@
                 $('#AboutMe,.main-menu').addClass('animated fadeIn');
                 $('.mix-container').mixItUp();
                 $('.portfolio-pop').nivoLightbox({
-                    effect: 'fade',                             // The effect to use when showing the lightbox
+                    effect: 'fadeScale',                             // The effect to use when showing the lightbox
                     theme: 'default',                           // The lightbox theme to use
                     keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
-                    titlePosition:'top',
                     clickOverlayToClose: true,
+                    beforeShowLightbox: function () {
+                        console.log($($(this)[0].el).parents('.category-1').length);
+                            if ($($(this)[0].el).parents('.category-1').length) {
+                            adLink = $($(this)[0].el).next('.portfolio-link').attr('href');
+                        }
+                        else { adLink = 0; }
+                    },
+
+                    afterShowLightbox: function (lightbox, element) {
+                        console.log(adLink);
+                        if (adLink) {
+                            setTimeout(function () {
+                                $('.nivo-lightbox-content').append("<a class='lightbox-link' target='_blank' href='" + adLink + "'></a>");
+                                $(".nivo-lightbox-content .nivo-lightbox-image").appendTo(".nivo-lightbox-content .lightbox-link");
+                            }, 100)
+                        }
+                    }
 
                 });
 
             });
 
             // Menu on Scroll Effects
-           
+
             $(document).scroll(function () {
                 var y = $(document).scrollTop();
                 header = $(".main-menu");
-               
+
 
                 if (y >= 70) {
                     header.addClass('main-menu-fixed');
@@ -108,8 +124,8 @@
                 }
 
                 $('div[nav-selected]').each(function (index) {
-                    var nxtDivPos ;
-                    if (index != $('div[nav-selected]').length-1) { nxtDivPos = $(this).parents(".section").next().position().top;}
+                    var nxtDivPos;
+                    if (index != $('div[nav-selected]').length - 1) { nxtDivPos = $(this).parents(".section").next().position().top; }
                     var divPos = $(this).position().top;
                     var offset = divPos - $(this).attr('offset');
 
@@ -437,7 +453,7 @@
                         <img src="./Portfolio_files/Images/Thumb/4650fd28-1378-492b-99c2-683f2c07b84e.png" alt="2D Sample Animation">
                         <div class="portfolio-hover"> <a title="2D Sample Animation" href="./Portfolio_files/Images/Large/4650fd28-1378-492b-99c2-683f2c07b84e.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> </div>
                     </div>
-                    
+
                     <div class="gap"> </div>
                     <div class="gap"> </div>
                 </div>
