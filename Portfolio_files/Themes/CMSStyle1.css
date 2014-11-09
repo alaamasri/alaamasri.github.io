@@ -667,7 +667,14 @@ button span.bg {
     .container {
         width: 90%;
     }
+    #AboutMe {
+    width:100%;
+    }
+    .about-me-content .row {
+    
+    font-size:18px;
 
+    }
     .navbar ul li a {
         font-size: 17px;
         padding-top: 20px;
@@ -714,6 +721,7 @@ button span.bg {
 
     #AboutMe {
         padding: 50px 0;
+        width:90%;
     }
 
     .about-me-image {
