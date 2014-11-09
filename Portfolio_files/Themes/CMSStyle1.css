@@ -413,7 +413,7 @@ p {
         text-align: left;
         margin-bottom: 2%;
         display: none;
-        max-width:244px;
+        max-width: 244px;
         position: relative;
         height: 175px;
         overflow: hidden;
@@ -429,6 +429,9 @@ p {
     position: absolute;
     left: 0px;
     top: 0px;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
 
@@ -444,7 +447,7 @@ p {
 
 .mix-container .mix:before {
     content: '';
-    display: inline-block;
+    display: none;
     padding-top: 60%;
 }
 
@@ -934,8 +937,9 @@ button span.bg {
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
         right: 48px !important;
     }
+
     .nivo-lightbox-theme-default .nivo-lightbox-title {
-    font-size:22px !important;
+        font-size: 22px !important;
     }
 }
 
