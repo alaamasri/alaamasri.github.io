@@ -3,6 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description=" content="Alaa almasri a front end developer portfolio website, HTML5, CSS3, CSS, HTML, Jquery, JavaScript, Mobile Web, Responsive design, Translating 
+          PSD">
+    <meta property="og:title" content="Ala'a Almasri's Portfolio">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://alaamasri.github.io/">
+    <meta property="og:image" content="http://alaamasri.github.io/Portfolio_files/Images/og.png">
+    <meta property="og:description" content="Alaa almasri a Front-end Developer's Portfolio">
+
     <link href="./Portfolio_files/Themes/bootstrap.css" rel="stylesheet">
     <link href="./Portfolio_files/Themes/animate.css" rel="stylesheet">
     <link href="./Portfolio_files/Themes/CMSStyle1.css" rel="stylesheet" type="text/css">
@@ -102,7 +110,7 @@
                     clickOverlayToClose: true,
                     beforeShowLightbox: function () {
                         console.log($($(this)[0].el).parents('.category-1').length);
-                            if ($($(this)[0].el).parents('.category-1').length) {
+                        if ($($(this)[0].el).parents('.category-1').length) {
                             adLink = $($(this)[0].el).next('.portfolio-link').attr('href');
                         }
                         else { adLink = 0; }
