@@ -410,13 +410,13 @@ p {
     }
 
     .mix-container .mix {
-        text-align: left;
         margin-bottom: 2%;
         display: none;
         max-width: 244px;
         position: relative;
         height: 175px;
         overflow: hidden;
+        background:#f8f8f8;
         border: 1px solid #f2f2f2;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
@@ -610,7 +610,8 @@ button span.bg {
     }
 
 .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-    right: 93px !important;
+    right: 50% !important;
+    margin-right:-27.5px;
 }
 
 .btn:hover, .contact-me .action button:hover {
@@ -811,7 +812,8 @@ button span.bg {
     }
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 57px !important;
+        right: 50% !important;
+        margin-right:-22.5px;
     }
 }
 
@@ -935,7 +937,8 @@ button span.bg {
     }
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 48px !important;
+        right: 50% !important;
+        margin-right:-22.5px;
     }
 
     .nivo-lightbox-theme-default .nivo-lightbox-title {
@@ -959,9 +962,7 @@ button span.bg {
         right: 45px;
     }
 
-    .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 76px !important;
-    }
+   
 }
 
 #print {
