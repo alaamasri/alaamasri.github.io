@@ -438,7 +438,7 @@ p {
 .mix-container .mix:after {
     content: attr(data-myorder);
     color: white;
-    font-size: 16px;
+    font-size: 0px;
     display: inline-block;
     vertical-align: top;
     padding: 4% 6%;
@@ -924,6 +924,10 @@ button span.bg {
 
     .mix-container .mix {
         height: 120px;
+    }
+    .mix-container .mix img {
+        max-width:120%;
+        left:-10%;
     }
 
     .mix .portfolio-hover:hover .portfolio-link {
