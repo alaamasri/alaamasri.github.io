@@ -699,11 +699,13 @@ button span.bg {
     width: 100%;
     height: 100%;
     z-index: 9999;
+    display:none \9;
     background: rgba(255,255,255,.95);
 }
 
 .locked {
     overflow: hidden;
+    overflow:auto \9;
 }
 /* Jquery Mix Media Queries*/
 
