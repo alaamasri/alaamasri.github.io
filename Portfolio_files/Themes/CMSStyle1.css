@@ -417,7 +417,7 @@ p {
         position: relative;
         height: 175px;
         overflow: hidden;
-        background:#f8f8f8;
+        background: #f8f8f8;
         border: 1px solid #f2f2f2;
         -webkit-transform: translateZ(0);
         transform: translateZ(0);
@@ -612,7 +612,7 @@ button span.bg {
 
 .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
     right: 50% !important;
-    margin-right:-27.5px;
+    margin-right: -27.5px;
 }
 
 .btn:hover, .contact-me .action button:hover {
@@ -646,6 +646,65 @@ button span.bg {
     margin-bottom: 7px;
     font-size: .8em;
 }
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    background-color: #00bbcc;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+    animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+    0% {
+        -webkit-transform: perspective(120px);
+    }
+
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg);
+    }
+
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+    }
+}
+
+@keyframes rotateplane {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    }
+
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    }
+
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(255,255,255,.95);
+}
+
+.locked {
+    overflow: hidden;
+}
 /* Jquery Mix Media Queries*/
 
 @media all and (min-width: 420px) {
@@ -668,14 +727,15 @@ button span.bg {
     .container {
         width: 90%;
     }
-    #AboutMe {
-    width:100%;
-    }
-    .about-me-content .row {
-    
-    font-size:18px;
 
+    #AboutMe {
+        width: 100%;
     }
+
+    .about-me-content .row {
+        font-size: 18px;
+    }
+
     .navbar ul li a {
         font-size: 17px;
         padding-top: 20px;
@@ -722,7 +782,7 @@ button span.bg {
 
     #AboutMe {
         padding: 50px 0;
-        width:90%;
+        width: 90%;
     }
 
     .about-me-image {
@@ -752,7 +812,7 @@ button span.bg {
             text-align: center;
         }
 
-  
+
     .general-skills span {
         width: 100%;
         padding-bottom: 10px;
@@ -819,7 +879,7 @@ button span.bg {
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
         right: 50% !important;
-        margin-right:-22.5px;
+        margin-right: -22.5px;
     }
 }
 
@@ -931,10 +991,11 @@ button span.bg {
     .mix-container .mix {
         height: 120px;
     }
-    .mix-container .mix img {
-        max-width:120%;
-        left:-10%;
-    }
+
+        .mix-container .mix img {
+            max-width: 120%;
+            left: -10%;
+        }
 
     .mix .portfolio-hover:hover .portfolio-link {
         background: url(../../Portfolio_files/Images/hover-links-small.png) 11px 10px no-repeat #00bbcc;
@@ -948,7 +1009,7 @@ button span.bg {
 
     .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
         right: 50% !important;
-        margin-right:-22.5px;
+        margin-right: -22.5px;
     }
 
     .nivo-lightbox-theme-default .nivo-lightbox-title {
@@ -971,8 +1032,6 @@ button span.bg {
     .mix .portfolio-hover:hover .portfolio-pop {
         right: 45px;
     }
-
-   
 }
 
 #print {

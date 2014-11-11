@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="locked">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description=" content="Alaa Almasri a front end developer portfolio website, HTML5, CSS3, CSS, HTML, Jquery, JavaScript, Mobile Web, Responsive design, Translating 
+    <meta name="description=" content="Alaa Almasri a front end developer portfolio website, HTML5, CSS3, CSS, HTML, Jquery, JavaScript, Mobile Web, Responsive design, Translating
           PSD">
     <meta property="og:title" content="Ala'a Almasri's Portfolio">
     <meta property="og:type" content="website">
@@ -27,6 +27,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.1.38/jquery.form-validator.min.js"></script>
 </head>
 <body>
+    
     <div class="scripts">
         <!-- Scroll Animation -->
         <script>
@@ -208,11 +209,19 @@
 
                     );
 
-            })
-
+            });
+            
+            /* loading */
+            $(window).load(function () {
+                $('.loading').fadeOut();
+                $('html').removeClass('locked');
+            });
         </script>
 
 
+    </div>
+    <div class="loading">
+        <div class="spinner"></div>
     </div>
     <div class="main-menu animated fadeIn">
         <nav class="navbar navbar-default" role="navigation">
