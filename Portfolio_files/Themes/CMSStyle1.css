@@ -699,13 +699,13 @@ button span.bg {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    display:none \9;
+    display: none \9;
     background: rgba(255,255,255,.95);
 }
 
 .locked {
     overflow: hidden;
-    overflow:auto \9;
+    overflow: auto \9;
 }
 /* Jquery Mix Media Queries*/
 
@@ -1038,70 +1038,79 @@ button span.bg {
 
 #print {
     display: none;
-    color: #383838;
+    color: #919191;
     font-family: arial;
     margin: 0 auto;
     width: 924px;
+    position: relative;
 }
 
-    #print h1 {
-        color: #0470BC;
-        font-size: 36px;
-        margin: 0;
-        padding: 0px 0 0;
-    }
+.print-pic {
+    right: 20px;
+    top: 5px;
+    width: 160px;
+    position: absolute;
+    border: 2px solid #00bbcc;
+}
 
-    #print h2 {
-        border-bottom: 2px solid;
-        color: #0470BC;
-        font-size: 22px;
-        font-weight: 400;
-        margin-bottom: 15px;
-        margin-top: 50px;
-        padding: 0 0 6px;
-        width: 100%;
-    }
+#print h1 {
+    color: #00bbcc;
+    font-size: 36px;
+    margin: 0;
+    padding: 0px 0 0;
+}
 
-    #print table td {
-        min-width: 170px;
-        padding: 0 0 10px;
-        text-align: left;
-        vertical-align: top;
-    }
+#print h2 {
+    border-bottom: 2px solid;
+    color: #00bbcc;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    margin-top: 50px;
+    padding: 0 0 6px;
+    width: 100%;
+}
 
-    #print .date {
-        font-weight: bold;
-    }
+#print table td {
+    min-width: 170px;
+    padding: 0 0 10px;
+    text-align: left;
+    vertical-align: top;
+}
 
-    #print .info-table td span {
-        clear: left;
-        float: left;
-        font-size: 13px;
-    }
+#print .date {
+    font-weight: bold;
+}
 
-    #print .info-table td strong {
-        float: left;
-        padding-bottom: 2px;
-        width: 100%;
-    }
+#print .info-table td span {
+    clear: left;
+    float: left;
+    font-size: 13px;
+}
 
-    #print ul {
-        line-height: 28px;
-        margin-top: 0;
-        padding: 0 0 0 20px;
-    }
+#print .info-table td strong {
+    float: left;
+    padding-bottom: 2px;
+    width: 100%;
+}
 
-    #print li {
-        color: #0470BC;
-        list-style: square outside none;
-        float: left;
-        min-width: 300px;
-    }
+#print ul {
+    line-height: 28px;
+    margin-top: 0;
+    padding: 0 0 0 20px;
+}
 
-        #print li span {
-            color: #383838;
-            padding-left: 4px;
-        }
+#print li {
+    color: #00bbcc;
+    list-style: square outside none;
+    float: left;
+    min-width: 300px;
+}
+
+    #print li span {
+        color: #919191;
+        padding-left: 4px;
+    }
 
 @media print {
     .section, .main-menu {
