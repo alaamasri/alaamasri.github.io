@@ -446,6 +446,7 @@ p {
     -ms-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
+    min-height:400px;
 }
 
     .mix-container * {
