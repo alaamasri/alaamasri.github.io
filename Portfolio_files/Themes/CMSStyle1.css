@@ -16,14 +16,18 @@ html {
     transition: all .5s;
 }
 
-.main-menu * {
-    transition: none;
+.main-menu {
+    width: 100%;
 }
 
-.main-menu .container-fluid {
-    width: 80%;
-    margin: 0 auto;
-}
+    .main-menu * {
+        transition: none;
+    }
+
+    .main-menu .container-fluid {
+        width: 80%;
+        margin: 0 auto;
+    }
 
 .navbar-default {
     background: #252e30;
