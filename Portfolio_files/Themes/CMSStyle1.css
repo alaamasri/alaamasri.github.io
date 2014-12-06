@@ -814,6 +814,12 @@ button span.bg {
     overflow: hidden;
     overflow: auto \9;
 }
+
+.nivo-lightbox-theme-default .nivo-lightbox-title-wrap
+{
+    padding:10px 5px;
+    background:rgba(0,0,0,.75);
+}
 /* Jquery Mix Media Queries*/
 
 @media all and (min-width: 420px) {
