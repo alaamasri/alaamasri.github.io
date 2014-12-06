@@ -446,7 +446,7 @@ p {
     -ms-backface-visibility: hidden;
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
-    min-height:400px;
+    min-height: 400px;
 }
 
     .mix-container * {
@@ -613,7 +613,8 @@ button span.bg {
     }
 
         .social a img {
-            filter: url("data:image/svg+xml; utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); -webkit-filter:grayscale(90%);
+            filter: url("data:image/svg+xml; utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0.7 0.7 0.7 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+            -webkit-filter: grayscale(90%);
             -moz-filter: grayscale(90%);
             filter: grayscale(90%);
             filter: gray;
@@ -651,10 +652,14 @@ button span.bg {
         position: absolute;
         top: 0px;
         right: 0px;
-        left:0;
-        bottom:0;
-        transform:translateX(300%);
-        margin:auto;
+        left: 0;
+        bottom: 0;
+        -webkit-transform: translateX(300%);
+        -moz-transform: translateX(300%);
+        -ms-transform: translateX(300%);
+        -o-transform: translateX(300%);
+        transform: translateX(300%);
+        margin: auto;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -667,7 +672,11 @@ button span.bg {
     }
 
     .mix .portfolio-hover .portfolio-link {
-        transform:translateX(-300%);
+        -webkit-transform: translateX(-300%);
+        -moz-transform: translateX(-300%);
+        -ms-transform: translateX(-300%);
+        -o-transform: translateX(-300%);
+        transform: translateX(-300%);
         background: url(../../Portfolio_files/Images/hover-links.png) 5px 12px no-repeat #00bbcc;
     }
 
@@ -675,11 +684,19 @@ button span.bg {
         opacity: 1;
         visibility: visible;
         background: url(../../Portfolio_files/Images/hover-links.png) -56px 10px no-repeat #00bbcc;
-        transform:translateX(65%);
+        -webkit-transform: translateX(65%);
+        -moz-transform: translateX(65%);
+        -ms-transform: translateX(65%);
+        -o-transform: translateX(65%);
+        transform: translateX(65%);
     }
 
     .mix .portfolio-hover:hover .portfolio-link {
-        transform:translateX(-65%);
+        -webkit-transform: translateX(-65%);
+        -moz-transform: translateX(-65%);
+        -ms-transform: translateX(-65%);
+        -o-transform: translateX(-65%);
+        transform: translateX(-65%);
         opacity: 1;
         visibility: visible;
     }
@@ -689,7 +706,7 @@ button span.bg {
     }
 
 .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-    transform:translateX(0%);
+    transform: translateX(0%);
 }
 
 .btn:hover, .contact-me .action button:hover {
