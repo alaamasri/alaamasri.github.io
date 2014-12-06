@@ -649,8 +649,12 @@ button span.bg {
         height: 55px;
         width: 55px;
         position: absolute;
-        top: 61px;
-        right: -55px;
+        top: 0px;
+        right: 0px;
+        left:0;
+        bottom:0;
+        transform:translateX(300%);
+        margin:auto;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -663,8 +667,7 @@ button span.bg {
     }
 
     .mix .portfolio-hover .portfolio-link {
-        right: auto !important;
-        left: -55px;
+        transform:translateX(-300%);
         background: url(../../Portfolio_files/Images/hover-links.png) 5px 12px no-repeat #00bbcc;
     }
 
@@ -672,11 +675,11 @@ button span.bg {
         opacity: 1;
         visibility: visible;
         background: url(../../Portfolio_files/Images/hover-links.png) -56px 10px no-repeat #00bbcc;
-        right: 55px;
+        transform:translateX(65%);
     }
 
     .mix .portfolio-hover:hover .portfolio-link {
-        left: 55px;
+        transform:translateX(-65%);
         opacity: 1;
         visibility: visible;
     }
@@ -686,8 +689,7 @@ button span.bg {
     }
 
 .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-    right: 50% !important;
-    margin-right: -27.5px;
+    transform:translateX(0%);
 }
 
 .btn:hover, .contact-me .action button:hover {
@@ -955,24 +957,16 @@ button span.bg {
     }
 
     .mix .portfolio-hover a {
-        top: 35px;
         height: 45px;
         width: 45px;
     }
 
     .mix .portfolio-hover:hover .portfolio-link {
         background: url(../../Portfolio_files/Images/hover-links-small.png) 11px 10px no-repeat #00bbcc;
-        left: 30px;
     }
 
     .mix .portfolio-hover:hover .portfolio-pop {
         background: url(../../Portfolio_files/Images/hover-links-small.png) -32px 10px no-repeat #00bbcc;
-        right: 30px;
-    }
-
-    .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 50% !important;
-        margin-right: -22.5px;
     }
 }
 
@@ -1094,17 +1088,10 @@ button span.bg {
 
     .mix .portfolio-hover:hover .portfolio-link {
         background: url(../../Portfolio_files/Images/hover-links-small.png) 11px 10px no-repeat #00bbcc;
-        left: 22px;
     }
 
     .mix .portfolio-hover:hover .portfolio-pop {
         background: url(../../Portfolio_files/Images/hover-links-small.png) -32px 10px no-repeat #00bbcc;
-        right: 22px;
-    }
-
-    .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
-        right: 50% !important;
-        margin-right: -22.5px;
     }
 
     .nivo-lightbox-theme-default .nivo-lightbox-title {
@@ -1112,20 +1099,6 @@ button span.bg {
     }
 }
 
-@media only screen and (max-width : 1024px) and ( min-width : 768px) and (orientation: landscape) {
-    .mix-container .mix,
-    .mix-container .gap {
-        width: 210px;
-    }
-
-    .mix .portfolio-hover:hover .portfolio-link {
-        left: 45px;
-    }
-
-    .mix .portfolio-hover:hover .portfolio-pop {
-        right: 45px;
-    }
-}
 
 #print {
     display: none;
