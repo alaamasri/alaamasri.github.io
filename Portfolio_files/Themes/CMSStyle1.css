@@ -706,6 +706,10 @@ button span.bg {
     }
 
 .category-3 .portfolio-hover:hover .portfolio-pop, .category-2 .portfolio-hover:hover .portfolio-pop {
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
     transform: translateX(0%);
 }
 
@@ -815,10 +819,9 @@ button span.bg {
     overflow: auto \9;
 }
 
-.nivo-lightbox-theme-default .nivo-lightbox-title-wrap
-{
-    padding:10px 5px;
-    background:rgba(0,0,0,.75);
+.nivo-lightbox-theme-default .nivo-lightbox-title-wrap {
+    padding: 10px 5px;
+    background: rgba(0,0,0,.75);
 }
 /* Jquery Mix Media Queries*/
 
