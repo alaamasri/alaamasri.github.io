@@ -153,8 +153,10 @@
                     if (index != $('div[nav-selected]').length - 1) { nxtDivPos = $(this).parents(".section").next().position().top; }
                     var divPos = $(this).position().top;
                     var offset = divPos - $(this).attr('offset');
+                    var lastDiv = $('#ContactMe');
+                    var lastDivPos = lastDiv.position().top - lastDiv.attr('offset');
 
-
+                    
 
 
                     if (y >= offset && y <= nxtDivPos) {
@@ -163,13 +165,20 @@
                         var menuItem = ".main-menu a[href='#" + $(this).attr('id') + "']";
                         $('.main-menu li').removeClass('active');
                         $(menuItem).parent().addClass('active');
+                     
                         if (y < 450 || ((1000 < y) && (y < 1500))) { $('.main-menu li').removeClass('active'); }
                     }
                     if (y < 100) { $('.main-menu li').removeClass('active'); }
+                    if (y > lastDivPos) {
+                        $('.main-menu li').removeClass('active');
+                        $('.main-menu li a[href="#'+ lastDiv.attr('id') +'"]').parent().addClass('active');
+                    }
                 })
 
 
             });
+
+
             /* Smooth Scroll + Scroll offset */
             var fixedMenuHeight = 0;
             $(function () {
@@ -526,7 +535,7 @@
             </div>
         </div>
         <div class="section section3">
-            <div class="container contact-me" id="ContactMe" nav-selected="1" offset="150">
+            <div class="container contact-me" id="ContactMe" nav-selected="1" offset="200">
                 <h2>Contact Me</h2>
                 <div id="ctl15_dvHtml">
                     <div class="left-side">
