@@ -111,7 +111,7 @@
                     keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
                     clickOverlayToClose: true,
                     beforeShowLightbox: function () {
-                        console.log($($(this)[0].el).parents('.category-1').length);
+//                        console.log($($(this)[0].el).parents('.category-1').length);
                         if ($($(this)[0].el).parents('.category-1').length) {
                             adLink = $($(this)[0].el).next('.portfolio-link').attr('href');
                         }
@@ -119,7 +119,7 @@
                     },
 
                     afterShowLightbox: function (lightbox, element) {
-                        console.log(adLink);
+                        //console.log(adLink);
                         if (adLink) {
                             setTimeout(function () {
                                 $('.nivo-lightbox-content').append("<a class='lightbox-link' target='_blank' href='" + adLink + "'></a>");
@@ -169,6 +169,7 @@
                         if (y < 450 || ((1000 < y) && (y < 1500))) { $('.main-menu li').removeClass('active'); }
                     }
                     if (y < 100) { $('.main-menu li').removeClass('active'); }
+                    /* Last Div Nav Hover Fix*/
                     if (y > lastDivPos) {
                         $('.main-menu li').removeClass('active');
                         $('.main-menu li a[href="#'+ lastDiv.attr('id') +'"]').parent().addClass('active');
