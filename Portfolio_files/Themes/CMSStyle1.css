@@ -822,6 +822,7 @@ button span.bg {
 .nivo-lightbox-theme-default .nivo-lightbox-title-wrap {
     padding: 10px 5px;
     background: rgba(0,0,0,.75);
+    border-radius:7px;
 }
 /* Jquery Mix Media Queries*/
 
