@@ -21,7 +21,6 @@ html {
 body {
     margin: 0;
 }
-
 /* HTML5 display definitions
    ========================================================================== */
 
@@ -417,12 +416,14 @@ $background:white;
     font-family: Century Gothic;
     background-color: $background;
 }
-.logo,.footer,.navbar-fixed {
-    
+.logo,
+.footer,
+.navbar-fixed {
     background: $darkGradientColor;
     /* Old browsers */
     /* IE9 SVG, needs conditional override of 'filter' to 'none' */
     background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYjIwMTBlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M2MDExMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: $darkGradientColor \9;
     background: -moz-linear-gradient(-45deg, $darkGradientColor 0%, $lightGradientColor 100%);
     /* FF3.6+ */
     background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, $darkGradientColor), color-stop(100%, $lightGradientColor));
@@ -434,11 +435,8 @@ $background:white;
     background: -ms-linear-gradient(-45deg, $darkGradientColor 0%, $lightGradientColor 100%);
     /* IE10+ */
     background: linear-gradient(135deg, $darkGradientColor 0%, $lightGradientColor 100%);
-    /* W3C */
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$darkGradientColor', endColorstr='$lightGradientColor', GradientType=1);
-    /* IE6-8 fallback on horizontal gradient */
 }
-.logo{
+.logo {
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -570,7 +568,9 @@ $background:white;
     display: inline-block;
     margin: 0 33px 0 0;
 }
-.testimonials .carousel-indicators li:last-child{margin: 0;}
+.testimonials .carousel-indicators li:last-child {
+    margin: 0;
+}
 .testimonials .carousel-indicators .active {
     background-color: $darkGradientColor;
 }
@@ -687,12 +687,11 @@ $background:white;
     backface-visibility: hidden;
 }
 .mix img {
-    max-width: 100%;
+    max-width: 200%;
     /*was 248px*/
     position: absolute;
     left: 0px;
     top: 0px;
-    bottom: 0;
     right: 0;
     margin: auto;
 }
@@ -792,12 +791,11 @@ $background:white;
         height: 37px;
         transition: all .3s;
     }
-    .action button:hover{
-            opacity: .8;
-            filter: alpha(opacity=80);
-        }
-    .action button:active
-    {
+    .action button:hover {
+        opacity: .8;
+        filter: alpha(opacity=80);
+    }
+    .action button:active {
         transform: scale(.96);
     }
     .form-error {
@@ -893,8 +891,9 @@ $background:white;
     border-color: $background;
     color: $background !important;
 }
-.about-more{display: none;}
-
+.about-more {
+    display: none;
+}
 /*======================================================*/
 
 @media all and (min-width: 420px) {
@@ -1003,8 +1002,8 @@ $background:white;
             padding: 10px 0 0;
         }
     }
-    .navbar-fixed .fixed-logo {
-        display: none;
+    .navbar-fixed .navbar-toggle {
+        margin-top: 12px;
     }
 }
 @media only screen and (max-width: 480px) {
@@ -1017,7 +1016,7 @@ $background:white;
         height: 120px;
     }
     .mix-container .mix img {
-        max-width: 120%;
+        max-width: 150%;
         left: -10%;
     }
     #slider .carousel-indicators {
@@ -1064,13 +1063,29 @@ $background:white;
         }
         .carousel:after {
             top: auto;
-            bottom: 20px;
+            bottom: 10px;
             right: 5px;
         }
     }
-    .about-more{display: inline;color: $darkGradientColor;}
-    .about-hidden
-    {
-    display: none;
+    .about-more {
+        display: inline;
+        color: $darkGradientColor;
     }
+    .about-hidden {
+        display: none;
+    }
+    .navbar-fixed .fixed-logo {
+        padding:10px 0;
+        width: 200px;
+        border: 0px solid;
+        img {
+            width: 180px;
+        }
+    }
+}
+
+/* fixed logo issue fix */
+@media only screen and (min-width: 768px) and (max-width: 1000px)
+{
+.fixed-logo{display: none;}
 }

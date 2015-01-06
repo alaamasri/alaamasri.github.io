@@ -3920,7 +3920,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
 }
 @media (max-width: 767px) {
-  .navbar-fixed {display: none;}
+  
     .logo img{
   max-width: 220px;
   }

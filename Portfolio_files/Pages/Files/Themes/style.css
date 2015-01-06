@@ -364,11 +364,14 @@ html {
   font-family: Century Gothic;
   background-color: white; }
 
-.logo, .footer, .navbar-fixed {
+.logo,
+.footer,
+.navbar-fixed {
   background: #b2010e;
   /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
   background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYjIwMTBlIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2M2MDExMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: #b2010e \9;
   /* FF3.6+ */
   background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #b2010e), color-stop(100%, #e50112));
   /* Chrome,Safari4+ */
@@ -377,10 +380,7 @@ html {
   /* Opera 11.10+ */
   /* IE10+ */
   background: -webkit-linear-gradient(315deg, #b2010e 0%, #e50112 100%);
-  background: linear-gradient(135deg, #b2010e 0%, #e50112 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$darkGradientColor', endColorstr='$lightGradientColor', GradientType=1);
-  /* IE6-8 fallback on horizontal gradient */ }
+  background: linear-gradient(135deg, #b2010e 0%, #e50112 100%); }
 
 .logo {
   padding-top: 15px;
@@ -615,12 +615,11 @@ html {
   backface-visibility: hidden; }
 
 .mix img {
-  max-width: 100%;
+  max-width: 200%;
   /*was 248px*/
   position: absolute;
   left: 0px;
   top: 0px;
-  bottom: 0;
   right: 0;
   margin: auto; }
 
@@ -895,8 +894,8 @@ html {
     float: left;
     padding: 10px 0 0; }
 
-  .navbar-fixed .fixed-logo {
-    display: none; } }
+  .navbar-fixed .navbar-toggle {
+    margin-top: 12px; } }
 @media only screen and (max-width: 480px) {
   .mix-controls .filter {
     font-size: 14px;
@@ -907,7 +906,7 @@ html {
     height: 120px; }
 
   .mix-container .mix img {
-    max-width: 120%;
+    max-width: 150%;
     left: -10%; }
 
   #slider .carousel-indicators {
@@ -948,7 +947,7 @@ html {
       left: 5px; }
     .testimonials .carousel:after {
       top: auto;
-      bottom: 20px;
+      bottom: 10px;
       right: 5px; }
 
   .about-more {
@@ -956,6 +955,17 @@ html {
     color: #b2010e; }
 
   .about-hidden {
+    display: none; }
+
+  .navbar-fixed .fixed-logo {
+    padding: 10px 0;
+    width: 200px;
+    border: 0px solid; }
+    .navbar-fixed .fixed-logo img {
+      width: 180px; } }
+/* fixed logo issue fix */
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+  .fixed-logo {
     display: none; } }
 
 /*# sourceMappingURL=style.css.map */
