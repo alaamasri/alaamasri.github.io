@@ -803,6 +803,9 @@ html {
 .about-more {
   display: none; }
 
+.ui-loader {
+  display: none; }
+
 /*======================================================*/
 @media all and (min-width: 420px) {
   .mix-container .mix,
