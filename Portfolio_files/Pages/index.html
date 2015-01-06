@@ -56,12 +56,12 @@
             $('<img alt="" />')[0].src = "./Images/slide2.jpg";
 
             /* Slider touch */
-            $(".slider .active").click();
-            $(".slider").swiperight(function () {
+            $("#slider .active").click();
+            $("#slider").swiperight(function () {
                 $(this).carousel('prev');
             });
 
-            $(".slider").swipeleft(function () {
+            $("#slider").swipeleft(function () {
                 $(this).carousel('next');
             });
 
@@ -160,14 +160,14 @@
         </ol>
 
         <!-- Left and right controls -->
-        <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+        <!--<a class="left carousel-control" href="#slider" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">previous</span>
         </a>
         <a class="right carousel-control" href="#slider" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">next</span>
-        </a>
+        </a>-->
     </div>
     <div class="container about">
         <h2>
