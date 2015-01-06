@@ -22,8 +22,8 @@
     <title>
         MotionWork Website
     </title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="./Files/jquery.mixitup.min.js"></script>
     <script src="./Files/nivo-lightbox.min.js"></script>
@@ -44,7 +44,7 @@
                     $('.about .about-hidden').show();
                 });
             $('.testimonials .carousel-indicators li').click(function () {
-                
+
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
@@ -55,7 +55,17 @@
             $('<img alt="" />')[0].src = "./Images/slide1.jpg";
             $('<img alt="" />')[0].src = "./Images/slide2.jpg";
 
-        });
+            /* Slider touch */
+
+            $(".slider").swiperight(function () {
+                $(this).carousel('prev');
+            });
+
+            $(".slider").swipeleft(function () {
+                $(this).carousel('next');
+            });
+
+        }); /*== Document ready== */
 
         // fixed menu on scroll
 
