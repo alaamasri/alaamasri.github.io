@@ -56,7 +56,7 @@
             $('<img alt="" />')[0].src = "./Images/slide2.jpg";
 
             /* Slider touch */
-            $("#slider .active").click();
+            $("#slider li.active").next().click();
             $("#slider").swiperight(function () {
                 $(this).carousel('prev');
             });
