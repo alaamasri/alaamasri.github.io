@@ -26,29 +26,14 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
 /**
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio,
-canvas,
-progress,
-video {
+audio, canvas, progress, video {
   display: inline-block;
   /* 1 */
   vertical-align: baseline;
@@ -66,8 +51,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
-[hidden],
-template {
+[hidden], template {
   display: none; }
 
 /* Links
@@ -81,8 +65,7 @@ a {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0; }
 
 /* Text-level semantics
@@ -96,8 +79,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
-b,
-strong {
+b, strong {
   font-weight: bold; }
 
 /**
@@ -130,8 +112,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -183,10 +164,7 @@ pre {
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
-code,
-kbd,
-pre,
-samp {
+code, kbd, pre, samp {
   font-family: monospace, monospace;
   font-size: 1em; }
 
@@ -202,11 +180,7 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
   color: inherit;
   /* 1 */
   font: inherit;
@@ -226,8 +200,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
-button,
-select {
+button, select {
   text-transform: none; }
 
 /**
@@ -237,10 +210,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -249,15 +219,13 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled],
-html input[disabled] {
+button[disabled], html input[disabled] {
   cursor: default; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -275,8 +243,7 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -289,8 +256,7 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
 /**
@@ -311,8 +277,7 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
@@ -355,8 +320,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-td,
-th {
+td, th {
   padding: 0; }
 
 /*===============  Style.scss ============ */
@@ -364,9 +328,7 @@ html {
   font-family: Century Gothic;
   background-color: white; }
 
-.logo,
-.footer,
-.navbar-fixed {
+.logo, .footer, .navbar-fixed {
   background: #b2010e;
   /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -397,11 +359,10 @@ html {
   -webkit-transition: all .3s;
   transition: all .3s; }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li.active > a {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a {
   color: #b2010e !important;
   border-bottom: 4px solid #b2010e;
-  padding-bottom: 14px; }
+  padding-bottom: 15px; }
 
 .navbar-default .navbar-nav > li > a:before {
   content: '';
@@ -418,26 +379,21 @@ html {
 .navbar-default .navbar-nav > li:first-child > a:before {
   display: none; }
 
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #333;
   background-color: transparent; }
 
-.navbar-default .navbar-nav > .disabled > a,
-.navbar-default .navbar-nav > .disabled > a:hover,
-.navbar-default .navbar-nav > .disabled > a:focus {
+.navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
   color: #ccc;
   background-color: transparent; }
 
 .navbar-default .navbar-toggle {
   border-color: transparent; }
 
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: white; }
 
-.navbar-default .navbar-toggle:hover .icon-bar,
-.navbar-default .navbar-toggle:focus .icon-bar {
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
   background-color: #b2010e; }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -449,13 +405,11 @@ html {
   transition-property: opacity; }
 .carousel-fade .carousel-inner .active {
   opacity: 1; }
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
+.carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
   left: 0;
   opacity: 0;
   z-index: 1; }
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
+.carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
   opacity: 1; }
 .carousel-fade .carousel-control {
   z-index: 2; }
@@ -515,14 +469,11 @@ html {
 .testimonials .carousel-indicators .active {
   background-color: #b2010e; }
 
-.about,
-.testimonials,
-.portfolio {
+.about, .testimonials, .portfolio {
   text-align: center;
   padding: 50px 0; }
 
-.about h2,
-.portfolio h2 {
+.about h2, .portfolio h2 {
   font-size: 2.5em;
   text-align: center;
   text-transform: uppercase;
@@ -530,8 +481,7 @@ html {
   padding-bottom: 20px;
   margin: 0px 0 30px 0; }
 
-.about p,
-.testimonials p {
+.about p, .testimonials p {
   font-size: 18px; }
 
 .testimonials {
@@ -543,8 +493,7 @@ html {
     max-width: 70%;
     padding: 12px 65px;
     min-height: 160px; }
-  .testimonials .carousel:after,
-  .testimonials .carousel:before {
+  .testimonials .carousel:after, .testimonials .carousel:before {
     position: absolute;
     color: #b2010e;
     line-height: 0;
@@ -561,7 +510,7 @@ html {
   text-align: center;
   margin: 0 0 22px 0; }
   .mix-controls .filter {
-    background: #00bbcc;
+    background: #b2010e;
     color: white;
     padding: 7px 15px;
     display: inline-block;
@@ -592,8 +541,7 @@ html {
   display: inline-block;
   width: 100%; }
 
-.mix-container .mix,
-.mix-container .gap {
+.mix-container .mix, .mix-container .gap {
   display: inline-block;
   width: 49%; }
 
@@ -680,8 +628,7 @@ html {
     font-size: 18px;
     text-align: left;
     color: white; }
-  .contact-us .form-txt,
-  .contact-us textarea {
+  .contact-us .form-txt, .contact-us textarea {
     width: 98%;
     max-width: 400px;
     background: white;
@@ -795,8 +742,7 @@ html {
 .navbar-fixed .navbar-nav > li > a:before {
   background: white; }
 
-.navbar-fixed .navbar-nav > li > a:hover,
-.navbar-fixed .navbar-nav > li.active > a {
+.navbar-fixed .navbar-nav > li > a:hover, .navbar-fixed .navbar-nav > li.active > a {
   border-color: white;
   color: white !important; }
 
@@ -806,23 +752,102 @@ html {
 .ui-loader {
   display: none; }
 
-/*======================================================*/
+.servicesHidden {
+  height: 0;
+  padding: 0;
+  overflow: hidden; }
+
+.hidden-div {
+  display: none; }
+
+.services ul {
+  padding: 0px;
+  margin: 0px; }
+  .services ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 20px;
+    text-align: left;
+    font-size: 22px; }
+    .services ul li:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background: #b2010e; }
+    .services ul li li {
+      font-size: 18px; }
+      .services ul li li:before {
+        border-radius: 50%; }
+      .services ul li li li {
+        font-weight: normal; }
+        .services ul li li li:before {
+          top: 12px;
+          height: 4px;
+          width: 8px;
+          border-radius: 0%; }
+    .services ul li .parent-div {
+      cursor: pointer;
+      color: #b2010e; }
+    .services ul li ul {
+      padding: 5px 20px; }
+
+.social {
+  float: right;
+  margin-top: 25px;
+  margin-right: 20px; }
+  .social a {
+    font-size: 0px;
+    width: 30px;
+    text-indent: -9999px;
+    height: 30px;
+    background: url(../../Images/social.png) 0 0 no-repeat;
+    display: block;
+    float: left;
+    margin-right: 20px; }
+  .social .twitter {
+    background-position: 0 -57px;
+    margin-right: 33px; }
+  .social .linkedIn {
+    background-position: 0 -116px; }
+
+.footer-social {
+  display: none;
+  margin: 0px auto;
+  padding: 10px 0 0;
+  overflow: hidden;
+  clear: both;
+  width: 125px; }
+  .footer-social a {
+    font-size: 0px;
+    width: 23px;
+    display: inline-block;
+    text-indent: -9999px;
+    height: 32px;
+    background: url(../../Images/footer-social.png) 0 0 no-repeat;
+    display: block;
+    float: left;
+    margin-right: 20px; }
+  .footer-social .twitter {
+    background-position: 0 -39px;
+    margin-right: 33px; }
+  .footer-social .linkedIn {
+    background-position: 0 -89px;
+    margin-right: 0; }
+
+/*==============================================*/
 @media all and (min-width: 420px) {
-  .mix-container .mix,
-  .mix-container .gap {
+  .mix-container .mix, .mix-container .gap {
     width: 32%; } }
 @media all and (min-width: 640px) {
-  .mix-container .mix,
-  .mix-container .gap {
+  .mix-container .mix, .mix-container .gap {
     width: 23.5%; } }
 @media only screen and (max-width: 768px) {
-  .about,
-  .portfolio,
-  .contact-us {
+  .about, .portfolio, .contact-us {
     padding: 15px 20px 25px; }
-    .about h2,
-    .portfolio h2,
-    .contact-us h2 {
+    .about h2, .portfolio h2, .contact-us h2 {
       font-size: 2em;
       margin-top: 10px;
       margin-bottom: 20px; }
@@ -859,15 +884,13 @@ html {
     padding: 0 0 30px 0; }
     .contact-us h2 {
       margin-bottom: 0px; }
-    .contact-us .left-side,
-    .contact-us iframe {
+    .contact-us .left-side, .contact-us iframe {
       display: block;
       width: 100%; }
     .contact-us iframe {
       position: static;
       min-height: 220px; }
-    .contact-us .form-txt,
-    .contact-us textarea {
+    .contact-us .form-txt, .contact-us textarea {
       max-width: 100%;
       padding: 2%; }
     .contact-us .action {
@@ -881,12 +904,9 @@ html {
     display: block;
     clear: left;
     margin-bottom: 10px; }
-  .footer li,
-  .footer a,
-  .footer span {
+  .footer li, .footer a, .footer span {
     font-size: 15px; }
-  .footer .fax,
-  .footer ul:last-child {
+  .footer .fax, .footer ul:last-child {
     margin-right: 0; }
   .footer .footer-info {
     float: left; }
@@ -898,7 +918,10 @@ html {
     padding: 10px 0 0; }
 
   .navbar-fixed .navbar-toggle {
-    margin-top: 12px; } }
+    margin-top: 12px; }
+
+  .footer-social {
+    display: block; } }
 @media only screen and (max-width: 480px) {
   .mix-controls .filter {
     font-size: 14px;
@@ -942,8 +965,7 @@ html {
         width: 10px;
         height: 10px;
         margin-right: 15px; }
-    .testimonials .carousel:after,
-    .testimonials .carousel:before {
+    .testimonials .carousel:after, .testimonials .carousel:before {
       font-size: 100px; }
     .testimonials .carousel:before {
       top: 36px;

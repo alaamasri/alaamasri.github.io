@@ -4034,6 +4034,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-form .form-group {
     margin-bottom: 5px;
   }
+    .header .social{display:none;}
+
 }
 @media (min-width: 768px) {
   .navbar-form {

@@ -47,8 +47,6 @@
 
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
-
-
             });
 
             /*Preload Mobile onHover*/
@@ -64,6 +62,46 @@
             $("#slider").swipeleft(function () {
                 $(this).carousel('next');
             });
+
+            /* Smooth Scroll */
+
+            $('.navbar a').click(function () {
+                $('.navbar li').removeClass('active');
+                $(this).parent().addClass('active');
+                if ($(document).scrollTop() <= 70) { fixedMenuHeight = 60 } else { fixedMenuHeight = 0 }
+                var scroll = $($(this).attr('href')).offset().top - 200;
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top - 55 - fixedMenuHeight
+                }, 500);
+                return false;
+            });
+            var aboutHtml = $('#About').html();
+            $('.navbar a[href="#About"]').click(function () {
+                if ($(this).attr('title') == "Services") {
+                    $('#About').html($('#Services').html());
+                    $('#About').addClass('services');
+                    sevicesSlide();
+                }
+                else {
+                    if ($('#About').hasClass('services')) {
+                        $('#About').html(aboutHtml);
+                    }
+                    $('#About').removeClass('services');
+                }
+
+            });
+
+            /* Hidden-div */
+            function sevicesSlide() {
+                $('.parent-div').click(function () {
+                    if (!($(this).next('.hidden-div').is(':visible'))) {
+                        $('.hidden-div').slideUp();
+                        $(this).next('.hidden-div').slideDown();
+                    }
+
+                });
+            }
+
 
         }); /*== Document ready== */
 
@@ -87,6 +125,12 @@
 
 <body>
     <div class="header">
+        <div class="social">
+            <a href="#" class="facebook" title="facebook">Facebook</a>
+            <a href="#" class="twitter" title="twitter">twitter</a>
+            <a href="#" class="linkedIn" title="linkedIn">LinkedIn</a>
+        </div>
+
         <div class="logo container-fluid">
             <a title="home" href="./index.html">
                 <img src="Images/logo.png" alt="Motion Work Logo" />
@@ -110,20 +154,20 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="#Services" title="Services">Services</a>
+                            <a href="#About" title="About">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#About" title="Services">Services</a>
                         </li>
 
                         <li>
                             <a href="#Showreel" title="Showreel">Showreel</a>
                         </li>
                         <li>
-                            <a href="#Gallery" title="Gallery">Gallery</a>
+                            <a href="#Portfolio" title="Portfolio">Portfolio</a>
                         </li>
                         <li>
-                            <a href="#Contact Us" title="Contact Us">Contact Us</a>
-                        </li>
-                        <li>
-                            <a href="#Downloads" title="Downloads">Downloads</a>
+                            <a href="#ContactUs" title="ContactUs">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -169,9 +213,9 @@
             <span class="sr-only">next</span>
         </a>-->
     </div>
-    <div class="container about">
+    <div class="container about" id="About">
         <h2>
-            About
+            About Us
         </h2>
         <p>
 
@@ -204,9 +248,84 @@
 
             all major standard formats of the industry
         </p>
+    </div>
+    <div class="container about services servicesHidden" id="Services">
+        <h2>
+            Our Services
+        </h2>
+        <ul>
+            <li>
+                <span class="parent-div">3D Works</span>
+                <ul class="hidden-div" style="display:block;">
+                    <li>
+                        Exterior / interior illustration
+                        <ul>
+                            <li>Creating 3D still images of exterior and/or interior projects.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Exterior / interior Animation
+                        <ul>
+                            <li>Creating motion pictures for exterior and/or interior projects.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        3D Modeling & Animation
+                        <ul>
+                            <li>
+                                Building 3D models of Furniture, Electronics, Mechanical and Equipments
+                                that can be used for several purposes.
+                            </li>
+                        </ul>
+                    </li>
 
+                    <li>
+                        Character Animation
+                        <ul>
+                            <li>
+                                Modeling 3D characters and building the motion system and animating
+                                them for use in advertisement, cartooning, educational programs, TV
+                                commercials… etc.
+                            </li>
+
+                            <li>
+                                Realtime Interactive 3D Illustration where you can interactively rotate, zoom and
+                                move around your scene in real time.
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <span class="parent-div">Events Coverage</span>
+                <ul class="hidden-div">
+                    <li>
+                        Video Shooting
+                        <ul>
+                            <li>
+                                Video coverage with single or multi cameras of live events includes post
+                                production editing and DVD authoring of the event.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Digital Still Photography
+                        <ul>
+                            <li>
+                                Photo coverage of events.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </li>
+            <li><span class="parent-div">Post Production &amp; Visual Effects</span></li>
+            <li><span class="parent-div">Design, Printing and Web Hosting</span></li>
+        </ul>
 
     </div>
+
     <div class="container-fluid testimonials">
 
         <div id="slider2" class="carousel slide carousel-fade" data-ride="carousel">
@@ -240,12 +359,12 @@
 
 
     <div class="container portfolio" id="Portfolio">
-        <h2>Our Work</h2>
-        <div class="mix-controls" style="display:none;">
+        <h2>Portfolio</h2>
+        <div class="mix-controls">
             <span class="filter active" data-filter="all">All</span>
-            <span class="filter" data-filter=".category-1">Front End</span>
-            <span class="filter" data-filter=".category-2">Web Design</span>
+            <span class="filter" data-filter=".category-2">Interior Design</span>
             <span class="filter" data-filter=".category-3">Other</span>
+            <span class="filter" data-filter=".category-4">Other2</span>
         </div>
         <div class="mix-container">
             <div class="mix category-2" data-myorder="">
@@ -267,7 +386,7 @@
                 <img src="Images/Thumb/portfolio4.jpg" alt="Portfolio4">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio4.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-2" data-myorder="">
+            <div class="mix category-4" data-myorder="">
                 <img src="Images/Thumb/portfolio5.jpg" alt="Portfolio5">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio5.jpg"> ImagePop </a>
             </div>
@@ -279,19 +398,19 @@
                 <img src="Images/Thumb/portfolio2.jpg" alt="Portfolio2">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio2.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-3" data-myorder="">
+            <div class="mix category-4" data-myorder="">
                 <img src="Images/Thumb/portfolio1.jpg" alt="Portfolio1">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio1.jpg"> ImagePop </a>
             </div>
             <div class="gap"></div>
-
+            <div class="gap"></div>
 
         </div>
 
     </div>
 
     <div class="container-fluid contact-us" id="ContactUs">
-        <iframe src="https://www.google.com/maps/embed/v1/place?q=Harrods,Brompton%20Rd,%20UK&amp;zoom=17&amp;key=AIzaSyD4iE2xVSpkLLOXoyqT-RuPwURN3ddScAI&amp;attribution_source=Google+Maps+Embed+API&amp;attribution_web_url=https://developers.google.com/maps/documentation/embed/" id="embed"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6768.535601643325!2d35.83676642345936!3d31.980755053879925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xe7314bebcaaf6b27!2sCity+Mall!5e0!3m2!1sen!2sjo!4v1420768750070"></iframe>
 
         <form class="left-side has-validation-callback" id="contactForm">
             <h2>Contact Us</h2>
@@ -329,7 +448,11 @@
 
         </ul>
         <span class="copyrights">© 2015 motion Work</span>
-
+        <div class="footer-social">
+            <a href="#" class="facebook" title="facebook">Facebook</a>
+            <a href="#" class="twitter" title="twitter">twitter</a>
+            <a href="#" class="linkedIn" title="linkedIn">LinkedIn</a>
+        </div>
 
     </div>
 
