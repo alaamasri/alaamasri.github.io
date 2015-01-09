@@ -1,0 +1,6 @@
+var About = [
+    {
+	 "title":'About',
+		 "html":'<p>MotionWork Studios is a full-service studio specialized in the development and production of digital animated properties, Commercials, Logo Design, Web design, Animations, Audio recording, Architectural visualizations &amp; rendering, for TV, and Digital broadcasting.<span class="about-more">..read more</span></p><p class="about-hidden">Established in late 2009, our team experience is more than 20 years, has since produced hundreds of projects spanning from Television commercials to CGI for documentaries, to medical and character animation and architectural visualization work.</p><p class="about-hidden">We are focusing on providing animation services and working closely with producers,distributors, broadcasters and partners worldwide to produce original television and web based content and high-end animation for broadcast and marketing purposes. Our aim is to develop high end quality properties and offer superior services across all major standard formats of the industry</p>'
+	 }];
+
