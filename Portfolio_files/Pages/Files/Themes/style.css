@@ -362,7 +362,7 @@ html {
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a {
   color: #b2010e !important;
   border-bottom: 4px solid #b2010e;
-  padding-bottom: 15px; }
+  padding-bottom: 14px; }
 
 .navbar-default .navbar-nav > li > a:before {
   content: '';
