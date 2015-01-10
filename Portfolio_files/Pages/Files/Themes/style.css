@@ -795,7 +795,7 @@ html {
           border-radius: 0%; }
     .services ul li .parent-div {
       cursor: pointer;
-      background: url(../../images/services.png) 0 0 no-repeat;
+      background: url(../../Images/services.png) 0 0 no-repeat;
       font-size: 30px;
       color: #444444;
       padding: 2px 0 15px 70px;
