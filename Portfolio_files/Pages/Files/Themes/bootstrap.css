@@ -5469,11 +5469,9 @@ button.close {
   .modal-lg {
     width: 900px;
   }
-    .carousel-inner > .item > img, .carousel-inner > .item > a > img
-    {
-        margin-top:-10%;
-    }
+  
 }
+
 .tooltip {
   position: absolute;
   z-index: 1070;
@@ -6061,6 +6059,7 @@ button.close {
   .visible-lg {
     display: block !important;
   }
+  
   table.visible-lg {
     display: table;
   }
@@ -6159,3 +6158,12 @@ button.close {
 
 .testimonials .carousel:before{content: '“';}
 .testimonials .carousel:after{content: '”';}
+
+@media (min-width: 1400px) {
+ .carousel-inner > .item > img, .carousel-inner > .item > a > img
+    {
+        margin-top:-15%;
+    }
+  
+}
+  
