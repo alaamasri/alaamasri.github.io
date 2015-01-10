@@ -853,7 +853,17 @@ li {
  padding-left: 20px;
  text-align: left;
  font-size: 22px;
+ width:50%;
+float:left;
+margin-top:10px;
+
+ li {
+ font-size: 18px;
+display:block;
+width:auto;
+margin-bottom:0px;
  &:before {
+ border-radius:50%;
  content: '';
  position: absolute;
  top: 10px;
@@ -861,11 +871,6 @@ li {
  width: 8px;
  height: 8px;
  background: $darkGradientColor;
-}
- li {
- font-size: 18px;
- &:before {
- border-radius:50%;
 }
  li {
  font-weight:normal;
@@ -876,14 +881,35 @@ li {
  border-radius:0%;
 }
 }
+
 }
  .parent-div {
  cursor: pointer;
- color: $darkGradientColor;
+ background: url(../../images/services.png) 0 0 no-repeat;
+ font-size: 30px;
+ color: $alternativeBackground;
+ padding: 2px 0 15px 70px;
+min-height: 60px;
+display: block;	
 }
  ul {
  padding: 5px 20px;
 }
+.events{
+background-position: 0 -88px;
+}
+.fx{
+background-position: 0 -168px;
+}
+.design{
+background-position: 0 -254px;
+}
+.web{
+background-position: 5px -341px;
+}
+
+
+
 }
 }
 }

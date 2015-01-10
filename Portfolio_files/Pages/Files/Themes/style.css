@@ -768,19 +768,24 @@ html {
     position: relative;
     padding-left: 20px;
     text-align: left;
-    font-size: 22px; }
-    .services ul li:before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 0;
-      width: 8px;
-      height: 8px;
-      background: #b2010e; }
+    font-size: 22px;
+    width: 50%;
+    float: left;
+    margin-top: 10px; }
     .services ul li li {
-      font-size: 18px; }
+      font-size: 18px;
+      display: block;
+      width: auto;
+      margin-bottom: 0px; }
       .services ul li li:before {
-        border-radius: 50%; }
+        border-radius: 50%;
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: #b2010e; }
       .services ul li li li {
         font-weight: normal; }
         .services ul li li li:before {
@@ -790,9 +795,22 @@ html {
           border-radius: 0%; }
     .services ul li .parent-div {
       cursor: pointer;
-      color: #b2010e; }
+      background: url(../../images/services.png) 0 0 no-repeat;
+      font-size: 30px;
+      color: #444444;
+      padding: 2px 0 15px 70px;
+      min-height: 60px;
+      display: block; }
     .services ul li ul {
       padding: 5px 20px; }
+    .services ul li .events {
+      background-position: 0 -88px; }
+    .services ul li .fx {
+      background-position: 0 -168px; }
+    .services ul li .design {
+      background-position: 0 -254px; }
+    .services ul li .web {
+      background-position: 5px -341px; }
 
 .social {
   float: right;

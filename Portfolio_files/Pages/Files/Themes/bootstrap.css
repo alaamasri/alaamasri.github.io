@@ -5469,6 +5469,10 @@ button.close {
   .modal-lg {
     width: 900px;
   }
+    .carousel-inner > .item > img, .carousel-inner > .item > a > img
+    {
+        margin-top:-10%;
+    }
 }
 .tooltip {
   position: absolute;
@@ -6102,6 +6106,7 @@ button.close {
   .hidden-lg {
     display: none !important;
   }
+   
 }
 .visible-print {
   display: none !important;
