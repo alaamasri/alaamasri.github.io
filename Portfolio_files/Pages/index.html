@@ -73,6 +73,7 @@
                 $('html, body').animate({
                     scrollTop: $($(this).attr('href')).offset().top - 55 - fixedMenuHeight
                 }, 500);
+                $(".navbar-toggle").click()
                 return false;
             });
             var aboutHtml = $('#About').html();
@@ -96,7 +97,17 @@
                 $('.parent-div').click(function () {
                     if (!($(this).next('.hidden-div').is(':visible'))) {
                         $('.hidden-div').slideUp();
+                        $('.active-service').removeClass('active-service');
+                        $(this).parent().addClass('active-service');
                         $(this).next('.hidden-div').slideDown();
+
+                        //$('html, body').animate({
+                        //    scrollTop: $(this).parent().offset().top
+                        //}, 500);
+                    }
+                    else {
+                        $(this).next('.hidden-div').slideUp();
+                        $('.active-service').removeClass('active-service');
                     }
 
                 });
@@ -278,7 +289,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li>
                         Character Animation
                         <ul>
@@ -288,15 +298,97 @@
                                 commercials… etc.
                             </li>
 
+                        </ul>
+                    </li>
+                    <li>
+                        Realtime Interactive 3D Illustration where you can interactively rotate, zoom and
+                        move around your scene in real time.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="parent-div fx">Post Production &amp; Visual Effects</span>
+                <ul class="hidden-div">
+                    <li>
+                        TV Commercials
+                        <ul>
+                            <li>Creating TV advertising and motion pictures for products and services.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Radio Commercials
+                        <ul>
                             <li>
-                                Realtime Interactive 3D Illustration where you can interactively rotate, zoom and
-                                move around your scene in real time.
+                                Creating Radio commercial for products, shops and services, includes music,
+                                sound effects and voice recording.
                             </li>
                         </ul>
                     </li>
 
+                    <li>
+                        TV & Radio spots
+                        <ul>
+                            <li>
+                                Spots are brief advertisement that occurs between commercials and
+                                programs on TV and Radio.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Documentaries
+                        <ul>
+                            <li>
+                                Creating short films that work as a profile and presents information about
+                                the history, services, goals and visions of companies, institutions,
+                                organizations… etc.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Video Editing
+                        <ul>
+                            <li>
+                                Video editing is the process of editing segments of motion video footage,
+                                special effects and sound recordings.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Motion Graphics
+                        <ul>
+                            <li>
+                                Creating commercials and screen advertising by animating still images and
+                                adding animated text, sound effects and music that can be used in TV,
+                                exhibitions, conferences and presentations.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        DVD Authoring
+                        <ul>
+                            <li>
+                                Personalizing the contents and the display of your DVD video by creating
+                                chapters, animated menus, interactive buttons, backgrounds, special effects
+                                and music.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Voice Over (Audio) Recording & Mixing
+                        <ul>
+                            <li>
+                                Recording and mixing voice narrations that can be used in TV, Radio
+                                commercials and IVR Systems (Interactive Voice Response).
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
+
             <li>
                 <span class="parent-div events">Events Coverage</span>
                 <ul class="hidden-div">
@@ -320,13 +412,34 @@
                 </ul>
 
             </li>
-            <li><span class="parent-div fx">Post Production &amp; Visual Effects</span></li>
-            <li><span class="parent-div design">Design, Printing</span></li>
+
+            <li>
+                <span class="parent-div design">Design, Printing</span>
+                <ul class="hidden-div">
+                    <li>
+                        Professional Graphics Design
+                        <ul>
+                            <li>
+                                AD Design, Logo Design & Logo Rebranding, Brochures & Catalogs,
+                                Corporate Identity, Display & Exhibition Design, Branding, Signs, Banners,
+                                Flyers, Business Cards, Color Correction, Digital Effects.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
             <li>
                 <span class="parent-div web">Web Services</span>
                 <ul class="hidden-div">
                     <li>
                         Web Design
+                    </li>
+                    <li>
+                        High End Web design and Re‐design ( E‐commerce, Forums ,Panoramic
+                        Views, 360° illustration for products)
+                    </li>
+                    <li>
+                        Domain name registration.
                     </li>
                 </ul>
 

@@ -5,7 +5,6 @@
  *    user zoom.
  */
 html {
-  font-family: sans-serif;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -752,11 +751,6 @@ html {
 .ui-loader {
   display: none; }
 
-.servicesHidden {
-  height: 0;
-  padding: 0;
-  overflow: hidden; }
-
 .hidden-div {
   display: none; }
 
@@ -812,6 +806,12 @@ html {
     .services ul li .web {
       background-position: 5px -341px; }
 
+.active-service {
+  width: 100% !important;
+  margin-bottom: 30px; }
+  .active-service li {
+    width: 100% !important; }
+
 .social {
   float: right;
   margin-top: 25px;
@@ -855,6 +855,11 @@ html {
     background-position: 0 -89px;
     margin-right: 0; }
 
+.servicesHidden {
+  height: 0;
+  padding: 0;
+  overflow: hidden; }
+
 /*==============================================*/
 @media all and (min-width: 420px) {
   .mix-container .mix, .mix-container .gap {
@@ -869,6 +874,9 @@ html {
       font-size: 2em;
       margin-top: 10px;
       margin-bottom: 20px; }
+
+  .servicesHidden {
+    padding: 0; }
 
   .mix-controls .filter {
     font-size: 18px; }
@@ -939,7 +947,10 @@ html {
     margin-top: 12px; }
 
   .footer-social {
-    display: block; } }
+    display: block; }
+
+  .services ul li .parent-div {
+    font-size: 22px; } }
 @media only screen and (max-width: 480px) {
   .mix-controls .filter {
     font-size: 14px;
@@ -1005,10 +1016,39 @@ html {
     width: 200px;
     border: 0px solid; }
     .navbar-fixed .fixed-logo img {
-      width: 180px; } }
+      width: 180px; }
+
+  .services ul li {
+    padding-left: 10px; }
+    .services ul li .parent-div {
+      font-size: 22px;
+      -webkit-background-size: 45px;
+      background-size: 45px;
+      min-height: 45px;
+      padding: 6px 0 6px 62px; }
+    .services ul li ul {
+      padding: 5px 10px; }
+      .services ul li ul li {
+        padding-left: 20px;
+        font-size: 16px; }
+        .services ul li ul li:before {
+          top: 7px; }
+        .services ul li ul li li:before {
+          top: 9px; }
+    .services ul li .events {
+      background-position: 3px -77px; }
+    .services ul li .fx {
+      background-position: 5px -148px; }
+    .services ul li .design {
+      background-position: 0 -228px; }
+    .services ul li .web {
+      background-position: 5px -305px; } }
 /* fixed logo issue fix */
 @media only screen and (min-width: 768px) and (max-width: 1000px) {
   .fixed-logo {
     display: none; } }
+@media only screen and (max-width: 680px) {
+  .services ul li {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
