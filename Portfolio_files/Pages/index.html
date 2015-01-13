@@ -101,9 +101,9 @@
                         $(this).parent().addClass('active-service');
                         $(this).next('.hidden-div').slideDown();
 
-                        //$('html, body').animate({
-                        //    scrollTop: $(this).parent().offset().top
-                        //}, 500);
+                        $('html, body').animate({
+                            scrollTop: $('.services h2').parent().offset().top
+                        }, 500);
                     }
                     else {
                         $(this).next('.hidden-div').slideUp();
