@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--
     <meta name="description=" content="Alaa Almasri a front end developer portfolio website, HTML5, CSS3, CSS, HTML, Jquery, JavaScript, Mobile Web, Responsive design, Translating
@@ -31,12 +30,17 @@
     <script>
 
         $(document).ready(function () {
-            $('.mix-container').mixItUp();
-            $('.portfolio-hover').nivoLightbox({
+            $('.mix-container').mixItUp({
+                load: {
+                    filter: '.category-1'
+                }
+            });
+            $('.portfolio-hover, .showreel').nivoLightbox({
                 effect: 'fadeScale',                             // The effect to use when showing the lightbox
                 theme: 'default',                           // The lightbox theme to use
                 keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
                 clickOverlayToClose: true,
+                afterHideLightbox: function () { $('.navbar .showreel').parent().removeClass('active'); }
             });
             $('.about-more').click(
                 function () {
@@ -130,7 +134,7 @@
 
         });
     </script>
-    <!--<script src="./Files/jquery.form-validator.min.js"></script>-->
+    <script src="./Files/jquery.form-validator.min.js"></script>
 </head>
 
 
@@ -172,7 +176,8 @@
                         </li>
 
                         <li>
-                            <a href="#Showreel" title="Showreel">Showreel</a>
+
+                            <a href="https://www.youtube.com/watch?v=2OVfEGv8n7g" class="showreel" title="Showreel">Showreel</a>
                         </li>
                         <li>
                             <a href="#Portfolio" title="Portfolio">Portfolio</a>
@@ -469,53 +474,87 @@
         <h2>Portfolio</h2>
         <div class="mix-controls">
             <!--<span class="filter active" data-filter="all">All</span>-->
-            <span class="filter" data-filter=".category-2">Interior</span>
-            <span class="filter" data-filter=".category-3">3D Models</span>
-            <span class="filter" data-filter=".category-4">Characters</span>
-            <span class="filter" data-filter=".category-5">Commercials</span>
-            <span class="filter" data-filter=".category-6">Exterior</span>
-            <span class="filter" data-filter=".category-7">Flash SWF</span>
-            <span class="filter" data-filter=".category-8">Logos</span>
-            <span class="filter" data-filter=".category-9">Panoramic</span>
-            
+            <span class="filter active" data-filter=".category-1">Interior</span>
+            <span class="filter" data-filter=".category-2">3D Models</span>
+            <span class="filter" data-filter=".category-3">Characters</span>
+            <span class="filter" data-filter=".category-4">Commercials</span>
+            <span class="filter" data-filter=".category-5">Exterior</span>
+            <span class="filter" data-filter=".category-6">Flash SWF</span>
+            <span class="filter" data-filter=".category-7">Logos</span>
+            <span class="filter" data-filter=".category-8">Panoramic</span>
+
 
         </div>
         <div class="mix-container">
-            <div class="mix category-2" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio1.jpg" alt="Portfolio1">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio1.jpg"> ImagePop </a>
             </div>
 
-            <div class="mix category-3" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio2.jpg" alt="Portfolio2">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio2.jpg"> ImagePop </a>
             </div>
 
-            <div class="mix category-2" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio3.jpg" alt="Portfolio3">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio3.jpg"> ImagePop </a>
             </div>
 
-            <div class="mix category-3" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio4.jpg" alt="Portfolio4">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio4.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-4" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio5.jpg" alt="Portfolio5">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio5.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-3" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio6.jpg" alt="Portfolio6">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio6.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-3" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio2.jpg" alt="Portfolio2">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio2.jpg"> ImagePop </a>
             </div>
-            <div class="mix category-4" data-myorder="">
+            <div class="mix category-1" data-myorder="">
                 <img src="Images/Thumb/portfolio1.jpg" alt="Portfolio1">
                 <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio1.jpg"> ImagePop </a>
             </div>
+            <div class="mix category-2" data-myorder="">
+                <img src="Images/Thumb/portfolio2.jpg" alt="Portfolio2">
+                <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio2.jpg"> ImagePop </a>
+            </div>
+            <div class="mix category-2" data-myorder="">
+                <img src="Images/Thumb/portfolio1.jpg" alt="Portfolio1">
+                <a class="portfolio-hover" onclick="" title="Sample" href="Images/Large/portfolio1.jpg"> ImagePop </a>
+            </div>
+            <div class="mix category-4" data-myorder="">
+                <img src="Images/Thumb/radio.png" alt="Zain Radio 2008">
+                <a class="portfolio-hover" onclick="" title="Zain Radio 2008" href="http://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186753083" data-lightbox-gallery="radios" data-lightbox-type="iframe" > ImagePop </a>
+            </div>
+
+            <div class="mix category-4" data-myorder="">
+                <img src="Images/Thumb/radio.png" alt="Zain Wiyana 49 - 07">
+                <a class="portfolio-hover" onclick="" title="Zain Wiyana 49 - 07" href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186753122" data-lightbox-gallery="radios" data-lightbox-type="iframe" > ImagePop </a>
+            </div>
+
+            <div class="mix category-4" data-myorder="">
+                <img src="Images/Thumb/radio.png" alt="Zain Ego2go">
+                <a class="portfolio-hover" onclick="" title="Zain Ego2go" href="http://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186753078" data-lightbox-gallery="radios" data-lightbox-type="iframe" > ImagePop </a>
+            </div>
+
+            <div class="mix category-4" data-myorder="">
+                <img src="Images/Thumb/radio.png" alt="Zain Black Berry">
+                <a class="portfolio-hover" onclick="" title="Zain Black Berry" href="http://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186753072" data-lightbox-gallery="radios" data-lightbox-type="iframe" > ImagePop </a>
+            </div>
+
+            <div class="mix category-4" data-myorder="">
+                <img src="Images/Thumb/radio.png" alt="Zain Alkhair">
+                <a class="portfolio-hover" onclick="" title="Zain Alkhair" href="http://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186753065" data-lightbox-gallery="radios" data-lightbox-type="iframe" > ImagePop </a>
+            </div>
+
+
             <div class="gap"></div>
             <div class="gap"></div>
 
@@ -526,11 +565,11 @@
     <div class="container-fluid contact-us" id="ContactUs">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6768.535601643325!2d35.83676642345936!3d31.980755053879925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0xe7314bebcaaf6b27!2sCity+Mall!5e0!3m2!1sen!2sjo!4v1420768750070"></iframe>
 
-        <form class="left-side has-validation-callback" id="contactForm">
+        <form class="left-side" id="ContactUs">
             <h2>Contact Us</h2>
             <div>
                 <span class="form-label">Name</span>
-                <input class="form-txt" type="text" name="name" data-validation="required alphanumeric length" data-validation-length="min3" data-validation-allowing=" " data-validation-error-msg="Please type your name (Minimum 3 characters)">
+                <input class="form-txt" type="text" name="name" data-validation="required alphanumeric length" data-validation-length="min3" data-validation-allowing=" " data-validation-error-msg="Please type your name (Minimum 3 alphanumeric characters)">
             </div>
             <div>
                 <span class="form-label">Email</span>
@@ -542,9 +581,42 @@
                 <div class="action">
                     <button type="submit">
                         <span class="original">Send</span>
+                        <span class="done"></span>
+                        <span class="bg"></span>
                     </button>
                 </div>
             </div>
+            <script>
+                $.validate({
+                    form: 'form#ContactUs',
+                    onSuccess: function () {
+                        /* Form Submit */
+
+                        $.ajax({
+                            dataType: 'jsonp',
+                            url: "http://getsimpleform.com/messages/ajax?form_api_token=0daaa4aa0801c151f71d97c6bcdb0df7",
+                            data: $('form#ContactUs').serialize()
+                        }).done(function () {
+                            //callback which can be used to show a thank you message
+                            //and reset the form
+                            $('.action button').attr('disabled', true);
+                            $('button .bg').animate({ width: '100%' }, 4000, 'swing', function () {
+                                $('form#ContactUs').get(0).reset();
+                            });
+                            $('button .original').delay(4000).animate({ marginTop: '-40px' }, 500, 'swing');
+                            $('button .original').delay(500).animate({ marginTop: '0px' }, 500, 'swing');
+                            $('button .bg').delay(1500).animate({ width: '0%' }, 0, 'linear');
+                            setTimeout(function () { $('.action button').attr('disabled', false); }, 5000);
+
+
+
+                        });
+
+                        return false; // Will stop the submission of the form
+                    },
+
+                });
+            </script>
 
         </form>
 
