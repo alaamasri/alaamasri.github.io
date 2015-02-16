@@ -460,11 +460,16 @@ h2 {
     color: #c9920e; }
 
   .navbar-nav .open .dropdown-menu {
-    margin-top: 10px; }
+    margin-top: 10px;
+    margin-left: 0px; }
     .navbar-nav .open .dropdown-menu li:last-child {
       border-bottom: 1px dashed #c9920e;
       padding-bottom: 10px; } }
 @media only screen and (max-width: 480px) {
+  logo a {
+    width: 150px;
+    margin: 30px auto 50px; }
+
   .main-content h2:first-child {
     margin: 0 0 25px 0; }
 
@@ -496,4 +501,3 @@ h2 {
 
   #slider .caption {
     display: none; } }
-/* fixed logo issue fix */
