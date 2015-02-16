@@ -1,0 +1,315 @@
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400italic,400,300,400);
+ $background:#000000;
+ $textColor:#ffffff;
+ $mainColor:#c9920e;
+html {
+	font-family: 'Roboto Condensed', sans-serif;
+ background-color: $background;
+	font-weight: 400;
+color:$textColor;
+}
+.logo a {
+	overflow: hidden;
+	margin: 50px auto;
+	width: 284px;
+	display: block;
+}
+.nav {
+	width: 100%;
+	margin: 0px;
+	text-align: center;
+}
+.navbar-default {
+ background-color: $background;
+}
+.navbar-default .navbar-nav > li {
+	float: none;
+	display: inline-block;
+}
+.navbar-default .navbar-nav > li > a {
+ color: $textColor;
+	font-size: 18px;
+	padding: 0 30px 22px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li:first-child > a {
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a {
+ color: $mainColor !important;
+ border-bottom: 4px solid $mainColor;
+	padding-bottom: 18px;
+}
+.navbar-default .navbar-nav > li:first-child > a:before {
+	display: none;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #333;
+	background-color: transparent;
+}
+.navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
+	color: #ccc;
+	background-color: transparent;
+}
+.navbar-default .navbar-toggle {
+	border-color: transparent;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+ background-color: $background;
+}
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+ background-color: $mainColor;
+}
+.navbar-default .navbar-toggle .icon-bar {
+ background-color: $mainColor;
+}
+.carousel-fade {
+ .carousel-inner {
+ .item {
+ opacity: 0;
+ transition-property: opacity;
+}
+ .active {
+ opacity: 1;
+}
+ .active.left, .active.right {
+ left: 0;
+ opacity: 0;
+ z-index: 1;
+}
+ .next.left, .prev.right {
+ opacity: 1;
+}
+}
+.carousel-control {
+	z-index: 2;
+}
+}
+.carousel-indicators {
+	position: absolute;
+	z-index: 1;
+	padding-left: 0;
+	text-align: center;
+	list-style: none;
+}
+#slider .carousel-indicators {
+	top: 10px;
+	bottom: 0px;
+	margin: auto;
+	right: 10px;
+}
+.carousel-indicators li {
+	width: 14px;
+	height: 14px;
+	text-indent: -999px;
+	cursor: pointer;
+ background-color: $mainColor;
+	border-radius: 50%;
+	transition: all .3s;
+}
+.carousel-indicators li:hover {
+	opacity: .8;
+}
+#slider {
+	margin-bottom: 90px
+}
+#slider .carousel-indicators li {
+	display: block;
+	float: left;
+	margin: 0 10px 0px 0px;
+}
+#slider .carousel-indicators .active {
+ border: 1px solid $background;
+}
+.carousel:after, .carousel:before {
+	position: absolute;
+ color: $mainColor;
+	line-height: 0;
+	font-size: 150px;
+}
+.carousel:before {
+	top: 30%;
+	left: -15px;
+}
+.carousel:after {
+	bottom: 0;
+	right: 0;
+}
+#slider .caption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+background: rgba($mainColor, .75);
+	max-width: 80%;
+	text-align: center;
+	max-height: 40%;
+	color: white;
+	text-transform: uppercase;
+	padding-top: 10px;
+	font-size: 30px;
+h1 {
+font-weight:bolder;
+font-size:40px
+}
+span {
+	font-size: 26px
+}
+p {
+	margin: 0;
+}
+}
+h2 {
+ color:$mainColor;
+	text-transform: uppercase;
+}
+.main-content {
+	text-align: justify;
+ h2:first-child {
+ margin:0 0 35px 0;
+}
+p {
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 0 20px 0;
+}
+.highlighted {
+color:$mainColor;
+}
+}
+.login h2 {
+	margin: 0 0 0 0;
+}
+.ui-loader {
+	display: none;
+}
+.button {
+ color:$mainColor;
+ border:3px solid $mainColor;
+	background: transparent;
+	font-size: 22px;
+	padding: 7px 10px;
+	margin-bottom: 20px;
+}
+.login {
+h2 {
+margin-bottom:33px;
+}
+input[type="text"], input[type="password"] {
+ color:$mainColor;
+ border:3px solid $mainColor;
+	background: transparent;
+	font-size: 22px;
+	padding: 7px 10px;
+	margin-bottom: 20px;
+}
+.checkbox {
+	float: left;
+ input[type="checkbox"] {
+ position: relative;
+float: left;
+margin: 0;
+&:before {
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:20px;
+height:20px;
+background-color:$background;
+border:2px solid $mainColor;
+}
+&:after {
+content:'';
+position:absolute;
+top: 5px;
+left: 5px;
+width: 10px;
+height: 10px;
+display:none;
+background-color:$mainColor;
+border:2px solid $mainColor;
+}
+}
+input[data-cacheval="true"]:after {
+	display: block;
+}
+label {
+	padding: 0 0 0 15px;
+}
+}
+.button {
+	float: right;
+}
+}/*login*/
+
+::-webkit-input-placeholder {
+ color: $mainColor;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+ color: $mainColor;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+ color: $mainColor;
+}
+
+:-ms-input-placeholder {
+ color: $mainColor;
+}
+.links {
+	margin-top: 37px;
+	margin-bottom: 125px;
+ a {
+text-align:center;
+}
+}
+.contact-us {
+	text-align: center;
+	font-size: 30px;
+ color:$textColor;
+	text-transform: uppercase;
+	margin-bottom: 121px;
+ h2 {
+color:$textColor;
+}
+a {
+color:$textColor;
+&:hover {
+color:$mainColor;
+}
+}
+}
+.footer {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+ color:$mainColor;
+	font-size: 18px;
+	margin-bottom:50px;
+ .footer-links{margin-bottom:10px;}
+ a {
+color:$mainColor;
+margin-right:20px;
+&:hover {
+color:$textColor;
+}
+}
+}
+
+/*============================*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {}
+
+@media only screen and (max-width: 768px) {}
+
+@media only screen and (max-width: 480px) {}
+
+/* fixed logo issue fix */
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
+}
+
+@media only screen and (max-width: 680px) {}
+

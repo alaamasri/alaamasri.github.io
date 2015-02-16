@@ -1,0 +1,269 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400italic,400,300,400);
+html {
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: black;
+  font-weight: 400;
+  color: white; }
+
+.logo a {
+  overflow: hidden;
+  margin: 50px auto;
+  width: 284px;
+  display: block; }
+
+.nav {
+  width: 100%;
+  margin: 0px;
+  text-align: center; }
+
+.navbar-default {
+  background-color: black; }
+
+.navbar-default .navbar-nav > li {
+  float: none;
+  display: inline-block; }
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 18px;
+  padding: 0 30px 22px;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a {
+  color: #c9920e !important;
+  border-bottom: 4px solid #c9920e;
+  padding-bottom: 18px; }
+
+.navbar-default .navbar-nav > li:first-child > a:before {
+  display: none; }
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+  background-color: transparent; }
+
+.navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent; }
+
+.navbar-default .navbar-toggle {
+  border-color: transparent; }
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: black; }
+
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #c9920e; }
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #c9920e; }
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  transition-property: opacity; }
+.carousel-fade .carousel-inner .active {
+  opacity: 1; }
+.carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1; }
+.carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
+  opacity: 1; }
+.carousel-fade .carousel-control {
+  z-index: 2; }
+
+.carousel-indicators {
+  position: absolute;
+  z-index: 1;
+  padding-left: 0;
+  text-align: center;
+  list-style: none; }
+
+#slider .carousel-indicators {
+  top: 10px;
+  bottom: 0px;
+  margin: auto;
+  right: 10px; }
+
+.carousel-indicators li {
+  width: 14px;
+  height: 14px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #c9920e;
+  border-radius: 50%;
+  -webkit-transition: all .3s;
+  transition: all .3s; }
+
+.carousel-indicators li:hover {
+  opacity: .8; }
+
+#slider {
+  margin-bottom: 90px; }
+
+#slider .carousel-indicators li {
+  display: block;
+  float: left;
+  margin: 0 10px 0px 0px; }
+
+#slider .carousel-indicators .active {
+  border: 1px solid black; }
+
+.carousel:after, .carousel:before {
+  position: absolute;
+  color: #c9920e;
+  line-height: 0;
+  font-size: 150px; }
+
+.carousel:before {
+  top: 30%;
+  left: -15px; }
+
+.carousel:after {
+  bottom: 0;
+  right: 0; }
+
+#slider .caption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: rgba(201, 146, 14, 0.75);
+  max-width: 80%;
+  text-align: center;
+  max-height: 40%;
+  color: white;
+  text-transform: uppercase;
+  padding-top: 10px;
+  font-size: 30px; }
+  #slider .caption h1 {
+    font-weight: bolder;
+    font-size: 40px; }
+  #slider .caption span {
+    font-size: 26px; }
+  #slider .caption p {
+    margin: 0; }
+
+h2 {
+  color: #c9920e;
+  text-transform: uppercase; }
+
+.main-content {
+  text-align: justify; }
+  .main-content h2:first-child {
+    margin: 0 0 35px 0; }
+  .main-content p {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 0 20px 0; }
+  .main-content .highlighted {
+    color: #c9920e; }
+
+.login h2 {
+  margin: 0 0 0 0; }
+
+.ui-loader {
+  display: none; }
+
+.button {
+  color: #c9920e;
+  border: 3px solid #c9920e;
+  background: transparent;
+  font-size: 22px;
+  padding: 7px 10px;
+  margin-bottom: 20px; }
+
+.login h2 {
+  margin-bottom: 33px; }
+.login input[type="text"], .login input[type="password"] {
+  color: #c9920e;
+  border: 3px solid #c9920e;
+  background: transparent;
+  font-size: 22px;
+  padding: 7px 10px;
+  margin-bottom: 20px; }
+.login .checkbox {
+  float: left; }
+  .login .checkbox input[type="checkbox"] {
+    position: relative;
+    float: left;
+    margin: 0; }
+    .login .checkbox input[type="checkbox"]:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background-color: black;
+      border: 2px solid #c9920e; }
+    .login .checkbox input[type="checkbox"]:after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 10px;
+      height: 10px;
+      display: none;
+      background-color: #c9920e;
+      border: 2px solid #c9920e; }
+  .login .checkbox input[data-cacheval="true"]:after {
+    display: block; }
+  .login .checkbox label {
+    padding: 0 0 0 15px; }
+.login .button {
+  float: right; }
+
+/*login*/
+::-webkit-input-placeholder {
+  color: #c9920e; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #c9920e; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #c9920e; }
+
+:-ms-input-placeholder {
+  color: #c9920e; }
+
+.links {
+  margin-top: 37px;
+  margin-bottom: 125px; }
+  .links a {
+    text-align: center; }
+
+.contact-us {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 121px; }
+  .contact-us h2 {
+    color: white; }
+  .contact-us a {
+    color: white; }
+    .contact-us a:hover {
+      color: #c9920e; }
+
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #c9920e;
+  font-size: 18px;
+  margin-bottom: 50px; }
+  .footer .footer-links {
+    margin-bottom: 10px; }
+  .footer a {
+    color: #c9920e;
+    margin-right: 20px; }
+    .footer a:hover {
+      color: white; }
+
+/*============================*/
+/* fixed logo issue fix */
