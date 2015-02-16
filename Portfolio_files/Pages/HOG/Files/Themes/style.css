@@ -32,8 +32,8 @@ html {
   padding: 0 28px 22px;
   font-weight: bold;
   text-transform: uppercase;
-  -webkit-transition: all .3s;
-  transition: all .3s; }
+  -webkit-transition: border .5s,color .3s;
+  transition: border .5s,color .3s; }
 
 .navbar-default .navbar-nav > li > a:hover {
   color: #c9920e !important;
