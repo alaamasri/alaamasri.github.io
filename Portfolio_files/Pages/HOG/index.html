@@ -31,6 +31,7 @@
             /*Preload Mobile onHover*/
             $('<img alt="" />')[0].src = "./Images/slide1.jpg";
             $('<img alt="" />')[0].src = "./Images/slide2.jpg";
+            $('<img alt="" />')[0].src = "./Images/slide3.jpg";
 
             /* Slider touch */
             $("#slider li.active").next().click();
@@ -42,19 +43,7 @@
                 $(this).carousel('next');
             });
 
-            /* Smooth Scroll */
 
-            $('.navbar a').click(function () {
-                $('.navbar li').removeClass('active');
-                $(this).parent().addClass('active');
-                if ($(document).scrollTop() <= 70) { fixedMenuHeight = 60 } else { fixedMenuHeight = 0 }
-                var scroll = $($(this).attr('href')).offset().top - 200;
-                $('html, body').animate({
-                    scrollTop: $($(this).attr('href')).offset().top - 55 - fixedMenuHeight
-                }, 500);
-                $(".navbar-toggle").click()
-                return false;
-            });
 
         }); /*== Document ready== */
 
@@ -100,7 +89,11 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="#" title="Home">Home</a>
+                            <a href="#" title="Home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#" title="The H.O.G History">The H.O.G History</a></li>
+                                <li><a href="#" title="Ladies of Harley">Ladies of Harley</a></li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#" title="Officers">Officers</a>
@@ -180,25 +173,10 @@
         -->
     </div>
     <div class="container">
-        <div class="col-xs-12 col-md-9">
-            <div class="main-content">
-                <h2>
-                    About Us
-                </h2>
-                <p>
-                    The Harley Owners Group, <span class="highlighted">H.O.G.® Kingdom of Jordan Chapter # 7898</span> was established in July 2009.
-                </p>
-                <p>
-                    The Chapter is not only a motorcycle club that organizes safe and fun rides to explore different parts of the beautiful Hashemite Kingdom of Jordan, it is also a family oriented entity that plans various entertaining and educational social events while spreading knowledge about the true ethics of motorcycle riding.
-                </p>
-                <p>
-                    We encourage all of our members to enjoy the sport by riding their motorcycles responsibly and safely, abiding by the traffic rules and regulations and upholding the team spirit to the utmost levels.
-                </p>
-            </div>
-        </div>
+        
 
-        <div class="col-xs-6 col-md-3">
-            <div class="login">
+        <div class="col-xs-12 col-sm-4 col-md-3 login">
+            
                 <h2>Member Login</h2>
                 <input type="text" placeholder="USER NAME" />
                 <input type="password" placeholder="PASSWORD" />
@@ -209,13 +187,28 @@
                 </div>
                 <button type="submit" class="button">Login</button>
 
-            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9 main-content">
+
+            <h2>
+                About Us
+            </h2>
+            <p>
+                The Harley Owners Group, <span class="highlighted">H.O.G.® Kingdom of Jordan Chapter # 7898</span> was established in July 2009.
+            </p>
+            <p>
+                The Chapter is not only a motorcycle club that organizes safe and fun rides to explore different parts of the beautiful Hashemite Kingdom of Jordan, it is also a family oriented entity that plans various entertaining and educational social events while spreading knowledge about the true ethics of motorcycle riding.
+            </p>
+            <p>
+                We encourage all of our members to enjoy the sport by riding their motorcycles responsibly and safely, abiding by the traffic rules and regulations and upholding the team spirit to the utmost levels.
+            </p>
+
         </div>
         <div class="col-xs-12 col-md-12 links">
-            <a class="col-xs-12 col-md-3" href="#" title="Harley Davidson Jordan"><img src="Images/Harley.png" alt="Harley Davidson Jordan" /></a>
-            <a class="col-xs-12 col-md-3" href="#" title="More About Jordan"><img src="Images/moreJordan.png" alt="More About Jordan" /></a>
-            <a class="col-xs-12 col-md-3" href="#" title="The Weather Today"><img src="Images/weather.png" alt="The Weather Today" /></a>
-            <a class="col-xs-12 col-md-3" href="#" title="Harley Owners Group"><img src="Images/HOGJO.png" alt="Harley Owners Group" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" href="#" title="Harley Davidson Jordan"><img src="Images/Harley.png" alt="Harley Davidson Jordan" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" title="More About Jordan"><img src="Images/moreJordan.png" alt="More About Jordan" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" title="The Weather Today"><img src="Images/weather.png" alt="The Weather Today" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" title="Harley Owners Group"><img src="Images/HOGJO.png" alt="Harley Owners Group" /></a>
         </div>
         <div class="col-xs-12 col-md-12 contact-us">
             <h2>Contact Us</h2>
@@ -228,6 +221,7 @@
                 <a href="#" title="Sitemap">Sitemap</a>
             </div>
             <span>© H-D 2001-2011. Harley, Harley-Davidson, H.O.G. and the Bar & Shield logo are among the trademarks of H-D Michigan, LLC.</span>
+        </div>
         </div>
 
 

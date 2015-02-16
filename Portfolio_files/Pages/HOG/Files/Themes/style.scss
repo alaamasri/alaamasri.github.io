@@ -15,6 +15,9 @@ color:$textColor;
 	margin: 50px auto;
 	width: 284px;
 	display: block;
+ img {
+max-width:100%;
+}
 }
 .nav {
 	width: 100%;
@@ -31,16 +34,20 @@ color:$textColor;
 .navbar-default .navbar-nav > li > a {
  color: $textColor;
 	font-size: 18px;
-	padding: 0 30px 22px;
+	padding: 0 28px 22px;
 	font-weight: bold;
 	text-transform: uppercase;
+	transition: all .3s;
 }
 .navbar-default .navbar-nav > li:first-child > a {
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a {
+.navbar-default .navbar-nav > li > a:hover {
  color: $mainColor !important;
  border-bottom: 4px solid $mainColor;
 	padding-bottom: 18px;
+}
+.navbar-default .navbar-nav > li.open > a {
+color: $mainColor !important;
 }
 .navbar-default .navbar-nav > li:first-child > a:before {
 	display: none;
@@ -145,9 +152,9 @@ color:$textColor;
 	bottom: 0;
 	margin: auto;
 background: rgba($mainColor, .75);
-	max-width: 80%;
+	width: 850px;
 	text-align: center;
-	max-height: 40%;
+	max-height: 200px;
 	color: white;
 	text-transform: uppercase;
 	padding-top: 10px;
@@ -168,6 +175,7 @@ h2 {
 	text-transform: uppercase;
 }
 .main-content {
+	float: left;
 	text-align: justify;
  h2:first-child {
  margin:0 0 35px 0;
@@ -195,6 +203,7 @@ color:$mainColor;
 	margin-bottom: 20px;
 }
 .login {
+	float: right;
 h2 {
 margin-bottom:33px;
 }
@@ -205,6 +214,10 @@ input[type="text"], input[type="password"] {
 	font-size: 22px;
 	padding: 7px 10px;
 	margin-bottom: 20px;
+	width: 100%;
+ &:focus, &:active {
+border-style:dashed;
+}
 }
 .checkbox {
 	float: left;
@@ -212,7 +225,11 @@ input[type="text"], input[type="password"] {
  position: relative;
 float: left;
 margin: 0;
-&:before {
+ opacity:0;
+}
+label {
+	padding: 0 0 0 15px;
+ &:before {
 content:'';
 position:absolute;
 top:0;
@@ -229,20 +246,26 @@ top: 5px;
 left: 5px;
 width: 10px;
 height: 10px;
-display:none;
+opacity:0;
 background-color:$mainColor;
 border:2px solid $mainColor;
+transition:all .3s;
 }
 }
-input[data-cacheval="true"]:after {
-	display: block;
 }
-label {
-	padding: 0 0 0 15px;
-}
+label.ui-checkbox-on:after {
+	opacity: 1;
 }
 .button {
 	float: right;
+	transition: all .3s;
+ &:hover {
+opacity:.8;
+text-decoration:underline;
+}
+ &:active {
+transform:scale(.9, .9)
+}
 }
 }/*login*/
 
@@ -265,7 +288,17 @@ label {
 	margin-top: 37px;
 	margin-bottom: 125px;
  a {
+ transition:opacity .5s, transform .3s;
 text-align:center;
+&:hover {
+opacity:.7;
+}
+ &:active {
+transform:scale(.9, .9)
+}
+}
+img {
+	max-width: 100%;
 }
 }
 .contact-us {
@@ -279,6 +312,7 @@ color:$textColor;
 }
 a {
 color:$textColor;
+transition:all .3s;
 &:hover {
 color:$mainColor;
 }
@@ -289,27 +323,233 @@ color:$mainColor;
 	text-align: center;
  color:$mainColor;
 	font-size: 18px;
-	margin-bottom:50px;
- .footer-links{margin-bottom:10px;}
- a {
+	margin-bottom: 50px;
+ .footer-links {
+margin-bottom:10px;
+}
+a {
 color:$mainColor;
-margin-right:20px;
+	margin-right: 20px;
+	transition:all .3s;
 &:hover {
 color:$textColor;
 }
 }
 }
+.dropdown-menu {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 140px;
+	padding: 0;
+	margin: 2px 0 0 29px;
+	font-size: 16px;
+	list-style: none;
+	text-transform: uppercase;
+	text-align: left;
+}
+.dropdown-menu.pull-right {
+	right: 0;
+	left: auto;
+}
+.dropdown-menu .divider {
+	height: 1px;
+	margin: 9px 0;
+	overflow: hidden;
+	background-color: #e5e5e5;
+}
+.dropdown-menu > li > a {
+	display: block;
+	padding: 5px;
+	clear: both;
+	font-weight: normal;
+ color: $textColor;
+	white-space: nowrap;
+	margin-bottom: 3px;
+ background: rgba($mainColor, .75);
+	transition: all .3s;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+ color: $mainColor;
+	text-decoration: none;
+ background-color: $background;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #428bca;
+	outline: 0;
+}
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+	color: #777;
+}
+.dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+	text-decoration: none;
+	cursor: not-allowed;
+	background-color: transparent;
+	background-image: none;
+ filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
 
 /*============================*/
-@media only screen and (min-width: 768px) and (max-width: 1024px) {}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+.navbar-default .navbar-nav > li > a {
+	font-size: 15px;
+	padding: 0 17px 14px;
+	font-weight: normal;
+}
+.navbar-default .navbar-nav > li > a:hover {
+	border-bottom: 4px solid #c9920e;
+	padding-bottom: 10px;
+}
+.navbar-default .navbar-nav > li.open > a {
+color: $mainColor;
+}
+.logo a {
+	width: 184px;
+	margin: 35px auto;
+}
+.links {
+	margin-bottom: 100px;
+}
+#slider .caption {
+	padding-top: 5px;
+	width: 650px;
+	max-height: 150px;
+	font-size: 22px;
+ span {
+font-size:18px;
+}
+h1 {
+	font-size: 30px;
+}
+}
+}
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+.logo a {
+	width: 180px;
+}
+.navbar {
+	margin-top: -30px;
+	padding-bottom: 20px;
+}
+.navbar-default .navbar-nav > li {
+	width: 100%;
+}
+.navbar-default .navbar-nav > li > a {
+	padding: 15px 0 0 0;
+	border: 0px solid;
+	font-weight: normal;
+}
+.navbar-default .navbar-nav > li > a:hover/*, .navbar-default .navbar-nav > li.active > a*/ {
+	padding: 15px 0 0 0;
+	border: 0px solid;
+}
+.navbar-default .navbar-nav > li.open > a {
+color: $mainColor;
+}
+.navbar-nav {
+border-color:$mainColor;
+}
+.navbar-collapse {
+	margin-bottom: -20px;
+}
+#slider {
+	margin-bottom: 50px;
+}
+.links {
+	margin-bottom: 50px;
+ a {
+margin-bottom:40px;
+}
+}
+.main-content, .login {
+	margin-bottom: 30px;
+}
+.contact-us {
+	font-size: 26px;
+	margin-bottom: 90px;
+}
+.footer {
+	font-size: 14px;
+	margin-bottom: 30px;
+}
+#slider .caption {
+	padding-top: 5px;
+	width: 450px;
+	max-height: 120px;
+	font-size: 16px;
+ span {
+font-size:14px;
+}
+h1 {
+	font-size: 26px;
+}
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+color:$textColor;
+	text-align: center;
+	background: transparent;
+	padding: 5px 0 0;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+ &:hover, &:focus, &:active {
+ color:$mainColor;
+}
+}
+.navbar-nav .open .dropdown-menu {
+	margin-top: 10px;
+ li:last-child {
+ border-bottom: 1px dashed $mainColor;
+padding-bottom: 10px;
+}
+}
+}
 
-@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 480px) {
+.main-content h2:first-child {
+	margin: 0 0 25px 0;
+}
+p {
+	font-size: 14px;
+}
+h2 {
+	font-size: 26px;
+}
+.login input[type="text"], .login input[type="password"], .button {
+	font-size: 20px;
+}
+.links {
+	margin-bottom: 30px;
+}
+.contact-us {
+	margin-bottom: 50px;
+	font-size: 18px;
+}
+.footer {
+	font-size: 12px;
+	margin-bottom: 20px;
+ .footer-links {
+ margin-bottom:40px;
+ a {
+ margin-right: 0px;
+display: block;
+margin-bottom: 10px;
+}
+}
+}
+#slider .caption {
+	display: none;
+}
+}
 
 /* fixed logo issue fix */
 @media only screen and (min-width: 768px) and (max-width: 1000px) {
 }
 
-@media only screen and (max-width: 680px) {}
-
+@media only screen and (max-width: 680px) {
+}
