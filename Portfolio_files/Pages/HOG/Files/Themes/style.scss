@@ -175,7 +175,6 @@ h2 {
 	text-transform: uppercase;
 }
 .main-content {
-	float: left;
 	text-align: justify;
  h2:first-child {
  margin:0 0 35px 0;
@@ -203,7 +202,6 @@ color:$mainColor;
 	margin-bottom: 20px;
 }
 .login {
-	float: right;
 h2 {
 margin-bottom:33px;
 }
@@ -431,7 +429,8 @@ h1 {
 
 @media only screen and (max-width: 768px) {
 .logo a {
-	width: 180px;
+	width: 150px;
+	margin:30px auto 40px ;
 }
 .navbar {
 	margin-top: -30px;
@@ -512,7 +511,10 @@ padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 480px) {
-logo a{width:150px;margin:30px auto 50px;}
+.logo a {
+	width: 120px;
+	margin:20px auto 30px ;
+}
 .main-content h2:first-child {
 	margin: 0 0 25px 0;
 }
@@ -547,4 +549,5 @@ margin-bottom: 10px;
 #slider .caption {
 	display: none;
 }
+.navbar-collapse {margin-top:10px;}
 }
