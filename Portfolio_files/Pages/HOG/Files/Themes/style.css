@@ -9,7 +9,10 @@ html {
   font-family: 'alegre_sansregular';
   background-color: black;
   font-weight: 400;
-  color: white; }
+  color: white;
+  background: url(../../Images/bg-footer.png) no-repeat center bottom black;
+  min-width: 283px;
+  margin: 0 auto; }
 
 .logo a {
   overflow: hidden;
@@ -290,11 +293,9 @@ h2 {
     transition: all .3s; }
 
 .footerBackground {
-  background: url(../../Images/bg-footer.png) NO-repeat center bottom;
   display: inline-block;
   width: 100%;
-  padding-top: 125px;
-  margin-bottom: -4px; }
+  padding-top: 125px; }
 
 .footer {
   font-family: 'Open Sans', sans-serif;
@@ -500,6 +501,9 @@ h2 {
   .contact-us {
     margin-bottom: 130px; } }
 @media only screen and (max-width: 480px) {
+  html {
+    background-image: url(../../Images/bg-footer-sm.png); }
+
   .logo a {
     width: 120px;
     margin: 20px auto 30px; }
@@ -536,7 +540,6 @@ h2 {
         font-size: 9px; }
 
   .footerBackground {
-    background-image: url(../../Images/bg-footer-sm.png);
     margin-top: 0px;
     padding-top: 0px; }
 
