@@ -6094,13 +6094,13 @@ button.close {
 @media (min-width: 1600px) {
  .carousel-inner > .item > img, .carousel-inner > .item > a > img
     {
-        margin-top:-3%;
+        margin-top:-4%;
     }
   
   @media (min-width: 1800px) {
  .carousel-inner > .item > img, .carousel-inner > .item > a > img
     {
-        margin-top:-4%;
+        margin-top:-6%;
     }
 
 
