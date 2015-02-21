@@ -12,6 +12,7 @@ html {
   color: white;
   background: url(../../Images/bg-footer.png) no-repeat center bottom black;
   min-width: 283px;
+  max-width: 4000px;
   margin: 0 auto; }
 
 .logo a {
