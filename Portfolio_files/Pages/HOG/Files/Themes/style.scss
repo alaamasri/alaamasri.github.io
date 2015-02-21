@@ -469,12 +469,13 @@ label {
 	width: 100%;
 }
 .navbar-default .navbar-nav > li > a {
-	padding: 25px 0 0 0;
+	font-size: 25px;
+	padding: 20px 0 0 0;
 	border: 0px solid;
 	font-weight: normal;
 }
 .navbar-default .navbar-nav > li > a:hover/*, .navbar-default .navbar-nav > li.active > a*/ {
-	padding: 25px 0 0 0;
+	padding: 20px 0 0 0;
 	border: 0px solid;
 }
 .navbar-default .navbar-nav > li.open > a {
