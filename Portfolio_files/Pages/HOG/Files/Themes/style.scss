@@ -1,11 +1,18 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400italic,400,300,400);
+@font-face {
+	font-family: 'alegre_sansregular';
+	src: url('AlCgre Sans-webfont.eot');
+	src: url('AlCgre Sans-webfont.eot?#iefix') format('embedded-opentype'),  url('AlCgre Sans-webfont.woff2') format('woff2'),  url('AlCgre Sans-webfont.woff') format('woff'),  url('AlCgre Sans-webfont.ttf') format('truetype'),  url('AlCgre Sans-webfont.svg#alegre_sansregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
  $background:#000000;
  $textColor:#ffffff;
  $mainColor:#c9920e;
+ $textFont:'Open Sans', sans-serif;
 html {
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'alegre_sansregular';
  background-color: $background;
 	font-weight: 400;
 color:$textColor;
@@ -33,18 +40,17 @@ max-width:100%;
 }
 .navbar-default .navbar-nav > li > a {
  color: $textColor;
-	font-size: 18px;
-	padding: 0 28px 22px;
-	font-weight: bold;
+	font-size: 30px;
+	padding: 0 30px 33px;
 	text-transform: uppercase;
-	transition: border .5s,color .3s;
+	transition: border .5s, color .3s;
 }
 .navbar-default .navbar-nav > li:first-child > a {
 }
 .navbar-default .navbar-nav > li > a:hover {
  color: $mainColor !important;
  border-bottom: 4px solid $mainColor;
-	padding-bottom: 18px;
+	padding-bottom: 29px;
 }
 .navbar-default .navbar-nav > li.open > a {
 color: $mainColor !important;
@@ -120,7 +126,7 @@ color: $mainColor !important;
 	opacity: .8;
 }
 #slider {
-	margin-bottom: 90px
+	margin-bottom: 70px
 }
 #slider .carousel-indicators li {
 	display: block;
@@ -154,17 +160,16 @@ color: $mainColor !important;
 background: rgba($mainColor, .75);
 	width: 850px;
 	text-align: center;
-	max-height: 200px;
+	max-height: 240px;
 	color: white;
 	text-transform: uppercase;
 	padding-top: 10px;
-	font-size: 30px;
+	font-size: 46px;
 h1 {
-font-weight:bolder;
-font-size:40px
+font-size:67px
 }
 span {
-	font-size: 26px
+	font-size: 40px
 }
 p {
 	margin: 0;
@@ -172,9 +177,11 @@ p {
 }
 h2 {
  color:$mainColor;
+	font-size: 42px;
 	text-transform: uppercase;
 }
 .main-content {
+	padding-right: 30px;
 	text-align: justify;
  h2:first-child {
  margin:0 0 35px 0;
@@ -197,7 +204,7 @@ color:$mainColor;
  color:$mainColor;
  border:3px solid $mainColor;
 	background: transparent;
-	font-size: 22px;
+	font-size: 38px;
 	padding: 7px 10px;
 	margin-bottom: 20px;
 }
@@ -209,7 +216,7 @@ input[type="text"], input[type="password"] {
  color:$mainColor;
  border:3px solid $mainColor;
 	background: transparent;
-	font-size: 22px;
+	font-size: 38px;
 	padding: 7px 10px;
 	margin-bottom: 20px;
 	width: 100%;
@@ -226,24 +233,26 @@ margin: 0;
  opacity:0;
 }
 label {
-	padding: 0 0 0 15px;
+	padding: 0 0 0 20px;
+	font-size: 16px;
+ font-family:$textFont;
  &:before {
 content:'';
 position:absolute;
 top:0;
 left:0;
-width:20px;
-height:20px;
+width:24px;
+height:24px;
 background-color:$background;
-border:2px solid $mainColor;
+border:3px solid $mainColor;
 }
 &:after {
 content:'';
 position:absolute;
-top: 5px;
-left: 5px;
-width: 10px;
-height: 10px;
+top: 6px;
+left: 6px;
+width: 12px;
+height: 12px;
 opacity:0;
 background-color:$mainColor;
 border:2px solid $mainColor;
@@ -284,7 +293,6 @@ transform:scale(.9, .9)
 }
 .links {
 	margin-top: 37px;
-	margin-bottom: 125px;
  a {
  transition:opacity .5s, transform .3s;
 text-align:center;
@@ -304,34 +312,35 @@ img {
 	font-size: 30px;
  color:$textColor;
 	text-transform: uppercase;
-	margin-bottom: 121px;
+	margin-bottom: 150px;
  h2 {
 color:$textColor;
 }
 a {
 color:$textColor;
-transition:all .3s;
-&:hover {
-color:$mainColor;
+	transition: all .3s;
 }
 }
+.footerBackground {
+	background: url(../../Images/bg-footer.png) repeat-x center bottom;
+	display: inline-block;
+	width: 100%;
+	padding-top: 125px;
+	margin-bottom: -4px;
 }
 .footer {
 	font-family: 'Open Sans', sans-serif;
 	text-align: center;
- color:$mainColor;
-	font-size: 18px;
-	margin-bottom: 50px;
+ color:$textColor;
+	font-size: 16px;
+	margin-bottom: 20px;
  .footer-links {
 margin-bottom:10px;
 }
 a {
-color:$mainColor;
-	margin-right: 20px;
-	transition:all .3s;
-&:hover {
 color:$textColor;
-}
+	margin-right: 20px;
+	transition: all .3s;
 }
 }
 .dropdown-menu {
@@ -344,7 +353,7 @@ color:$textColor;
 	min-width: 140px;
 	padding: 0;
 	margin: 2px 0 0 29px;
-	font-size: 16px;
+	font-size: 22px;
 	list-style: none;
 	text-transform: uppercase;
 	text-align: left;
@@ -395,13 +404,13 @@ color:$textColor;
 /*============================*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 .navbar-default .navbar-nav > li > a {
-	font-size: 15px;
-	padding: 0 17px 14px;
+	font-size: 25px;
+	padding: 0 17px 24px;
 	font-weight: normal;
 }
 .navbar-default .navbar-nav > li > a:hover {
 	border-bottom: 4px solid #c9920e;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 }
 .navbar-default .navbar-nav > li.open > a {
 color: $mainColor;
@@ -417,21 +426,40 @@ color: $mainColor;
 	padding-top: 5px;
 	width: 650px;
 	max-height: 150px;
-	font-size: 22px;
+	font-size: 30px;
  span {
-font-size:18px;
+font-size:26px;
 }
 h1 {
-	font-size: 30px;
+	font-size: 46px;
+	margin: 10px 0;
 }
 }
-.dropdown-menu {margin-left:0px;}
+.dropdown-menu {
+	margin-left: 0px;
+}
+.footerBackground {
+	margin-top: -100px;
+	padding-top: 125px;
+}
+.login {
+ input[type="text"], input[type="password"], button {
+font-size:26px;
+}
+}
+.main-content {
+	padding-right: 10px;
+}
+label {
+	padding: 2px 0 0 16px;
+	font-size: 14px;
+}
 }
 
 @media only screen and (max-width: 767px) {
 .logo a {
 	width: 150px;
-	margin:30px auto 40px ;
+	margin: 30px auto 40px;
 }
 .navbar {
 	margin-top: -30px;
@@ -441,19 +469,19 @@ h1 {
 	width: 100%;
 }
 .navbar-default .navbar-nav > li > a {
-	padding: 15px 0 0 0;
+	padding: 25px 0 0 0;
 	border: 0px solid;
 	font-weight: normal;
 }
 .navbar-default .navbar-nav > li > a:hover/*, .navbar-default .navbar-nav > li.active > a*/ {
-	padding: 15px 0 0 0;
+	padding: 25px 0 0 0;
 	border: 0px solid;
 }
 .navbar-default .navbar-nav > li.open > a {
 color: $mainColor;
 }
 .navbar-nav {
-border-color:$mainColor;
+border-color:transparent;
 }
 .navbar-collapse {
 	margin-bottom: -20px;
@@ -469,25 +497,26 @@ margin-bottom:40px;
 }
 .main-content, .login {
 	margin-bottom: 30px;
+	padding-right:15px;
 }
 .contact-us {
 	font-size: 26px;
-	margin-bottom: 90px;
+	margin-bottom: 50px;
 }
 .footer {
 	font-size: 14px;
-	margin-bottom: 30px;
 }
 #slider .caption {
 	padding-top: 5px;
 	width: 450px;
 	max-height: 120px;
-	font-size: 16px;
+	font-size: 24px;
  span {
-font-size:14px;
+font-size:22px;
 }
 h1 {
-	font-size: 26px;
+	font-size: 34px;
+	margin:8px 0;
 }
 }
 .navbar-default .navbar-nav .open .dropdown-menu > li > a {
@@ -503,18 +532,25 @@ color:$textColor;
 }
 .navbar-nav .open .dropdown-menu {
 	margin-top: 10px;
-	margin-left:0px;
+	margin-left: 0px;
  li:last-child {
  border-bottom: 1px dashed $mainColor;
 padding-bottom: 10px;
 }
+}
+.footerBackground {
+	margin-top: -220px;
+	padding-top: 220px;
+}
+.contact-us {
+	margin-bottom: 130px;
 }
 }
 
 @media only screen and (max-width: 480px) {
 .logo a {
 	width: 120px;
-	margin:20px auto 30px ;
+	margin: 20px auto 30px;
 }
 .main-content h2:first-child {
 	margin: 0 0 25px 0;
@@ -523,32 +559,50 @@ p {
 	font-size: 14px;
 }
 h2 {
-	font-size: 26px;
+	font-size: 38px;
 }
 .login input[type="text"], .login input[type="password"], .button {
-	font-size: 20px;
+	font-size: 36px;
 }
 .links {
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 }
 .contact-us {
 	margin-bottom: 50px;
-	font-size: 18px;
+	font-size: 32px;
 }
 .footer {
 	font-size: 12px;
 	margin-bottom: 20px;
  .footer-links {
- margin-bottom:40px;
+ margin-bottom:50px;
  a {
  margin-right: 0px;
 display: block;
 margin-bottom: 10px;
 }
+span {
+font-size:9px;
 }
+}
+}
+.footerBackground {
+	background-image: url(../../Images/bg-footer-sm.png);
+	margin-top: 0px;
+	padding-top: 0px;
 }
 #slider .caption {
 	display: none;
 }
-.navbar-collapse {margin-top:10px;}
+.navbar-collapse {
+	margin-top: 10px;
+}
+.login {
+ input[type="text"], input[type="password"], button {
+font-size:28px;
+}
+}
+#slider {
+margin-bottom: 40px;
+}
 }
