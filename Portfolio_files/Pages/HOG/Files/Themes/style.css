@@ -10,7 +10,6 @@ html {
   background-color: black;
   font-weight: 400;
   color: white;
-  background: url(../../Images/bg-footer.png) no-repeat center bottom black;
   min-width: 283px;
   max-width: 6000px;
   margin: 0 auto; }
@@ -44,9 +43,7 @@ html {
   transition: border .5s, color .3s; }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #c9920e !important;
-  border-bottom: 4px solid #c9920e;
-  padding-bottom: 29px; }
+  color: #c9920e !important; }
 
 .navbar-default .navbar-nav > li.open > a {
   color: #c9920e !important; }
@@ -294,9 +291,11 @@ h2 {
     transition: all .3s; }
 
 .footerBackground {
+  background: url(../../Images/bg-footer.png) no-repeat center bottom;
   display: inline-block;
   width: 100%;
-  padding-top: 125px; }
+  padding-top: 125px;
+  margin-bottom: -4px; }
 
 .footer {
   font-family: 'Open Sans', sans-serif;
@@ -311,6 +310,9 @@ h2 {
     margin-right: 20px;
     -webkit-transition: all .3s;
     transition: all .3s; }
+  .footer span .itmam img {
+    margin: -10px 0 0 30px;
+    max-width: 187px; }
 
 .dropdown-menu {
   position: absolute;
@@ -377,10 +379,6 @@ h2 {
     padding: 0 17px 24px;
     font-weight: normal; }
 
-  .navbar-default .navbar-nav > li > a:hover {
-    border-bottom: 4px solid #c9920e;
-    padding-bottom: 20px; }
-
   .navbar-default .navbar-nav > li.open > a {
     color: #c9920e; }
 
@@ -417,7 +415,11 @@ h2 {
 
   label {
     padding: 2px 0 0 16px;
-    font-size: 14px; } }
+    font-size: 14px; }
+
+  .itmam {
+    display: inline-block;
+    margin-top: 10px; } }
 @media only screen and (max-width: 767px) {
   .logo a {
     width: 150px;
@@ -436,15 +438,11 @@ h2 {
     border: 0px solid;
     font-weight: normal; }
 
-  .navbar-default .navbar-nav > li > a:hover {
-    padding: 20px 0 0 0;
-    border: 0px solid; }
-
   .navbar-default .navbar-nav > li.open > a {
     color: #c9920e; }
 
   .navbar-nav {
-    border-color: transparent; }
+    border-top: 1px solid black; }
 
   .navbar-collapse {
     margin-bottom: -20px; }
@@ -500,11 +498,12 @@ h2 {
     padding-top: 220px; }
 
   .contact-us {
-    margin-bottom: 130px; } }
-@media only screen and (max-width: 480px) {
-  html {
-    background-image: url(../../Images/bg-footer-sm.png); }
+    margin-bottom: 130px; }
 
+  .itmam {
+    display: inline-block;
+    margin-top: 10px; } }
+@media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
     margin: 20px auto 30px; }
@@ -541,6 +540,7 @@ h2 {
         font-size: 9px; }
 
   .footerBackground {
+    background-image: url(../../Images/bg-footer-sm.png);
     margin-top: 0px;
     padding-top: 0px; }
 
