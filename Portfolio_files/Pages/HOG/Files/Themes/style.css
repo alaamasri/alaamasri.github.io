@@ -442,7 +442,8 @@ h2 {
     color: #c9920e; }
 
   .navbar-nav {
-    border-top: 1px solid black; }
+    border-top: 1px solid black;
+    border-bottom: 0px solid; }
 
   .navbar-collapse {
     margin-bottom: -20px; }
@@ -521,11 +522,11 @@ h2 {
     font-size: 36px; }
 
   .links {
-    margin-bottom: 40px; }
+    margin-bottom: 20px; }
 
   .contact-us {
     margin-bottom: 50px;
-    font-size: 32px; }
+    font-size: 26px; }
 
   .footer {
     font-size: 12px;
