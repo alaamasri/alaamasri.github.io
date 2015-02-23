@@ -14,6 +14,9 @@ html {
   max-width: 6000px;
   margin: 0 auto; }
 
+a:focus {
+  outline: none; }
+
 .logo a {
   overflow: hidden;
   margin: 50px auto;
@@ -210,7 +213,7 @@ h2 {
     opacity: 0; }
   .login .checkbox label {
     padding: 0 0 0 20px;
-    font-size: 16px;
+    font-size: 13px;
     font-family: "Open Sans", sans-serif; }
     .login .checkbox label:before {
       content: '';
@@ -419,7 +422,8 @@ h2 {
 
   .itmam {
     display: inline-block;
-    margin-top: 10px; } }
+    margin-top: 10px;
+    width: 100%; } }
 @media only screen and (max-width: 767px) {
   .logo a {
     width: 150px;
@@ -503,7 +507,8 @@ h2 {
 
   .itmam {
     display: inline-block;
-    margin-top: 10px; } }
+    margin-top: 10px;
+    width: 100%; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -530,7 +535,7 @@ h2 {
 
   .footer {
     font-size: 12px;
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
     .footer .footer-links {
       margin-bottom: 50px; }
       .footer .footer-links a {
