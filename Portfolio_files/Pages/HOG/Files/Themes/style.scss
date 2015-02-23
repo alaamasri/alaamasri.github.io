@@ -20,7 +20,9 @@ color:$textColor;
 	max-width: 6000px;
 	margin: 0 auto;
 }
-a:focus{outline:none;}
+a:focus {
+	outline: none;
+}
 .logo a {
 	overflow: hidden;
 	margin: 50px auto;
@@ -346,11 +348,11 @@ color:$textColor;
 }
 span {
 .itmam {
-
-img{
-	margin: -10px 0 0 30px;
-	max-width: 187px;
-	}
+ margin-left:30px;
+img {
+ margin: -10px 0 0 10px;
+ max-width: 100px;
+}
 }
 }
 }
@@ -461,7 +463,11 @@ label {
 	padding: 2px 0 0 16px;
 	font-size: 14px;
 }
-.itmam{display:inline-block;margin-top:10px;width:100%;}
+.itmam {
+	display: inline-block;
+	margin-top: 10px;
+	width: 100%;
+}
 }
 
 @media only screen and (max-width: 767px) {
@@ -487,7 +493,7 @@ color: $mainColor;
 }
 .navbar-nav {
 border-top:1px solid $background;
-border-bottom:0px solid;
+	border-bottom: 0px solid;
 }
 .navbar-collapse {
 	margin-bottom: -20px;
@@ -551,8 +557,21 @@ padding-bottom: 10px;
 .contact-us {
 	margin-bottom: 130px;
 }
-.itmam{display:inline-block;margin-top:10px;width:100%;}
+.footer {
+span {
+.itmam {
+ display: inline-block;
+ margin-top: 10px;
+ margin-left: 0px;
+ width: 100%;
+ img {
+ max-width: 70px;
 }
+}
+}
+}
+}
+
 @media only screen and (max-width: 480px) {
 .logo a {
 	width: 120px;
@@ -578,11 +597,14 @@ h2 {
 	font-size: 26px;
 }
 .footer {
-	font-size: 12px;
+	font-size: 11px;
+	padding-right: 0px;
+	padding-left: 0px;
 	margin-bottom: 10px;
  .footer-links {
- margin-bottom:50px;
+ margin-bottom:60px;
  a {
+ font-size:12px;
  margin-right: 0px;
 display: block;
 margin-bottom: 10px;

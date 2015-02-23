@@ -313,9 +313,11 @@ h2 {
     margin-right: 20px;
     -webkit-transition: all .3s;
     transition: all .3s; }
-  .footer span .itmam img {
-    margin: -10px 0 0 30px;
-    max-width: 187px; }
+  .footer span .itmam {
+    margin-left: 30px; }
+    .footer span .itmam img {
+      margin: -10px 0 0 10px;
+      max-width: 100px; }
 
 .dropdown-menu {
   position: absolute;
@@ -505,10 +507,13 @@ h2 {
   .contact-us {
     margin-bottom: 130px; }
 
-  .itmam {
+  .footer span .itmam {
     display: inline-block;
     margin-top: 10px;
-    width: 100%; } }
+    margin-left: 0px;
+    width: 100%; }
+    .footer span .itmam img {
+      max-width: 70px; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -534,11 +539,14 @@ h2 {
     font-size: 26px; }
 
   .footer {
-    font-size: 12px;
+    font-size: 11px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-bottom: 10px; }
     .footer .footer-links {
-      margin-bottom: 50px; }
+      margin-bottom: 60px; }
       .footer .footer-links a {
+        font-size: 12px;
         margin-right: 0px;
         display: block;
         margin-bottom: 10px; }
