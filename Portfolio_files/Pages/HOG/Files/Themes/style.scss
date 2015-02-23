@@ -343,7 +343,7 @@ margin-bottom:10px;
 }
 a {
 color:$textColor;
-	margin-right: 20px;
+	padding-right: 20px;
 	transition: all .3s;
 }
 span {
@@ -413,6 +413,63 @@ img {
 	background-image: none;
  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+/* Rally Page*/
+.rally-header {
+	padding: 50px 5%;
+a {
+ overflow: hidden;
+ max-width: 620px;
+ display: inline-block;
+ img {
+max-width:100%;
+}
+}
+.rally-logo {
+	width: 60%;
+	float: left;
+	text-align: left;
+	margin-top: 25px;
+}
+.HOG-logo {
+	width: 30%;
+	float: right;
+	text-align: right;
+}
+}
+.rally-main {
+	text-align: center;
+ a {
+ font-size:48px;
+ color:$textColor;
+ border:4px solid $mainColor;
+ padding:30px;
+ text-align:center;
+ width:48%;
+ max-width:350px;
+ display:inline-block;
+ margin-bottom:30px;
+ transition:all .3s;
+ &:hover {
+border-color:$textColor;
+text-decoration:none;
+}
+ &:active {
+transform:scale(.9, .9);
+}
+&:focus {
+text-decoration:none;
+}
+}
+a:nth-child(even) {
+	margin-left: 28px;
+}
+}
+.rally-footer {
+	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
+	padding-top: 320px;
+}
+
+/* Regular res CSS End*/
 
 /*============================*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -467,6 +524,13 @@ label {
 	display: inline-block;
 	margin-top: 10px;
 	width: 100%;
+}
+.rally-footer {
+	margin-top: 0px;
+	padding-top: 300px;
+}
+.rally-main a {
+	max-width: 300px;
 }
 }
 
@@ -570,6 +634,18 @@ span {
 }
 }
 }
+/* Rally Page*/
+
+.rally-main {
+ a {
+ font-size:32px;
+ padding:18px;
+ max-width:185px;
+}
+}
+.rally-footer {
+	margin-top: 40px;
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -632,5 +708,26 @@ font-size:28px;
 }
 #slider {
 	margin-bottom: 40px;
+}
+.rally-header {
+	padding: 20px 5%;
+	.rally-logo{margin-top:10px;}
+}
+.rally-main {
+ a {
+ border-width:2px;
+ font-size:22px;
+ padding:12px;
+ margin-bottom:15px;
+ max-width:130px;
+ &:nth-child(even) {
+margin-left:13px;
+}
+}
+}
+.rally-footer {
+	margin-top: 30px;
+	padding-top: 110px;
+	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
 }
 }
