@@ -314,7 +314,7 @@ h2 {
     -webkit-transition: all .3s;
     transition: all .3s; }
   .footer span .itmam {
-    margin-left: 30px; }
+    padding-left: 30px; }
     .footer span .itmam img {
       margin: -10px 0 0 10px;
       max-width: 100px; }
@@ -510,7 +510,7 @@ h2 {
   .footer span .itmam {
     display: inline-block;
     margin-top: 10px;
-    margin-left: 0px;
+    padding-left: 0px;
     width: 100%; }
     .footer span .itmam img {
       max-width: 70px; } }
@@ -544,7 +544,7 @@ h2 {
     padding-left: 0px;
     margin-bottom: 10px; }
     .footer .footer-links {
-      margin-bottom: 60px; }
+      margin-bottom: 70px; }
       .footer .footer-links a {
         font-size: 12px;
         margin-right: 0px;
