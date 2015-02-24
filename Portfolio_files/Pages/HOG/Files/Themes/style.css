@@ -426,6 +426,59 @@ h2 {
   background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
   padding-top: 320px; }
 
+/* Registration Page */
+.rally-reg .left-side {
+  padding-top: 57px;
+  text-align: center; }
+.rally-reg h2 {
+  color: white;
+  margin-bottom: 50px; }
+.rally-reg .right-side input, .rally-reg .right-side button, .rally-reg .left-side input, .rally-reg .left-side button {
+  color: #c9920e;
+  border: 3px solid #c9920e;
+  background: transparent;
+  font-size: 38px;
+  padding: 7px 10px;
+  margin-bottom: 30px;
+  width: 100%; }
+.rally-reg .right-side button, .rally-reg .left-side button {
+  -webkit-transition: .2s all;
+  transition: .2s all;
+  float: right;
+  width: 40%; }
+  .rally-reg .right-side button:hover, .rally-reg .left-side button:hover {
+    opacity: .8;
+    text-decoration: underline; }
+  .rally-reg .right-side button:active, .rally-reg .left-side button:active {
+    -webkit-transform: scale(0.9, 0.9);
+    -ms-transform: scale(0.9, 0.9);
+    transform: scale(0.9, 0.9); }
+.rally-reg img {
+  margin-bottom: 30px;
+  border: 3px solid #c9920e;
+  border-radius: 50%;
+  max-width: 41%; }
+.rally-reg .right-side div {
+  padding-left: 9%;
+  position: relative; }
+  .rally-reg .right-side div:before {
+    background: url(../../Images/reg-icons.png) no-repeat 0 4px;
+    content: '';
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    left: 30px; }
+  .rally-reg .right-side div div:before {
+    display: none; }
+.rally-reg .right-side .input-email:before {
+  background-position: 0 -101px; }
+.rally-reg .right-side .input-password:before {
+  background-position: 0 -187px; }
+.rally-reg .right-side .input-confirm-password:before {
+  background-position: 0 -283px; }
+.rally-reg .right-side .input-number:before {
+  background-position: 0 -378px; }
+
 /* Regular res CSS End*/
 /*============================*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -482,7 +535,15 @@ h2 {
     padding-top: 300px; }
 
   .rally-main a {
-    max-width: 300px; } }
+    max-width: 300px; }
+
+  .rally-reg .right-side div {
+    padding-left: 13%; }
+    .rally-reg .right-side div:before {
+      width: 13%; }
+
+  .rally-reg .left-side {
+    padding-top: 127px; } }
 @media only screen and (max-width: 767px) {
   .logo a {
     width: 150px;
@@ -579,7 +640,15 @@ h2 {
     max-width: 185px; }
 
   .rally-footer {
-    margin-top: 40px; } }
+    margin-top: 40px; }
+
+  .rally-reg h2 {
+    margin-bottom: 0px; }
+  .rally-reg .right-side div {
+    padding-left: 6.7%; }
+    .rally-reg .right-side div:before {
+      left: 0px;
+      width: 13%; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -653,6 +722,25 @@ h2 {
   .rally-footer {
     margin-top: 30px;
     padding-top: 110px;
-    background: url(../../Images/rally-footer-bg.png) no-repeat center bottom; } }
+    background: url(../../Images/rally-footer-bg.png) no-repeat center bottom; }
+
+  .rally-reg .right-side div {
+    padding-left: 12%; }
+    .rally-reg .right-side div:before {
+      width: 22%;
+      -webkit-background-size: 45px;
+      background-size: 45px;
+      background-position: 0 4px;
+      max-height: 51px; }
+  .rally-reg .right-side input, .rally-reg .right-side button {
+    font-size: 32px; }
+  .rally-reg .right-side .input-email:before {
+    background-position: 0 -86px; }
+  .rally-reg .right-side .input-password:before {
+    background-position: 0 -163px; }
+  .rally-reg .right-side .input-confirm-password:before {
+    background-position: 0 -249px; }
+  .rally-reg .right-side .input-number:before {
+    background-position: 0 -332px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -468,9 +468,78 @@ a:nth-child(even) {
 	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
 	padding-top: 320px;
 }
+/* Registration Page */
+
+.rally-reg {
+ .left-side {
+ padding-top:57px;
+text-align:center;
+}
+h2 {
+color:$textColor;
+	margin-bottom: 50px;
+}
+.right-side, .left-side {
+input, button {
+ color:$mainColor;
+ border:3px solid $mainColor;
+ background: transparent;
+ font-size: 38px;
+ padding: 7px 10px;
+ margin-bottom: 30px;
+ width: 100%;
+}
+button {
+	transition: .2s all;
+	float: right;
+	width: 40%;
+ &:hover {
+opacity:.8;
+text-decoration:underline;
+}
+ &:active {
+transform:scale(.9, .9)
+}
+}
+}
+img {
+	margin-bottom: 30px;
+ border:3px solid $mainColor;
+	border-radius: 50%;
+	max-width: 41%;
+}
+.right-side {
+div {
+ padding-left:9%;
+ position:relative;
+ &:before {
+background: url(../../Images/reg-icons.png) no-repeat 0 4px;
+ content:'';
+ height:100%;
+ width:10%;
+ position:absolute;
+ left:30px;
+}
+ div:before {
+display:none;
+}
+}
+.input-email:before {
+	background-position: 0 -101px;
+}
+.input-password:before {
+	background-position: 0 -187px;
+}
+.input-confirm-password:before {
+	background-position: 0 -283px;
+}
+.input-number:before {
+	background-position: 0 -378px;
+}
+}
+}
 
 /* Regular res CSS End*/
-
 /*============================*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 .navbar-default .navbar-nav > li > a {
@@ -532,6 +601,15 @@ label {
 .rally-main a {
 	max-width: 300px;
 }
+.rally-reg .right-side {
+div {
+ padding-left:13%;
+ &:before {
+ width:13%;
+}
+}
+}
+.rally-reg .left-side {padding-top:127px;}
 }
 
 @media only screen and (max-width: 767px) {
@@ -646,6 +724,20 @@ span {
 .rally-footer {
 	margin-top: 40px;
 }
+.rally-reg {
+h2 {
+margin-bottom:0px;
+}
+.right-side {
+div {
+ padding-left:6.7%;
+ &:before {
+left:0px;
+width:13%;
+}
+}
+}
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -711,7 +803,9 @@ font-size:28px;
 }
 .rally-header {
 	padding: 20px 5%;
-	.rally-logo{margin-top:10px;}
+ .rally-logo {
+margin-top:10px;
+}
 }
 .rally-main {
  a {
@@ -729,5 +823,34 @@ margin-left:13px;
 	margin-top: 30px;
 	padding-top: 110px;
 	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
+}
+.rally-reg {
+.right-side {
+div {
+ padding-left:12%;
+&:before {
+ width: 22%;
+ background-size:45px;
+ background-position:0 4px;
+ max-height:51px;
+}
+}
+input, button {
+font-size:32px;
+}
+.input-email:before {
+	background-position: 0 -86px;
+}
+.input-password:before {
+	background-position: 0 -163px;
+}
+.input-confirm-password:before {
+	background-position: 0 -249px;
+}
+.input-number:before {
+	background-position: 0 -332px;
+}
+}
+
 }
 }
