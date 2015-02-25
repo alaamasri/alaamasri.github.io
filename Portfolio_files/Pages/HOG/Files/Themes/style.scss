@@ -11,6 +11,8 @@
  $textColor:#ffffff;
  $mainColor:#c9920e;
  $textFont:'Open Sans', sans-serif;
+ $h2Color:$textColor;
+ $h2Bottom:35px;
 html {
 	font-family: 'alegre_sansregular';
  background-color: $background;
@@ -47,7 +49,7 @@ max-width:100%;
 .navbar-default .navbar-nav > li > a {
  color: $textColor;
 	font-size: 30px;
-	padding: 0 30px 33px;
+	padding: 0 28px 33px;
 	text-transform: uppercase;
 	transition: border .5s, color .3s;
 }
@@ -188,10 +190,10 @@ h2 {
 	padding-right: 30px;
 	text-align: justify;
  h2:first-child {
- margin:0 0 35px 0;
+ margin:0 0 $h2Bottom 0;
 }
 p {
-	font-family: 'Open Sans', sans-serif;
+ font-family: $textFont;
 	margin: 0 0 20px 0;
 }
 .highlighted {
@@ -318,7 +320,7 @@ img {
 	text-transform: uppercase;
 	margin-bottom: 150px;
  h2 {
-color:$textColor;
+color:$h2Color;
 }
 a {
 color:$textColor;
@@ -332,8 +334,11 @@ color:$textColor;
 	padding-top: 125px;
 	margin-bottom: -4px;
 }
+.footerBackgroundOther {
+	padding-top: 380px;
+}
 .footer {
-	font-family: 'Open Sans', sans-serif;
+ font-family: $textFont;
 	text-align: center;
  color:$textColor;
 	font-size: 16px;
@@ -476,7 +481,7 @@ a:nth-child(even) {
 text-align:center;
 }
 h2 {
-color:$textColor;
+color:$h2Color;
 	margin-bottom: 50px;
 }
 .right-side, .left-side {
@@ -538,9 +543,162 @@ display:none;
 }
 }
 }
+.photo-gallery {
+ h2 {
+ color:$h2Color;
+margin:0 0 $h2Bottom 0;
+}
+.gallery-category {
+ color:$textColor;
+	display: inline-block;
+	width: 46%;
+ .highlighted {
+color:$mainColor;
+}
+ &:hover, &:focus, &:active {
+text-decoration:none;
+}
+&:hover img {
+opacity:.8;
+}
+&:hover p span {
+text-decoration:underline;
+}
+img {
+	float: left;
+	max-width: 175px;
+	margin-right: 16px;
+	transition: opacity .3s;
+}
+h3 {
+	font-size: 30px;
+	margin: 5px 0;
+}
+p {
+font-family:$textFont;
+	text-align: justify;
+}
+}
+.gallery-category:nth-child(odd) {
+	margin-left: 4%;
+	margin-bottom: 3%;
+}
+}
+/* Inner Gallery */
+.inner-gallery {
+	overflow: hidden;
+ h3 {
+font-size:32px;
+color:$mainColor;
+}
+p.description {
+font-family:$textFont;
+	text-align: justify;
+}
+.dg-container {
+	width: 100%;
+	height: 450px;
+	position: relative;
+}
+.dg-wrapper {
+	width: 80%;
+	max-width: 480px;
+	height: 316px;
+	margin: 0 auto;
+	position: relative;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	-o-perspective: 1000px;
+	-ms-perspective: 1000px;
+	perspective: 1000px;
+}
+.dg-wrapper a {
+	width: 100%;
+	height: 316px;
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;/*	cursor:zoom-in;*/
+	
+}
+.dg-wrapper a.dg-transition {
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+.dg-wrapper a img {
+	display: block;
+	padding: 41px 0px 0px 1px;
+	max-width: 100%;
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.3);
+}
+.dg-wrapper a div {
+	font-style: italic;
+	text-align: center;
+	line-height: 50px;
+	color: #333;
+	font-size: 16px;
+	width: 100%;
+	bottom: -55px;
+	display: none;
+	position: absolute;
+}
+.dg-wrapper a.dg-center div {
+	display: block;
+}
+.dg-container nav {
+	width: 100%;
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	left: 0px;
+}
+.dg-container nav span {
+	text-indent: -9000px;
+	display: block;
+	cursor: pointer;
+	width: 26px;
+	height: 44px;
+	position: absolute;
+	opacity: 0.8;
+	top: 0;
+	right: 0px;
+	transform: translateY(-100%);
+	transition: opacity .3s;
+	background: url(../../Images/arrows.png) no-repeat 0 0;
+}
+.dg-container nav span:hover {
+	opacity: 1;
+}
+.dg-container nav span.dg-prev {
+	background-position: 0 bottom;
+	left: 0px;
+}
+}
 
 /* Regular res CSS End*/
 /*============================*/
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+.photo-gallery {
+ .gallery-category {
+ h3 {
+font-size:24px;
+}
+p {
+ font-size: 14px;
+}
+}
+}
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 .navbar-default .navbar-nav > li > a {
 	font-size: 25px;
@@ -609,7 +767,40 @@ div {
 }
 }
 }
-.rally-reg .left-side {padding-top:127px;}
+.rally-reg .left-side {
+	padding-top: 127px;
+}
+.footerBackgroundOther {
+	padding-top: 380px;
+}
+}
+
+@media only screen and (max-width: 991px) {
+.photo-gallery {
+	position: relative;
+	z-index: 2;
+	margin-bottom: 80px;
+ .gallery-category {
+display: block;
+float: left;
+width: 100%;
+margin: 0 0 15px 0;
+padding-bottom: 15px;
+border-bottom: 1px dashed $mainColor;
+ h3 {
+font-size:24px;
+}
+ p {
+font-size:14px;
+}
+ img {
+max-width:150px;
+}
+}
+.gallery-category:nth-child(odd) {
+	margin-left: 0px;
+}
+}
 }
 
 @media only screen and (max-width: 767px) {
@@ -738,6 +929,11 @@ width:13%;
 }
 }
 }
+/* Photo Gallery Page */
+
+.footerBackgroundOther {
+	padding-top: 380px;
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -775,6 +971,7 @@ h2 {
  font-size:12px;
  margin-right: 0px;
 display: block;
+padding-right:0px;
 margin-bottom: 10px;
 }
 span {
@@ -839,18 +1036,52 @@ input, button {
 font-size:32px;
 }
 .input-email:before {
-	background-position: 0 -86px;
+ background-position: 0 -86px;
 }
 .input-password:before {
-	background-position: 0 -163px;
+ background-position: 0 -163px;
 }
 .input-confirm-password:before {
-	background-position: 0 -249px;
+ background-position: 0 -249px;
 }
 .input-number:before {
-	background-position: 0 -332px;
+ background-position: 0 -332px;
 }
+}
+}
+.photo-gallery {
+	margin-bottom: 50px;
+ .gallery-category {
+ text-align:center;
+margin: 0 0 15px 0;
+border-bottom: 0px dashed $mainColor;
+ h3 {
+font-size:26px;
+clear:both;
+margin:15px 0 0 0;
+}
+ p {
+display:none;
+}
+ img {
+max-width:90%;
+float:none;
+margin:0px;
+}
+}
+}
+.inner-gallery{
+	margin-bottom:-130px;
+.dg-container nav {
+	top:30%;
+}
+.dg-container nav span {
+width: 19px;
+height: 32px;
+background-size:18px !important;
 }
 
+.dg-container nav span.dg-prev {
+}
 }
 }

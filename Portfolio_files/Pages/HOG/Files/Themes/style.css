@@ -40,7 +40,7 @@ a:focus {
 .navbar-default .navbar-nav > li > a {
   color: white;
   font-size: 30px;
-  padding: 0 30px 33px;
+  padding: 0 28px 33px;
   text-transform: uppercase;
   -webkit-transition: border .5s, color .3s;
   transition: border .5s, color .3s; }
@@ -173,7 +173,7 @@ h2 {
   .main-content h2:first-child {
     margin: 0 0 35px 0; }
   .main-content p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0 0 20px 0; }
   .main-content .highlighted {
     color: #c9920e; }
@@ -300,8 +300,11 @@ h2 {
   padding-top: 125px;
   margin-bottom: -4px; }
 
+.footerBackgroundOther {
+  padding-top: 380px; }
+
 .footer {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-align: center;
   color: white;
   font-size: 16px;
@@ -479,8 +482,128 @@ h2 {
 .rally-reg .right-side .input-number:before {
   background-position: 0 -378px; }
 
+.photo-gallery h2 {
+  color: white;
+  margin: 0 0 35px 0; }
+.photo-gallery .gallery-category {
+  color: white;
+  display: inline-block;
+  width: 46%; }
+  .photo-gallery .gallery-category .highlighted {
+    color: #c9920e; }
+  .photo-gallery .gallery-category:hover, .photo-gallery .gallery-category:focus, .photo-gallery .gallery-category:active {
+    text-decoration: none; }
+  .photo-gallery .gallery-category:hover img {
+    opacity: .8; }
+  .photo-gallery .gallery-category:hover p span {
+    text-decoration: underline; }
+  .photo-gallery .gallery-category img {
+    float: left;
+    max-width: 175px;
+    margin-right: 16px;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s; }
+  .photo-gallery .gallery-category h3 {
+    font-size: 30px;
+    margin: 5px 0; }
+  .photo-gallery .gallery-category p {
+    font-family: "Open Sans", sans-serif;
+    text-align: justify; }
+.photo-gallery .gallery-category:nth-child(odd) {
+  margin-left: 4%;
+  margin-bottom: 3%; }
+
+/* Inner Gallery */
+.inner-gallery {
+  overflow: hidden; }
+  .inner-gallery h3 {
+    font-size: 32px;
+    color: #c9920e; }
+  .inner-gallery p.description {
+    font-family: "Open Sans", sans-serif;
+    text-align: justify; }
+  .inner-gallery .dg-container {
+    width: 100%;
+    height: 450px;
+    position: relative; }
+  .inner-gallery .dg-wrapper {
+    width: 80%;
+    max-width: 480px;
+    height: 316px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+    -o-perspective: 1000px;
+    -ms-perspective: 1000px;
+    perspective: 1000px; }
+  .inner-gallery .dg-wrapper a {
+    width: 100%;
+    height: 316px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*	cursor:zoom-in;*/ }
+  .inner-gallery .dg-wrapper a.dg-transition {
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+  .inner-gallery .dg-wrapper a img {
+    display: block;
+    padding: 41px 0px 0px 1px;
+    max-width: 100%;
+    -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); }
+  .inner-gallery .dg-wrapper a div {
+    font-style: italic;
+    text-align: center;
+    line-height: 50px;
+    color: #333;
+    font-size: 16px;
+    width: 100%;
+    bottom: -55px;
+    display: none;
+    position: absolute; }
+  .inner-gallery .dg-wrapper a.dg-center div {
+    display: block; }
+  .inner-gallery .dg-container nav {
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 0px; }
+  .inner-gallery .dg-container nav span {
+    text-indent: -9000px;
+    display: block;
+    cursor: pointer;
+    width: 26px;
+    height: 44px;
+    position: absolute;
+    opacity: 0.8;
+    top: 0;
+    right: 0px;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    background: url(../../Images/arrows.png) no-repeat 0 0; }
+  .inner-gallery .dg-container nav span:hover {
+    opacity: 1; }
+  .inner-gallery .dg-container nav span.dg-prev {
+    background-position: 0 bottom;
+    left: 0px; }
+
 /* Regular res CSS End*/
 /*============================*/
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .photo-gallery .gallery-category h3 {
+    font-size: 24px; }
+  .photo-gallery .gallery-category p {
+    font-size: 14px; } }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .navbar-default .navbar-nav > li > a {
     font-size: 25px;
@@ -543,7 +666,30 @@ h2 {
       width: 13%; }
 
   .rally-reg .left-side {
-    padding-top: 127px; } }
+    padding-top: 127px; }
+
+  .footerBackgroundOther {
+    padding-top: 380px; } }
+@media only screen and (max-width: 991px) {
+  .photo-gallery {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 80px; }
+    .photo-gallery .gallery-category {
+      display: block;
+      float: left;
+      width: 100%;
+      margin: 0 0 15px 0;
+      padding-bottom: 15px;
+      border-bottom: 1px dashed #c9920e; }
+      .photo-gallery .gallery-category h3 {
+        font-size: 24px; }
+      .photo-gallery .gallery-category p {
+        font-size: 14px; }
+      .photo-gallery .gallery-category img {
+        max-width: 150px; }
+    .photo-gallery .gallery-category:nth-child(odd) {
+      margin-left: 0px; } }
 @media only screen and (max-width: 767px) {
   .logo a {
     width: 150px;
@@ -648,7 +794,11 @@ h2 {
     padding-left: 6.7%; }
     .rally-reg .right-side div:before {
       left: 0px;
-      width: 13%; } }
+      width: 13%; }
+
+  /* Photo Gallery Page */
+  .footerBackgroundOther {
+    padding-top: 380px; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -684,6 +834,7 @@ h2 {
         font-size: 12px;
         margin-right: 0px;
         display: block;
+        padding-right: 0px;
         margin-bottom: 10px; }
       .footer .footer-links span {
         font-size: 9px; }
@@ -741,6 +892,33 @@ h2 {
   .rally-reg .right-side .input-confirm-password:before {
     background-position: 0 -249px; }
   .rally-reg .right-side .input-number:before {
-    background-position: 0 -332px; } }
+    background-position: 0 -332px; }
+
+  .photo-gallery {
+    margin-bottom: 50px; }
+    .photo-gallery .gallery-category {
+      text-align: center;
+      margin: 0 0 15px 0;
+      border-bottom: 0px dashed #c9920e; }
+      .photo-gallery .gallery-category h3 {
+        font-size: 26px;
+        clear: both;
+        margin: 15px 0 0 0; }
+      .photo-gallery .gallery-category p {
+        display: none; }
+      .photo-gallery .gallery-category img {
+        max-width: 90%;
+        float: none;
+        margin: 0px; }
+
+  .inner-gallery {
+    margin-bottom: -130px; }
+    .inner-gallery .dg-container nav {
+      top: 30%; }
+    .inner-gallery .dg-container nav span {
+      width: 19px;
+      height: 32px;
+      -webkit-background-size: 18px !important;
+      background-size: 18px !important; } }
 
 /*# sourceMappingURL=style.css.map */
