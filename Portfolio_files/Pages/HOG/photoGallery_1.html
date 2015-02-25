@@ -35,7 +35,19 @@
                 $(this).carousel('next');
             });
 
+
+
             $('#dg-container').gallery();
+
+            
+            $("#dg-container").swipeleft(function () {
+                $("#dg-container .dg-next").click();
+            });
+
+            $("#dg-container").swiperight(function () {
+                $("#dg-container .dg-prev").click();
+            });
+
 
             //$('.dg-wrapper a').nivoLightbox({
             //    effect: 'fadeScale',                             // The effect to use when showing the lightbox
@@ -45,6 +57,24 @@
             //});
 
         }); /*== Document ready== */
+
+        $(document).keydown(function (e) {
+            switch (e.which) {
+                case 37: $("#dg-container .dg-prev").click();
+                    break;
+
+                case 38: // up
+                    break;
+
+                case 39: $("#dg-container .dg-next").click();
+                    break;
+
+
+                default: return;
+            }
+            e.preventDefault();
+        }); /* KeyDown End*/
+
     </script>
     <!--<script src="./Files/jquery.form-validator.min.js"></script> If we need Valadation later -->
 </head>
