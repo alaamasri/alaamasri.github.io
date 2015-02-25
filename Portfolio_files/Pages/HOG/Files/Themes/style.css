@@ -195,7 +195,7 @@ h2 {
 .login h2 {
   margin-bottom: 33px; }
 .login input[type="text"], .login input[type="password"] {
-  color: #c9920e;
+  color: white;
   border: 3px solid #c9920e;
   background: transparent;
   font-size: 38px;
@@ -440,10 +440,12 @@ h2 {
   color: #c9920e;
   border: 3px solid #c9920e;
   background: transparent;
-  font-size: 38px;
-  padding: 7px 10px;
+  font-size: 34px;
+  padding: 8px 10px;
   margin-bottom: 30px;
   width: 100%; }
+.rally-reg .right-side input, .rally-reg .left-side input {
+  color: white; }
 .rally-reg .right-side button, .rally-reg .left-side button {
   -webkit-transition: .2s all;
   transition: .2s all;
@@ -524,7 +526,8 @@ h2 {
     text-align: justify; }
   .inner-gallery .dg-container {
     width: 100%;
-    height: 450px;
+    height: auto;
+    padding-bottom: 110px;
     position: relative; }
   .inner-gallery .dg-wrapper {
     width: 80%;
@@ -597,6 +600,22 @@ h2 {
     background-position: 0 bottom;
     left: 0px; }
 
+.officers h2 {
+  color: white;
+  margin-bottom: 35px; }
+.officers .officer-item {
+  text-align: center;
+  margin-bottom: 30px; }
+  .officers .officer-item h3 {
+    font-size: 32px;
+    margin-bottom: 0px; }
+  .officers .officer-item h4 {
+    color: #c9920e;
+    font-size: 28px;
+    margin-top: 0px; }
+  .officers .officer-item img {
+    max-width: 100%; }
+
 /* Regular res CSS End*/
 /*============================*/
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -667,6 +686,9 @@ h2 {
 
   .rally-reg .left-side {
     padding-top: 127px; }
+
+  .officers .officer-item img {
+    max-width: 90%; }
 
   .footerBackgroundOther {
     padding-top: 380px; } }
@@ -796,7 +818,15 @@ h2 {
       left: 0px;
       width: 13%; }
 
-  /* Photo Gallery Page */
+  .officers .officer-item h3 {
+    font-size: 28px;
+    margin-top: 10px; }
+  .officers .officer-item h4 {
+    font-size: 26px; }
+
+  .dg-container {
+    padding-bottom: 50px; }
+
   .footerBackgroundOther {
     padding-top: 380px; } }
 @media only screen and (max-width: 480px) {
@@ -919,6 +949,14 @@ h2 {
       width: 19px;
       height: 32px;
       -webkit-background-size: 18px !important;
-      background-size: 18px !important; } }
+      background-size: 18px !important; }
+
+  .officers .officer-item {
+    width: 100%; }
+    .officers .officer-item img {
+      max-width: 80%; }
+
+  .dg-container {
+    padding-bottom: 80px; } }
 
 /*# sourceMappingURL=style.css.map */

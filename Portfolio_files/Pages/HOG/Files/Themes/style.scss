@@ -219,7 +219,7 @@ h2 {
 margin-bottom:33px;
 }
 input[type="text"], input[type="password"] {
- color:$mainColor;
+ color:$textColor;
  border:3px solid $mainColor;
 	background: transparent;
 	font-size: 38px;
@@ -489,11 +489,13 @@ input, button {
  color:$mainColor;
  border:3px solid $mainColor;
  background: transparent;
- font-size: 38px;
- padding: 7px 10px;
+ font-size: 34px;
+ padding: 8px 10px;
  margin-bottom: 30px;
  width: 100%;
 }
+input{color:$textColor;}
+
 button {
 	transition: .2s all;
 	float: right;
@@ -597,7 +599,8 @@ font-family:$textFont;
 }
 .dg-container {
 	width: 100%;
-	height: 450px;
+	height: auto;
+	padding-bottom:110px;
 	position: relative;
 }
 .dg-wrapper {
@@ -624,7 +627,6 @@ font-family:$textFont;
 	position: absolute;
 	left: 0;
 	top: 0;/*	cursor:zoom-in;*/
-	
 }
 .dg-wrapper a.dg-transition {
 	-webkit-transition: all 0.5s ease-in-out;
@@ -680,6 +682,26 @@ font-family:$textFont;
 .dg-container nav span.dg-prev {
 	background-position: 0 bottom;
 	left: 0px;
+}
+}
+.officers {
+ h2 {
+ color:$textColor;
+ margin-bottom:$h2Bottom;
+}
+.officer-item {
+	text-align: center;
+		 margin-bottom:30px;
+ h3 {
+font-size:32px;
+margin-bottom:0px;
+}
+h4 {
+color:$mainColor;
+	font-size: 28px;
+	margin-top:0px;
+}
+img{max-width:100%;}
 }
 }
 
@@ -770,6 +792,8 @@ div {
 .rally-reg .left-side {
 	padding-top: 127px;
 }
+.officers .officer-item img{max-width:90%;}
+
 .footerBackgroundOther {
 	padding-top: 380px;
 }
@@ -929,8 +953,21 @@ width:13%;
 }
 }
 }
-/* Photo Gallery Page */
 
+.officers {
+
+.officer-item {
+ h3 {
+font-size:28px;
+margin-top:10px;
+}
+h4 {
+	font-size: 26px;
+}
+
+}
+}
+.dg-container {padding-bottom:50px;}
 .footerBackgroundOther {
 	padding-top: 380px;
 }
@@ -1070,18 +1107,27 @@ margin:0px;
 }
 }
 }
-.inner-gallery{
-	margin-bottom:-130px;
+.inner-gallery {
+	margin-bottom: -130px;
 .dg-container nav {
-	top:30%;
+ top:30%;
 }
 .dg-container nav span {
-width: 19px;
-height: 32px;
-background-size:18px !important;
+	width: 19px;
+	height: 32px;
+	background-size: 18px !important;
 }
-
 .dg-container nav span.dg-prev {
 }
 }
+
+.officers {
+
+.officer-item {
+	width:100%;
+ img{max-width:80%;}
+
+}
+}
+.dg-container {padding-bottom:80px;}
 }
