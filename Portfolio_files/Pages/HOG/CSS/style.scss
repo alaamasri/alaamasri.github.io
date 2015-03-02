@@ -166,16 +166,16 @@ color: $mainColor !important;
 background: rgba($mainColor, .75);
 	width: 850px;
 	text-align: center;
-	max-height: 240px;
+	max-height: 220px;
 	color: white;
 	text-transform: uppercase;
 	padding-top: 10px;
-	font-size: 46px;
+	font-size: 41px;
 h1 {
-font-size:67px
+font-size:57px
 }
 span {
-	font-size: 40px
+	font-size: 35px
 }
 p {
 	margin: 0;
@@ -189,7 +189,30 @@ h2 {
 .main-content {
 	padding-right: 30px;
 	text-align: justify;
- h2:first-child {
+ a {
+color:$mainColor;
+}
+ul {
+	list-style: none;
+font-family:$textFont;
+	line-height: 28px;
+	padding-left: 15px;
+}
+li {
+	position: relative;
+	padding-left: 10px;
+	text-align: justify;
+ &:before {
+ content:"\25A0";
+ position:absolute;
+ color:$mainColor;
+ top:0px;
+ bottom:0px;
+ margin:auto;
+ left:-10px;
+}
+}
+h2:first-child {
  margin:0 0 $h2Bottom 0;
 }
 p {
@@ -328,7 +351,7 @@ color:$textColor;
 }
 }
 .footerBackground {
-	background: url(../../Images/bg-footer.png) no-repeat center bottom;
+	background: url(../Images/bg-footer.png) no-repeat center bottom;
 	display: inline-block;
 	width: 100%;
 	padding-top: 125px;
@@ -470,7 +493,7 @@ a:nth-child(even) {
 }
 }
 .rally-footer {
-	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
+	background: url(../Images/rally-footer-bg.png) no-repeat center bottom;
 	padding-top: 320px;
 }
 /* Registration Page */
@@ -494,8 +517,9 @@ input, button {
  margin-bottom: 30px;
  width: 100%;
 }
-input{color:$textColor;}
-
+input {
+color:$textColor;
+}
 button {
 	transition: .2s all;
 	float: right;
@@ -520,7 +544,7 @@ div {
  padding-left:9%;
  position:relative;
  &:before {
-background: url(../../Images/reg-icons.png) no-repeat 0 4px;
+background: url(../Images/reg-icons.png) no-repeat 0 4px;
  content:'';
  height:100%;
  width:10%;
@@ -600,7 +624,7 @@ font-family:$textFont;
 .dg-container {
 	width: 100%;
 	height: auto;
-	padding-bottom:110px;
+	padding-bottom: 110px;
 	position: relative;
 }
 .dg-wrapper {
@@ -674,7 +698,7 @@ font-family:$textFont;
 	right: 0px;
 	transform: translateY(-100%);
 	transition: opacity .3s;
-	background: url(../../Images/arrows.png) no-repeat 0 0;
+	background: url(../Images/arrows.png) no-repeat 0 0;
 }
 .dg-container nav span:hover {
 	opacity: 1;
@@ -691,7 +715,7 @@ font-family:$textFont;
 }
 .officer-item {
 	text-align: center;
-		 margin-bottom:30px;
+	margin-bottom: 30px;
  h3 {
 font-size:32px;
 margin-bottom:0px;
@@ -699,9 +723,24 @@ margin-bottom:0px;
 h4 {
 color:$mainColor;
 	font-size: 28px;
-	margin-top:0px;
+	margin-top: 0px;
 }
-img{max-width:100%;}
+img {
+	max-width: 100%;
+}
+}
+}
+.officers.main-content {
+ .officers2010 {
+max-width:60%;
+margin-bottom:30px;
+}
+ul li {
+	text-align: center;
+	padding-left: 0px;
+&:before {
+display:none;
+}
 }
 }
 
@@ -746,7 +785,7 @@ color: $mainColor;
 font-size:26px;
 }
 h1 {
-	font-size: 46px;
+	font-size: 40px;
 	margin: 10px 0;
 }
 }
@@ -792,8 +831,9 @@ div {
 .rally-reg .left-side {
 	padding-top: 127px;
 }
-.officers .officer-item img{max-width:90%;}
-
+.officers .officer-item img {
+	max-width: 90%;
+}
 .footerBackgroundOther {
 	padding-top: 380px;
 }
@@ -953,21 +993,20 @@ width:13%;
 }
 }
 }
-
 .officers {
-
-.officer-item {
+ .officer-item {
  h3 {
 font-size:28px;
 margin-top:10px;
 }
 h4 {
-	font-size: 26px;
-}
-
+ font-size: 26px;
 }
 }
-.dg-container {padding-bottom:50px;}
+}
+.dg-container {
+	padding-bottom: 50px;
+}
 .footerBackgroundOther {
 	padding-top: 380px;
 }
@@ -1017,7 +1056,7 @@ font-size:9px;
 }
 }
 .footerBackground {
-	background-image: url(../../Images/bg-footer-sm.png);
+	background-image: url(../Images/bg-footer-sm.png);
 	margin-top: 0px;
 	padding-top: 0px;
 }
@@ -1056,7 +1095,7 @@ margin-left:13px;
 .rally-footer {
 	margin-top: 30px;
 	padding-top: 110px;
-	background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
+	background: url(../Images/rally-footer-bg.png) no-repeat center bottom;
 }
 .rally-reg {
 .right-side {
@@ -1120,14 +1159,32 @@ margin:0px;
 .dg-container nav span.dg-prev {
 }
 }
-
 .officers {
-
-.officer-item {
-	width:100%;
- img{max-width:80%;}
-
+ .officer-item {
+ width:100%;
+ img {
+max-width:80%;
 }
 }
-.dg-container {padding-bottom:80px;}
+}
+.dg-container {
+	padding-bottom: 80px;
+}
+.officers.main-content {
+ .officers2010 {
+max-width:90%;
+margin-bottom:15px;
+}
+ul li {
+	font-size: 14px;
+}
+}
+.main-content {
+li {
+font-size: 14px;
+line-height: 22px;
+margin-bottom: 10px;
+padding-left:6px;
+}
+}
 }

@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./Files/Themes/bootstrap.css" rel="stylesheet">
-    <link href="./Files/Themes/style.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/bootstrap.css" rel="stylesheet">
+    <link href="./CSS/style.css" rel="stylesheet" type="text/css">
     <title>
         HOG Website
     </title>
@@ -31,7 +31,49 @@
 
         }); /*== Document ready== */
     </script>
-    <!--<script src="./Files/jquery.form-validator.min.js"></script> If we need Valadation later -->
+    <!--Height Issue Fix-->
+    <script>
+        equalheight = function (container) {
+
+            var currentTallest = 0,
+                 currentRowStart = 0,
+                 rowDivs = new Array(),
+                 $el,
+                 topPosition = 0;
+            $(container).each(function () {
+
+                $el = $(this);
+                $($el).height('auto')
+                topPostion = $el.position().top;
+
+                if (currentRowStart != topPostion) {
+                    for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+                        rowDivs[currentDiv].height(currentTallest);
+                    }
+                    rowDivs.length = 0; // empty the array
+                    currentRowStart = topPostion;
+                    currentTallest = $el.height();
+                    rowDivs.push($el);
+                } else {
+                    rowDivs.push($el);
+                    currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+                }
+                for (currentDiv = 0 ; currentDiv < rowDivs.length ; currentDiv++) {
+                    rowDivs[currentDiv].height(currentTallest);
+                }
+            });
+        }
+
+        $(window).load(function () {
+            equalheight('.officer-item');
+        });
+
+
+        $(window).resize(function () {
+            equalheight('.officer-item');
+        });
+    </script>
+
 </head>
 
 
@@ -39,7 +81,7 @@
     <div class="header container-fluid">
 
         <div class="logo">
-            <a title="home" href="./index.html" target="_self">
+            <a title="home" target="_self" href="./index.html">
                 <img src="Images/logo.png" alt="HOG Home Page" />
             </a>
         </div>
@@ -59,32 +101,42 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left">
                         <li>
-                            <a href="#" title="Home" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home</a>
+                            <a href="./index.html" title="Home" target="_self" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#" title="The H.O.G History">The H.O.G History</a></li>
-                                <li><a href="#" title="Ladies of Harley">Ladies of Harley</a></li>
+                                <li><a href="./HOG_story.html" target="_self" title="The H.O.G History">The H.O.G History</a></li>
+                                <li><a href="./Ladies_of_Harley.html" target="_self" title="Ladies of Harley">Ladies of Harley</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#" title="Officers">Officers</a>
+                            <a href="./committee_2014.html" target="_self" title="Officers" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Officers</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="./director_welcome.html" target="_self" title="H.O.G Jordan Director's Welcome Note' ">Welcome Note From the Director</a></li>
+                                <li><a href="./committee_2014.html" target="_self" title="H.O.G Jordan 2014 Committee">2014 Committee</a></li>
+                                <li><a href="./committee_2013.html" target="_self" title="H.O.G Jordan 2013 Committee">2013 Committee</a></li>
+                                <li><a href="./committee_2013.html" target="_self" title="H.O.G Jordan 2012 Committee">2012 Committee</a></li>
+                                <li><a href="./committee_2011.html" target="_self" title="H.O.G Jordan 2011 Committee">2011 Committee</a></li>
+                                <li><a href="./committee_2010.html" target="_self" title="H.O.G Jordan 2010 Committee">2010 Committee</a></li>
+
+                            </ul>
+
                         </li>
 
                         <li>
-                            <a href="#" title="Events">Events</a>
+                            <a href="./timeline.html" target="_self" title="Events">Events</a>
                         </li>
                         <li>
-                            <a href="#" title="Rides">Rides</a>
-                        </li>
-
-                        <li>
-                            <a href="#" title="Media Center">Media Center</a>
+                            <a href="./rides.html" target="_self" title="Rides">Rides</a>
                         </li>
 
                         <li>
-                            <a href="#" title="Home">Membership</a>
+                            <a href="./photoGallery.html" target="_self" title="Media Center">Media Center</a>
+                        </li>
+
+                        <li>
+                            <a href="./membership.html" target="_self" title="Home">Membership</a>
                         </li>
                         <li>
-                            <a href="#" title="Officers">Contact Us</a>
+                            <a href="./contactUs.html" target="_self" title="Officers">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -148,35 +200,73 @@
         </h2>
 
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/SamerQadi.jpg" alt="HOG Jordan Director" />
+            <h3>Samer Al-Qadi</h3>
+            <h4>Director</h4>
         </div>
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/rabia.jpg" alt="HOG Jordan Assistant Director" />
+            <h3>Rabia Nuqul</h3>
+            <h4>Assistant Director/Newsletter Officer</h4>
         </div>
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/yousif.jpg" alt="HOG Jordan Secretary / Legal Advisor" />
+            <h3>Yousef Khalilieh</h3>
+            <h4>Secretary / Legal Advisor</h4>
         </div>
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/jawad.jpg" alt="HOG Jordan Treasurer" />
+            <h3>Jawad Naber</h3>
+            <h4>Treasurer</h4>
         </div>
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/claude.jpg" alt="HOG Jordan Safety Officer" />
+            <h3>Claude Abry</h3>
+            <h4>Safety Officer</h4>
         </div>
         <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
-            <img src="Images/Thumb/abd.jpg" alt="HOG Jordan Officer" />
-            <h3>Abdulrahman Abu Issa</h3>
-            <h4>Officer</h4>
+            <img src="Images/Thumb/Officers/samer2.jpg" alt="HOG Jordan Head Road Captain" />
+            <h3>Samer Hassouneh</h3>
+            <h4>Head Road Captain</h4>
         </div>
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/rajaai.jpg" alt="HOG Jordan Membership Officer" />
+            <h3>Rajai Yaghnam</h3>
+            <h4>Membership Officer</h4>
+        </div>
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/randaShallan.jpg" alt="HOG Jordan Ladies of Harley Officer" />
+            <h3>Randa Shalan</h3>
+            <h4>Ladies of Harley Officer</h4>
+        </div>
+
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/raad.jpg" alt="HOG Jordan Webmaster / Historian" />
+            <h3>Ra'ed Al Natsheh</h3>
+            <h4>Webmaster / Historian</h4>
+        </div>
+
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/waleedNas.jpg" alt="HOG Jordan Activities Officer" />
+            <h3>Walid Nassar</h3>
+            <h4>Activities Officer</h4>
+        </div>
+
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/abrar.jpg" alt="HOG Jordan Photographer" />
+            <h3>Abrar Asfour</h3>
+            <h4>Photographer</h4>
+        </div>
+
+        <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+            <img src="Images/Thumb/Officers/johnyNuqol.jpg" alt="HOG MENA Director" />
+            <h3>Johnny Nuqul</h3>
+            <h4>MENA Director</h4>
+        </div>
+
+
+
+
     </div>
 
     <div class="footerBackground footerBackgroundOther">

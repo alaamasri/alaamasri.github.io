@@ -150,15 +150,15 @@ a:focus {
   background: rgba(201, 146, 14, 0.75);
   width: 850px;
   text-align: center;
-  max-height: 240px;
+  max-height: 220px;
   color: white;
   text-transform: uppercase;
   padding-top: 10px;
-  font-size: 46px; }
+  font-size: 41px; }
   #slider .caption h1 {
-    font-size: 67px; }
+    font-size: 57px; }
   #slider .caption span {
-    font-size: 40px; }
+    font-size: 35px; }
   #slider .caption p {
     margin: 0; }
 
@@ -170,6 +170,25 @@ h2 {
 .main-content {
   padding-right: 30px;
   text-align: justify; }
+  .main-content a {
+    color: #c9920e; }
+  .main-content ul {
+    list-style: none;
+    font-family: "Open Sans", sans-serif;
+    line-height: 28px;
+    padding-left: 15px; }
+  .main-content li {
+    position: relative;
+    padding-left: 10px;
+    text-align: justify; }
+    .main-content li:before {
+      content: "\25A0";
+      position: absolute;
+      color: #c9920e;
+      top: 0px;
+      bottom: 0px;
+      margin: auto;
+      left: -10px; }
   .main-content h2:first-child {
     margin: 0 0 35px 0; }
   .main-content p {
@@ -294,7 +313,7 @@ h2 {
     transition: all .3s; }
 
 .footerBackground {
-  background: url(../../Images/bg-footer.png) no-repeat center bottom;
+  background: url(../Images/bg-footer.png) no-repeat center bottom;
   display: inline-block;
   width: 100%;
   padding-top: 125px;
@@ -426,7 +445,7 @@ h2 {
     margin-left: 28px; }
 
 .rally-footer {
-  background: url(../../Images/rally-footer-bg.png) no-repeat center bottom;
+  background: url(../Images/rally-footer-bg.png) no-repeat center bottom;
   padding-top: 320px; }
 
 /* Registration Page */
@@ -467,7 +486,7 @@ h2 {
   padding-left: 9%;
   position: relative; }
   .rally-reg .right-side div:before {
-    background: url(../../Images/reg-icons.png) no-repeat 0 4px;
+    background: url(../Images/reg-icons.png) no-repeat 0 4px;
     content: '';
     height: 100%;
     width: 10%;
@@ -593,7 +612,7 @@ h2 {
     transform: translateY(-100%);
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
-    background: url(../../Images/arrows.png) no-repeat 0 0; }
+    background: url(../Images/arrows.png) no-repeat 0 0; }
   .inner-gallery .dg-container nav span:hover {
     opacity: 1; }
   .inner-gallery .dg-container nav span.dg-prev {
@@ -615,6 +634,15 @@ h2 {
     margin-top: 0px; }
   .officers .officer-item img {
     max-width: 100%; }
+
+.officers.main-content .officers2010 {
+  max-width: 60%;
+  margin-bottom: 30px; }
+.officers.main-content ul li {
+  text-align: center;
+  padding-left: 0px; }
+  .officers.main-content ul li:before {
+    display: none; }
 
 /* Regular res CSS End*/
 /*============================*/
@@ -647,7 +675,7 @@ h2 {
     #slider .caption span {
       font-size: 26px; }
     #slider .caption h1 {
-      font-size: 46px;
+      font-size: 40px;
       margin: 10px 0; }
 
   .dropdown-menu {
@@ -870,7 +898,7 @@ h2 {
         font-size: 9px; }
 
   .footerBackground {
-    background-image: url(../../Images/bg-footer-sm.png);
+    background-image: url(../Images/bg-footer-sm.png);
     margin-top: 0px;
     padding-top: 0px; }
 
@@ -903,7 +931,7 @@ h2 {
   .rally-footer {
     margin-top: 30px;
     padding-top: 110px;
-    background: url(../../Images/rally-footer-bg.png) no-repeat center bottom; }
+    background: url(../Images/rally-footer-bg.png) no-repeat center bottom; }
 
   .rally-reg .right-side div {
     padding-left: 12%; }
@@ -957,6 +985,18 @@ h2 {
       max-width: 80%; }
 
   .dg-container {
-    padding-bottom: 80px; } }
+    padding-bottom: 80px; }
+
+  .officers.main-content .officers2010 {
+    max-width: 90%;
+    margin-bottom: 15px; }
+  .officers.main-content ul li {
+    font-size: 14px; }
+
+  .main-content li {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    padding-left: 6px; } }
 
 /*# sourceMappingURL=style.css.map */
