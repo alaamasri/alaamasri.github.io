@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="./CSS/bootstrap.css" rel="stylesheet">
-    <!--<link href="./Files/Themes/NivoLightboxTheme/nivo-lightbox.css" rel="stylesheet" type="text/css">-->
+    <link href="./CSS/NivoLightboxTheme/nivo-lightbox.css" rel="stylesheet" type="text/css">
     <link href="./CSS/style.css" rel="stylesheet" type="text/css">
     <title>
         HOG Website
@@ -15,7 +15,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="./Scripts/modernizr.js"></script>
     <script src="./Scripts/jquery.gallery.js"></script>
-    <!--<script src="./Files/nivo-lightbox.min.js"></script>-->
+    <script src="./Scripts/nivo-lightbox.min.js"></script>
     <script>
 
         $(document).ready(function () {
@@ -49,12 +49,12 @@
             });
 
 
-            //$('.dg-wrapper a').nivoLightbox({
-            //    effect: 'fadeScale',                             // The effect to use when showing the lightbox
-            //    theme: 'default',                           // The lightbox theme to use
-            //    keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
-            //    clickOverlayToClose: true,
-            //});
+            $('.dg-wrapper a').nivoLightbox({
+                effect: 'fadeScale',                             // The effect to use when showing the lightbox
+                theme: 'default',                           // The lightbox theme to use
+                keyboardNav: true,                          // Enable/Disable keyboard navigation (left/right/escape)
+                clickOverlayToClose: true,
+            });
 
         }); /*== Document ready== */
 
@@ -106,19 +106,26 @@
                         <li>
                             <a href="./index.html" title="Home" target="_self" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Home</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="./HOG_story.html" target="_self" title="The H.O.G History">The H.O.G History</a></li>
+                                <li><a href="./HOG_story.html" target="_self" title="The H.O.G.®  History">The H.O.G.<sup>®</sup>
+                 History</a></li>
                                 <li><a href="./Ladies_of_Harley.html" target="_self" title="Ladies of Harley">Ladies of Harley</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="./committee_2014.html" target="_self" title="Officers" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Officers</a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="./director_welcome.html" target="_self" title="H.O.G Jordan Director's Welcome Note' ">Welcome Note From the Director</a></li>
-                                <li><a href="./committee_2014.html" target="_self" title="H.O.G Jordan 2014 Committee">2014 Committee</a></li>
-                                <li><a href="./committee_2013.html" target="_self" title="H.O.G Jordan 2013 Committee">2013 Committee</a></li>
-                                <li><a href="./committee_2013.html" target="_self" title="H.O.G Jordan 2012 Committee">2012 Committee</a></li>
-                                <li><a href="./committee_2011.html" target="_self" title="H.O.G Jordan 2011 Committee">2011 Committee</a></li>
-                                <li><a href="./committee_2010.html" target="_self" title="H.O.G Jordan 2010 Committee">2010 Committee</a></li>
+                                <li><a href="./director_welcome.html" target="_self" title="H.O.G.®
+                 Jordan Director's Welcome Note' ">Welcome Note From the Director</a></li>                                                             <li><a href="./committee_2015.html" target="_self" title="H.O.G.®
+                 Jordan 2015 Committee">2015 Committee</a></li>                                <li><a href="./committee_2014.html" target="_self" title="H.O.G.®
+                 Jordan 2014 Committee">2014 Committee</a></li>
+                                <li><a href="./committee_2013.html" target="_self" title="H.O.G.®
+                 Jordan 2013 Committee">2013 Committee</a></li>
+                                <li><a href="./committee_2013.html" target="_self" title="H.O.G.®
+                 Jordan 2012 Committee">2012 Committee</a></li>
+                                <li><a href="./committee_2011.html" target="_self" title="H.O.G.®
+                 Jordan 2011 Committee">2011 Committee</a></li>
+                                <li><a href="./committee_2010.html" target="_self" title="H.O.G.®
+                 Jordan 2010 Committee">2010 Committee</a></li>
 
                             </ul>
 
@@ -211,7 +218,9 @@
                 <a href="Images/Large/2.jpg" data-lightbox-gallery="gallery1"><img src="Images/Large/2.jpg" alt="image02"></a>
                 <a href="Images/Large/3.jpg" data-lightbox-gallery="gallery1"><img src="Images/Large/3.jpg" alt="image03"></a>
                 <a href="Images/Large/4.jpg" data-lightbox-gallery="gallery1"><img src="Images/Large/4.jpg" alt="image04"></a>
+            
             </div>
+
             <nav>
                 <span class="dg-prev">&lt;</span>
                 <span class="dg-next">&gt;</span>
@@ -222,12 +231,12 @@
     <div class="footerBackground footerBackgroundOther">
         <div class="col-xs-12 col-md-12 footer">
             <div class="footer-links">
-                <a href="#" title="Online Privacy Statement">Online Privacy Statement</a>
-                <a href="#" title="Event / Ride Disclaimer">Event / Ride Disclaimer</a>
-                <a href="#" title="Sitemap">Sitemap</a>
+                <a target="_self" href="./Privacy.html" title="Online Privacy Statement">Online Privacy Statement</a>
+                <a target="_self" href="./Event_Ride_Disclaimer.html" title="Event / Ride Disclaimer">Event / Ride Disclaimer</a>
+                
             </div>
-            <span>
-                Copyright © 2015 H.O.G Jordan . All Rights Reserved
+            <span>© Copyright 2015 H.O.G.<sup>®</sup> Jordan. All Rights Reserved 
+                
                 <a class="itmam" href="http://www.itmam.com/" target="_blank" title="Powered by ITMAM">powered & designed by<img src="Images/itmam.png" alt="Powered by ITMAM" /></a>
             </span>
         </div>

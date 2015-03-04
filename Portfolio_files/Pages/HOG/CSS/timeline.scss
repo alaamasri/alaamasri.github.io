@@ -106,15 +106,17 @@ color:$textColor;
 }
 .cd-timeline-img img {
 	display: block;
-	width: 24px;
-	display: none;
-	height: 24px;
-	position: relative;
-	left: 50%;
-	top: 50%;
-	margin-left: -12px;
-	margin-top: -12px;
+	width: 70%;
+	height: 70%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom:0px;
+	right:0px;
+	margin:auto;
 }
+.cd-timeline-img .dinner{width:60%;height:60%;}
+.cd-timeline-img .event{width:50%;height:50%;}
 .cd-timeline-img.cd-picture {
  background: $background;
 }

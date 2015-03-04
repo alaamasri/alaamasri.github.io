@@ -568,6 +568,7 @@ h2 {
     display: block;
     position: absolute;
     left: 0;
+    cursor: default;
     top: 0;
     /*	cursor:zoom-in;*/ }
   .inner-gallery .dg-wrapper a.dg-transition {
@@ -643,6 +644,12 @@ h2 {
   padding-left: 0px; }
   .officers.main-content ul li:before {
     display: none; }
+
+.highlitedTitle {
+  color: #c9920e; }
+
+.inner-gallery .highlitedTitle {
+  color: white; }
 
 /* Regular res CSS End*/
 /*============================*/

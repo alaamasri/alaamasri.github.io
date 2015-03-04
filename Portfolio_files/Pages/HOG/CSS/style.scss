@@ -650,6 +650,7 @@ font-family:$textFont;
 	display: block;
 	position: absolute;
 	left: 0;
+	cursor:default;
 	top: 0;/*	cursor:zoom-in;*/
 }
 .dg-wrapper a.dg-transition {
@@ -743,6 +744,8 @@ display:none;
 }
 }
 }
+.highlitedTitle{color:$mainColor;}
+.inner-gallery .highlitedTitle{color:$textColor;}
 
 /* Regular res CSS End*/
 /*============================*/
