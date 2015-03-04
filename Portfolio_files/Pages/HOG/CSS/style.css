@@ -655,6 +655,13 @@ h2 {
 .inner-gallery .highlitedTitle {
   color: white; }
 
+.rally-main p {
+  font-size: 50px;
+  padding: 100px 0; }
+
+sup {
+  color: #c9942b; }
+
 /* Regular res CSS End*/
 /*============================*/
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -867,7 +874,11 @@ h2 {
     padding-bottom: 50px; }
 
   .footerBackgroundOther {
-    padding-top: 380px; } }
+    padding-top: 380px; }
+
+  .rally-main p {
+    font-size: 30px;
+    padding: 30px 20px; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;

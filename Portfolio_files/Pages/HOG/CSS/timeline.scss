@@ -115,6 +115,12 @@ color:$textColor;
 	right:0px;
 	margin:auto;
 }
+.cd-timeline-img.timeline-end {
+width: 30px;
+height: 30px;
+margin-left: -15px;
+background:$mainColor !important;
+}
 .cd-timeline-img .dinner{width:60%;height:60%;}
 .cd-timeline-img .event{width:50%;height:50%;}
 .cd-timeline-img.cd-picture {
@@ -137,6 +143,7 @@ color:$textColor;
 	-webkit-transform: translateZ(0);
 	-webkit-backface-visibility: hidden;
 }
+
 .cssanimations .cd-timeline-img.is-hidden {
 	visibility: hidden;
 }
@@ -429,5 +436,12 @@ color:$textColor;
  -ms-transform: translateX(0);
  -o-transform: translateX(0);
  transform: translateX(0);
+}
+}
+
+@media only screen and (max-width: 1169px) {
+
+.cd-timeline-img.timeline-end {
+margin-left: 5px;
 }
 }

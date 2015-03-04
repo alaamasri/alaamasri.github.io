@@ -98,6 +98,12 @@ Main components
   right: 0px;
   margin: auto; }
 
+.cd-timeline-img.timeline-end {
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  background: #c9942b !important; }
+
 .cd-timeline-img .dinner {
   width: 60%;
   height: 60%; }
@@ -390,3 +396,6 @@ Main components
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0); } }
+@media only screen and (max-width: 1169px) {
+  .cd-timeline-img.timeline-end {
+    margin-left: 5px; } }
