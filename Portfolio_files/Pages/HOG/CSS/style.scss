@@ -9,7 +9,7 @@
 }
  $background:#000000;
  $textColor:#ffffff;
- $mainColor:#c9920e;
+ $mainColor:#C9942B;
  $textFont:'Open Sans', sans-serif;
  $h2Color:$textColor;
  $h2Bottom:35px;
@@ -711,6 +711,10 @@ font-family:$textFont;
 }
 }
 .officers {
+p{
+	margin-bottom:45px;
+	font-family:$textFont;
+}
  h2 {
  color:$textColor;
  margin-bottom:$h2Bottom;
