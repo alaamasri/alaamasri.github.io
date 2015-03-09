@@ -7,9 +7,9 @@
   font-style: normal; }
 html {
   font-family: 'alegre_sansregular';
-  background-color: black;
+  background-color: #000000;
   font-weight: 400;
-  color: white;
+  color: #ffffff;
   min-width: 283px;
   max-width: 6000px;
   margin: 0 auto; }
@@ -31,25 +31,25 @@ a:focus {
   text-align: center; }
 
 .navbar-default {
-  background-color: black; }
+  background-color: #000000; }
 
 .navbar-default .navbar-nav > li {
   float: none;
   display: inline-block; }
 
 .navbar-default .navbar-nav > li > a {
-  color: white;
+  color: #ffffff;
   font-size: 30px;
   padding: 0 28px 33px;
   text-transform: uppercase;
   -webkit-transition: border .5s, color .3s;
-  transition: border .5s, color .3s; }
+          transition: border .5s, color .3s; }
 
 .navbar-default .navbar-nav > li > a:hover {
-  color: #c9942b !important; }
+  color: #C9942B !important; }
 
 .navbar-default .navbar-nav > li.open > a {
-  color: #c9942b !important; }
+  color: #C9942B !important; }
 
 .navbar-default .navbar-nav > li:first-child > a:before {
   display: none; }
@@ -66,18 +66,18 @@ a:focus {
   border-color: transparent; }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-  background-color: black; }
+  background-color: #000000; }
 
 .navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: #c9942b; }
+  background-color: #C9942B; }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #c9942b; }
+  background-color: #C9942B; }
 
 .carousel-fade .carousel-inner .item {
   opacity: 0;
   -webkit-transition-property: opacity;
-  transition-property: opacity; }
+          transition-property: opacity; }
 .carousel-fade .carousel-inner .active {
   opacity: 1; }
 .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
@@ -107,10 +107,10 @@ a:focus {
   height: 14px;
   text-indent: -999px;
   cursor: pointer;
-  background-color: #c9942b;
+  background-color: #C9942B;
   border-radius: 50%;
   -webkit-transition: all .3s;
-  transition: all .3s; }
+          transition: all .3s; }
 
 .carousel-indicators li:hover {
   opacity: .8; }
@@ -124,11 +124,11 @@ a:focus {
   margin: 0 10px 0px 0px; }
 
 #slider .carousel-indicators .active {
-  border: 1px solid black; }
+  border: 1px solid #000000; }
 
 .carousel:after, .carousel:before {
   position: absolute;
-  color: #c9942b;
+  color: #C9942B;
   line-height: 0;
   font-size: 150px; }
 
@@ -163,7 +163,7 @@ a:focus {
     margin: 0; }
 
 h2 {
-  color: #c9942b;
+  color: #C9942B;
   font-size: 42px;
   text-transform: uppercase; }
 
@@ -171,7 +171,7 @@ h2 {
   padding-right: 30px;
   text-align: justify; }
   .main-content a {
-    color: #c9942b; }
+    color: #C9942B; }
   .main-content ul {
     list-style: none;
     font-family: "Open Sans", sans-serif;
@@ -184,7 +184,7 @@ h2 {
     .main-content li:before {
       content: "\25A0";
       position: absolute;
-      color: #c9942b;
+      color: #C9942B;
       top: 0px;
       bottom: 0px;
       margin: auto;
@@ -195,7 +195,7 @@ h2 {
     font-family: "Open Sans", sans-serif;
     margin: 0 0 20px 0; }
   .main-content .highlighted {
-    color: #c9942b; }
+    color: #C9942B; }
 
 .login h2 {
   margin: 0 0 0 0; }
@@ -204,8 +204,8 @@ h2 {
   display: none; }
 
 .button {
-  color: #c9942b;
-  border: 3px solid #c9942b;
+  color: #C9942B;
+  border: 3px solid #C9942B;
   background: transparent;
   font-size: 38px;
   padding: 7px 10px;
@@ -214,8 +214,8 @@ h2 {
 .login h2 {
   margin-bottom: 33px; }
 .login input[type="text"], .login input[type="password"] {
-  color: white;
-  border: 3px solid #c9942b;
+  color: #ffffff;
+  border: 3px solid #C9942B;
   background: transparent;
   font-size: 38px;
   padding: 7px 10px;
@@ -234,7 +234,7 @@ h2 {
     padding: 0 0 0 20px;
     font-size: 13px;
     font-family: "Open Sans", sans-serif;
-    color: #c9942b; }
+    color: #C9942B; }
     .login .checkbox label:before {
       content: '';
       position: absolute;
@@ -242,8 +242,8 @@ h2 {
       left: 0;
       width: 24px;
       height: 24px;
-      background-color: black;
-      border: 3px solid #c9942b; }
+      background-color: #000000;
+      border: 3px solid #C9942B; }
     .login .checkbox label:after {
       content: '';
       position: absolute;
@@ -252,66 +252,66 @@ h2 {
       width: 12px;
       height: 12px;
       opacity: 0;
-      background-color: #c9942b;
-      border: 2px solid #c9942b;
+      background-color: #C9942B;
+      border: 2px solid #C9942B;
       -webkit-transition: all .3s;
-      transition: all .3s; }
+              transition: all .3s; }
 .login label.ui-checkbox-on:after {
   opacity: 1; }
 .login .button {
   float: right;
   -webkit-transition: all .3s;
-  transition: all .3s; }
+          transition: all .3s; }
   .login .button:hover {
     opacity: .8;
     text-decoration: underline; }
   .login .button:active {
     -webkit-transform: scale(0.9, 0.9);
-    -ms-transform: scale(0.9, 0.9);
-    transform: scale(0.9, 0.9); }
+        -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9); }
 
 /*login*/
 ::-webkit-input-placeholder {
-  color: #c9942b; }
+  color: #C9942B; }
 
 :-moz-placeholder {
   /* Firefox 18- */
-  color: #c9942b; }
+  color: #C9942B; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
-  color: #c9942b; }
+  color: #C9942B; }
 
 :-ms-input-placeholder {
-  color: #c9942b; }
+  color: #C9942B; }
 
 .links {
   margin-top: 37px; }
   .links a {
     -webkit-transition: opacity .5s, -webkit-transform .3s;
-    transition: opacity .5s, transform .3s;
+            transition: opacity .5s, transform .3s;
     text-align: center; }
     .links a:hover {
       opacity: .7; }
     .links a:active {
       -webkit-transform: scale(0.9, 0.9);
-      -ms-transform: scale(0.9, 0.9);
-      transform: scale(0.9, 0.9); }
+          -ms-transform: scale(0.9, 0.9);
+              transform: scale(0.9, 0.9); }
   .links img {
     max-width: 100%; }
 
 .contact-us {
   text-align: center;
   font-size: 30px;
-  color: white;
+  color: #ffffff;
   text-transform: uppercase;
   margin-bottom: 150px; }
   .contact-us h2 {
-    color: white; }
+    color: #ffffff; }
   .contact-us a {
-    color: white;
+    color: #ffffff;
     -webkit-transition: all .3s;
-    transition: all .3s; }
+            transition: all .3s; }
 
 .footerBackground {
   background: url(../Images/bg-footer.png) no-repeat center bottom;
@@ -326,16 +326,16 @@ h2 {
 .footer {
   font-family: "Open Sans", sans-serif;
   text-align: center;
-  color: white;
+  color: #ffffff;
   font-size: 16px;
   margin-bottom: 20px; }
   .footer .footer-links {
     margin-bottom: 10px; }
   .footer a {
-    color: white;
+    color: #ffffff;
     padding-right: 20px;
     -webkit-transition: all .3s;
-    transition: all .3s; }
+            transition: all .3s; }
   .footer span .itmam {
     padding-left: 30px; }
     .footer span .itmam img {
@@ -372,17 +372,17 @@ h2 {
   padding: 5px;
   clear: both;
   font-weight: normal;
-  color: white;
+  color: #ffffff;
   white-space: nowrap;
   margin-bottom: 3px;
   background: rgba(201, 148, 43, 0.75);
   -webkit-transition: all .3s;
-  transition: all .3s; }
+          transition: all .3s; }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  color: #c9942b;
+  color: #C9942B;
   text-decoration: none;
-  background-color: black; }
+  background-color: #000000; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   color: #fff;
@@ -423,8 +423,8 @@ h2 {
   text-align: center; }
   .rally-main a {
     font-size: 48px;
-    color: white;
-    border: 4px solid #c9942b;
+    color: #ffffff;
+    border: 4px solid #C9942B;
     padding: 30px;
     text-align: center;
     width: 48%;
@@ -432,14 +432,14 @@ h2 {
     display: inline-block;
     margin-bottom: 30px;
     -webkit-transition: all .3s;
-    transition: all .3s; }
+            transition: all .3s; }
     .rally-main a:hover {
-      border-color: white;
+      border-color: #ffffff;
       text-decoration: none; }
     .rally-main a:active {
       -webkit-transform: scale(0.9, 0.9);
-      -ms-transform: scale(0.9, 0.9);
-      transform: scale(0.9, 0.9); }
+          -ms-transform: scale(0.9, 0.9);
+              transform: scale(0.9, 0.9); }
     .rally-main a:focus {
       text-decoration: none; }
   .rally-main a:nth-child(even) {
@@ -450,25 +450,34 @@ h2 {
   padding-top: 320px; }
 
 /* Registration Page */
-.rally-reg .left-side {
-  padding-top: 57px;
-  text-align: center; }
 .rally-reg h2 {
-  color: white;
+  color: #ffffff;
   margin-bottom: 50px; }
-.rally-reg .right-side input, .rally-reg .right-side button, .rally-reg .left-side input, .rally-reg .left-side button {
-  color: #c9942b;
-  border: 3px solid #c9942b;
+.rally-reg .right-side .reg-input, .rally-reg .left-side .reg-input {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%; }
+  .rally-reg .right-side .reg-input:nth-child(odd), .rally-reg .left-side .reg-input:nth-child(odd) {
+    margin: 0 3% 0px 0; }
+  .rally-reg .right-side .reg-input.multi-inputs :first-child, .rally-reg .left-side .reg-input.multi-inputs :first-child {
+    width: 60%;
+    float: left; }
+  .rally-reg .right-side .reg-input.multi-inputs :last-child, .rally-reg .left-side .reg-input.multi-inputs :last-child {
+    width: 38%;
+    float: right; }
+.rally-reg .right-side input, .rally-reg .right-side button, .rally-reg .right-side select, .rally-reg .left-side input, .rally-reg .left-side button, .rally-reg .left-side select {
+  color: #C9942B;
+  border: 3px solid #C9942B;
   background: transparent;
   font-size: 34px;
   padding: 8px 10px;
   margin-bottom: 30px;
   width: 100%; }
-.rally-reg .right-side input, .rally-reg .left-side input {
-  color: white; }
+.rally-reg .right-side input, .rally-reg .right-side select:focus, .rally-reg .left-side input, .rally-reg .left-side select:focus {
+  color: #ffffff; }
 .rally-reg .right-side button, .rally-reg .left-side button {
   -webkit-transition: .2s all;
-  transition: .2s all;
+          transition: .2s all;
   float: right;
   width: 40%; }
   .rally-reg .right-side button:hover, .rally-reg .left-side button:hover {
@@ -476,43 +485,30 @@ h2 {
     text-decoration: underline; }
   .rally-reg .right-side button:active, .rally-reg .left-side button:active {
     -webkit-transform: scale(0.9, 0.9);
-    -ms-transform: scale(0.9, 0.9);
-    transform: scale(0.9, 0.9); }
+        -ms-transform: scale(0.9, 0.9);
+            transform: scale(0.9, 0.9); }
+.rally-reg .left-side {
+  width: 100%;
+  text-align: center; }
+  .rally-reg .left-side .reg-input {
+    width: 100%; }
+    .rally-reg .left-side .reg-input input {
+      width: 50%; }
 .rally-reg img {
   margin-bottom: 30px;
-  border: 3px solid #c9942b;
+  border: 3px solid #C9942B;
   border-radius: 50%;
   max-width: 41%; }
-.rally-reg .right-side div {
-  padding-left: 9%;
-  position: relative; }
-  .rally-reg .right-side div:before {
-    background: url(../Images/reg-icons.png) no-repeat 0 4px;
-    content: '';
-    height: 100%;
-    width: 10%;
-    position: absolute;
-    left: 30px; }
-  .rally-reg .right-side div div:before {
-    display: none; }
-.rally-reg .right-side .input-email:before {
-  background-position: 0 -101px; }
-.rally-reg .right-side .input-password:before {
-  background-position: 0 -187px; }
-.rally-reg .right-side .input-confirm-password:before {
-  background-position: 0 -283px; }
-.rally-reg .right-side .input-number:before {
-  background-position: 0 -378px; }
 
 .photo-gallery h2 {
-  color: white;
+  color: #ffffff;
   margin: 0 0 35px 0; }
 .photo-gallery .gallery-category {
-  color: white;
+  color: #ffffff;
   display: inline-block;
   width: 46%; }
   .photo-gallery .gallery-category .highlighted {
-    color: #c9942b; }
+    color: #C9942B; }
   .photo-gallery .gallery-category:hover, .photo-gallery .gallery-category:focus, .photo-gallery .gallery-category:active {
     text-decoration: none; }
   .photo-gallery .gallery-category:hover img {
@@ -524,7 +520,7 @@ h2 {
     max-width: 175px;
     margin-right: 16px;
     -webkit-transition: opacity .3s;
-    transition: opacity .3s; }
+            transition: opacity .3s; }
   .photo-gallery .gallery-category h3 {
     font-size: 30px;
     margin: 5px 0; }
@@ -540,7 +536,7 @@ h2 {
   overflow: hidden; }
   .inner-gallery h3 {
     font-size: 32px;
-    color: #c9942b; }
+    color: #C9942B; }
   .inner-gallery p.description {
     font-family: "Open Sans", sans-serif;
     text-align: justify; }
@@ -570,7 +566,7 @@ h2 {
     position: absolute;
     left: 0;
     cursor: default;
-    top: 0;
+    top: 0
     /*	cursor:zoom-in;*/ }
   .inner-gallery .dg-wrapper a.dg-transition {
     -webkit-transition: all 0.5s ease-in-out;
@@ -579,7 +575,6 @@ h2 {
     display: block;
     padding: 41px 0px 0px 1px;
     max-width: 100%;
-    -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); }
   .inner-gallery .dg-wrapper a div {
     font-style: italic;
@@ -610,10 +605,10 @@ h2 {
     top: 0;
     right: 0px;
     -webkit-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
     -webkit-transition: opacity .3s;
-    transition: opacity .3s;
+            transition: opacity .3s;
     background: url(../Images/arrows.png) no-repeat 0 0; }
   .inner-gallery .dg-container nav span:hover {
     opacity: 1; }
@@ -625,7 +620,7 @@ h2 {
   margin-bottom: 45px;
   font-family: "Open Sans", sans-serif; }
 .officers h2 {
-  color: white;
+  color: #ffffff;
   margin-bottom: 35px; }
 .officers .officer-item {
   text-align: center;
@@ -634,7 +629,7 @@ h2 {
     font-size: 32px;
     margin-bottom: 0px; }
   .officers .officer-item h4 {
-    color: #c9942b;
+    color: #C9942B;
     font-size: 28px;
     margin-top: 0px; }
   .officers .officer-item img {
@@ -650,17 +645,17 @@ h2 {
     display: none; }
 
 .highlitedTitle {
-  color: #c9942b; }
+  color: #C9942B; }
 
 .inner-gallery .highlitedTitle {
-  color: white; }
+  color: #ffffff; }
 
 .rally-main p {
   font-size: 50px;
   padding: 100px 0; }
 
 .rally-main .highlighted {
-  color: #c9942b; }
+  color: #C9942B; }
 
 sup {
   font-family: "Open Sans", sans-serif; }
@@ -679,7 +674,7 @@ sup {
     font-weight: normal; }
 
   .navbar-default .navbar-nav > li.open > a {
-    color: #c9942b; }
+    color: #C9942B; }
 
   .logo a {
     width: 184px;
@@ -728,14 +723,6 @@ sup {
   .rally-main a {
     max-width: 300px; }
 
-  .rally-reg .right-side div {
-    padding-left: 13%; }
-    .rally-reg .right-side div:before {
-      width: 13%; }
-
-  .rally-reg .left-side {
-    padding-top: 127px; }
-
   .officers .officer-item img {
     max-width: 90%; }
 
@@ -752,7 +739,7 @@ sup {
       width: 100%;
       margin: 0 0 15px 0;
       padding-bottom: 15px;
-      border-bottom: 1px dashed #c9942b; }
+      border-bottom: 1px dashed #C9942B; }
       .photo-gallery .gallery-category h3 {
         font-size: 24px; }
       .photo-gallery .gallery-category p {
@@ -762,6 +749,19 @@ sup {
     .photo-gallery .gallery-category:nth-child(odd) {
       margin-left: 0px; } }
 @media only screen and (max-width: 767px) {
+  #slider {
+    margin-bottom: 50px; }
+    #slider .caption {
+      padding-top: 5px;
+      width: 450px;
+      max-height: 120px;
+      font-size: 24px; }
+      #slider .caption span {
+        font-size: 22px; }
+      #slider .caption h1 {
+        font-size: 34px;
+        margin: 8px 0; }
+
   .logo a {
     width: 150px;
     margin: 30px auto 40px; }
@@ -780,17 +780,14 @@ sup {
     font-weight: normal; }
 
   .navbar-default .navbar-nav > li.open > a {
-    color: #c9942b; }
+    color: #C9942B; }
 
   .navbar-nav {
-    border-top: 1px solid black;
+    border-top: 1px solid #000000;
     border-bottom: 0px solid; }
 
   .navbar-collapse {
     margin-bottom: -20px; }
-
-  #slider {
-    margin-bottom: 50px; }
 
   .links {
     margin-bottom: 50px; }
@@ -808,31 +805,20 @@ sup {
   .footer {
     font-size: 14px; }
 
-  #slider .caption {
-    padding-top: 5px;
-    width: 450px;
-    max-height: 120px;
-    font-size: 24px; }
-    #slider .caption span {
-      font-size: 22px; }
-    #slider .caption h1 {
-      font-size: 34px;
-      margin: 8px 0; }
-
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: white;
+    color: #ffffff;
     text-align: center;
     background: transparent;
     padding: 5px 0 0; }
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-default .navbar-nav .open .dropdown-menu > li > a:active {
-    color: #c9942b; }
+    color: #C9942B; }
 
   .navbar-nav .open .dropdown-menu {
     margin-top: 10px;
     margin-left: 0px; }
     .navbar-nav .open .dropdown-menu li:last-child {
-      border-bottom: 1px dashed #c9942b;
+      border-bottom: 1px dashed #C9942B;
       padding-bottom: 10px; }
 
   .footerBackground {
@@ -859,14 +845,6 @@ sup {
   .rally-footer {
     margin-top: 40px; }
 
-  .rally-reg h2 {
-    margin-bottom: 0px; }
-  .rally-reg .right-side div {
-    padding-left: 6.7%; }
-    .rally-reg .right-side div:before {
-      left: 0px;
-      width: 13%; }
-
   .officers .officer-item h3 {
     font-size: 28px;
     margin-top: 10px; }
@@ -884,7 +862,12 @@ sup {
     padding: 30px 20px; }
 
   .navbar-default .navbar-nav > li:first-child > a {
-    margin-right: -10px; } }
+    margin-right: -10px; }
+
+  .right-side .reg-input input, .right-side .reg-input select, .right-side .reg-input button, .left-side .reg-input input, .left-side .reg-input select, .left-side .reg-input button {
+    font-size: 22px;
+    border-width: 2px;
+    margin-bottom: 20px; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -930,17 +913,16 @@ sup {
     margin-top: 0px;
     padding-top: 0px; }
 
-  #slider .caption {
-    display: none; }
+  #slider {
+    margin-bottom: 40px; }
+    #slider .caption {
+      display: none; }
 
   .navbar-collapse {
     margin-top: 10px; }
 
   .login input[type="text"], .login input[type="password"], .login button {
     font-size: 28px; }
-
-  #slider {
-    margin-bottom: 40px; }
 
   .rally-header {
     padding: 20px 5%; }
@@ -961,31 +943,15 @@ sup {
     padding-top: 110px;
     background: url(../Images/rally-footer-bg.png) no-repeat center bottom; }
 
-  .rally-reg .right-side div {
-    padding-left: 12%; }
-    .rally-reg .right-side div:before {
-      width: 22%;
-      -webkit-background-size: 45px;
-      background-size: 45px;
-      background-position: 0 4px;
-      max-height: 51px; }
-  .rally-reg .right-side input, .rally-reg .right-side button {
+  .rally-reg input, .rally-reg button {
     font-size: 32px; }
-  .rally-reg .right-side .input-email:before {
-    background-position: 0 -86px; }
-  .rally-reg .right-side .input-password:before {
-    background-position: 0 -163px; }
-  .rally-reg .right-side .input-confirm-password:before {
-    background-position: 0 -249px; }
-  .rally-reg .right-side .input-number:before {
-    background-position: 0 -332px; }
 
   .photo-gallery {
     margin-bottom: 50px; }
     .photo-gallery .gallery-category {
       text-align: center;
       margin: 0 0 15px 0;
-      border-bottom: 0px dashed #c9942b; }
+      border-bottom: 0px dashed #C9942B; }
       .photo-gallery .gallery-category h3 {
         font-size: 26px;
         clear: both;
@@ -1004,7 +970,6 @@ sup {
     .inner-gallery .dg-container nav span {
       width: 19px;
       height: 32px;
-      -webkit-background-size: 18px !important;
       background-size: 18px !important; }
 
   .officers .officer-item {
@@ -1025,6 +990,13 @@ sup {
     font-size: 14px;
     line-height: 22px;
     margin-bottom: 10px;
-    padding-left: 6px; } }
+    padding-left: 6px; }
+
+  .rally-reg .right-side .reg-input, .rally-reg .left-side .reg-input {
+    width: 100%; }
+  .rally-reg .right-side .button, .rally-reg .left-side .button {
+    width: 100%; }
+  .rally-reg .left-side .reg-input input {
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */

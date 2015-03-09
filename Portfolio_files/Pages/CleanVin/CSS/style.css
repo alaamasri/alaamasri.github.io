@@ -286,6 +286,7 @@ h3 {
         border-top-color: #747474; }
 
 .featured {
+  overflow: hidden;
   border-top: 1px solid #eeeeee;
   padding-top: 18px; }
   .featured h3 {
