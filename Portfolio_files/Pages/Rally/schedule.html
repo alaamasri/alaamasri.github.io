@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./CSS/bootstrap.css" rel="stylesheet">
+    <link href="./CSS/style.css" rel="stylesheet" type="text/css">
+    <title>
+        HOG Website
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            /*Preload Mobile onHover*/
+            $('<img alt="" />')[0].src = "./Images/rally1.jpg";
+            $('<img alt="" />')[0].src = "./Images/rally2.jpg";
+
+            /* Slider touch */
+            $("#slider li.active").next().click();
+            $("#slider").swiperight(function () {
+                $(this).carousel('prev');
+            });
+
+            $("#slider").swipeleft(function () {
+                $(this).carousel('next');
+            });
+
+
+
+        }); /*== Document ready== */
+    </script>
+    <!--<script src="./Files/jquery.form-validator.min.js"></script> If we need Valadation later -->
+</head>
+
+
+<body>
+    <div class="header rally-header container-fluid">
+        <a class="rally-logo" title="HOG Rally Home" target="_self" href="./rally.html">
+            <img src="Images/rally-logo.png" alt="HOG Rally Home Page" />
+        </a>
+        <a class="HOG-logo" title="HOG Jordan Home" target="_blank" href="./index.html">
+            <img src="Images/logo.png" alt="HOG Home Page" />
+        </a>
+
+    </div>
+    <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="./Images/rally1.jpg" alt="slide1">
+                <div class="caption">
+                    <h1>love is the feeling you got</h1>
+                    <p>when you like something as much as you motorcycle.</p>
+                    <span>Omar Alzoubi - Member</span>
+                </div>
+            </div>
+        </div>
+        <!-- Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#slider" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Left and right controls -->
+        <!--<a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">previous</span>
+            </a>
+            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">next</span>
+            </a>
+        -->
+    </div>
+    <div class="container main-content rally-content rally-schedule">
+        <h2>Rally Schedule</h2>
+
+        <h3>Thursday 7.5.2015</h3>
+        <div class="table-responsive">
+            <table border="0" cellpadding="0" class="table table-bordered">
+                <tr>
+                    <th>TIME</th>
+                    <th>EVENT</th>
+                    <th>LOCATION</th>
+                </tr>
+                <tr>
+                    <td>10:00 AM -    10:00 PM</td>
+                    <td>Arrival, Registration &amp; Check in</td>
+                    <td>
+                        Radisson Blu Tala Bay Resort
+                        Late arrivals can register    on Friday morning before the ride
+                    </td>
+                </tr>
+                <tr>
+                    <td>04:00 PM onwards</td>
+                    <td>Market Open</td>
+                    <td>Main Area</td>
+                </tr>
+                <tr>
+                    <td>07:30 PM</td>
+                    <td>Launch of the Rally</td>
+                    <td>Main Area</td>
+                </tr>
+                <tr>
+                    <td>08:00 PM onwards</td>
+                    <td>Dinner &amp; Entertainment</td>
+                    <td>Main Area</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Friday 8.5.2015</h3>
+        <div class="table-responsive">
+            <table border="0" cellpadding="0" class="table table-bordered">
+                <tr>
+                    <th>TIME</th>
+                    <th>EVENT</th>
+                    <th>LOCATION</th>
+                </tr>
+                <tr>
+                    <td>06:00 -11:00 AM</td>
+                    <td>Breakfast</td>
+                    <td>Hotel</td>
+                </tr>
+                <tr>
+                    <td>08:00 AM - 05:00 PM</td>
+                    <td>Option 1</td>
+                    <td>Bikes Area- Brief 30 minutes before    ride</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Option 2</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>04:00 PM onwards</td>
+                    <td>Market Open</td>
+                    <td>Main Area</td>
+                </tr>
+                <tr>
+                    <td>08:00 PM onwards</td>
+                    <td>Dinner &amp; Entertainment</td>
+                    <td>Main Area</td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Saturday 9.5.2015</h3>
+        <div class="table-responsive">
+            <table border="0" cellpadding="0" class="table table-bordered">
+                <tr>
+                    <th>TIME</th>
+                    <th>EVENT</th>
+                    <th>LOCATION</th>
+                </tr>
+                <tr>
+                    <td>06:00 -11:00 AM</td>
+                    <td>Breakfast</td>
+                    <td>Hotel</td>
+                </tr>
+                <tr>
+                    <td>08:00 AM - 05:00 PM</td>
+                    <td>Option 1</td>
+                    <td>Bikes Area- Brief 30 minutes before    ride</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Option 2</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>05:00 – 06:00 PM</td>
+                    <td>Parade</td>
+                    <td>Aqaba</td>
+                </tr>
+                <tr>
+                    <td>04:00 PM onwards</td>
+                    <td>Market Open</td>
+                    <td>Main Area</td>
+                </tr>
+                <tr>
+                    <td>08:00 PM onwards</td>
+                    <td>Dinner &amp; Entertainment</td>
+                    <td>Main Area</td>
+                </tr>
+            </table>
+        </div>
+        <h3>Sunday 10.5.2015</h3>
+        <div class="table-responsive">
+            <table border="0" cellpadding="0" class="table table-bordered">
+                <tr>
+                    <th>TIME</th>
+                    <th>EVENT</th>
+                    <th>LOCATION</th>
+                </tr>
+                <tr>
+                    <td>06:00 -11:00 AM</td>
+                    <td>Breakfast</td>
+                    <td>Hotel</td>
+                </tr>
+                <tr>
+                    <td>12:00 Noon</td>
+                    <td>Check-out &amp; End of Rally</td>
+                    <td>Hotel / Main area</td>
+                </tr>
+            </table>
+        </div>
+
+        <p><span class="highlighted">*</span> The above schedule is subject to change as the rally draws near.</p>
+    </div>
+    <div class="footerBackground rally-footer">
+        <div class="col-xs-12 col-md-12 footer">
+            <span>
+                © Copyright 2015 H.O.G.<sup>®</sup> Jordan. All Rights Reserved
+                <a class="itmam" href="http://www.itmam.com/" target="_blank" title="Powered by ITMAM">powered & designed by<img src="Images/itmam.png" alt="Powered by ITMAM" /></a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

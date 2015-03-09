@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./CSS/bootstrap.css" rel="stylesheet">
+    <link href="./CSS/style.css" rel="stylesheet" type="text/css">
+    <title>
+        HOG Website
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            /*Preload Mobile onHover*/
+            $('<img alt="" />')[0].src = "./Images/rally1.jpg";
+            $('<img alt="" />')[0].src = "./Images/rally2.jpg";
+
+            /* Slider touch */
+            $("#slider li.active").next().click();
+            $("#slider").swiperight(function () {
+                $(this).carousel('prev');
+            });
+
+            $("#slider").swipeleft(function () {
+                $(this).carousel('next');
+            });
+
+
+
+        }); /*== Document ready== */
+    </script>
+    <!--<script src="./Files/jquery.form-validator.min.js"></script> If we need Valadation later -->
+</head>
+
+
+<body>
+    <div class="header rally-header container-fluid">
+        <a class="rally-logo" title="HOG Rally Home" target="_self" href="./rally.html">
+            <img src="Images/rally-logo.png" alt="HOG Rally Home Page" />
+        </a>
+        <a class="HOG-logo" title="HOG Jordan Home" target="_blank" href="./index.html">
+            <img src="Images/logo.png" alt="HOG Home Page" />
+        </a>
+
+    </div>
+    <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="./Images/rally1.jpg" alt="slide1">
+                <div class="caption">
+                    <h1>love is the feeling you got</h1>
+                    <p>when you like something as much as you motorcycle.</p>
+                    <span>Omar Alzoubi - Member</span>
+                </div>
+            </div>
+        </div>
+        <!-- Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#slider" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Left and right controls -->
+        <!--<a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">previous</span>
+            </a>
+            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">next</span>
+            </a>
+        -->
+    </div>
+    <div class="container main-content rally-content">
+        <h2>About The Rally</h2>
+        <p>Mark your  calendars… The H.O.G.<sup>®</sup> Kingdom of Jordan Rally 2015 will be taking place during  the period of 7 – 10 May 2015.</p>
+        <p>Harley-Davidson<sup>®</sup>  riders from across the MENA region, Arabian Gulf area, Kingdom of Saudi Arabia,  Europe and the U.S. will be coming to Jordan for this exciting event. </p>
+        <p>This is a  great opportunity for all avid H.O.G.<sup>®</sup>s to explore and discover the southern and  middle terrain of the Hashemite Kingdom of Jordan. </p>
+        <p>The Rally headquarter  will be at the city of Aqaba, Jordan&rsquo;s port on the Red Sea. Our venue is the Radisson  Blu Tala Bay Resort, <a href="http://www.radissonblu.com/resort-aqaba" target="_blank">www.radissonblu.com/resort-aqaba</a></p>
+        <p>Rides will  be arranged over 2 days through the beautiful countryside of Jordan, which is  for sure an open museum featuring breathtaking natural sights, lost treasures and  ancient civilizations at almost every turn. To crown the rally, a grand parade  of H.O.G.<sup>®</sup> riders will thunder through the streets of Aqaba showcasing their  mighty Harleys.</p>
+        <p>During the H.O.G.<sup>®</sup>  Kingdom of Jordan Rally 2015, riders will take part in a variety of fun  activities and challenging rides. The participants will also enjoy the  festivities planned to rock the night away where they can get to savor Jordanian  and International cuisine, buy traditional local handicrafts or just relax and  enjoy the entertainment and music on the shores of the Red Sea. </p>
+        <h3>Contact Us</h3>
+        <p>For any inquiries, please contact our Rally  Coordinators, Mr. Claude Abry at <a href="mailto:Claude@HOGRally2015.com">Claude@HOGRally2015.com</a> or Mr. Walid Nassar at <a href="mailto:Walid@HOGRally2015.com">Walid@HOGRally2015.com</a></p>
+        <h3>Points to Note</h3>
+        <ul>
+            <li> Registration will cover hotel  accommodation at the rally&rsquo;s venue in Aqaba. The Radisson Blu Tala Bay Resort will host all participants  for 3 nights: 7, 8 and 9 May 2015.</li>
+            <li> Transporting the bikes to Aqaba is the  responsibility of the rider.</li>
+            <li> Visa to Jordan can be obtained at the  airport for most nationalities</li>
+            <li> Jordan uses the 220/60 electric system</li>
+            <li> For more information about Jordan  follow the link: <a href="http://www.visitjordan.com/" target="_blank">http://www.visitjordan.com/</a></li>
+        </ul>
+        <div class="rally-note">
+        <h1>Mark Your Calendars !!! Registration will Open on <span class="highlighted">14 March 2015</span></h1>
+        </div>
+
+
+    </div>
+    <div class="footerBackground rally-footer">
+        <div class="col-xs-12 col-md-12 footer">
+            <span>
+                © Copyright 2015 H.O.G.<sup>®</sup> Jordan. All Rights Reserved
+
+                <a class="itmam" href="http://www.itmam.com/" target="_blank" title="Powered by ITMAM">powered & designed by<img src="Images/itmam.png" alt="Powered by ITMAM" /></a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>
