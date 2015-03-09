@@ -674,6 +674,8 @@ sup {
   .rally-content table td {
     -webkit-transition: background .2s;
             transition: background .2s; }
+  .rally-content table th {
+    background: #C9942B; }
   .rally-content table tr:hover td {
     background: #C9942B; }
 .rally-content .bankAccount .highlighted {

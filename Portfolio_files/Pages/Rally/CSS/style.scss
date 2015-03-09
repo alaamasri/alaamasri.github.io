@@ -776,6 +776,7 @@ table {
  td {
 transition:background .2s;
 }
+th{background:$mainColor;}
 tr:hover td {
 background:$mainColor;
 }
