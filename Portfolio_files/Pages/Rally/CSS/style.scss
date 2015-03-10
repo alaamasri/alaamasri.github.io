@@ -505,32 +505,49 @@ color:$h2Color;
  margin-bottom: 50px;
 }
 .right-side, .left-side {
- .reg-input {
- display: inline-block;
- vertical-align:top;
- width: 48%;
+h2 {
+margin:40px 0 30px 0;
+}
+&.rider2, &.rider3 {
+display:none;
+}
+.reg-input {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 48%;
 &:nth-child(odd) {
-margin: 0 3% 0px 0;
+margin: 0 0% 0px 3%;
+}
+span {
+	font-size: 32px;
+	display: block;
+	padding-bottom: 15px;
+sup {
+display:inline;
+}
 }
  &.multi-inputs {
-	  :first-child {
+input:nth-child(2) {
  width:60%;
  float:left;
 }
- :last-child {
+input:last-child {
  width:38%;
  float:right;
 }
 }
 }
 input, button, select {
- color:$mainColor;
+ color:$textColor;
  border:3px solid $mainColor;
 	background: transparent;
 	font-size: 34px;
 	padding: 8px 10px;
 	margin-bottom: 30px;
 	width: 100%;
+}
+button {
+color:$mainColor
 }
 input, select:focus {
 color:$textColor;
@@ -563,6 +580,9 @@ img {
  border:3px solid $mainColor;
 	border-radius: 50%;
 	max-width: 41%;
+}
+.regRadio {
+	text-align: center;
 }
 }
 .photo-gallery {
@@ -762,10 +782,12 @@ font-family:$textFont;
 }
 .rally-content {
  h3 {
-	 text-align:left;
+ text-align:left;
 font-size:30px;
 }
-li{text-align:left;}
+li {
+	text-align: left;
+}
 .rally-note {
 	text-align: center;
 	margin-top: 60px;
@@ -776,21 +798,82 @@ table {
  td {
 transition:background .2s;
 }
-th{background:$mainColor;}
-tr:hover td {
+th {
 background:$mainColor;
 }
+tr:hover td, tr.active td {
+background:rgba($mainColor, .8);
+	cursor: pointer;
 }
+}
+.schedule-group tr:hover td{cursor:default;}
 .bankAccount .highlighted {
 	min-width: 100px;
 	display: inline-block;
 }
 .rides-img {
-	width: 30%;
+	width: 50%;
 	margin: 0 auto 30px;
 	display: block;
 }
-&.rally-schedule table tr td:nth-child(1){white-space:nowrap;}
+ul {
+	padding-left: 35px;
+}
+&.rally-schedule table tr td:nth-child(1) {
+white-space:nowrap;
+}
+.main-content {
+ border-top:1px dashed $textColor;
+	padding-top: 20px;
+ul {
+max-width: 50%;
+display: inline-block;
+float: left;
+font-size:14px;
+}
+.bankAccountContainer {
+ background:$mainColor;
+	float: right;
+ ul {
+max-width:100%;
+padding:0 20px 0 10px;
+}
+.highlighted {
+color:$textColor;
+}
+p {
+	margin: 0 0 0 0;
+	padding: 10px 0 10px 20px;
+}
+}
+}
+}
+.modalPop {
+	position: fixed;
+	top: 0;
+	left: 0;
+ background: rgba($background, .9);
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+.modalContent {
+width: 90%;
+text-align: center;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+height: 50%;
+right: 0;
+margin: auto;
+span {
+font-family:$textFont;
+display:block;
+margin-bottom:10px;
+strong{color:$mainColor;display:block;}
+}
+}
+.close{position:absolute;cursor:pointer;max-width:28px;top:10px;right:10px;opacity:1;}
 }
 
 
@@ -1018,8 +1101,6 @@ span {
 .rally-footer {
 	margin-top: 40px;
 }
-.rally-reg {
-}
 .officers {
  .officer-item {
  h3 {
@@ -1053,6 +1134,53 @@ margin-bottom:20px;
 }
 }
 }
+.rally-reg {
+ .right-side:not(.rally1) h2 {
+margin-top:0px;
+}
+.right-side {
+ .reg-input {
+ width:100%;
+ .button {
+width:100%;
+}
+&:nth-child(odd) {
+margin-left:0px;
+}
+&.empty-input {
+display:none;
+}
+span {
+font-size:28px;
+}
+}
+}
+.main-content {
+	padding-right: 0px;
+ ul {
+max-width:100%;
+clear:left;
+}
+.bankAccountContainer {
+	width: 100%;
+	float: none;
+	margin: 0 auto;
+	overflow: hidden;
+ ul {
+max-width:100%;
+padding:0 20px 0 10px;
+}
+.highlighted {
+color:$textColor;
+}
+p {
+	margin: 0 0 0 0;
+	padding: 10px 0 10px 20px;
+}
+}
+}
+}
+.rally-content .schedule-group tr:hover td{cursor:pointer;}
 }
 
 @media only screen and (max-width: 480px) {
@@ -1209,9 +1337,6 @@ padding-left:6px;
 }
 .rally-reg {
 .right-side, .left-side {
- .reg-input {
-width:100%;
-}
  .button {
 width:100%
 }

@@ -29,7 +29,19 @@
             $("#slider").swipeleft(function () {
                 $(this).carousel('next');
             });
+            $(".table tr:not(:first-child)").click(function () {
+                var close = "<img class='close' src='./Images/close.png' alt='pop close'/>"
+                if ($(window).width()<768) {
+                    var day = "<h2>" + $(this).parents('.schedule-group').find('h3').text() + "</h2>";
+                    var time = "<span><strong>Time</strong> " + $(this).children('td:first-child').text() + "</span>";
+                    var rallyEvent = "<span><strong>Event</strong> " + $(this).children('td:nth-child(2)').text() + "</span>";
+                    var location = "<span><strong>Location</strong> " + $(this).children('td:last-child').text() + "</span>";
 
+                    $('body').append("<div class='modalPop'><div class='modalContent'>" + day + time + rallyEvent + location + "</div>"+close+"</div>");
+                }
+                $(".modalPop .close").click(function () { $('.modalPop').remove(); });
+
+            });
 
 
         }); /*== Document ready== */
@@ -79,135 +91,136 @@
     <div class="container main-content rally-content rally-schedule">
         <h2>Rally Schedule</h2>
 
-        <h3>Thursday 7.5.2015</h3>
-        <div class="table-responsive">
-            <table border="0" cellpadding="0" class="table table-bordered">
-                <tr>
-                    <th>TIME</th>
-                    <th>EVENT</th>
-                    <th>LOCATION</th>
-                </tr>
-                <tr>
-                    <td>10:00 AM -    10:00 PM</td>
-                    <td>Arrival, Registration &amp; Check in</td>
-                    <td>
-                        Radisson Blu Tala Bay Resort
-                        Late arrivals can register    on Friday morning before the ride
-                    </td>
-                </tr>
-                <tr>
-                    <td>04:00 PM onwards</td>
-                    <td>Market Open</td>
-                    <td>Main Area</td>
-                </tr>
-                <tr>
-                    <td>07:30 PM</td>
-                    <td>Launch of the Rally</td>
-                    <td>Main Area</td>
-                </tr>
-                <tr>
-                    <td>08:00 PM onwards</td>
-                    <td>Dinner &amp; Entertainment</td>
-                    <td>Main Area</td>
-                </tr>
-            </table>
+        <div class="schedule-group">
+            <h3>Thursday 7.5.2015</h3>
+            <div class="table-responsive">
+                <table border="0" cellpadding="0" class="table table-bordered">
+                    <tr>
+                        <th>TIME</th>
+                        <th>EVENT</th>
+                        <th>LOCATION</th>
+                    </tr>
+                    <tr>
+                        <td>10:00 AM -    10:00 PM</td>
+                        <td>Arrival, Registration &amp; Check in</td>
+                        <td>
+                            Radisson Blu Tala Bay Resort
+                            Late arrivals can register    on Friday morning before the ride
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>04:00 PM onwards</td>
+                        <td>Market Open</td>
+                        <td>Main Area</td>
+                    </tr>
+                    <tr>
+                        <td>07:30 PM</td>
+                        <td>Launch of the Rally</td>
+                        <td>Main Area</td>
+                    </tr>
+                    <tr>
+                        <td>08:00 PM onwards</td>
+                        <td>Dinner &amp; Entertainment</td>
+                        <td>Main Area</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-
-        <h3>Friday 8.5.2015</h3>
-        <div class="table-responsive">
-            <table border="0" cellpadding="0" class="table table-bordered">
-                <tr>
-                    <th>TIME</th>
-                    <th>EVENT</th>
-                    <th>LOCATION</th>
-                </tr>
-                <tr>
-                    <td>06:00 -11:00 AM</td>
-                    <td>Breakfast</td>
-                    <td>Hotel</td>
-                </tr>
-                <tr>
-                    <td>08:00 AM - 05:00 PM</td>
-                    <td>Option 1</td>
-                    <td>Bikes Area- Brief 30 minutes before    ride</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>Option 2</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>04:00 PM onwards</td>
-                    <td>Market Open</td>
-                    <td>Main Area</td>
-                </tr>
-                <tr>
-                    <td>08:00 PM onwards</td>
-                    <td>Dinner &amp; Entertainment</td>
-                    <td>Main Area</td>
-                </tr>
-            </table>
+        <div class="schedule-group">
+            <h3>Friday 8.5.2015</h3>
+            <div class="table-responsive">
+                <table border="0" cellpadding="0" class="table table-bordered">
+                    <tr>
+                        <th>TIME</th>
+                        <th>EVENT</th>
+                        <th>LOCATION</th>
+                    </tr>
+                    <tr>
+                        <td>06:00 -11:00 AM</td>
+                        <td>Breakfast</td>
+                        <td>Hotel</td>
+                    </tr>
+                    <tr>
+                        <td>08:00 AM - 05:00 PM</td>
+                        <td>Option 1</td>
+                        <td>Bikes Area- Brief 30 minutes before    ride</td>
+                    </tr>
+                    <tr>
+                        <td>04:00 PM onwards</td>
+                        <td>Market Open</td>
+                        <td>Main Area</td>
+                    </tr>
+                    <tr>
+                        <td>08:00 PM onwards</td>
+                        <td>Dinner &amp; Entertainment</td>
+                        <td>Main Area</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-
-        <h3>Saturday 9.5.2015</h3>
-        <div class="table-responsive">
-            <table border="0" cellpadding="0" class="table table-bordered">
-                <tr>
-                    <th>TIME</th>
-                    <th>EVENT</th>
-                    <th>LOCATION</th>
-                </tr>
-                <tr>
-                    <td>06:00 -11:00 AM</td>
-                    <td>Breakfast</td>
-                    <td>Hotel</td>
-                </tr>
-                <tr>
-                    <td>08:00 AM - 05:00 PM</td>
-                    <td>Option 1</td>
-                    <td>Bikes Area- Brief 30 minutes before    ride</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>Option 2</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>05:00 – 06:00 PM</td>
-                    <td>Parade</td>
-                    <td>Aqaba</td>
-                </tr>
-                <tr>
-                    <td>04:00 PM onwards</td>
-                    <td>Market Open</td>
-                    <td>Main Area</td>
-                </tr>
-                <tr>
-                    <td>08:00 PM onwards</td>
-                    <td>Dinner &amp; Entertainment</td>
-                    <td>Main Area</td>
-                </tr>
-            </table>
+        <div class="schedule-group">
+            <h3>Saturday 9.5.2015</h3>
+            <div class="table-responsive">
+                <table border="0" cellpadding="0" class="table table-bordered">
+                    <tr>
+                        <th>TIME</th>
+                        <th>EVENT</th>
+                        <th>LOCATION</th>
+                    </tr>
+                    <tr>
+                        <td>06:00 -11:00 AM</td>
+                        <td>Breakfast</td>
+                        <td>Hotel</td>
+                    </tr>
+                    <tr>
+                        <td>08:00 AM - 05:00 PM</td>
+                        <td>Option 1</td>
+                        <td>Bikes Area- Brief 30 minutes before    ride</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Option 2</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>05:00 – 06:00 PM</td>
+                        <td>Parade</td>
+                        <td>Aqaba</td>
+                    </tr>
+                    <tr>
+                        <td>04:00 PM onwards</td>
+                        <td>Market Open</td>
+                        <td>Main Area</td>
+                    </tr>
+                    <tr>
+                        <td>08:00 PM onwards</td>
+                        <td>Dinner &amp; Entertainment</td>
+                        <td>Main Area</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <h3>Sunday 10.5.2015</h3>
-        <div class="table-responsive">
-            <table border="0" cellpadding="0" class="table table-bordered">
-                <tr>
-                    <th>TIME</th>
-                    <th>EVENT</th>
-                    <th>LOCATION</th>
-                </tr>
-                <tr>
-                    <td>06:00 -11:00 AM</td>
-                    <td>Breakfast</td>
-                    <td>Hotel</td>
-                </tr>
-                <tr>
-                    <td>12:00 Noon</td>
-                    <td>Check-out &amp; End of Rally</td>
-                    <td>Hotel / Main area</td>
-                </tr>
-            </table>
+        <div class="schedule-group">
+            <h3>Sunday 10.5.2015</h3>
+            <div class="table-responsive">
+                <table border="0" cellpadding="0" class="table table-bordered">
+                    <tr>
+                        <th>TIME</th>
+                        <th>EVENT</th>
+                        <th>LOCATION</th>
+                    </tr>
+                    <tr>
+                        <td>06:00 -11:00 AM</td>
+                        <td>Breakfast</td>
+                        <td>Hotel</td>
+                    </tr>
+                    <tr>
+                        <td>12:00 Noon</td>
+                        <td>Check-out &amp; End of Rally</td>
+                        <td>Hotel / Main area</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
         <p><span class="highlighted">*</span> The above schedule is subject to change as the rally draws near.</p>

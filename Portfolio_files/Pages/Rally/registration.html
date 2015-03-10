@@ -29,7 +29,33 @@
             //$("#slider").swipeleft(function () {
             //    $(this).carousel('next');
             //});
+            $('.table tr td').click(function () {
+                var checkBox = $(this).parent().find(".regRadio input[type='radio']");
+                var checkIndex = $(this).parent().find(".regRadio input[type='radio']").attr('data-index');
+                $(checkBox).prop("checked", !checkBox.prop("checked"));
+                $('.table tr').removeClass('active');
+                $(this).parent().toggleClass('active');
+                switch (checkIndex) {
+                    case '1':
+                        $('.right-side').hide();
+                        $('.rider1').fadeIn();
+                        $('.rider1 .button').show();
+                        break;
+                    case '2': $('.right-side').fadeIn(); $('.rider3,.rider1 .button').hide();
+                        break;
+                    case '3': $('.right-side').fadeIn(); $('.rider2 .button,.rider1 .button').hide();
+                        break;
+                    default: $('.right-side').hide();
+                        $('.rider1').fadeIn();
+                        $('.rider1 .button').show();
 
+
+                }
+
+            });
+            $('.table tr td input[type="radio"]').click(function (ev) {
+                ev.stopPropagation();
+            });
 
 
         }); /*== Document ready== */
@@ -75,47 +101,187 @@
             </a>
         -->
     </div>
-    <div class="container rally-reg">
+    <div class="container rally-reg rally-content">
         <h2>Registration</h2>
-        <div class="left-side">
-            <img src="Images/profile-pic.png" alt="Profile Pic" />
-
-            <div class="reg-input">
-                <input type="text" placeholder="First Name" />
-
-                <input type="text" placeholder="Last Name" />
-            </div>
+        <div class="">
+            <table border="0" cellspacing="0" cellpadding="0" class="table table-bordered">
+                <tr>
+                    <th></th>
+                    <th>Category</th>
+                    <th>Rally    Package Fees</th>
+                </tr>
+                <tr>
+                    <td><div class="regRadio"><input type="radio" name="select" data-index="1" /></div></td>
+                    <td>Rider in a Single Room</td>
+                    <td>900 USD</td>
+                </tr>
+                <tr>
+                    <td><div class="regRadio"><input type="radio" name="select" data-index="2" /></div></td>
+                    <td>2 Riders Sharing a Double Room</td>
+                    <td>725 USD each</td>
+                </tr>
+                <tr>
+                    <td><div class="regRadio"><input type="radio" name="select" data-index="3" /></div></td>
+                    <td>Rider with a Pillions Sharing a    Double Room</td>
+                    <td>725 USD each</td>
+                </tr>
+                <tr>
+                    <td><div class="regRadio"><input type="radio" name="select" data-index="1" /></div></td>
+                    <td>One Night Pass for Family    Members</td>
+                    <td>200 USD = 142 JD per pass per person</td>
+                </tr>
+            </table>
         </div>
-        <div class="right-side">
-            <div class="reg-input">
-                <input type="text" placeholder="Nationality" />
-            </div>
-            <div class="reg-input">
-                <input type="text" placeholder="Date of Birth" />
-            </div>
-            <div class="reg-input"><input type="email" placeholder="Email" /></div>
-            <div class="reg-input"><input type="number" placeholder="Personal Mobile" /></div>
-            <div class="reg-input"><input type="number" placeholder="Emergency Number" /></div>
 
-            <div class="reg-input"><input type="text" placeholder="H.O.G.® Chapter Name" /></div>
-            <div class="reg-input multi-inputs">
-                <input type="text" placeholder="H.O.G.® ID" /><input type="text" placeholder="Exp. Date">
+        <div class="right-side rider1">
+            <h2>First Rider Info</h2>
+            <div class="reg-input">
+                <span>First Name</span><input type="text">
             </div>
-            <div class="reg-input"><input type="text" placeholder="Country" /></div>
-            <div class="reg-input"><input type="email" placeholder="Email" /></div>
-            <div class="reg-input multi-inputs">
-                <input type="text" placeholder="Passport ID" /><input type="text" placeholder="Exp. Date">
+            <div class="reg-input">
+                <span>Last Name</span><input type="text">
             </div>
-            <div class="reg-input reg-ddl"><select><option>T-shirt Size</option></select></div>
-            <div class="reg-input"><input type="text" placeholder="Head Measurement Size (Circumference cm)" /></div>
-            <div class="reg-input multi-inputs">
-                <input type="text" placeholder="Bike Type" /><input type="number" placeholder="Year">
+            <div class="reg-input">
+                <span>Nationality</span><input type="text">
             </div>
+            <div class="reg-input">
+                <span>Date of Birth</span><input type="text">
+            </div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input"><span>Personal Mobile</span><input type="number"></div>
+            <div class="reg-input"><span>Emergency Number</span><input type="number"></div>
+
+            <div class="reg-input"><span>H.O.G.<sup>®</sup> Chapter Name</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>H.O.G.<sup>®</sup> ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input"><span>Country</span><input type="text"></div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input multi-inputs">
+                <span>Passport ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input reg-ddl"><span>T-shirt Size</span><select><option>T-shirt Size</option></select></div>
+            <div class="reg-input"><span>Head Measurement Size (Circumference cm)</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>Bike Type</span><input type="text"><input type="text" placeholder="Year">
+            </div>
+            <div class="reg-input empty-input"></div>
+            <div class="reg-input empty-input"></div>
             <div class="reg-input">
                 <button type="submit" class="button">Submit</button>
             </div>
 
         </div>
+        <div class="right-side rider2">
+            <h2>Second Rider Info</h2>
+            <div class="reg-input">
+                <span>First Name</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Last Name</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Nationality</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Date of Birth</span><input type="text">
+            </div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input"><span>Personal Mobile</span><input type="number"></div>
+            <div class="reg-input"><span>Emergency Number</span><input type="number"></div>
+
+            <div class="reg-input"><span>H.O.G.<sup>®</sup> Chapter Name</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>H.O.G.<sup>®</sup> ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input"><span>Country</span><input type="text"></div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input multi-inputs">
+                <span>Passport ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input reg-ddl"><span>T-shirt Size</span><select><option>T-shirt Size</option></select></div>
+            <div class="reg-input"><span>Head Measurement Size (Circumference cm)</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>Bike Type</span><input type="text"><input type="text" placeholder="Year">
+            </div>
+            <div class="reg-input empty-input">
+
+            </div><div class="reg-input empty-input">
+
+</div>
+            <div class="reg-input">
+                <button type="submit" class="button">Submit</button>
+            </div>
+
+        </div>
+        <div class="right-side rider3">
+            <h2>Third Rider Info</h2>
+            <div class="reg-input">
+                <span>First Name</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Last Name</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Nationality</span><input type="text">
+            </div>
+            <div class="reg-input">
+                <span>Date of Birth</span><input type="text">
+            </div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input"><span>Personal Mobile</span><input type="number"></div>
+            <div class="reg-input"><span>Emergency Number</span><input type="number"></div>
+
+            <div class="reg-input"><span>H.O.G.<sup>®</sup> Chapter Name</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>H.O.G.<sup>®</sup> ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input"><span>Country</span><input type="text"></div>
+            <div class="reg-input"><span>Email</span><input type="email"></div>
+            <div class="reg-input multi-inputs">
+                <span>Passport ID</span><input type="text"><input type="text" placeholder="Exp. Date">
+            </div>
+            <div class="reg-input reg-ddl"><span>T-shirt Size</span><select><option>T-shirt Size</option></select></div>
+            <div class="reg-input"><span>Head Measurement Size (Circumference cm)</span><input type="text"></div>
+            <div class="reg-input multi-inputs">
+                <span>Bike Type</span><input type="text"><input type="text" placeholder="Year">
+            </div>
+            <div class="reg-input empty-input">
+
+            </div><div class="reg-input empty-input">
+
+</div>
+            <div class="reg-input">
+                <button type="submit" class="button">Submit</button>
+            </div>
+
+        </div>
+        <div class="main-content">
+            <ul>
+                <li>All riders  &amp; pillions should be active H.O.G.<sup>®</sup> members, full or associate.</li>
+                <li>Registration is  on a &ldquo;First Fully Registered, First Served&rdquo; basis. </li>
+
+                <li>Forward completed application to <a href="mailto:registration@hogrally2015.com">registration@hogrally2015.com</a></li>
+                <li>Full payment should be made, as per detailed transfer method on the right.</li>
+                <li>Registration will not be full and complete until total payment of fees is cleared.</li>
+                <li>Once  application and full payment are received, a confirmation e-mail with all the  details will be sent to the applicant.</li>
+                <li>Final confirmation  of registration is pending availability and approval. </li>
+                <li>Cancellations  are not accepted; all payments are non-refundable.</li>
+            </ul>
+            <div class="bankAccountContainer">
+                <p><strong>Transfer Details</strong></p>
+                <ul class="bankAccount">
+                    <li><span class="highlighted">Bank:</span> Arab Jordan Investment Bank</li>
+                    <li><span class="highlighted">P.O. Box:</span>  8797 Amman -Jordan</li>
+                    <li><span class="highlighted">Beneficiary:</span> Claude Abry &amp; Walid Nassar</li>
+                    <li><span class="highlighted">Account #:</span> 202/208802/2/561/0</li>
+                    <li><span class="highlighted">IBAN #:</span> --- </li>
+                    <li><span class="highlighted">Swift Code:</span> AJIBJOAX</li>
+                </ul>
+            </div>
+
+        </div>
+
     </div>
     <div class="footerBackground rally-footer">
         <div class="col-xs-12 col-md-12 footer">
