@@ -37,8 +37,9 @@
                     var location = "<span><strong>Location</strong> " + $(this).children('td:last-child').text() + "</span>";
 
                     $('body').append("<div class='modalPop'><div class='modalContent'>" + day + time + rallyEvent + location + "</div>"+close+"</div>");
+					$('html').addClass('locked');
                 }
-                $(".modalPop .close").click(function () { $('.modalPop').remove(); });
+                $(".modalPop .close").click(function () { $('.modalPop').remove();$('html').removeClass('locked'); });
 
             });
 
@@ -51,13 +52,55 @@
 
 <body>
     <div class="header rally-header container-fluid">
-        <a class="rally-logo" title="HOG Rally Home" target="_self" href="./rally.html">
+        <a class="rally-logo" title="HOG Rally Home" target="_self" href="./index.html">
             <img src="Images/rally-logo.png" alt="HOG Rally Home Page" />
         </a>
-        <a class="HOG-logo" title="HOG Jordan Home" target="_blank" href="./index.html">
+        <a class="HOG-logo" title="HOG Jordan Home" target="_blank" href="http://www.hog-jordan.com">
             <img src="Images/logo.png" alt="HOG Home Page" />
         </a>
+    </div>
+    <div class="header container-fluid">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
 
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="./index.html" target="_self" title="About Rally">About Rally</a>
+                        </li>
+                        <li>
+                            <a href="./payment.html" target="_self" title="Rules">Rules</a>
+                        </li>
+                        <li>
+                            <a href="./registration.html" target="_self" title="Registration">Registration</a>
+                        </li>
+
+                        <li>
+                            <a href="./rides.html" target="_self" title="Rides">Rides</a>
+                        </li>
+
+                        <li>
+                            <a href="./schedule.html" target="_self" title="Schedule">Schedule</a>
+                        </li>
+                        <li>
+                            <a href="./sponsors.html" target="_self" title="Sponsors">Sponsors</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
     </div>
     <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
         <!-- Wrapper for slides -->
@@ -65,8 +108,8 @@
             <div class="item active">
                 <img src="./Images/rally1.jpg" alt="slide1">
                 <div class="caption">
-                    <h1>love is the feeling you got</h1>
-                    <p>when you like something as much as you motorcycle.</p>
+                    <h1>love is the feeling you get</h1>
+                    <p>when you like something as much as your motorcycle.</p>
                     <span>Omar Alzoubi - Member</span>
                 </div>
             </div>

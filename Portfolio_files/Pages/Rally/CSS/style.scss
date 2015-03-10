@@ -22,6 +22,10 @@ color:$textColor;
 	max-width: 6000px;
 	margin: 0 auto;
 }
+.locked {
+    overflow: hidden;
+    overflow: auto \9;
+}
 a:focus {
 	outline: none;
 }
@@ -495,7 +499,7 @@ a:nth-child(even) {
 }
 .rally-footer {
 	background: url(../Images/rally-footer-bg.png) no-repeat center bottom;
-	padding-top: 320px;
+	padding-top: 260px;
 }
 /* Registration Page */
 
@@ -507,7 +511,9 @@ color:$h2Color;
 .right-side, .left-side {
 h2 {
 margin:40px 0 30px 0;
+color:$mainColor;
 }
+
 &.rider2, &.rider3 {
 display:none;
 }
@@ -791,9 +797,9 @@ li {
 .rally-note {
 	text-align: center;
 	margin-top: 60px;
-	margin-bottom: -20px;
+	margin-bottom: 30px;
 }
-table {
+table:not(.reg-table) {
  font-family:$textFont;
  td {
 transition:background .2s;
@@ -806,7 +812,9 @@ background:rgba($mainColor, .8);
 	cursor: pointer;
 }
 }
-.schedule-group tr:hover td{cursor:default;}
+.schedule-group tr:hover td {
+	cursor: default;
+}
 .bankAccount .highlighted {
 	min-width: 100px;
 	display: inline-block;
@@ -870,12 +878,21 @@ span {
 font-family:$textFont;
 display:block;
 margin-bottom:10px;
-strong{color:$mainColor;display:block;}
+strong {
+color:$mainColor;
+display:block;
 }
 }
-.close{position:absolute;cursor:pointer;max-width:28px;top:10px;right:10px;opacity:1;}
 }
-
+.close {
+	position: absolute;
+	cursor: pointer;
+	max-width: 28px;
+	top: 10px;
+	right: 10px;
+	opacity: 1;
+}
+}
 
 /* Regular res CSS End*/
 /*============================*/
@@ -948,7 +965,7 @@ label {
 }
 .rally-footer {
 	margin-top: 0px;
-	padding-top: 300px;
+	padding-top: 230px;
 }
 .rally-main a {
 	max-width: 300px;
@@ -1099,7 +1116,7 @@ span {
 }
 }
 .rally-footer {
-	margin-top: 40px;
+	margin-top: 0px;
 }
 .officers {
  .officer-item {
@@ -1180,7 +1197,23 @@ p {
 }
 }
 }
-.rally-content .schedule-group tr:hover td{cursor:pointer;}
+.rally-content .schedule-group tr:hover td {
+	cursor: pointer;
+}
+.navbar-header {
+	text-align: center;
+	margin-top: -5px;
+button {
+margin:0 auto;
+float:none;
+}
+}
+.navbar-default .navbar-nav {
+	padding-bottom: 30PX;
+> li > a {
+width:100%;
+}
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -1349,4 +1382,19 @@ width:100%
 	min-width: 80px;
 	display: inline-block;
 }
+.rally-reg .main-content .bankAccountContainer p{padding-left:15px;}
+.navbar{margin-top:-15px;}
+.navbar-header {
+	margin-top: 0px;
+button {
+margin:0px auto;
+float:none;
+}
+}
+.navbar-default .navbar-nav {
+> li > a {
+}
+}
+.navbar-collapse{margin-top:-5px;}
+
 }

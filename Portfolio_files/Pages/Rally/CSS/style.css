@@ -14,6 +14,10 @@ html {
   max-width: 6000px;
   margin: 0 auto; }
 
+.locked {
+  overflow: hidden;
+  overflow: auto \9; }
+
 a:focus {
   outline: none; }
 
@@ -447,14 +451,15 @@ h2 {
 
 .rally-footer {
   background: url(../Images/rally-footer-bg.png) no-repeat center bottom;
-  padding-top: 320px; }
+  padding-top: 260px; }
 
 /* Registration Page */
 .rally-reg h2 {
   color: #ffffff;
   margin-bottom: 50px; }
 .rally-reg .right-side h2, .rally-reg .left-side h2 {
-  margin: 40px 0 30px 0; }
+  margin: 40px 0 30px 0;
+  color: #C9942B; }
 .rally-reg .right-side.rider2, .rally-reg .right-side.rider3, .rally-reg .left-side.rider2, .rally-reg .left-side.rider3 {
   display: none; }
 .rally-reg .right-side .reg-input, .rally-reg .left-side .reg-input {
@@ -682,15 +687,15 @@ sup {
 .rally-content .rally-note {
   text-align: center;
   margin-top: 60px;
-  margin-bottom: -20px; }
-.rally-content table {
+  margin-bottom: 30px; }
+.rally-content table:not(.reg-table) {
   font-family: "Open Sans", sans-serif; }
-  .rally-content table td {
+  .rally-content table:not(.reg-table) td {
     -webkit-transition: background .2s;
             transition: background .2s; }
-  .rally-content table th {
+  .rally-content table:not(.reg-table) th {
     background: #C9942B; }
-  .rally-content table tr:hover td, .rally-content table tr.active td {
+  .rally-content table:not(.reg-table) tr:hover td, .rally-content table:not(.reg-table) tr.active td {
     background: rgba(201, 148, 43, 0.8);
     cursor: pointer; }
 .rally-content .schedule-group tr:hover td {
@@ -817,7 +822,7 @@ sup {
 
   .rally-footer {
     margin-top: 0px;
-    padding-top: 300px; }
+    padding-top: 230px; }
 
   .rally-main a {
     max-width: 300px; }
@@ -942,7 +947,7 @@ sup {
     max-width: 185px; }
 
   .rally-footer {
-    margin-top: 40px; }
+    margin-top: 0px; }
 
   .officers .officer-item h3 {
     font-size: 28px;
@@ -1000,7 +1005,19 @@ sup {
         padding: 10px 0 10px 20px; }
 
   .rally-content .schedule-group tr:hover td {
-    cursor: pointer; } }
+    cursor: pointer; }
+
+  .navbar-header {
+    text-align: center;
+    margin-top: -5px; }
+    .navbar-header button {
+      margin: 0 auto;
+      float: none; }
+
+  .navbar-default .navbar-nav {
+    padding-bottom: 30PX; }
+    .navbar-default .navbar-nav > li > a {
+      width: 100%; } }
 @media only screen and (max-width: 480px) {
   .logo a {
     width: 120px;
@@ -1132,6 +1149,21 @@ sup {
 
   .rally-content .bankAccount .highlighted {
     min-width: 80px;
-    display: inline-block; } }
+    display: inline-block; }
+
+  .rally-reg .main-content .bankAccountContainer p {
+    padding-left: 15px; }
+
+  .navbar {
+    margin-top: -15px; }
+
+  .navbar-header {
+    margin-top: 0px; }
+    .navbar-header button {
+      margin: 0px auto;
+      float: none; }
+
+  .navbar-collapse {
+    margin-top: -5px; } }
 
 /*# sourceMappingURL=style.css.map */
