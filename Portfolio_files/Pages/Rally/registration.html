@@ -51,6 +51,23 @@
 
             });
             $('.table tr td input[type="radio"]').click(function (ev) {
+                var checkIndex = $(this).attr('data-index');
+                switch (checkIndex) {
+                    case '1':
+                        $('.right-side').hide();
+                        $('.rider1').fadeIn();
+                        $('.rider1 .button').show();
+                        break;
+                    case '2': $('.right-side').fadeIn(); $('.rider3,.rider1 .button').hide();
+                        break;
+                    case '3': $('.right-side').fadeIn(); $('.rider2 .button,.rider1 .button').hide();
+                        break;
+                    default: $('.right-side').hide();
+                        $('.rider1').fadeIn();
+                        $('.rider1 .button').show();
+
+
+                }
                 $('.table tr').removeClass('active');
                 ev.stopPropagation();
             });
@@ -147,9 +164,9 @@
         <th>Category</th>
         <th>Rally    Package Fees</th>
       </tr>
-          <tr>
+          <tr class="active">
         <td><div class="regRadio">
-            <input type="radio" name="select" data-index="1" />
+            <input type="radio" name="select" data-index="1" checked="true" />
           </div></td>
         <td>Rider in a Single Room</td>
         <td>900 USD</td>
@@ -176,9 +193,10 @@
         <td>200 USD = 142 JD per pass per person</td>
       </tr>
         </table>
+          <span class="reg-note">asdasd <a href="#">asdasd</a></span>
   </div>
       <div class="right-side rider1">
-    <h2>First Rider Info</h2>
+    <h2>First Rider Info.</h2>
     <div class="reg-input"> <span>First Name</span>
           <input type="text">
         </div>
@@ -236,7 +254,7 @@
         </div>
   </div>
       <div class="right-side rider2">
-    <h2>Second Rider Info</h2>
+    <h2>Second Rider Info. (Sharing a Room)</h2>
     <div class="reg-input"> <span>First Name</span>
           <input type="text">
         </div>
@@ -294,7 +312,7 @@
         </div>
   </div>
       <div class="right-side rider3">
-    <h2>Third Rider Info</h2>
+    <h2>Pillion Info. (Sharing a Room)</h2>
     <div class="reg-input"> <span>First Name</span>
           <input type="text">
         </div>

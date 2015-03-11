@@ -679,6 +679,10 @@ h2 {
 sup {
   font-family: "Open Sans", sans-serif; }
 
+.rally-content .reg-note {
+  font-family: "Open Sans", sans-serif; }
+  .rally-content .reg-note a {
+    color: #C9942B; }
 .rally-content h3 {
   text-align: left;
   font-size: 30px; }

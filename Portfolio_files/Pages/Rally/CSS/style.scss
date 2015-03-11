@@ -23,8 +23,8 @@ color:$textColor;
 	margin: 0 auto;
 }
 .locked {
-    overflow: hidden;
-    overflow: auto \9;
+	overflow: hidden;
+	overflow: auto \9;
 }
 a:focus {
 	outline: none;
@@ -513,8 +513,7 @@ h2 {
 margin:40px 0 30px 0;
 color:$mainColor;
 }
-
-&.rider2, &.rider3 {
+ &.rider2, &.rider3 {
 display:none;
 }
 .reg-input {
@@ -787,9 +786,15 @@ sup {
 font-family:$textFont;
 }
 .rally-content {
- h3 {
- text-align:left;
-font-size:30px;
+ .reg-note {
+font-family:$textFont;
+a {
+color:$mainColor;
+}
+}
+h3 {
+	text-align: left;
+	font-size: 30px;
 }
 li {
 	text-align: left;
@@ -1382,8 +1387,12 @@ width:100%
 	min-width: 80px;
 	display: inline-block;
 }
-.rally-reg .main-content .bankAccountContainer p{padding-left:15px;}
-.navbar{margin-top:-15px;}
+.rally-reg .main-content .bankAccountContainer p {
+	padding-left: 15px;
+}
+.navbar {
+	margin-top: -15px;
+}
 .navbar-header {
 	margin-top: 0px;
 button {
@@ -1395,6 +1404,7 @@ float:none;
 > li > a {
 }
 }
-.navbar-collapse{margin-top:-5px;}
-
+.navbar-collapse {
+	margin-top: -5px;
+}
 }
