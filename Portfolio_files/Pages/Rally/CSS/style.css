@@ -714,7 +714,12 @@ sup {
 .rally-content ul {
   padding-left: 35px; }
 .rally-content.rally-schedule table tr td:nth-child(1) {
-  white-space: nowrap; }
+  white-space: nowrap;
+  width: 18%; }
+.rally-content.rally-schedule table tr td:nth-child(2) {
+  width: 32%; }
+.rally-content.rally-schedule table tr td:nth-child(3) {
+  width: 60%; }
 .rally-content .main-content {
   border-top: 1px dashed #ffffff;
   padding-top: 20px; }
