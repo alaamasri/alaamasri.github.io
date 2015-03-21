@@ -5276,8 +5276,8 @@ th.visible-print, td.visible-print {
 .home-links .button{width:30%;}
 }
 @media only screen and (max-width: 319px) {
-#slider {
-	display: none;
+#slider .caption,#slider .carousel-control{
+	display:none !important;
 }
 .home-links
 {
