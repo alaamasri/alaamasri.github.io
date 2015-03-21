@@ -155,7 +155,7 @@ color: $mainColor !important;
 }
 .carousel-control span {
 	width: 42px;
-	height: 99px;
+	height: 130px;
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -569,10 +569,9 @@ margin-bottom:($h3Bottom)-16;
 	position: relative;
 	right: auto;
 	height: auto;
-	margin: 0px auto;
-background:$mainColor;
-	width: 100%;
-	border-radius: 0px;
+	margin: -40px auto 40px;
+	background:rgba($mainColor,.95);
+	width: 90%;
 .ddl, a {
  width: 44%;
  margin: 0px 0 4% 4%;
@@ -584,10 +583,10 @@ clear:both;
 }
 }
 #slider {
-	margin-bottom: 40px;
+	margin-bottom: 0px;
 .caption {
 text-align: center;
-height: 70%;
+height: 60%;
 max-width: 53%;
 display: block;
 text-shadow: 2px 2px black;
@@ -630,6 +629,9 @@ border-bottom:0px solid;
 	 .icon-bar{background:$alternativeColor;}
 	}
 }
+#slider .button {
+display:none;
+}
 }
 
 @media only screen and (max-width: 480px) {
@@ -661,7 +663,7 @@ font-size: ($fontSize)-5;
 	width: 20px;
 	background-size: 20px;
 	left: 5px;
-	height: 47px;
+	height: 70px;
 }
 .right.carousel-control span {
 	background-position: 0 -60px;
