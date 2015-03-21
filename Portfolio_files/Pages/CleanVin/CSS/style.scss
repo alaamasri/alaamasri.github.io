@@ -155,7 +155,8 @@ color: $mainColor !important;
 }
 .carousel-control span {
 	width: 42px;
-	height: 130px;
+	height: 99px;
+    margin-top:-30px;
 	margin: auto;
 	position: absolute;
 	top: 0;
@@ -663,7 +664,7 @@ font-size: ($fontSize)-5;
 	width: 20px;
 	background-size: 20px;
 	left: 5px;
-	height: 70px;
+	height: 47px;
 }
 .right.carousel-control span {
 	background-position: 0 -60px;
