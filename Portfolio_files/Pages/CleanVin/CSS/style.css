@@ -247,7 +247,7 @@ h3 {
         -webkit-transition: all .3s;
                 transition: all .3s;
         position: absolute;
-        z-index: 1;
+        z-index: 9;
         top: 28px;
         left: 0; }
         .top-menu ul li.language ul:after {
