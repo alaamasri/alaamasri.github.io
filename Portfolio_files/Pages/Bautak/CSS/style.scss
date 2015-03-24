@@ -1,0 +1,554 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700);
+
+/*===============  Style.scss ============ */
+
+$background: white;
+$textColor: #004663;
+$alternativeBackground: #004663;
+$highlightColor: #ff9a00;
+$textFont: 'Open Sans', sans-serif;
+$font-size: 14px;
+
+html {
+    font-family: $textFont;
+    background-color: $background;
+    min-width: 315px;
+}
+
+:focus {
+    outline: none;
+}
+
+.absoluteCenter {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.absoluteCenterVertical {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    bottom: 0;
+}
+
+.header-background {
+    background: $alternativeBackground;
+
+    .logo {
+        max-width: 300px;
+        float: left;
+        margin-top: 30px;
+        margin-left: -5px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .social {
+        float: right;
+        margin-top: 45px;
+
+        a {
+            width: 32px;
+            height: 32px;
+            float: right;
+            position: relative;
+            border-radius: 50%;
+            background: $highlightColor;
+            text-align: center;
+            margin-left: 15px;
+            transition: background .3s,transform .2s;
+
+            &:hover {
+                background: $background;
+            }
+
+            &:active {
+                transform: scale(.85,.85);
+            }
+
+            img {
+                max-width: 60%;
+                @extend .absoluteCenter;
+            }
+
+            &:last-child img {
+                width: 30%;
+            }
+        }
+    }
+
+    .phone {
+        float: right;
+        clear: right;
+        background: url(../Images/phone.png) no-repeat 0 center;
+        color: $background;
+        font-size: $font-size+4;
+        padding: 15px 0 0 50px;
+        margin-top: 20px;
+    }
+}
+
+.navbar-default {
+    margin-top: 40px;
+
+    .navbar-nav {
+        text-align: center;
+        float: none;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .navbar-nav li {
+        display: inline-block;
+        float: none;
+    }
+
+    .navbar-nav > li > a {
+        color: $background;
+        font-size: $font-size+2;
+        padding: 0px 20px 35px;
+        margin: 0 15px 0;
+        text-transform: capitalize;
+        transition: all .3s;
+    }
+
+    .navbar-nav > li:first-child > a {
+        margin-left: 0px;
+    }
+
+    .navbar-nav > li:last-child > a {
+        margin-right: 0px;
+    }
+
+    .navbar-nav > li > a:hover, .navbar-nav > li.active > a, li.open > a {
+        border-bottom: 10px solid $highlightColor;
+        padding-bottom: 25px;
+        background: transparent;
+    }
+
+    .navbar-nav > li:first-child > a:before {
+        display: none;
+    }
+
+    .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
+        color: #ccc;
+        background-color: transparent;
+    }
+
+    .navbar-toggle {
+        border-color: transparent;
+    }
+
+
+    .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+        background-color: $alternativeBackground;
+    }
+
+    .navbar-toggle .icon-bar {
+        background-color: $background;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 250px;
+    padding: 12px 0;
+    margin: 0;
+    text-align: left;
+    list-style: none;
+    background: rgba($background,.80);
+
+    li {
+        padding: 3px 0 3px 20px;
+        width: 100%;
+        transition: background .3s;
+
+        a {
+            color: $alternativeBackground;
+            font-weight: 600;
+            width: 100%;
+            display: block;
+            transition: color .3s;
+            text-decoration: none !important;
+        }
+
+        &:hover {
+            background: $highlightColor;
+
+            a {
+                color: $background;
+            }
+        }
+    }
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            opacity: 0;
+            transition-property: opacity;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .active.left, .active.right {
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .next.left, .prev.right {
+            opacity: 1;
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+.carousel-indicators {
+    position: absolute;
+    z-index: 1;
+    padding-left: 0;
+    text-align: center;
+    list-style: none;
+}
+
+#slider {
+    .caption {
+        background: rgba($highlightColor,.8);
+        font-size: $font-size+24;
+        text-transform: uppercase;
+        color: white;
+        position: absolute;
+        right: 100px;
+        bottom: 150px;
+        display: block;
+        z-index: 2;
+        padding: 20px 30px;
+        height: 150px;
+        width: 400px;
+    }
+
+    .item img {
+        margin-top: -70px;
+    }
+}
+
+.home-suppliers {
+    margin: 50px auto;
+
+    a {
+        position: relative;
+        min-height: 70px;
+        opacity: .70;
+        transition: opacity .5s;
+
+        img {
+            @extend .absoluteCenter;
+            max-width: 75%;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+    color: $background;
+    font-size: $font-size+2;
+    background: $alternativeBackground;
+    padding: 20px 0;
+
+    a {
+        color: $background;
+    }
+
+    .itmam {
+        padding-left: 30px;
+
+        img {
+            margin: -10px 0 0 10px;
+            max-width: 100px;
+        }
+    }
+}
+
+
+/*==End of Regular CSS==*/
+/*==============================================*/
+@media only screen and (max-width: 1199px) {
+    .header-background {
+        .logo {
+            max-width: 250px;
+            margin-top: 20px;
+        }
+
+        .social {
+            margin-top: 35px;
+        }
+
+        .phone {
+            padding: 15px 0 0 40px;
+            background-size: 30px;
+            font-size: $font-size;
+        }
+    }
+
+    .navbar-default {
+        .navbar-nav > li > a {
+            font-size: $font-size;
+            padding-right: 8px;
+            padding-left: 8px;
+            margin: 0 5px 0;
+        }
+
+        .dropdown-menu {
+            left: 5px;
+
+            li a {
+                font-size: $font-size;
+            }
+        }
+    }
+
+    #slider {
+        .item img {
+            margin-top: 0px;
+        }
+
+        .caption {
+            font-size: $font-size+14;
+            right: 60px;
+            bottom: 20%;
+            height: 120px;
+            width: 300px;
+        }
+    }
+
+
+    .footer {
+        .itmam {
+            display: inline-block;
+            margin-top: 10px;
+            padding-left: 0px;
+            width: 100%;
+
+            img {
+                max-width: 70px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar-default {
+        .navbar-nav {
+            padding: 8px 0 10px;
+            background: $background;
+
+            > li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid darken($background,3);
+
+                > a {
+                    padding: 7px 0 7px 40px;
+                    font-size: $font-size+2;
+                    color: $alternativeBackground;
+                    text-align: left;
+                    margin: 0;
+                }
+
+                &:last-child a {
+                    border-bottom: 0px solid;
+                }
+            }
+
+            > li > a:hover, .navbar-nav > li.active > a, li.open > a {
+                border: 0px solid;
+                padding: 7px 0 7px 40px;
+                color: $highlightColor;
+            }
+
+            > li.active {
+                color: $highlightColor;
+            }
+        }
+
+        .navbar-toggle {
+            &:active, &:focus {
+                .icon-bar {
+                    background: $background;
+                }
+            }
+        }
+
+
+
+        .navbar-header {
+            margin-top: -35px;
+            text-align: left;
+            margin-bottom: 7px;
+        }
+
+        .navbar-toggle {
+            position: relative;
+            float: none;
+            padding: 9px 10px;
+            background-color: transparent;
+            background-image: none;
+            border: 0px solid transparent;
+            border-radius: 4px;
+            margin: 0 0 0 30px;
+        }
+
+        .navbar-toggle {
+            &:focus {
+                outline: 0;
+            }
+
+            .icon-bar {
+                display: block;
+                width: 22px;
+                height: 2px;
+                border-radius: 1px;
+            }
+
+            .icon-bar + .icon-bar {
+                margin-top: 4px;
+            }
+
+            &:hover .icon-bar {
+                background: $highlightColor;
+            }
+        }
+
+        .dropdown-menu {
+            left: 0px;
+            padding: 0 0 15px 0;
+
+            li {
+                padding-left: 0px;
+
+                a {
+                    padding-left: 50px;
+                    font-weight: normal;
+                    color: $alternativeBackground;
+                }
+            }
+        }
+    }
+
+    .footer {
+        font-size: $font-size;
+    }
+
+    .home-suppliers {
+        margin: 50px auto 0;
+
+        a {
+            margin-bottom: 50px;
+            opacity: 1;
+
+            img {
+                max-width: 65%;
+            }
+        }
+    }
+
+    #slider {
+        .caption {
+            font-size: $font-size+8;
+            right: 30px;
+            bottom: 15%;
+            height: 80px;
+            width: 240px;
+            padding: 8px 15px;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .home-suppliers {
+        margin: 20px auto 20px;
+
+        a {
+            margin-bottom: 0px;
+
+            img {
+                max-width: 80%;
+            }
+        }
+    }
+
+    #slider {
+        .caption {
+            padding: 5px 10px;
+            font-size: $font-size+4;
+            right: 15px;
+            bottom: 15%;
+            height: 60px;
+            width: 170px;
+        }
+    }
+
+    .header-background {
+        .logo {
+            max-width: 70%;
+            margin-top: 5px;
+
+            img {
+                max-width: 90%;
+            }
+        }
+
+        .social {
+            max-width: 29%;
+            margin-top: 14%;
+
+            a {
+                width: 20px;
+                height: 20px;
+                margin-left: 7px;
+            }
+        }
+
+        .phone {
+            max-width: 29%;
+            padding: 1px 0 0 14px;
+            margin-top: 10px;
+            background-size: 12px;
+            font-size: ($font-size)-5;
+            line-height: 12px;
+        }
+    }
+
+    .navbar-default .navbar-toggle {
+        margin-left: 20px;
+    }
+
+    .dropdown-menu {
+        li {
+            a {
+                padding-left: 30px;
+            }
+        }
+    }
+}
