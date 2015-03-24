@@ -349,7 +349,7 @@ html {
     font-size: 9px;
     line-height: 12px; }
 
-  .navbar-default ul > li > a {
+  .navbar-default .navbar-nav > li > a {
     padding-left: 30px; }
   .navbar-default .navbar-toggle {
     margin-left: 20px; }
