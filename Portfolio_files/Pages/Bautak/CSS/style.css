@@ -349,7 +349,7 @@ html {
     font-size: 9px;
     line-height: 12px; }
 
-  .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a, .navbar-default li.open > a {
+  .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > li.open > a {
     padding-left: 30px; }
   .navbar-default .navbar-toggle {
     margin-left: 20px; }
