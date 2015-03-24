@@ -336,7 +336,7 @@ html {
       max-width: 90%; }
   .header-background .social {
     max-width: 29%;
-    margin-top: 14%; }
+    margin-top: 14.5%; }
     .header-background .social a {
       width: 20px;
       height: 20px;
@@ -349,6 +349,8 @@ html {
     font-size: 9px;
     line-height: 12px; }
 
+  .navbar-default ul > li > a {
+    padding-left: 30px; }
   .navbar-default .navbar-toggle {
     margin-left: 20px; }
 

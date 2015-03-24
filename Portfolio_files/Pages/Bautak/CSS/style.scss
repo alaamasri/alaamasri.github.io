@@ -521,7 +521,7 @@ html {
 
         .social {
             max-width: 29%;
-            margin-top: 14%;
+            margin-top: 14.5%;
 
             a {
                 width: 20px;
@@ -540,9 +540,14 @@ html {
         }
     }
 
-    .navbar-default .navbar-toggle {
+    .navbar-default 
+    {
+        ul > li > a{padding-left:30px;}
+    .navbar-toggle {
         margin-left: 20px;
     }
+    }
+
 
     .dropdown-menu {
         li {
