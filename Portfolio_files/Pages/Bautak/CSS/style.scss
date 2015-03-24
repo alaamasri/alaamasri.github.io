@@ -542,7 +542,8 @@ html {
 
     .navbar-default 
     {
-        .navbar-nav > li > a{padding-left:30px;}
+        .navbar-nav > li > a,.navbar-nav > li > a:hover, .navbar-nav > li.active > a, li.open > a{padding-left:30px;}
+         
     .navbar-toggle {
         margin-left: 20px;
     }
