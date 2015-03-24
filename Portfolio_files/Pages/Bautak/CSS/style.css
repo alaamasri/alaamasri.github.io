@@ -251,7 +251,7 @@ html {
         color: #004663;
         text-align: left;
         margin: 0; }
-      .navbar-default .navbar-nav > li:last-child a {
+      .navbar-default .navbar-nav > li:last-child {
         border-bottom: 0px solid; }
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav .navbar-nav > li.active > a, .navbar-default .navbar-nav li.open > a {
       border: 0px solid;
