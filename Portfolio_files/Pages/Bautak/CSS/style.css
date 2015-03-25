@@ -498,7 +498,13 @@ html {
         margin-top: 3px; }
     .branch-details .map {
       width: 100%;
-      margin-top: 20px; } }
+      margin-top: 20px; }
+
+  .PDF-link {
+    font-size: 18px;
+    margin: 30px 0 0px 0;
+    background-size: 45px;
+    background-position: center 35px; } }
 @media only screen and (max-width: 480px) {
   .content h2 {
     margin: 10px 0 20px;
@@ -511,12 +517,6 @@ html {
     .content ul li {
       text-align: left;
       margin-bottom: 7px; }
-
-  .PDF-link {
-    font-size: 18px;
-    margin: 30px 0 0px 0;
-    background-size: 45px;
-    background-position: center 35px; }
 
   .home-suppliers {
     margin: 20px auto 20px; }
