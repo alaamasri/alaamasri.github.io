@@ -249,7 +249,7 @@ html {
     }
 }
 
-.home-suppliers {
+.home-suppliers, .inner-suppliers {
     margin: 50px auto;
 
     a {
@@ -265,6 +265,19 @@ html {
 
         &:hover {
             opacity: 1;
+        }
+    }
+}
+
+.inner-suppliers {
+    margin: 40px auto 10px;
+
+    a {
+        opacity: 1;
+        margin-bottom: 20px;
+
+        img {
+            max-width: 60%;
         }
     }
 }
@@ -286,6 +299,219 @@ html {
         img {
             margin: -10px 0 0 10px;
             max-width: 100px;
+        }
+    }
+}
+
+.content {
+    padding: 20px 15px 70px;
+    color: $alternativeBackground;
+    font-size: $font-size;
+    text-align: justify;
+    min-height: 400px;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: $font-size*2.5;
+    }
+
+    h3 {
+        color: $highlightColor;
+    }
+
+    ul {
+        list-style: none;
+        line-height: 24px;
+        padding-left: 30px;
+
+        li {
+            position: relative;
+            padding-left: 10px;
+            text-align: justify;
+
+            &:before {
+                content: "\25A0";
+                position: absolute;
+                color: $highlightColor;
+                top: 0px;
+                bottom: 0px;
+                margin: auto;
+                left: -10px;
+            }
+        }
+    }
+}
+
+.PDF-link {
+    text-align: center;
+    color: $alternativeBackground;
+    padding-bottom: 80px;
+    width: 100%;
+    display: block;
+    margin: 50px 0 10px 0;
+    font-size: $font-size*2;
+    transition: opacity .3s,transform .1s;
+    background: url(../Images/download.png) no-repeat center bottom;
+
+    &:hover, &:focus {
+        text-decoration: none;
+        color: $alternativeBackground;
+        opacity: .8;
+    }
+
+    &:active {
+        transform: scale(.90,.90);
+    }
+}
+
+.branch-details {
+    width: 100%;
+    float: left;
+    border-bottom: 1px dashed darken($background,3);
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+
+    &:last-child {
+        border-bottom: 0px solid;
+    }
+
+    h3 {
+        margin-bottom: 20px;
+    }
+
+    .left-side {
+        float: left;
+    }
+
+    .map {
+        float: right;
+        width: 50%;
+        border: 0px solid;
+        height: 150px;
+    }
+}
+
+.contact-us {
+    $formPadding: 50px;
+    $formBorderColor: lighten($alternativeBackground,10);
+
+    .left-side, .right-side {
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+    }
+
+    .left-side {
+        padding-right: $formPadding;
+        border-right: 1px solid $formBorderColor;
+        padding-bottom: 20px;
+
+        .row {
+            margin: 0 0 20px 0;
+
+            .form-label {
+                display: block;
+                font-size: $font-size+4;
+                margin-bottom: 7px;
+            }
+
+            .form-txt {
+                border: 1px solid $formBorderColor;
+                padding: 7px 15px;
+                width: 100%;
+                border-radius: 2px;
+
+                &.error {
+                    border-color: $highlightColor !important;
+                }
+            }
+
+            textarea {
+                min-height: 198px;
+            }
+
+            .form-error {
+                color: $highlightColor;
+                margin-bottom: 0px;
+            }
+        }
+
+        .action {
+            button {
+                background: $highlightColor;
+                border: 0 solid;
+                color: white;
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+                font-size: 18px;
+                margin: 0;
+                padding: 7px 15px;
+                text-transform: capitalize;
+                position: relative;
+                overflow: hidden;
+                height: 37px;
+                transition: transform .2s;
+
+                &:active {
+                    transform: scale(.95,.95);
+                }
+
+                span {
+                    -webkit-transition: none;
+                    -moz-transition: none;
+                    -o-transition: none;
+                    transition: none;
+                }
+
+                .original, .done {
+                    position: relative;
+                    z-index: 3;
+                    float: left;
+                    clear: left;
+                    margin-bottom: 15px;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .done {
+                    background: url(../Images/submit.png) no-repeat center center;
+                }
+
+                span.bg {
+                    background: lighten($highlightColor,8);
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                    top: 0px;
+                    width: 0%;
+                }
+            }
+        }
+    }
+
+    .right-side {
+        display: inline-block;
+        width: 49%;
+        padding-left: $formPadding;
+
+        a {
+            color: $highlightColor;
+        }
+
+        h4 {
+            margin: 13px 0 4px 0;
+
+            &:first-child {
+                margin-top: 3px;
+            }
+        }
+
+        .map {
+            border: 0px solid;
+            width: 100%;
+            margin-top: 20px;
         }
     }
 }
@@ -376,7 +602,7 @@ html {
                     margin: 0;
                 }
 
-                &:last-child{
+                &:last-child {
                     border-bottom: 0px solid;
                 }
             }
@@ -460,6 +686,10 @@ html {
         font-size: $font-size;
     }
 
+    .content {
+        padding-bottom: 30px;
+    }
+
     .home-suppliers {
         margin: 50px auto 0;
 
@@ -483,9 +713,81 @@ html {
             padding: 8px 15px;
         }
     }
+
+    .inner-suppliers a {
+        margin-bottom: 40px;
+    }
+
+
+    .contact-us {
+        $formPadding: 0px;
+
+        .left-side, .right-side {
+            width: 100%;
+            border: 0px solid;
+            padding: $formPadding;
+
+            .row {
+                textarea {
+                    min-height: 100px;
+                }
+            }
+
+            .action button {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .branch-details {
+        margin-bottom: 0px;
+        padding-bottom: 30px;
+
+        h3 {
+            margin: 15px 0 15px 0;
+        }
+
+        h4 {
+            margin: 13px 0 4px 0;
+            font-size: $font-size+2;
+            &:first-child {
+                margin-top: 3px;
+            }
+        }
+
+        .map {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
 }
 
 @media only screen and (max-width: 480px) {
+    .content {
+        h2 {
+            margin: 10px 0 20px;
+            font-size: $font-size*2;
+        }
+
+        h3 {
+            text-align: left;
+            font-size: $font-size*1.3;
+        }
+
+        ul {
+            padding-left: 15px;
+            li{text-align:left;margin-bottom:7px;}
+        }
+    }
+
+    .PDF-link {
+        font-size: $font-size+4;
+        margin: 30px 0 0px 0;
+        background-size: 45px;
+        background-position: center 35px;
+    }
+
     .home-suppliers {
         margin: 20px auto 20px;
 
@@ -540,13 +842,14 @@ html {
         }
     }
 
-    .navbar-default 
-    {
-        .navbar-nav > li > a,.navbar-nav > li > a:hover, .navbar-nav > li.active > a, .navbar-nav > li.open > a{padding-left:30px;}
-         
-    .navbar-toggle {
-        margin-left: 20px;
-    }
+    .navbar-default {
+        .navbar-nav > li > a, .navbar-nav > li > a:hover, .navbar-nav > li.active > a, .navbar-nav > li.open > a {
+            padding-left: 30px;
+        }
+
+        .navbar-toggle {
+            margin-left: 20px;
+        }
     }
 
 
@@ -555,6 +858,14 @@ html {
             a {
                 padding-left: 30px;
             }
+        }
+    }
+
+    .inner-suppliers {
+        margin-bottom: 0px;
+
+        a {
+            margin-bottom: 0px;
         }
     }
 }
