@@ -37,6 +37,14 @@
                 $('.carousel .caption').addClass('fadeInRight');
             });
 
+            $('.inner-suppliers a').popover({
+                viewport:".container",
+                placement: "top",
+                toggle:"popover",
+                trigger: "hover",
+                
+            });
+
         });
     </script>
 </head>
@@ -93,7 +101,8 @@
                                     Our Sales Channels
                                 </a>
                             </li>
-                            <li>                                <a href="./OurEmployees.html" title="Our Employees">
+                            <li>
+                                <a href="./OurEmployees.html" title="Our Employees">
                                     Our Employees
                                 </a>
                             </li>
@@ -163,24 +172,46 @@
         </p>
         <p>Our other suppliers of high quality products are sourced from reputable organizations mainly from Europe, Malaysia and Japan as follows:</p>
         <div class="inner-suppliers">
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.osram.com" title="Osram" target="_blank"><img src="./Images/Suppliers/osram.png" alt="Osram" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.legrand.com/" title="Legrand" target="_blank"><img src="./Images/Suppliers/legrand.png" alt="Legrand" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.hoppecke.com/" title="Hoppecke" target="_blank"><img src="./Images/Suppliers/hoppecke.png" alt="hoppecke" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="https://www.toshiba.eu/lighting/" title="Toshiba Lighting" target="_blank"><img src="./Images/Suppliers/toshiba.png" alt="Toshiba Lighting" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.osram.com" title="Osram" target="_blank"><img src="./Images/Suppliers/osram.png" alt="Osram" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.legrand.com/" title="Legrand" target="_blank"><img src="./Images/Suppliers/legrand.png" alt="Legrand" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.hoppecke.com/" title="Hoppecke" target="_blank"><img src="./Images/Suppliers/hoppecke.png" alt="hoppecke" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="https://www.toshiba.eu/lighting/" title="Toshiba Lighting" target="_blank"><img src="./Images/Suppliers/toshiba.png" alt="Toshiba Lighting" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.osram.com" title="Osram AG - Germany" data-content="Lights and lighting solutions. Light sources – all types." target="_blank"><img src="./Images/Suppliers/osram.png" alt="Osram" /></a>
 
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.osram.com" title="Osram" target="_blank"><img src="./Images/Suppliers/osram.png" alt="Osram" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.legrand.com/" title="Legrand" target="_blank"><img src="./Images/Suppliers/legrand.png" alt="Legrand" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.hoppecke.com/" title="Hoppecke" target="_blank"><img src="./Images/Suppliers/hoppecke.png" alt="hoppecke" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="https://www.toshiba.eu/lighting/" title="Toshiba Lighting" target="_blank"><img src="./Images/Suppliers/toshiba.png" alt="Toshiba Lighting" /></a>
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Electrical and digital building infrastructures. Wiring and protection devices." href="http://www.legrand.com/" title="Legrand - France" target="_blank"><img src="./Images/Suppliers/legrand.png" alt="Legrand" /></a>
 
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.osram.com" title="Osram" target="_blank"><img src="./Images/Suppliers/osram.png" alt="Osram" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.legrand.com/" title="Legrand" target="_blank"><img src="./Images/Suppliers/legrand.png" alt="Legrand" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="http://www.hoppecke.com/" title="Hoppecke" target="_blank"><img src="./Images/Suppliers/hoppecke.png" alt="hoppecke" /></a>
-            <a class="col-xs-6 col-sm-3  col-md-3" href="https://www.toshiba.eu/lighting/" title="Toshiba Lighting" target="_blank"><img src="./Images/Suppliers/toshiba.png" alt="Toshiba Lighting" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Standby industrial batteries and reserved power (Lead acid and NICD secondary batteries)." href="http://www.hoppecke.com/" title="Hoppecke - Germany" target="_blank"><img src="./Images/Suppliers/hoppecke.png" alt="hoppecke" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Lights and lighting solutions- all types." href="https://www.toshiba.eu/lighting/" title="Toshiba Lighting - Japan" target="_blank"><img src="./Images/Suppliers/toshiba.png" alt="Toshiba Lighting" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Outdoor and façade lighting." href="http://www.traxontechnologies.com/" title="Traxon Technologies - USA" target="_blank"><img src="./Images/Suppliers/traxon.png" alt="traxon" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Lighting fixtures." href="http://www.pierlite.com/" title="Pierlight - Australia" target="_blank"><img src="./Images/Suppliers/pierlight.png" alt="pierlight" /></a>
+
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Electronic ballast, magnetic ballast, electronic and magnetic transformers, LED drivers, ignitrons and capacitors." href="http://www.elt.es/home/i-inicio.html" title="eLT -Spain" target="_blank"><img src="./Images/Suppliers/elt.png" alt="elt" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Magnetic ballast, magnetic transformers, ignitrons and capacitors." href="http://www.layrton.com/" title="Layrton - Spain" target="_blank"><img src="./Images/Suppliers/layrton.png" alt="layrton" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Plugs, adaptors and lamp holders." href="http://www.famatel.com/" title="Famatel - Spain" target="_blank"><img src="./Images/Suppliers/famatel.png" alt="Famatel" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Timer switches and automatic stairway switches. Instrumentation energy measurement." href="http://www.orbis.es/inicio.aspx?inPkyIdi=2" title="Orbis - Spain" target="_blank"><img src="./Images/Suppliers/orbis.png" alt="orbis" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Fans, plugs and emergency rechargeable lamps and battery kits." href="http://www.khind.com.my/" title="Khind - Malaysia" target="_blank"><img src="./Images/Suppliers/khind.png" alt="khind" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Fluorescent lamps, lighting battens, magnetic ballast." href="http://www.racerlighting.com/" title="Racer - Thailand" target="_blank"><img src="./Images/Suppliers/racer.png" alt="racer" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Creative finishes of wiring accessories plates that can be equipped with LEGRAND finishes." href="#" title="Turbo - China"><img src="./Images/Suppliers/turbo.png" alt="turbo" /></a>
+
+            <a class="col-xs-6 col-sm-3  col-md-3" data-content="Electric power system products like MCCB, ACB, Changeover switches and Switch disconnector fuse." href="http://www.indoasian.com/" title="IndoAsian - India" target="_blank"><img src="./Images/Suppliers/indoAsian.png" alt="indoAsian" /></a>
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
 

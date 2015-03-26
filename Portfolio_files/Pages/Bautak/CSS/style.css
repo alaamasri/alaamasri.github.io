@@ -191,6 +191,9 @@ html {
     margin-bottom: 20px; }
     .inner-suppliers a img {
       max-width: 60%; }
+  .inner-suppliers .popover-title {
+    background: #004663;
+    color: white; }
 
 .footer {
   text-align: center;
@@ -259,8 +262,8 @@ html {
   width: 100%;
   float: left;
   border-bottom: 1px dashed #f7f7f7;
-  margin-bottom: 20px;
-  padding-bottom: 50px; }
+  margin-bottom: 10px;
+  padding-bottom: 40px; }
   .branch-details:last-child {
     border-bottom: 0px solid; }
   .branch-details h3 {
@@ -504,7 +507,10 @@ html {
     font-size: 18px;
     margin: 30px 0 0px 0;
     background-size: 45px;
-    background-position: center 35px; } }
+    background-position: center 35px; }
+
+  .popover {
+    display: none !important; } }
 @media only screen and (max-width: 480px) {
   .content h2 {
     margin: 10px 0 20px;
