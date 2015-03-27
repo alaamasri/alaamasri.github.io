@@ -191,6 +191,8 @@ html {
     margin-bottom: 20px; }
     .inner-suppliers a img {
       max-width: 60%; }
+  .inner-suppliers .popover {
+    border: 0px solid; }
   .inner-suppliers .popover-title {
     background: #004663;
     color: white; }
@@ -237,6 +239,8 @@ html {
         bottom: 0px;
         margin: auto;
         left: -10px; }
+  .content.content-center {
+    text-align: center; }
 
 .PDF-link {
   text-align: center;

@@ -280,7 +280,7 @@ html {
             max-width: 60%;
         }
     }
-
+    .popover{border:0px solid;}
     .popover-title {
         background: $alternativeBackground;
         color: white;
@@ -346,6 +346,7 @@ html {
             }
         }
     }
+&.content-center{text-align:center;}
 }
 
 .PDF-link {
