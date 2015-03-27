@@ -115,7 +115,7 @@ html {
         padding: 0px 20px 35px;
         margin: 0 15px 0;
         text-transform: capitalize;
-        transition: all .3s;
+        transition: all .3s, padding 0s;
     }
 
     .navbar-nav > li:first-child > a {
@@ -434,7 +434,7 @@ html {
             }
 
             textarea {
-                min-height: 198px;
+                min-height: 177px;
             }
 
             .form-error {

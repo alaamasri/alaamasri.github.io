@@ -80,8 +80,8 @@ html {
     padding: 0px 20px 35px;
     margin: 0 15px 0;
     text-transform: capitalize;
-    -webkit-transition: all .3s;
-            transition: all .3s; }
+    -webkit-transition: all .3s, padding 0s;
+            transition: all .3s, padding 0s; }
   .navbar-default .navbar-nav > li:first-child > a {
     margin-left: 0px; }
   .navbar-default .navbar-nav > li:last-child > a {
@@ -302,7 +302,7 @@ html {
       .contact-us .left-side .row .form-txt.error {
         border-color: #ff9a00 !important; }
     .contact-us .left-side .row textarea {
-      min-height: 198px; }
+      min-height: 177px; }
     .contact-us .left-side .row .form-error {
       color: #ff9a00;
       margin-bottom: 0px; }
