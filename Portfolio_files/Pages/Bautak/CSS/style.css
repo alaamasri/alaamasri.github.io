@@ -157,7 +157,7 @@ html {
 
 #slider .caption {
   background: rgba(255, 154, 0, 0.8);
-  font-size: 38px;
+  font-size: 36px;
   text-transform: uppercase;
   color: white;
   position: absolute;
@@ -166,7 +166,7 @@ html {
   display: block;
   z-index: 2;
   padding: 20px 30px;
-  height: 150px;
+  height: 140px;
   width: 400px; }
 #slider .item img {
   margin-top: -70px; }
@@ -200,7 +200,7 @@ html {
 .footer {
   text-align: center;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   background: #004663;
   padding: 20px 0; }
   .footer a {
@@ -239,10 +239,12 @@ html {
         bottom: 0px;
         margin: auto;
         left: -10px; }
+  .content a {
+    color: #ff9a00; }
   .content.content-center {
     text-align: center; }
 
-.PDF-link {
+a.PDF-link {
   text-align: center;
   color: #004663;
   padding-bottom: 80px;
@@ -253,11 +255,11 @@ html {
   -webkit-transition: opacity .3s,-webkit-transform .1s;
           transition: opacity .3s,transform .1s;
   background: url(../Images/download.png) no-repeat center bottom; }
-  .PDF-link:hover, .PDF-link:focus {
+  a.PDF-link:hover, a.PDF-link:focus {
     text-decoration: none;
     color: #004663;
     opacity: .8; }
-  .PDF-link:active {
+  a.PDF-link:active {
     -webkit-transform: scale(0.9, 0.9);
         -ms-transform: scale(0.9, 0.9);
             transform: scale(0.9, 0.9); }
@@ -302,7 +304,7 @@ html {
       .contact-us .left-side .row .form-txt.error {
         border-color: #ff9a00 !important; }
     .contact-us .left-side .row textarea {
-      min-height: 177px; }
+      min-height: 270px; }
     .contact-us .left-side .row .form-error {
       color: #ff9a00;
       margin-bottom: 0px; }
@@ -387,10 +389,10 @@ html {
   #slider .item img {
     margin-top: 0px; }
   #slider .caption {
-    font-size: 28px;
+    font-size: 26px;
     right: 60px;
     bottom: 20%;
-    height: 120px;
+    height: 110px;
     width: 300px; }
 
   .footer .itmam {
@@ -473,7 +475,7 @@ html {
         max-width: 65%; }
 
   #slider .caption {
-    font-size: 22px;
+    font-size: 20px;
     right: 30px;
     bottom: 15%;
     height: 80px;
@@ -537,10 +539,10 @@ html {
 
   #slider .caption {
     padding: 5px 10px;
-    font-size: 18px;
+    font-size: 16px;
     right: 15px;
     bottom: 15%;
-    height: 60px;
+    height: 55px;
     width: 170px; }
 
   .header-background .logo {
