@@ -1,0 +1,68 @@
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var pageQuery = Request.QueryString["Id"];
+    var pageType = 0;
+    if (@pageQuery != null) {pageType = @Umbraco.Media(@pageQuery).Name.Length; }
+    
+}
+@section Scripts{
+
+<script src="~/Scripts/modernizr.js"></script>
+<script src="~/Scripts/jquery.gallery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#dg-container').gallery();
+
+        $("#dg-container").swipeleft(function () {
+            $("#dg-container .dg-next").click();
+        });
+
+        $("#dg-container").swiperight(function () {
+            $("#dg-container .dg-prev").click();
+        });
+
+    });
+
+    $(document).keydown(function (e) {
+        switch (e.which) {
+            case 37: $("#dg-container .dg-prev").click();
+                break;
+
+            case 38: // up
+                break;
+
+            case 39: $("#dg-container .dg-next").click();
+                break;
+
+
+            default: return;
+        }
+        e.preventDefault();
+    }); /* KeyDown End*/
+
+</script>
+}
+
+@if (@pageType >= 1)
+{
+    var pageNode = @Umbraco.Media(@pageQuery);
+    <div class="container inner-gallery">
+        <h2>
+            <a href="@CurrentPage.Url" title="@Umbraco.Field("pageTitle")">@Umbraco.Field("pageTitle")</a>/<span class="highlitedTitle"> @pageNode.Name</span>
+        </h2>
+        @Umbraco.RenderMacro("MediaCenter", new { mediaTopFolder = @Umbraco.Field("MediaTopFolder") })
+    </div>
+}
+else
+{
+    <div class="container photo-gallery">
+        <h2>
+            @Umbraco.Field("pageTitle")
+        </h2>
+        @Umbraco.RenderMacro("MediaCenter", new { mediaTopFolder = @Umbraco.Field("MediaTopFolder") })
+    </div>
+}
+       
+   

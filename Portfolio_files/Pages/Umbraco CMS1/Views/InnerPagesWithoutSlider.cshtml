@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+@section Style{
+    <link rel="stylesheet" href="~/Css/services.css" type="text/css" media="screen" />
+    }
+<div class="container">
+    @if (@CurrentPage.Children.Count() > 0)
+    {
+        <div class="section_header">
+            <h3>@CurrentPage.Name</h3>
+        </div>
+        @Umbraco.RenderMacro("HTMLBlocksFolder", new { nodeId = @CurrentPage.Id })
+    }
+    else
+    {
+        <div class="section_header">
+            <h3>@Umbraco.Field("pageTitle")</h3>
+        </div>
+        @Umbraco.Field("bodyText")
+    }
+</div>
