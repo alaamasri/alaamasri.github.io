@@ -1,0 +1,46 @@
+@inherits umbraco.MacroEngines.DynamicNodeContext
+@{
+    var startNodeID = 1081;
+}
+@if (startNodeID != null)
+{
+    @* Get the start node as a dynamic node *@
+    var startNode = Model.NodeById(startNodeID);
+    <div id="showcase">
+        <div class="section_header">
+            <h3>@startNode.Name</h3>
+        </div>
+        <div class="row feature_wrapper">
+            <div class="features_op1_row">
+                @if (startNode.Children.Where("Visible").Any())
+                {
+                    var i = 1;
+
+                    foreach (var item in startNode.Children.Where("Visible"))
+                    {
+                        var imgSrc = Library.MediaById(item.Image);
+
+                        <div class="span4 feature @(i == 1 ? "first": "") @(i == 3 ? "last": "")">
+                            <div class="img_box">
+                                <a href="@item.NiceUrl">
+                                    <img src="@imgSrc.Url" alt="@item.Name" />
+                                    <span class="circle">
+                                        <span class="plus">&#43;</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="text">
+                                <h6>@item.Name</h6>
+                                <p>
+                                    @item.bodyText
+                                </p>
+                            </div>
+                        </div>
+                        i++;
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+}

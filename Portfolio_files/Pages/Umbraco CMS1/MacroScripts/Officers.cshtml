@@ -1,0 +1,19 @@
+﻿@inherits umbraco.MacroEngines.DynamicNodeContext
+
+@{
+    var root = Model.NodeById(Parameter.committeePicker);
+ }
+
+@foreach (var item in root.Children.Where("Visible"))
+{
+    var imgSrc = Library.MediaById(item.Image);
+    var imgSrcUrl = imgSrc.Url;
+    if (imgSrc.Url == "") { imgSrcUrl = "/Media/Images/profile-pic.jpg"; }
+    <div class="col-xs-6 col-sm-4  col-md-4 officer-item">
+        <img src="@imgSrcUrl" alt="HOG Jordan" />
+        <h3>@item.name</h3>
+        <h4>@item.officerTitle</h4>
+
+    </div>
+}
+
