@@ -280,7 +280,11 @@ html {
             max-width: 60%;
         }
     }
-    .popover{border:0px solid;}
+
+    .popover {
+        border: 0px solid;
+    }
+
     .popover-title {
         background: $alternativeBackground;
         color: white;
@@ -346,8 +350,14 @@ html {
             }
         }
     }
-    a{color:$highlightColor;}
-&.content-center{text-align:center;}
+
+    a {
+        color: $highlightColor;
+    }
+
+    &.content-center {
+        text-align: center;
+    }
 }
 
 a.PDF-link {
@@ -523,6 +533,33 @@ a.PDF-link {
     }
 }
 
+.history {
+    div {
+        clear: both;
+        padding: 12px 0;
+    }
+
+    h3 {
+        float: left;
+        margin: 0px 10px 0 0;
+        width: 5%;
+    }
+
+    span {
+        display: inline-block;
+        padding-top: 3px;
+        width: 94%;
+    }
+}
+
+.founder-Image {
+    float: left;
+    max-width: 15%;
+    margin-right: 20px;
+    border: 1px solid darken($background,3);
+    margin-bottom: 10px;
+}
+
 
 /*==End of Regular CSS==*/
 /*==============================================*/
@@ -586,6 +623,16 @@ a.PDF-link {
             img {
                 max-width: 70px;
             }
+        }
+    }
+
+    .history {
+        h3 {
+            width: 8%;
+        }
+
+        span {
+            width: 90%;
         }
     }
 }
@@ -770,13 +817,33 @@ a.PDF-link {
         }
     }
 
-    .PDF-link {
+    a.PDF-link {
         font-size: $font-size+4;
         margin: 30px 0 0px 0;
         background-size: 45px;
         background-position: center 35px;
     }
-    .popover{display:none !important;}
+
+    .popover {
+        display: none !important;
+    }
+
+    .history {
+        h3 {
+            width: 100%;
+            margin: 0px;
+        }
+
+        span {
+        }
+    }
+
+    .founder-Image {
+        max-width: 35%;
+        display: block;
+        margin: 0 auto 20px;
+        float:none;
+    }
 }
 
 @media only screen and (max-width: 480px) {

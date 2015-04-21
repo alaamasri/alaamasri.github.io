@@ -363,6 +363,25 @@ a.PDF-link {
     width: 100%;
     margin-top: 20px; }
 
+.history div {
+  clear: both;
+  padding: 12px 0; }
+.history h3 {
+  float: left;
+  margin: 0px 10px 0 0;
+  width: 5%; }
+.history span {
+  display: inline-block;
+  padding-top: 3px;
+  width: 94%; }
+
+.founder-Image {
+  float: left;
+  max-width: 15%;
+  margin-right: 20px;
+  border: 1px solid #f7f7f7;
+  margin-bottom: 10px; }
+
 /*==End of Regular CSS==*/
 /*==============================================*/
 @media only screen and (max-width: 1199px) {
@@ -401,7 +420,12 @@ a.PDF-link {
     padding-left: 0px;
     width: 100%; }
     .footer .itmam img {
-      max-width: 70px; } }
+      max-width: 70px; }
+
+  .history h3 {
+    width: 8%; }
+  .history span {
+    width: 90%; } }
 @media only screen and (max-width: 767px) {
   .navbar-default .navbar-nav {
     padding: 8px 0 10px;
@@ -509,14 +533,24 @@ a.PDF-link {
       width: 100%;
       margin-top: 20px; }
 
-  .PDF-link {
+  a.PDF-link {
     font-size: 18px;
     margin: 30px 0 0px 0;
     background-size: 45px;
     background-position: center 35px; }
 
   .popover {
-    display: none !important; } }
+    display: none !important; }
+
+  .history h3 {
+    width: 100%;
+    margin: 0px; }
+
+  .founder-Image {
+    max-width: 35%;
+    display: block;
+    margin: 0 auto 20px;
+    float: none; } }
 @media only screen and (max-width: 480px) {
   .content h2 {
     margin: 10px 0 20px;
