@@ -463,7 +463,7 @@ a {
 #slider .small-slide, #slider .smaller-slide, #slider .large-slide {
   display: none; }
 #slider .item {
-  background-size: cover;
+  background-size: 100% auto;
   background-attachment: fixed; }
 #slider .caption {
   position: absolute;
