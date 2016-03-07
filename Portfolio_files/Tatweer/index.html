@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html class="locked">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="./CSS/bootstrap.css" rel="stylesheet">
+    <!--<link href="~/css/animate.css" rel="stylesheet">-->
+    <link href="./CSS/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/bootstrap.offcanvas.min.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/animate.css" rel="stylesheet" type="text/css">
+    <link href="./CSS/style.css" rel="stylesheet" type="text/css">
+    <title>
+        Tatweer Website
+    </title>
+    <script src="./Scripts/jquery.min.js"></script>
+    <script src="./Scripts/bootstrap.min.js"></script>
+    <script src="./Scripts/jquery.mobile.custom.min.js"></script>
+    <script src="./Scripts/bootstrap.offcanvas.min.js"></script>
+    <script src="./Scripts/animo.min.js"></script>
+    <script src="./Scripts/wow.min.js"></script>
+    <script src="./Scripts/scripts.js"></script>
+    <!--<script src="~/Scripts/jquery.form-validator.min.js"></script>-->
+
+</head>
+
+
+<body>
+    <div class="loading">
+        <div class="loadingAnimation loader"></div>
+        <img src="./Images/loadingLogo.png" alt="Tatweer Logo" />
+    </div>
+
+    <div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="container top-menu-container wow slideInDown">
+            <a class="home-button" href="/"><span class="glyphicon glyphicon-home"></span></a>
+            <div class="top-menu">
+                <div>
+                    <span class="glyphicon glyphicon-earphone"></span>
+                    Call us: +962 06 5135487
+                </div>
+                <a href="#">About Us</a>
+                <a href="#"><span class="glyphicon glyphicon-user"></span>Login</a>
+            </div>
+        </div>
+        <div class="container menu-container">
+
+            <a class="logo wow slideInDown" title="Tatweer Homepage" href="./index.html">
+                <img src="Images/logo.png" alt="Tatweer Home Page" />
+            </a>
+            <button type="button" class="navbar-toggle offcanvas-toggle" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas" id="offcanvas-toggle">
+                <i class="fa fa-bars"></i>
+            </button>
+            <nav class="navbar navbar-default navbar-offcanvas navbar-offcanvas-touch navbar-offcanvas-right" role="navigation" id="js-bootstrap-offcanvas">
+                <button type="button" class="menu-close offcanvas-toggle pull-right" data-toggle="offcanvas" data-target="#js-bootstrap-offcanvas">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="glyphicon glyphicon-remove"></i>
+                </button>
+                <ul class="nav navbar-nav" id="js-bootstrap-offcanvas">
+                    <li><a href="#" class="wow slideInDown">Buy</a></li>
+                    <li><a href="#" class="wow slideInLeft">Sell</a></li>
+                    <li><a href="#" class="wow slideInRight">Rent</a></li>
+                    <li><a href="#" class="wow slideInDown">Discover</a></li>
+                    <li><a href="#" class="wow slideInUp">Investment</a></li>
+                    <li><a href="#" class="wow slideInRight">International</a></li>
+                    <li><a href="#" class="wow slideInLeft">Find</a></li>
+                    <li><a href="#" class="wow slideInDown">Agent</a></li>
+                    <li><a href="#" class="wow slideInRight">Advice</a></li>
+                    <li><a href="#" class="wow slideInLeft">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active" style="background-image:url(./Images/slide1.jpg)">
+                <img class="large-slide" src="./Images/slide1.jpg" alt="slide2">
+                <img class="small-slide" src="./Images/slide1Small.jpg" alt="slide1">
+                <img class="smaller-slide" src="./Images/slide1Smaller.jpg" alt="slide1">
+                <div class="caption">
+                    <div class="left-caption animated fadeInLeft">
+                        <div class="top">We deliver</div>
+                        <div class="bottom">the most comprehensive</div>
+                    </div>
+                    <div class="right-caption animated fadeInRight">
+                        <div>
+                            and specialized real estate experience in the industry
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item" style="background-image:url(./Images/slide2.jpg)">
+                <img class="large-slide" src="./Images/slide2.jpg" alt="slide2">
+                <img class="small-slide" src="./Images/slide2Small.jpg" alt="slide2">
+                <img class="smaller-slide" src="./Images/slide2Smaller.jpg" alt="slide1">
+                <div class="caption">
+                    <div class="left-caption animated fadeInLeft">
+                        <div class="top">We deliver</div>
+                        <div class="bottom">the most comprehensive</div>
+                    </div>
+                    <div class="right-caption animated fadeInRight">
+                        <div>and specialized real estate experience in the industry</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <div class="container slider-controls">
+            <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-menu-left"></span>
+            </a>
+            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-menu-right"></span>
+            </a>
+        </div>
+
+    </div>
+    <div class="container-fluid home-search-header">
+        <div>Find your New Home</div>
+    </div>
+    <div class="container home-search wow fadeInUp">
+        <div class="home-search-options">
+            <div class="item active">
+                <span class="glyphicon glyphicon-search"></span>
+                <span class="title">Location</span>
+            </div>
+            <div class="item">
+                <span class="glyphicon glyphicon-picture"></span>
+                <span class="title">Map</span>
+            </div>
+            <div class="item">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span class="title">Near Me</span>
+            </div>
+            <div class="item">
+                <span class="glyphicon glyphicon-home"></span>
+                <span class="title">Preperty Type</span>
+            </div>
+            <div class="item">
+                <span class="glyphicon glyphicon-time"></span>
+                <span class="title">Travel Time</span>
+            </div>
+            <div class="item">
+                <i class="fa fa-bed"></i>
+                <span class="title">Bedrooms</span>
+            </div>
+            <div class="item">
+                <span class="glyphicon glyphicon-tag"></span>
+                <span class="title">Price</span>
+            </div>
+        </div>
+        <form class="home-search-input">
+            <select><option value="Buy">Buy</option><option value="Rent">Rent</option></select>
+            <input type="text" placeholder="Location" />
+            <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+        </form>
+    </div>
+    <div class="container invest-section">
+        <img class="main-image main-image-large wow fadeInUp" src="./Images/home1.jpg" />
+        <img class="main-image main-image-small wow fadeInUp" src="./Images/home1Small.jpg" />
+        <div class="right-side">
+            <div class="highlighted-section wow fadeInLeft">
+                <h1>Investment<span>Become Reality</span></h1>
+                <img src="./Images/home2.jpg" />
+            </div>
+            <div class="content wow fadeInUp">
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                <p>
+                <p>
+                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+                </p>
+            </div>
+        </div>
+        <div class="left-side wow fadeIn">
+            <h1>
+                Lorem ipsum dolor sit amet, dolorconsectetur adipiscing elit
+                ipsum dolor
+            </h1>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+            <a href="#" class="read-more">
+                Read More
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid lower-section">
+        <div class="container newsletter">
+            <h1 class="wow fadeInDown">
+                Register for your newsletter to
+                <span>Receive proprty Updates</span>
+            </h1>
+            <form class="newsletter-form wow fadeIn">
+                <input type="text" placeholder="Your Name" name="name" />
+                <input type="Email" placeholder="Your Email" name="name" />
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+        <div class="container footer">
+            <ul class="footer-menu">
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="#">Discover</a></li>
+                <li><a href="#">Investment</a></li>
+                <li><a href="#">International</a></li>
+                <li><a href="#">Find</a></li>
+                <li><a href="#">Agent</a></li>
+                <li><a href="#">Advice</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="footer-left">
+                <a class="footer-logo" href="/">
+                    <img src="./Images/logo.png" alt="Tatweer Logo">
+                </a>
+                <span class="copyrights">
+                    Copyright 2016 © All rights reserved.
+                </span>
+                <a class="itmam" target="_blank" href="http://www.itmam.com">
+                    <span>Designed &amp; Powered by</span>
+                    <svg version="1.1" viewBox="0 0 130.552 36.027">
+                        <g>
+                            <g>
+                                <path d="M127.478,6.148c-1.698,0-3.075-1.375-3.075-3.074S125.779,0,127.478,0c1.698,0,3.074,1.375,3.074,3.074
+			S129.176,6.148,127.478,6.148z M127.478,0.365c-1.47,0-2.675,1.24-2.675,2.709c0,1.469,1.205,2.709,2.675,2.709
+			c1.47,0,2.675-1.24,2.675-2.709C130.152,1.605,128.947,0.365,127.478,0.365z M128.293,4.773l-0.841-1.419h-0.561v1.419h-0.382
+			V1.367h1.087c0.561,0,1.054,0.424,1.054,1.002c0,0.501-0.323,0.824-0.773,0.951l0.857,1.453H128.293z M127.555,1.715h-0.663v1.3
+			h0.663c0.406,0,0.713-0.271,0.713-0.645C128.268,1.996,127.961,1.715,127.555,1.715z"></path>
+                            </g>
+                            <polygon fill="none" points="36.425,12.535 36.425,20.213 37.933,16.342 36.503,12.535 	"></polygon>
+                            <polygon fill="none" points="81.668,24.361 80.544,21.216 79.318,24.361 	"></polygon>
+                            <polygon fill="none" points="20.25,14.355 21.575,10.953 20.25,10.953 	"></polygon>
+                            <polygon fill="none" points="76.883,11.191 72.097,24.361 76.561,24.361 79.225,17.523 76.961,11.191 	"></polygon>
+                            <polygon points="29.662,10.953 29.662,7.79 25.566,7.79 24.333,10.953 	"></polygon>
+                            <polygon points="16.492,31.076 16.492,36.027 20.25,36.027 20.25,21.435 	"></polygon>
+                            <polygon points="20.25,10.953 21.575,10.953 22.808,7.79 7.079,7.79 7.079,10.953 16.492,10.953 16.492,23.998 20.25,14.355 	"></polygon>
+                            <polygon points="3.757,7.79 0,7.79 0,22.246 3.757,12.724 	"></polygon>
+                            <polygon points="0,36.027 3.757,36.027 3.757,19.728 0,29.25 	"></polygon>
+                            <polygon points="115.916,7.79 106.979,31.519 105.172,26.703 103.503,30.986 105.396,36.027 108.6,36.027 117.419,12.535
+		117.498,12.535 117.498,36.027 121.057,36.027 121.057,7.79 	"></polygon>
+                            <polygon points="98.079,7.79 92.938,7.79 92.938,36.027 96.498,36.027 96.498,12.535 96.576,12.535 102.149,27.381 103.819,23.096
+			"></polygon>
+                            <polygon points="36.425,12.535 36.503,12.535 37.933,16.342 39.604,12.052 38.006,7.79 32.865,7.79 32.865,29.348 36.425,20.213
+		"></polygon>
+                            <polygon points="36.425,36.027 36.425,27.291 33.02,36.027 	"></polygon>
+                            <polygon points="46.904,31.519 40.957,15.659 39.286,19.947 45.323,36.027 48.526,36.027 57.346,12.535 57.424,12.535
+		57.424,36.027 60.983,36.027 60.983,7.79 55.843,7.79 	"></polygon>
+                            <polygon points="72.097,24.361 76.883,11.191 76.961,11.191 79.225,17.523 81.04,12.864 79.058,7.79 74.905,7.79 63.91,36.027
+		67.746,36.027 70.91,27.525 75.327,27.525 76.561,24.361 	"></polygon>
+                            <polygon points="80.544,21.216 81.668,24.361 79.318,24.361 78.086,27.525 82.854,27.525 85.938,36.027 90.092,36.027
+		82.421,16.398 	"></polygon>
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
