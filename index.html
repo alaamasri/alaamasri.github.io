@@ -222,6 +222,28 @@
 
                     );
 
+                $('.my-info-section .work-item:gt(1)').addClass('work-more');
+                $('.work-more-link').click(
+                   function () {
+                       if (
+                           $('.work-more-visible').length) {
+                           $('.work-more').slideUp();
+                           $('.work-more-link').toggleClass('work-less');
+                           $('.work-more').toggleClass('work-more-visible');
+                       }
+                       else {
+                           $('.work-more-link').toggleClass('work-less');
+                           $('.work-more').toggleClass('work-more-visible');
+                           $('.work-more').slideDown('medium', function () {
+                               if ($('.work-more').is(':visible'))
+                               { $('.work-more').css('display', 'inline-block'); }
+                           });
+                       }
+
+                   }
+
+                   );
+
             });
 
             /* loading */
@@ -408,7 +430,7 @@
             <div class="container resume wow fadeInDown animated" id="Resume" nav-selected="0" style="visibility: visible; -webkit-animation: fadeInDown;">
                 <div id="ctl11_dvHtml">
                     <h2>Resume</h2>
-                    <p>A creative minded individual with over 3 years of functional web designing & development experience, and I am ready to leverage my capabilities to contribute to your bottom line</p>
+                    <p>A creative minded individual with over than 5 years of functional web designing & development experience, and I am ready to leverage my capabilities to contribute to your bottom line</p>
                     <a class="btn" target="_blank" href="./Portfolio_files/Ala_Almasri_CV.pdf" title="Download my resume" download>Download Resume</a>
                 </div>
             </div>
@@ -461,7 +483,7 @@
                             </div>
                             <p class="work-description"></p>
                         </div>
-
+                        <span class="work-more-link">more</span>
                     </div>
                 </div>
 
@@ -506,32 +528,12 @@
                         <div class="portfolio-hover" onclick=""> <a title="HOG Jordan Website (ITMAM CMS)" href="./Portfolio_files/Images/Large/hog.jpg" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.hog-jordan.com/" class="portfolio-link" title="HOG Jordan Website" target="_blank">Website Link</a> </div>
                     </div>
                     <div class="mix category-1" data-myorder="8">
-                        <img src="./Portfolio_files/Images/Thumb/4f263226-9891-4205-a265-8969ed090773.png" alt="Saraya Holdings">
-                        <div class="portfolio-hover" onclick=""> <a title="Saraya Holdings Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/4f263226-9891-4205-a265-8969ed090773.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.sarayaholdings.com/" class="portfolio-link" title="Saraya Holdings Official Website" target="_blank">Website Link</a> </div>
+                        <img src="./Portfolio_files/Images/Thumb/jsprs.jpg" alt="JSPRS Website">
+                        <div class="portfolio-hover" onclick=""> <a title="JSPRS Website (ITMAM CMS)" href="./Portfolio_files/Images/Large/jsprs.jpg" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.jsprs.net/" class="portfolio-link" title="JSPRS Website" target="_blank">Website Link</a> </div>
                     </div>
-                    <div class="mix category-1" data-myorder="9">
-                        <img src="./Portfolio_files/Images/Thumb/0970b88f-ea05-4d7c-8887-8011d633ad41.png" alt="Asia Insurance">
-                        <div class="portfolio-hover" onclick=""> <a title="Asia Insurance Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/0970b88f-ea05-4d7c-8887-8011d633ad41.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.asiainsurance.net/" class="portfolio-link" title="Asia Insurance Company - Iraq Website (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
-                    </div>
-                    <div class="mix category-1" data-myorder="10">
-                        <img src="./Portfolio_files/Images/Thumb/chamber.png" alt="ESKADENIA Music Chamber">
-                        <div class="portfolio-hover" onclick=""> <a title="ESKADENIA Music Chamber (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/chamber.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://eskadeniamusicchamber.com/" class="portfolio-link" title="ESKADENIA Music Chamber (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
-                    </div>
-                    <div class="mix category-1" data-myorder="11">
-                        <img src="./Portfolio_files/Images/Thumb/131db9e4-856c-4856-8ec4-b3715f630b9a.png" alt="Tabbaa Kitchens">
-                        <div class="portfolio-hover" onclick=""> <a title="Tabbaa Kitchens Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/131db9e4-856c-4856-8ec4-b3715f630b9a.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.tabbaakitchens.com/" class="portfolio-link" title="Tabbaa Kitchens Website (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
-                    </div>
-                    <div class="mix category-1" data-myorder="12">
-                        <img src="./Portfolio_files/Images/Thumb/0222b678-66b9-4302-9f40-44ae2b51473a.png" alt="Zalatimo Sweets">
-                        <div class="portfolio-hover" onclick=""> <a title="Zalatimo Sweets Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/0222b678-66b9-4302-9f40-44ae2b51473a.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://zalatimo.com/" class="portfolio-link" title="Zalatimo Brothers for Sweets Website (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
-                    </div>
-                    <div class="mix category-1" data-myorder="13">
-                        <img src="./Portfolio_files/Images/Thumb/a96e976e-37c2-4adc-abb6-03a3b0f401c3.png" alt="Welfare Association">
-                        <div class="portfolio-hover" onclick=""> <a title="Welfare Association Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/a96e976e-37c2-4adc-abb6-03a3b0f401c3.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://www.en.welfareassociation.org/" class="portfolio-link" title="Welfare Association Palestine Website (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
-                    </div>
-                    <div class="mix category-1" data-myorder="14">
-                        <img src="./Portfolio_files/Images/Thumb/561243fe-5688-4ff9-94d0-5da200efe2df.png" alt="AMCHAM Jordan">
-                        <div class="portfolio-hover" onclick=""> <a title="AMCHAM Jordan Website (ESKADENIA CMS)" href="./Portfolio_files/Images/Large/561243fe-5688-4ff9-94d0-5da200efe2df.png" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://amcham.jo/" class="portfolio-link" title="American Chamber of Commerce - Jordan Website (ESKADENIA CMS)" target="_blank">Website Link</a> </div>
+                    <div class="mix category-1" data-myorder="8">
+                        <img src="./Portfolio_files/Images/Thumb/bec.jpg" alt="BEC Consulting Website">
+                        <div class="portfolio-hover" onclick=""> <a title="BEC Consulting Website (ITMAM)" href="./Portfolio_files/Images/Large/bec.jpg" class="portfolio-pop hoverZoomLink"> ImagePop </a> <a href="http://bec.consulting/" class="portfolio-link" title="BEC Consulting Website" target="_blank">Website Link</a> </div>
                     </div>
                     <div class="mix category-2" data-myorder="1">
                         <img src="./Portfolio_files/Images/Thumb/622f7fca-ba5a-4f49-b090-b9681ba19e08.png" alt="Bank Website Design">

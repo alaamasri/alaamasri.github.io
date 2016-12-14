@@ -267,11 +267,11 @@ background-size:10px 10px;
         text-transform: uppercase;
     }
 
-.skills-more {
+.skills-more,.work-more {
     display: none;
 }
 
-.skills-more-link {
+.skills-more-link,.work-more-link {
     display: block;
     width: 100%;
     height: 11px;
@@ -281,19 +281,22 @@ background-size:10px 10px;
     background: url(../../Portfolio_files/Images/skills-more.png) center center no-repeat;
 }
 
-    .skills-more-link:hover {
+    .skills-more-link:hover,.work-more-link:hover {
         opacity: .6;
         filter: alpha(opacity=6);
     }
 
-.skills-less {
+.skills-less,.work-less {
     -webkit-transform: rotateZ(90deg) scale3d(.8,.8,.8);
     -moz-transform: rotateZ(90deg) scale3d(.8,.8,.8);
     -ms-transform: rotateZ(90deg) scale3d(.8,.8,.8);
     -o-transform: rotateZ(90deg) scale3d(.8,.8,.8);
     transform: rotateZ(90deg) scale3d(.8,.8,.8);
 }
-
+.work-less
+{
+    margin-bottom:15px;
+}
 .resume {
     text-align: center;
     padding-bottom: 10px;
@@ -1012,15 +1015,15 @@ button span.bg {
             font-size: 18px;
         }
 
-    .skills-more {
+    .skills-more,.work-more {
         display: none;
     }
 
-    .skills-more-link {
+    .skills-more-link,.work-more-link {
         margin: 0 0 15px;
     }
 
-    .skills-less {
+    .skills-less,.work-less {
         margin: 10px 0 25px;
     }
 
