@@ -1,0 +1,53 @@
+
+<html>
+<head>
+<style>
+body{margin:0;}
+.container{
+width:1349px;
+position:relative;
+}
+.amount,.amount2{
+ position: absolute;
+    top: 250px;
+	left:793px;
+    font-size: 12px;
+    font-family: arial;
+    color: #7a7979;
+    background: white;
+    padding-right: 10px;
+	transform: scaleY(0.95);
+}
+.span2{text-decoration:underline;left:988px;}
+.span3{left:1176px;}
+.span4{top: 315px;
+    left:1222px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+var DayDiff = function (start) {
+    var now = new Date().getTime();
+    start = new Date(start).getTime();
+    
+    return Math.floor((now - start)/ 86400000);
+};
+
+
+$(function(){
+  // Get Starting Number
+   
+    var final_counter = parseInt($(".f1").text()) + (DayDiff('2016-12-21')*5);
+    $('.f').text(final_counter);
+
+})
+</script>
+</head>
+<body>
+<div class="container">
+<img style="width:1349px" src="sec.png"/>
+<div class="amount1 amount"><span class="f f1">75</span>.105.680</div>
+<div class="amount span2"><span class="f">75</span>.105.680</div>
+<div class="amount span3"><span class="f">75</span>.105.680</div>
+<div class="amount2 span4"><span class="f">75</span>.106.144</div>
+</div>
+</html>
