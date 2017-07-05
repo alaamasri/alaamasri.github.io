@@ -1,0 +1,17 @@
+/*------------------------------------------------------------------------------
+Template : Rovast - Corporate HTML5 Template
+Author: JIllur Rahman
+Author URI: www.developerjillur.me
+Version: 1.0.0
+
+Note: plugins.css All all external plugin css file are includes by this file.
+
+-------------------------------------------------------------------------------*/
+
+@import url("animate.css");
+@import url("meanmenu.css");
+@import url("magnific-popup.css");
+@import url("slick.css");
+@import url("owl.carousel.css");
+@import url("swiper.min.css");
+@import url("animated-headlines.css");

@@ -1,0 +1,351 @@
+
+/*---------- Header top -------------*/
+
+/* Top left */
+.header-top-left a,.header-top-left span{
+  color: #fefefe;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+.language{
+  display: inline-block;
+}
+/* bootstrap dropdown */
+.language .dropdown-menu{
+  margin-top: 15px;
+}
+.dropdown-menu {
+  border-radius: 0 0 4px 4px;
+  box-shadow: none;
+  min-width: inherit;
+  padding: 0;
+  z-index: 9999999;
+}
+.dropdown-menu li {
+  border-bottom: 1px solid #d5d5d5;
+}
+.dropdown-menu li a {
+  padding: 10px 20px;
+}
+.dropdown-menu li a:hover{
+  color: #fefefe;
+  background: #1293d4;
+}
+
+/*---------- Top Right -------------*/
+.header-top-right{}
+.social-list li{
+  display: inline-block;
+}
+.social-list li a {
+  display: block;
+  color: #fefefe;
+  padding: 0 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.social-list li a:hover{
+  color: #1293d4;
+}
+
+/*---------- Header bottom -------------*/
+.logo{
+  position: relative;
+}
+.logo img{
+    max-width:70%;
+}
+.logo-hover-box{
+    background: #fff;
+    text-align: left;
+    border: 1px solid #dedede;
+    border-top:9px solid #1293d4;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    left: 0;
+    top: 110%;
+    width: 400px;
+    z-index: 999;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+.logo:hover .logo-hover-box{
+    top: 90%;
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+}
+.logo-hover-info{}
+.contact-info li{
+  margin-bottom: 4px;
+}
+.contact-info span {
+  font-weight: 500;
+}
+.contact-info a {
+  text-transform: capitalize;
+  font-size: 13px;
+  font-weight: normal;
+}
+.logo-hover-info{
+  text-align: center;
+}
+.logo-hover-contact .social-list{
+  text-align: center;
+}
+.logo-hover-contact .social-list a{
+  color: #1293d4;
+  font-size: 20px;
+}
+.logo-hover-contact .social-list a:hover,.contact-info a:hover{
+  color: #343434;
+}
+
+/*---------- header-menu -------------*/
+
+/* Menu css */
+.main-menu ul li{
+  display: inline-block;
+  position: relative;
+}
+.main-menu ul li a{
+  display: block;
+  color: #fff;
+  line-height: 100px;
+  padding: 0 14px;
+  position: relative;
+}
+.main-menu ul li:last-child a{
+  padding-right: 0;
+}
+.main-menu ul li a:hover,.main-menu ul li.active a{
+  color: #fff;
+}
+.main-menu ul li a:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 96%;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  transition: all .4s ease-in-out;
+  transform: scaleX(0);
+  visibility: hidden;
+}
+.main-menu ul li a:hover:after,.main-menu ul li.active a:after{
+  transform: scaleX(1);
+  visibility: visible;
+}
+.main-menu ul li li a:after{
+  display: none;
+}
+.main-menu ul li:hover > a{
+  color: #fff;
+}
+
+/*---------- Dropdown menu -------------*/
+.main-menu ul li > ul{
+    background: #fff;
+    text-align: left;
+    border: 1px solid #dedede;
+    border-top:9px solid #1293d4;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    left: 0;
+    top: 90%;
+    width: 200px;
+    z-index: 999;
+    padding: 10px 0;
+    transform: scaleY(0);
+    transform-origin: top center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+.main-menu ul li:hover > ul{
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+}
+.main-menu ul li > ul:before,.logo-hover-box:before{
+    border-bottom: 8px solid #1293d4;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -16px;
+}
+.main-menu ul li ul li{
+  display: block;
+}
+.main-menu ul li ul li:last-child a{
+  padding-left: 15px;
+}
+.main-menu ul li ul li a {
+  font-family: "Poppins",sans-serif;
+  font-size: 13px;
+  line-height: 32px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  text-transform: capitalize;
+}
+.parent-angle {
+  font-size: 17px;
+}
+.main-menu ul li ul li a:hover{
+  margin-left: 5px;
+}
+.main-menu ul li ul li .parent-angle{
+  display: none;
+}
+
+/*---------- Secondary dropdown -------------*/
+.main-menu ul li ul li ul {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  padding-top: 5px;
+}
+.main-menu ul li ul li > ul:before{
+  border-bottom: 8px solid #1293d4;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  content: "";
+  left: -10px;
+  position: absolute;
+  top: 2px;
+  transform: rotate(270deg);
+}
+.main-menu ul li ul li:hover > a{
+  margin-left: 5px;
+}
+
+/*---------- Mega menu css -------------*/
+.mega-menu-wrapper:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.mega-menu-wrapper{
+  background: #fff;
+  position: absolute;
+  right: 0;
+  top: 90%;
+  text-align: left;
+  border: 1px solid #dedede;
+  border-top:9px solid #1293d4;
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  padding:20px 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .4s;
+}
+.main-menu ul li:hover > .mega-menu-wrapper{
+    transform: scaleY(1);
+    transition: .3s;
+    opacity: 1;
+    visibility: visible;
+}
+.mega-menu-wrapper:before {
+    border-bottom: 8px solid #1293d4;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    position: absolute;
+    right: 20px;
+    top: -16px;
+}
+.three-column{
+  width: 650px;
+}
+.megamenu-col{
+  width: 33.3%;
+  float: left;
+  padding: 0 10px;
+}
+.four-column{
+  width: 700px;
+}
+.four-column .megamenu-col{
+  width: 25%;
+}
+.main-menu .mega-menu-wrapper ul{
+  text-align: left;
+}
+.mega-title {
+  font-size: 13px;
+  padding: 0 15px;
+  position: relative;
+  color: #333333;
+  margin-bottom: 15px;
+}
+.mega-title:after {
+  background: #1293d4 none repeat scroll 0 0;
+  content: "";
+  height: 2px;
+  left: 15px;
+  position: absolute;
+  top: 18px;
+  width: 50px;
+}
+
+/*---------- Standerd Fixed header -------------*/
+.header-bottom{
+    width: 100%;
+    float: left;
+    position: fixed;
+    top: 0;
+    background: rgba(177, 7, 57, .7);
+    box-shadow: 0 0 5px rgba(0, 0, 0,.3);
+    left: 0;
+    
+    transition: .4s;
+    transform: translate(0px,-100px);
+    z-index: 999;
+}
+.visible-header{
+  -ms-transform: translate(0px,0px);
+  -moz-transform: translate(0px,0px);
+  -webkit-transform: translate(0px,0px);
+    transform: translate(0px,0px);
+}
+.header-bottom.no-transition{
+  transition: 0s;
+}
+.header-bottom.static-header.visible-header{
+  top: 0px;
+
+}
+
+/* Fixed Slider buttom problem */
+.slider-section,.slider-bottom-fix{
+  position: relative;
+  top: 0px;
+  transition: .4s;
+}
+.slider-bottom-fix{
+  margin-bottom: 98px;
+}
+.header-slider-bottom{
+  top: 0;
+}
+.slider-bottom-fix.header-slider-bottom{
+  margin-bottom: 0;
+}
+.afterclickpopup {
+    position: relative;
+    top: 0 !important;
+    margin-bottom: -100px;
+}
