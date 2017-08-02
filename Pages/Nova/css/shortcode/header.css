@@ -154,7 +154,7 @@
     background: #fff;
     text-align: left;
     border: 1px solid #dedede;
-    border-top:9px solid #1293d4;
+    border-top:9px solid #fff;
     border-radius: 6px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     position: absolute;
@@ -175,7 +175,7 @@
     visibility: visible;
 }
 .main-menu ul li > ul:before,.logo-hover-box:before{
-    border-bottom: 8px solid #1293d4;
+    border-bottom: 8px solid #fff;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     content: "";
@@ -196,6 +196,11 @@
   padding-bottom: 3px;
   padding-top: 3px;
   text-transform: capitalize;
+  color:#b10739;
+}
+.main-menu ul li ul li a:hover,.main-menu ul li.active li a{
+  
+  color:#b10739;
 }
 .parent-angle {
   font-size: 17px;
