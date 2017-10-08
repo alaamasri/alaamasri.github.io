@@ -1866,6 +1866,76 @@
         color: #fff;
     }
 
+    .innerLoading {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: 8;
+}
+
+    .innerLoading.fixed {
+        position: fixed;
+    }
+
+    .innerLoading .spinner {
+        margin: auto;
+        width: 90px;
+        height: 15px;
+        text-align: center;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        top: 0;
+    }
+
+        .innerLoading .spinner > div {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: #b10739;
+            border-radius: 100%;
+            display: inline-block;
+            -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        }
+
+        .innerLoading .spinner .bounce1 {
+            -webkit-animation-delay: -0.32s;
+            animation-delay: -0.32s;
+        }
+
+        .innerLoading .spinner .bounce2 {
+            -webkit-animation-delay: -0.16s;
+            animation-delay: -0.16s;
+        }
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
 .map {
     height: 250px;
     width: 100%;
