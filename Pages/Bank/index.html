@@ -26,21 +26,21 @@ position:relative;
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script>
-//var DayDiff = function (start) {
-  //  var now = new Date().getTime();
-    //start = new Date(start).getTime();
+var DayDiff = function (start) {
+  var now = new Date().getTime();
+start = new Date(start).getTime();
     
-    //return Math.floor((now - start)/ 86400000);
-//};
+return Math.floor((now - start)/ 86400000);
+};
 
 
-//$(function(){
-  // Get Starting Number
+$(function(){
+ Get Starting Number
    
-  //  var final_counter = parseInt($(".f1").text()) + (DayDiff('2016-12-21')*5);
-    //$('.f').text(final_counter);
+ var final_counter = parseInt($(".f1").text()) + (DayDiff('2016-12-21')*5);
+$('.f').text(final_counter);
 
-//})
+})
 </script>
 </head>
 <body>
