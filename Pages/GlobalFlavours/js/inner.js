@@ -9,7 +9,7 @@ $(function () {
         $(".main-menu a").each(function () {
             if ($(this).attr("href").indexOf("#")>-1){
                 if($(this).attr("href").length<2){
-                    $(this).attr("href","/")
+                    $(this).attr("href","./index.html")
                 }
                 else{
                     $(this).attr("href","./"+$(this).attr("href"))
