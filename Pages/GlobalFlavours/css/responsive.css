@@ -420,6 +420,9 @@
 	.mt-10-xs{
 		margin-top:10px !important;
 	}
+	#contact .spacing-8{
+		margin-left: -50px;
+	}
 
 }
 
