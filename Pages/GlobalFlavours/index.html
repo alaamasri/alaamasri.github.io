@@ -784,13 +784,12 @@
                                                     <div class="col-lg-6 form-row">
                                                         <label>
                                                             <span class="text-input"><input name="phone" type="text"
-                                                                    value="" placeholder="Phone Number"
-                                                                    required="required"></span>
+                                                                    value="" placeholder="Phone Number"></span>
                                                         </label>
                                                     </div>
                                                     <div class="col-lg-6 form-row">
                                                         <label>
-                                                            <span class="text-input"><input name="phone" type="text"
+                                                            <span class="text-input"><input name="subject" type="text"
                                                                     value="" placeholder="Subject"
                                                                     required="required"></span>
                                                         </label>
@@ -1030,7 +1029,8 @@
                                 url: '/js/contactengine.php',
                                 data: $('#contactForm')
                                     .serialize()
-                            }).done(function () {
+                            }).done(function (data) {
+                                console.log(data)
                                 //callback which can be used to show a thank you message
                                 //and reset the form
                                 setTimeout(function () {
