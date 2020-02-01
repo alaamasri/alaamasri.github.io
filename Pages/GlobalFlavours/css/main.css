@@ -1511,6 +1511,7 @@ article.ttm-blog-single .ttm-box-post-icon i,
     background-image: url(../images/logo-img.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 250px;
     -webkit-animation: flickerAnimation 2s infinite;
     -moz-animation: flickerAnimation 2s infinite;
     -o-animation: flickerAnimation 2s infinite;
@@ -3409,7 +3410,7 @@ img {
     width: 110%;
     height:100%;
     top:0;
-    left: -7px;
+    left: -20px;
     z-index: 3;
     background: rgba(255,255,255,.8);
 }
