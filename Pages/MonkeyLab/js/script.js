@@ -214,6 +214,7 @@ $('.itemDesc').hover( function(){
 		$('.folio').magnificPopup({
 		  type: 'image'
 		});
+		
 
 				
 //-----------------------------------End initilaizing fancybox for the portfolio-------------------------------------------------//
