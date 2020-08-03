@@ -197,7 +197,7 @@ $('.projectSlider').flexslider({
 
 //---------------------------------- Portfolio -----------------------------------------//
 
-// $(".itemDesc").css({ opacity: 0 });
+
 
 //--------------------------------- Hover animation for the elements of the portfolio --------------------------------//
 				
@@ -208,10 +208,6 @@ $('.projectSlider').flexslider({
 // 	$(this).stop().animate({ opacity: 0 }, 'slow'); 
 // });
 
-// 	$('.itemDesc').hover(function () {
-//     var projDesc = $(this).find('.itemDesc');
-//     var offset = ($(this).height() / 2) - (projDesc.height() / 2);
-//     $(this).find('.itemDescInner').css('padding-top', offset -40);
 // });
 			
 
