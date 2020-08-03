@@ -197,22 +197,22 @@ $('.projectSlider').flexslider({
 
 //---------------------------------- Portfolio -----------------------------------------//
 
-$(".itemDesc").css({ opacity: 0 });
+// $(".itemDesc").css({ opacity: 0 });
 
 //--------------------------------- Hover animation for the elements of the portfolio --------------------------------//
 				
 	
-$('.itemDesc').hover( function(){ 
-	$(this).stop().animate({ opacity: 1 }, 'slow');
-}, function(){ 
-	$(this).stop().animate({ opacity: 0 }, 'slow'); 
-});
+// $('.itemDesc').hover( function(){ 
+// 	$(this).stop().animate({ opacity: 1 }, 'slow');
+// }, function(){ 
+// 	$(this).stop().animate({ opacity: 0 }, 'slow'); 
+// });
 
-	$('.itemDesc').hover(function () {
-    var projDesc = $(this).find('.itemDesc');
-    var offset = ($(this).height() / 2) - (projDesc.height() / 2);
-    $(this).find('.itemDescInner').css('padding-top', offset -40);
-});
+// 	$('.itemDesc').hover(function () {
+//     var projDesc = $(this).find('.itemDesc');
+//     var offset = ($(this).height() / 2) - (projDesc.height() / 2);
+//     $(this).find('.itemDescInner').css('padding-top', offset -40);
+// });
 			
 
 //--------------------------------- End hover animation for the elements of the portfolio --------------------------------//

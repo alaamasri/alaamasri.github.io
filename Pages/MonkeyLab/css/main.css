@@ -2201,7 +2201,7 @@ a.launch {
 
 	.extra .projNav ul {
 		float: none !important;
-		margin-top: 10px;
+
 	}
 
 	.videoHolder,
@@ -2440,6 +2440,20 @@ hr.styled-hr {
  .projectSlider .slides li:before{
 	 background:none;
  }
+ 
+ .portfolio .item .itemDescInner{
+	height: fit-content;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+ }
+ .portfolio .item .itemDesc{opacity:0;transition:opacity .3s;}
+.portfolio .item:hover .itemDesc{
+	opacity:1;	
+}
 /*reponsive*/
 @media screen and (min-width:1700px) {
 	.founders-section:before {
