@@ -183,6 +183,7 @@ nav#mainNav li a {
 
 	background-size: cover !important;
 	height: 800px;
+	min-height:500px;
 
 }
 
@@ -200,7 +201,11 @@ nav#mainNav li a {
 
 
 .caption {
-	top: 42%;
+	/* top: 42%; */
+	top:0;
+	bottom:0;
+	margin:auto;
+	height:fit-content;
 	left: 0;
 	position: absolute;
 	text-align: center;
@@ -212,7 +217,10 @@ nav#mainNav li a {
 
 .caption h1 {
 	color: #ffffff;
-	font-size: 50px;
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
 
 
 }
@@ -263,7 +271,8 @@ nav#mainNav li a {
 
 .introText {
 
-	font-size: 16px;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 
@@ -936,7 +945,7 @@ h1.projTitle span {
 
 
 .projectSlider {
-	width: 940px;
+	width: 100%;
 }
 
 
@@ -1979,7 +1988,7 @@ a.launch {
 
 	.extra .projNav ul {
 		float: none !important;
-		margin-top: 10px;
+		
 	}
 
 	.videoHolder,
@@ -2276,7 +2285,7 @@ hr.styled-hr {
 .founders-section:before {
 	content: "";
 	background: url(../images/founders_bg2.png) right bottom no-repeat;
-	width: 61%;
+	width: 56%;
 	height: 100%;
 	display: block;
 	position: absolute;
@@ -2359,6 +2368,8 @@ hr.styled-hr {
 	max-width: 80%;
 	height: initial;
 	max-height: 70%;
+	object-fit: contain;
+    object-position: center;
 
 }
 
@@ -2389,13 +2400,46 @@ hr.styled-hr {
 	float: right;
 }
 .contactInfo  .info{
-
-	
-	width:30% !important;
+	margin:0;
+	width:33.33% !important;
 }
 #mainNav li a:hover,#mainNav li a.scroll.active{
 	color:#FEC00F !important;
 }
+#team .mainTitle{
+	text-align: center;
+}
+#team .icon i{
+	background: #fec441;
+    z-index: 2;
+    position: relative;
+}
+#team .icon:after{
+	background:#000;
+	z-index:1;
+}
+.footer-subtitle{
+	margin: 0 0 50px 0;
+    color: white;
+    font-size: 16px;
+}
+.aboutIntro {
+	padding-bottom:80px;
+}
+.projSocials{
+	margin-left:0 !important;
+	float:left;
+}
+.projNav{
+	margin-right:0 !important;
+	float:right !important;
+}
+.videoHolder,.projectSlider {
+	width:100%;
+}
+ .projectSlider .slides li:before{
+	 background:none;
+ }
 /*reponsive*/
 @media screen and (min-width:1700px) {
 	.founders-section:before {
@@ -2407,7 +2451,7 @@ hr.styled-hr {
 
 @media screen and (max-width:1199px) {
 	.founders-section:before {
-		width: 72%;
+		width: 71%;
 		background-position: 130px bottom;
 	}
 
@@ -2421,6 +2465,15 @@ hr.styled-hr {
 		margin-bottom:40px;
 		
 		width:100% !important;
+	}
+	.flexslider .slides li:nth-child(1){
+		background-position:left top !important;
+	}
+	.flexslider .slides li:nth-child(2){
+		background-position:-190px top !important;
+	}
+	.flexslider .slides li:nth-child(3){
+		background-position:-170px top !important;
 	}
 }
 
@@ -2490,4 +2543,5 @@ hr.styled-hr {
 	.founders-section {
 		padding: 30px 0 250px;
 	}
+
 }

@@ -113,11 +113,11 @@
 						<div class="container clearfix singleProject">
 	
 							<h1 class="projTitle">
-							Yacht Party<span>Arial Videography</span></h1>
+							Burger Slider<span>Barnding</span></h1>
 	
 							<!--Extra-->
 							<div class="extra clearfix">
-							<div class="eight columns projSocials">
+							<div class="projSocials">
 		
 								<ul>
 									<li><a href="#"><i class="icon-facebook-1"></i></a></li>
@@ -127,7 +127,7 @@
 							</div>
 	
 	
-							<div class="eight columns projNav">
+							<div class="projNav">
 									<ul>
 										<li><a href="#"><i class="icon-angle-left"></i></a></li>
 										<li><a href="#"><i class="icon-angle-right"></i></a></li>
@@ -138,9 +138,14 @@
 							<!--End extra-->
 	
 										<!--Project details video-->	
-										<div class="videoHolder" >
-							<iframe width="940" height="600" src="https://www.youtube.com/embed/tkhIPnFnVV8" frameborder="0" allow="accelerometer;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-										</div>
+							<div class="projectSlider flexslider">
+									<ul class="slides">
+				
+									<li><img src="images/portfolioImages/project1.jpg" alt=""/></li>
+									<li><img src="images/portfolioImages/project2.jpg" alt="" /></li>
+			
+									</ul>
+							</div>
 									<!--End project details video-->
 	
 	
@@ -327,7 +332,12 @@
 <script src="js/jquery.timer.js" type="text/javascript"></script>
 <script src="js/script.js" type="text/javascript"></script>
 
+<script>
+$(function(){
+$('#header').load('/index.html#header');
 
+})
+</script>
 <!-- Google analytics -->
 
 

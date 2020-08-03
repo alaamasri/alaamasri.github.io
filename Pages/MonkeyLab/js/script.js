@@ -86,6 +86,14 @@ for(var i = 0; i < $('.mainSlider .slides li').length; i++){
     
 }
 
+$(window).resize(function(){
+
+	$('.mainSlider .slides li').css('height', $(window).height());
+
+
+
+});
+
 
 
 
@@ -214,7 +222,9 @@ $('.itemDesc').hover( function(){
 		$('.folio').magnificPopup({
 		  type: 'image'
 		});
-		
+		$('.folio-yotube').magnificPopup({
+			type: 'youtube'
+		  });
 
 				
 //-----------------------------------End initilaizing fancybox for the portfolio-------------------------------------------------//
@@ -393,5 +403,21 @@ $('#mainNav li a').click(function(){
 //--------------------------------- End mobile menu --------------------------------//
 
 });
+
+$(function(){
+	$('.projNav a:first-child').on('click', function(e){
+		
+		e.preventDefault();
+$('.flexslider').flexslider('prev');
+return false;
+})
+
+$('.projNav a:last-child').on('click', function(e){
+e.preventDefault();
+$('.flexslider').flexslider('next');
+return false;
+})
+
+})
 
 })(jQuery);
