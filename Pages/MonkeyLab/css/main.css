@@ -2480,15 +2480,19 @@ hr.styled-hr {
 		
 		width:100% !important;
 	}
+	/* Slide 1 position in mobile */
 	.flexslider .slides li:nth-child(1){
 		background-position:left top !important;
 	}
+	/* Slide 2 position in mobile */
 	.flexslider .slides li:nth-child(2){
 		background-position:-190px top !important;
 	}
+	/* Slide 3 position in mobile */
 	.flexslider .slides li:nth-child(3){
 		background-position:-170px top !important;
 	}
+
 }
 
 @media screen and (max-width:767px) {
