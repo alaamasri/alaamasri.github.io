@@ -1,0 +1,120 @@
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0px;
+}
+.carousel-inner{height:100vh;}
+.carousel-item {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item>div {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.carousel-item img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.navbar-brand {
+    max-width: 200px;
+}
+
+.navbar-toggler {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border: 0;
+    outline: none !important;
+    transition: transform .3s;
+}
+
+.navbar-toggler:not(.collapsed) {
+    transform: rotateZ(90deg);
+}
+
+.navbar-toggler>div {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    margin: auto;
+    left: 0px;
+    width: 8px;
+    height: 8px;
+    background: black;
+    border-radius: 50%;
+}
+
+.navbar-toggler>div:nth-child(2) {
+    left: 13px;
+}
+
+.navbar-toggler>div:nth-child(3) {
+    left: 26px;
+}
+
+.bg-light {
+    background: white !important;
+}
+
+.collapse {
+    position: absolute;
+    height: 0;
+    top: 59px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, .97);
+    transition: all .3s;
+    display: block !important;
+    padding-top:50px;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+}
+.collapse.show {
+    visibility: visible;
+    opacity: 1;
+    height: 100vh;
+}
+
+
+.collapse ul {
+    flex-wrap: wrap;
+}
+
+.collapse ul li {
+    width: 100%;
+    text-align: center;
+}
+
+.collapse ul li a {
+    width: 100%;
+    font-size: 28px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+    .carousel-item img {
+        object-fit: cover;
+    }
+  }
