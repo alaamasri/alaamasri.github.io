@@ -29,7 +29,7 @@ body {
         font-size: 16px;
         color: $textColor;
     }
-}
+
 
 .title {
     z-index: 1;
@@ -51,6 +51,7 @@ body {
         fill: $primaryColor;
         color: $primaryColor;
         width: 37px;
+        min-width: 37px;
         height: 37px;
         margin-right: 12px;
 
@@ -61,7 +62,7 @@ body {
     }
 
 }
-
+}
 
 .menu-item {
     display: flex;
@@ -81,8 +82,8 @@ body {
         flex-shrink: 0;
         position: relative;
         overflow: hidden;
-        width: 120px;
-        height: 120px;
+        width: 75px;
+        height: 75px;
         border: 1px solid rgba(126, 126, 126, 0.2);
 
 
@@ -98,6 +99,7 @@ body {
         margin-left: auto;
         margin-top: -3px;
         min-width: 50px;
+        text-align: right;
     }
 
     h3 {
@@ -158,16 +160,19 @@ body {
 }
 
 @media screen and (max-width:480px) {
-    .menu-item h3 {
-        font-size: 16px;
+    .section-title .title{
+        font-size:22px;
+        padding:0 15px;
     }
-    .menu-item .price {
-        margin-top:-2px;
-        font-size: 16px;
-    }
+    .menu-item {
+        h3 {
+            font-size: 16px;
+        }
 
-    .menu-item .img-container {
-        width: 75px;
-        height: 75px;
+        .price {
+            margin-top: -2px;
+            font-size: 16px;
+        }
+
     }
 }
