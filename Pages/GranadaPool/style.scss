@@ -158,7 +158,14 @@ body {
 }
 
 @media screen and (max-width:480px) {
-    .menu-item h3{font-size:16px;margin-top:-2px;}
+    .menu-item h3 {
+        font-size: 16px;
+    }
+    .menu-item .price {
+        margin-top:-2px;
+        font-size: 16px;
+    }
+
     .menu-item .img-container {
         width: 75px;
         height: 75px;
