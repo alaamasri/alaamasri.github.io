@@ -166,12 +166,20 @@ body {
     }
     .menu-item {
         h3 {
-            font-size: 16px;
+            font-size: 14px;
+        }
+        .details{
+            font-size:12px;
+        }
+        .price {
+            margin-top: -1px;
+            font-size: 14px;
         }
 
-        .price {
-            margin-top: -2px;
-            font-size: 16px;
+        .img-container{
+            margin-right: 12px;            
+            width: 55px;
+            height: 55px;
         }
 
     }
