@@ -50,13 +50,14 @@ body {
     svg {
         fill: $primaryColor;
         color: $primaryColor;
-            width: 37px;
-            height: 37px;
-            margin-right: 12px;
-            path{
-                fill: $primaryColor;
-        color: $primaryColor;
-            }
+        width: 37px;
+        height: 37px;
+        margin-right: 12px;
+
+        path {
+            fill: $primaryColor;
+            color: $primaryColor;
+        }
     }
 
 }
@@ -124,16 +125,18 @@ body {
     font-size: 16px;
     color: $textColor;
 
-    
+
 
     .contact {
         a {
             color: $textColor !important;
             transition: color .3s;
-            &:hover{
-                color:$primaryColor;
+
+            &:hover {
+                color: $primaryColor;
             }
         }
+
         margin-top: 15px;
         font-weight: normal;
     }
@@ -143,7 +146,7 @@ body {
     .menu-item {
         display: flex;
         margin: 10px 0;
-        
+
         &:nth-child(odd) {
             padding-right: 15px;
         }
@@ -154,5 +157,10 @@ body {
     }
 }
 
-.menu-item .img-container{    width: 75px;
-    height: 75px;}
+@media screen and (max-width:480px) {
+    .menu-item h3{font-size:16px;margin-top:-2px;}
+    .menu-item .img-container {
+        width: 75px;
+        height: 75px;
+    }
+}

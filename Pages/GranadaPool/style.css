@@ -125,6 +125,11 @@ body {
       padding-right: 15px; }
     .menu-item:nth-child(even) {
       padding-left: 15px; } }
-.menu-item .img-container {
-  width: 75px;
-  height: 75px; }
+@media screen and (max-width: 480px) {
+  .menu-item h3 {
+    font-size: 16px;
+    margin-top: -2px; }
+
+  .menu-item .img-container {
+    width: 75px;
+    height: 75px; } }
