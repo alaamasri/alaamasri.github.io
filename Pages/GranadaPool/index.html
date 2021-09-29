@@ -13,14 +13,13 @@
     <script>
         function loadMenu(apiKey) {
             // Load Menus
-            var apikey = apiKey;
+            var apikey = apiKey+".json";
             $(window).scrollTop(0);
             $('.main-container').empty();
-
-
-            $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
+            $('.loading-div').show();
+            $.getJSON("./" + apikey).done(function (
                 result) {
-                $('.loading-div').show();
+                
 
                 $.each(result.menu, function (i, item) {
                     var code = "";
@@ -109,7 +108,12 @@
             //English api=892517803308105728
             //Russian api=892748452489084928
             //Turkish api=892748845155631104
-            loadMenu("892517803308105728");
+            //Local
+            //English api=english.json
+            //Russian api=russian.josn
+            //Turkish api=turkish.json
+
+            loadMenu("russian");
 
             $('.flag').click(function (e) {
                 e.preventDefault();
