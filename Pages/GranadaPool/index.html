@@ -13,7 +13,7 @@
     <script>
         function loadMenu(apiKey) {
             // Load Menus
-            var apikey = apiKey+".json";
+            var apikey = apiKey;
             $(window).scrollTop(0);
             $('.main-container').empty();
             $('.loading-div').show();
@@ -113,7 +113,7 @@
             //Russian api=russian.josn
             //Turkish api=turkish.json
 
-            loadMenu("russian");
+            loadMenu("russian.json");
 
             $('.flag').click(function (e) {
                 e.preventDefault();
@@ -150,13 +150,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5 d-flex justify-content-center">
-                <a href="#" class="flag mr-3" data-api="892517803308105728">
+                <a href="#" class="flag mr-3" data-api="english.json">
                     <img src="eng.png">
                 </a>
-                <a href="#" class="flag mr-3" data-api="892748452489084928">
+                <a href="#" class="flag mr-3" data-api="russian.json">
                     <img src="rus.png">
                 </a>
-                <a href="#" class="flag" data-api="892748845155631104">
+                <a href="#" class="flag" data-api="turkish.json">
                     <img src="turk.png">
                 </a>
             </div>
