@@ -76,7 +76,7 @@
                     );
                 }
             }).always(function () {
-                $('.loading-div').hide();
+                setTimeout(function(){$('.loading-div').hide();},500)
             });
 
             $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
@@ -95,7 +95,8 @@
                     );
                 }
             }).always(function () {
-                //$('.loading-div').hide();
+                
+                
             });
         }
 
