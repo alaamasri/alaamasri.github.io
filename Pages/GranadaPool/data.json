@@ -26,7 +26,7 @@
           "title": "2 fried eggs",
           "price": "30 TL",
           "details": "Served with croutons, fresh vegetables and a snack",
-          "picture": ""
+          "picture": "https://www.jessicagavin.com/wp-content/uploads/2020/09/how-to-fry-an-egg-3-1200.jpg"
         },
         {
           "title": "Potato pancakes",
@@ -468,5 +468,6 @@
       ],
       "icon": "<svg viewBox=\"0 0 48 48\"><path d=\"M38.99 7.45l-1.618-3.236A1.64 1.64 0 0037.037.97H10.963a1.64 1.64 0 00-.335 3.244L9.01 7.45a1.638 1.638 0 00-.173.733v32.456c0 .255.06.506.173.733l1.618 3.236a1.64 1.64 0 00.335 3.244h26.074a1.64 1.64 0 00.335-3.244l1.618-3.236c.114-.227.173-.478.173-.733V8.182c0-.254-.06-.505-.173-.732zM14.194 4.412h19.612l2.078 4.158v1.39L12.116 24.22V8.57l2.078-4.158zm-2.078 23.632l23.768-14.262v6.996L12.116 35.039v-6.995zm21.69 16.366H14.194l-2.078-4.158v-1.39l23.768-14.26v15.65l-2.078 4.158z\" fill=\"#fff\" fill-rule=\"nonzero\"></path></svg>"
     }
-  ]
+  ],
+  "footer": "Food delivery to the room 24/7, romantic dinners, family dinners, festive table, company parties <div class='contact'>Orders by Whatsapp <a href='https://wa.me/+77473423231' target='_blank'>+77473423231</a>, <a href='https://wa.me/+77017133359' target='_blank'>+77017133359</a> Evgeniy-Svetlana </div>"
 }

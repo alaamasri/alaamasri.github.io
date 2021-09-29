@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="./style.css?v=1.0" />
 
     <script>
-        $(function () {
-            $.ajaxSetup({
-                cache: false
-            });
-
+        function loadMenu(apiKey) {
             // Load Menus
-            $.getJSON("https://jsonblob.com/api/jsonBlob/892517803308105728").done(function (
+            var apikey = apiKey;
+            $(window).scrollTop(0);
+            $('.main-container').empty();
+            
+
+            $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
                 result) {
                 $('.loading-div').show();
-                
+
                 $.each(result.menu, function (i, item) {
                     var code = "";
                     var caption = "";
@@ -36,30 +37,32 @@
                         code += '<div class="row"><div class="col-12 menu"><div class="row">';
 
                         $.each(item.items, function (i, menuItem) {
-                            if(menuItem.picture != null && menuItem.picture.length >3){
-                                
+                            if (menuItem.picture != null && menuItem.picture.length > 3) {
+
                                 code +=
-                                '<div class="col-12 col-lg-6 menu-item"> <div class="img-container"> <img src="'+ menuItem.picture +'" /> </div> <div class="info"> <h3>' +
-                                menuItem.title + '</h3> <div class="details">' + menuItem.details +
-                                '</div> </div> <div class="price">' + menuItem.price +
-                                '</div> </div>';
-                                
-                            }
-                            else{
+                                    '<div class="col-12 col-lg-6 menu-item"> <div class="img-container"> <img src="' +
+                                    menuItem.picture + '" /> </div> <div class="info"> <h3>' +
+                                    menuItem.title + '</h3> <div class="details">' + menuItem
+                                    .details +
+                                    '</div> </div> <div class="price">' + menuItem.price +
+                                    '</div> </div>';
+
+                            } else {
                                 code +=
-                                '<div class="col-12 col-lg-6 menu-item"><div class="info"> <h3>' +
-                                menuItem.title + '</h3> <div class="details">' + menuItem.details +
-                                '</div> </div> <div class="price">' + menuItem.price +
-                                '</div> </div>';
+                                    '<div class="col-12 col-lg-6 menu-item"><div class="info"> <h3>' +
+                                    menuItem.title + '</h3> <div class="details">' + menuItem
+                                    .details +
+                                    '</div> </div> <div class="price">' + menuItem.price +
+                                    '</div> </div>';
                             }
-                            
+
 
                         });
                         code += '</div></div></div>';
                     }
-                    
+
                     $('.main-container').append(code);
-                    
+
 
 
 
@@ -68,16 +71,47 @@
                 });
             }).fail(function () {
                 if (!$('.err').length) {
-                    $('#details').append(
-                        '<div class="col-12 px-0 err text-center my-3"> يوجد خطأ في العملية<br>تأكد من الإتصال بالانترنت</div>'
+                    $('.main-container').append(
+                        "<div class='col-12 px-0 text-center my-5 err'> An error occurred! make sure you're connected to the internet.</div>"
                     );
                 }
             }).always(function () {
                 $('.loading-div').hide();
             });
 
+            $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
+                result) {
 
 
+                $('.footer').empty();
+                $('.footer').append(result.footer);
+
+
+
+            }).fail(function () {
+                if (!$('.err').length) {
+                    $('.footer').append(
+                        "<div class='col-12 px-0 text-center my-5 err'> An error occurred! make sure you're connected to the internet.</div>"
+                    );
+                }
+            }).always(function () {
+                //$('.loading-div').hide();
+            });
+        }
+
+        $(function () {
+            $.ajaxSetup({
+                cache: false
+            });
+            //English api=892517803308105728
+            //Russian api=892748452489084928
+            //Turkish api=892748845155631104
+            loadMenu("892517803308105728");
+
+            $('.flag').click(function (e) {
+                e.preventDefault();
+                loadMenu($(this).attr('data-api'));
+            });
 
         });
     </script>
@@ -86,7 +120,12 @@
 </head>
 
 <body>
-    
+    <div class="loading-div">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <div class="container main-container">
 
 
@@ -95,21 +134,22 @@
         <div class="footer">
 
             Food delivery to the room 24/7, romantic dinners, family dinners, festive table, company parties
-            <div class="contact">Orders by Whatsapp <a href="https://wa.me/+77473423231" target="_blank">+77473423231</a>, <a
-                    href="https://wa.me/+77017133359"  target="_blank">+77017133359</a> Evgeniy-Svetlana
+            <div class="contact">Orders by Whatsapp <a href="https://wa.me/+77473423231"
+                    target="_blank">+77473423231</a>, <a href="https://wa.me/+77017133359"
+                    target="_blank">+77017133359</a> Evgeniy-Svetlana
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-12 mb-5 d-flex justify-content-center">
-                <a href="#" class="flag mr-3">
+                <a href="#" class="flag mr-3" data-api="892517803308105728">
                     <img src="eng.png">
                 </a>
-                <a href="#" class="flag mr-3">
+                <a href="#" class="flag mr-3" data-api="892748452489084928">
                     <img src="rus.png">
                 </a>
-                <a href="#" class="flag">
+                <a href="#" class="flag" data-api="892748845155631104">
                     <img src="turk.png">
                 </a>
             </div>
