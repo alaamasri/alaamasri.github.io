@@ -16,7 +16,7 @@
             var apikey = apiKey;
             $(window).scrollTop(0);
             $('.main-container').empty();
-            
+
 
             $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
                 result) {
@@ -76,7 +76,9 @@
                     );
                 }
             }).always(function () {
-                setTimeout(function(){$('.loading-div').hide();},500)
+                setTimeout(function () {
+                    $('.loading-div').hide();
+                }, 500)
             });
 
             $.getJSON("https://jsonblob.com/api/jsonBlob/" + apikey).done(function (
@@ -95,8 +97,8 @@
                     );
                 }
             }).always(function () {
-                
-                
+
+
             });
         }
 
@@ -153,6 +155,15 @@
                 <a href="#" class="flag" data-api="892748845155631104">
                     <img src="turk.png">
                 </a>
+            </div>
+        </div>
+        <div class="qr d-flex flex-wrap justify-content-center text-center mb-5">
+            <div class="col-12">Scan QR on your device:</div>
+            <div class="qr-container">
+                <img src="qr-code.svg"/>
+            </div>
+            <div class="col-12">
+                <div>Or visit link:</div><a href="https://bit.ly/3ANCRqN">https://bit.ly/3ANCRqN</a>
             </div>
         </div>
     </div>

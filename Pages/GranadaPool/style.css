@@ -194,6 +194,16 @@ body {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
+.qr-container {
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  overflow: hidden;
+  width: 250px; }
+  .qr-container img {
+    max-width: 100%; }
+
 @media screen and (max-width: 992px) {
   .menu-item {
     display: -webkit-box;
