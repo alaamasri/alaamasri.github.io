@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <meta name="description=" content="Granada city residence pool bar menu, Alanya, Antalya">
+        <meta property="og:title" content="Granada city residence pool bar menu">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://bit.ly/3ANCRqN">
+        <meta property="og:image" content="https://lh5.googleusercontent.com/p/AF1QipPrHH8Zarhl3beUM8gWJMMJljZJDw8jQCyzdF3g=w254-h338-k-no">
+        
+        <meta property="og:description" content="Granada city residence pool bar menu">
+        <link rel="image_src" href="https://lh5.googleusercontent.com/p/AF1QipPrHH8Zarhl3beUM8gWJMMJljZJDw8jQCyzdF3g=w254-h338-k-no">
+        
+        <title>
+            Granada City Pool Bar Menu
+        </title>
+        
+
+
+
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <script src="./jquery.min.js"></script>
+    <script src="./bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./style.css?v=1.1" />
+
+    <script>
+        function loadMenu(apiKey) {
+            // Load Menus
+            var apikey = apiKey;
+            $(window).scrollTop(0);
+            $('.main-container').empty();
+            $('.loading-div').show();
+            $.getJSON("./" + apikey).done(function (
+                result) {
+                
+
+                $.each(result.menu, function (i, item) {
+                    var code = "";
+                    var caption = "";
+                    if (item.caption != null) {
+                        caption = item.caption
+                    }
+                    code += "<div class='col-12 section-title'> <div class='title'> " + item
+                        .icon + " <div>" + item.section_title + "</div> </div> <p>" +
+                        caption + "</p> </div>"
+
+
+                    if (item.items.length) {
+                        code += '<div class="row"><div class="col-12 menu"><div class="row">';
+
+                        $.each(item.items, function (i, menuItem) {
+                            if (menuItem.picture != null && menuItem.picture.length > 3) {
+
+                                code +=
+                                    '<div class="col-12 col-lg-6 menu-item"> <div class="img-container"> <img src="' +
+                                    menuItem.picture + '" /> </div> <div class="info"> <h3>' +
+                                    menuItem.title + '</h3> <div class="details">' + menuItem
+                                    .details +
+                                    '</div> </div> <div class="price">' + menuItem.price +
+                                    '</div> </div>';
+
+                            } else {
+                                code +=
+                                    '<div class="col-12 col-lg-6 menu-item"><div class="info"> <h3>' +
+                                    menuItem.title + '</h3> <div class="details">' + menuItem
+                                    .details +
+                                    '</div> </div> <div class="price">' + menuItem.price +
+                                    '</div> </div>';
+                            }
+
+
+                        });
+                        code += '</div></div></div>';
+                    }
+
+                    $('.main-container').append(code);
+
+
+
+
+
+
+                });
+            }).fail(function () {
+                if (!$('.err').length) {
+                    $('.main-container').append(
+                        "<div class='col-12 px-0 text-center my-5 err'> An error occurred! make sure you're connected to the internet.</div>"
+                    );
+                }
+            }).always(function () {
+                setTimeout(function () {
+                    $('.loading-div').hide();
+                }, 500)
+            });
+
+            $.getJSON("./" + apikey).done(function (
+                result) {
+
+
+                $('.footer').empty();
+                $('.footer').append(result.footer);
+
+
+
+            }).fail(function () {
+                if (!$('.err').length) {
+                    $('.footer').append(
+                        "<div class='col-12 px-0 text-center my-5 err'> An error occurred! make sure you're connected to the internet.</div>"
+                    );
+                }
+            }).always(function () {
+
+
+            });
+        }
+
+        $(function () {
+            $.ajaxSetup({
+                cache: false
+            });
+            //English api=892517803308105728
+            //Russian api=892748452489084928
+            //Turkish api=892748845155631104
+            //Local
+            //English api=english.json
+            //Russian api=russian.josn
+            //Turkish api=turkish.json
+
+            loadMenu("english.json");
+
+            $('.flag').click(function (e) {
+                e.preventDefault();
+                loadMenu($(this).attr('data-api'));
+            });
+
+        });
+    </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QRLZZPB9W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9QRLZZPB9W');
+</script>
+</head>
+
+<body>
+    <div class="loading-div">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="container main-container">
+
+
+    </div>
+    <div class="container">
+        <div class="footer">
+
+            Food delivery to the room 24/7, romantic dinners, family dinners, festive table, company parties
+            <div class="contact">Orders by Whatsapp <a href="https://wa.me/+77473423231"
+                    target="_blank">+77473423231</a>, <a href="https://wa.me/+77017133359"
+                    target="_blank">+77017133359</a> Evgeniy-Svetlana
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 d-flex justify-content-center">
+                <a href="#" class="flag mr-3" data-api="english.json">
+                    <img src="eng.png">
+                </a>
+                <a href="#" class="flag mr-3" data-api="russian.json">
+                    <img src="rus.png">
+                </a>
+                <a href="#" class="flag" data-api="turkish.json">
+                    <img src="turk.png">
+                </a>
+            </div>
+        </div>
+        <div class="qr d-flex flex-wrap justify-content-center text-center mb-5">
+            <div class="col-12">Scan QR on your device:</div>
+            <div class="qr-container">
+                <img src="qr-code.svg"/>
+            </div>
+            <div class="col-12">
+                <div>Or visit link:</div><a href="https://bit.ly/3ANCRqN">https://bit.ly/3ANCRqN</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
