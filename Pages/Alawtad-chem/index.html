@@ -409,7 +409,8 @@
           var scroll = $(window.location.hash).offset().top - 150;
 
           if ($(window).width() < 1200) {
-            scroll = scroll
+            scroll = scroll+70
+            alert(scroll);
           }
           setTimeout(function () {
             $('html, body').animate({
