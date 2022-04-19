@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="eng">
+<html lang="eng" class="locked">
 
 <head>
   <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="locked">
 
   <!-------navbar Start--------------->
 
@@ -404,13 +404,13 @@
       });
 
       $(window).on('load', function () {
+        $('body,html').removeClass('locked');
         if (window.location.hash.indexOf("#") > -1) {
 
           var scroll = $(window.location.hash).offset().top - 150;
 
           if ($(window).width() < 992) {
             scroll = scroll+70
-            alert(scroll);
           }
           setTimeout(function () {
             $('html, body').animate({
