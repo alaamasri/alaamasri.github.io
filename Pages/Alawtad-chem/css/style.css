@@ -6,6 +6,9 @@ body {
   color: #3a3a3a;
   font-family: 'Poppins', sans-serif; }
 
+.locked {
+  overflow: hidden; }
+
 .navbar input[type="checkbox"],
 .navbar .menu-toggle {
   display: none; }

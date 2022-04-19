@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="eng" class="locked">
+<html lang="eng">
 
 <head>
   <meta charset="utf-8">
@@ -403,8 +403,10 @@
 
       });
 
-      $(window).on('load', function () {
-        $('body,html').removeClass('locked');
+      
+    });
+    $(window).on('load', function () {
+        $('body').removeClass('locked');
         if (window.location.hash.indexOf("#") > -1) {
 
           var scroll = $(window.location.hash).offset().top - 150;
@@ -423,7 +425,6 @@
 
 
       });
-    });
   </script>
 
 
