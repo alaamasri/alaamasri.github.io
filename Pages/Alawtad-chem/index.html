@@ -411,12 +411,7 @@
           if ($(window).width() < 1200) {
             scroll = scroll
           }
-          setTimeout(function () {
-            $('html, body').animate({
-              scrollTop: scroll
-            }, 500);
-          }, 500)
-
+          setTimeout(function(){$('.menu-items a[href="'+$(window.location.hash)+'"]').click();},500);
           return false;
         }
 
