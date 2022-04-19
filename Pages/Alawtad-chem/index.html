@@ -173,7 +173,7 @@
             companies and food manufacturing <br><br>In 2021 new investors acquire shares and We changed our name to al
             AlAwtad Chem for chemical supplies our aim is to continue expanding by means of acquiring and introducing
             new brands to Jordanian Market.</p>
-            <a href="./about-us.html#about" class="btn-about" title="about Alawtad chem"><span>Read More</span></a>
+          <a href="./about-us.html#about" class="btn-about" title="about Alawtad chem"><span>Read More</span></a>
 
         </div>
       </div>
@@ -327,9 +327,9 @@
         }]
       });
     });
-    $.fn.hasAttr = function(name) {  
-   return this.attr(name) !== undefined;
-};
+    $.fn.hasAttr = function (name) {
+      return this.attr(name) !== undefined;
+    };
     $(document).ready(function () {
       //parallax scroll
       $(window).on("load scroll", function () {
@@ -348,7 +348,7 @@
 
             var space = currentElement.attr('data-space');
             if (currentElement.hasAttr('data-space-m') && $(window).width() < 992) {
-              
+
               space = currentElement.attr('data-space-m');
 
             }
@@ -389,7 +389,7 @@
               scroll = scroll + 70
             }
             if ($('.menu-toggle').is(':visible')) {
-              
+
               $('.menu-toggle').click();
             }
             $('html, body').animate({
@@ -409,11 +409,14 @@
           var scroll = $(window.location.hash).offset().top - 150;
 
           if ($(window).width() < 1200) {
-            scroll = scroll 
+            scroll = scroll
           }
-          $('html, body').animate({
-            scrollTop: scroll
-          }, 500);
+          setTimeout(function () {
+            $('html, body').animate({
+              scrollTop: scroll
+            }, 500);
+          }, 500)
+
           return false;
         }
 
