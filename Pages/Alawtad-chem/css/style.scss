@@ -880,6 +880,7 @@ a:hover {
     .carousel .carousel-item img {
         min-height: 500px;
         object-fit: cover;
+        transition: all .2s;
     }
 
     .carousel-item:after {
