@@ -385,7 +385,7 @@
             if ($(this).attr("href").length > 2) {
               scroll = $($(this).attr('href')).offset().top - 150;
             }
-            if ($(window).width() < 768) {
+            if ($(window).width() < 992) {
               scroll = scroll + 70
             }
             if ($('.menu-toggle').is(':visible')) {
@@ -408,7 +408,7 @@
 
           var scroll = $(window.location.hash).offset().top - 150;
 
-          if ($(window).width() < 1200) {
+          if ($(window).width() < 992) {
             scroll = scroll+70
             alert(scroll);
           }
