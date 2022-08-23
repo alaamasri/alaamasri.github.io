@@ -9,8 +9,11 @@ body {
     font-family: 'Poppins', sans-serif;
 
 }
-.locked{
+
+.locked {
     overflow: hidden;
+    opacity: .1;
+    transition: opacity .3s;
 }
 
 .navbar {
@@ -306,10 +309,11 @@ a:hover {
     position: relative;
     padding-bottom: 100px;
     padding-top: 40px;
-.container{
-z-index: 2;
-position: relative;
-}
+
+    .container {
+        z-index: 2;
+        position: relative;
+    }
 }
 
 .about_image {
@@ -621,7 +625,7 @@ position: relative;
         margin-top: 2px;
     }
 
-    
+
     .navbar-container {
         display: block;
         position: relative;
@@ -645,7 +649,7 @@ position: relative;
             display: block;
             height: 25px;
             width: 33px;
-            
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -688,6 +692,7 @@ position: relative;
         left: 0;
         top: 0;
         padding-top: 20px;
+
         li {
             margin: 0;
 
@@ -838,6 +843,9 @@ position: relative;
             font-size: 14px;
         }
     }
+    .carousel .carousel-item{
+        background-attachment: initial;
+    }
 }
 
 
@@ -870,8 +878,15 @@ position: relative;
         height: 400px;
         margin: 40px 0px 0px 0px;
     }
-    .navbar{padding:0}
-    .carousel{margin-top: 64px;}
+
+    .navbar {
+        padding: 0
+    }
+
+    .carousel {
+        margin-top: 64px;
+    }
+
     .carousel-content {
         .dash {
             display: none;
@@ -991,7 +1006,7 @@ position: relative;
 
     .product-item .wrapper .product_text {
         font-size: 20px;
-        padding:0 25px;
+        padding: 0 25px;
     }
 
     #partners .section_title {
@@ -1023,9 +1038,14 @@ position: relative;
         padding-bottom: 35px;
         padding-top: 20px;
     }
-    .about-details{padding-bottom: 0;}
+
+    .about-details {
+        padding-bottom: 0;
+    }
+
     .about-paralax {
-        height:180px;
+        height: 180px;
+
         .p-item.item1 {
             left: 15px;
             top: 60px;
