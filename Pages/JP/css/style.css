@@ -225,9 +225,9 @@ a:hover {
   font-size: 16px;
   font-weight: 500; }
   .btn-primary:hover {
-    color: #fff;
-    background-color: #36373c;
-    border-color: #36373c; }
+    color: #fff !important;
+    background-color: #36373c !important;
+    border-color: #36373c !important; }
 
 .partners .item {
   display: -webkit-box;
