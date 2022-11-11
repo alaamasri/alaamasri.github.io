@@ -340,6 +340,7 @@
     $(document).ready(function () {
       //parallax scroll
       $(window).on("load scroll", function () {
+        if ($(window).width()>992){
         var parallaxElement = $(".paralax"),
           parallaxQuantity = parallaxElement.length;
 
@@ -380,7 +381,7 @@
 
           }
         });
-      });
+    }});
 
 
 
