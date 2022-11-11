@@ -343,6 +343,8 @@ footer {
     position: relative;
     margin: 0 3px;
     display: inline-block; }
+    .movies-slider a img {
+      width: 100%; }
     .movies-slider a .info {
       position: absolute;
       background-color: rgba(252, 184, 19, 0.9);

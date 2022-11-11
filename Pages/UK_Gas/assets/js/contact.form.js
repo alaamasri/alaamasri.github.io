@@ -1,60 +1,55 @@
-/**
-*
-* -----------------------------------------------------------------------------
-*
-* Template : Template : Konstruk - Construction & Building HTML Template
-* Author : devsdesign
-* Author URI : http://www.devsdesign.com/
-*
-* -----------------------------------------------------------------------------
-*
-**/
 
-(function($) {
-    'use strict';
-    // Get the form.
-    var form = $('#contact-form');
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                        if (form.checkValidity() === false) {
+                            event.stopPropagation();
+                        } else {
+                            /*Begin*/
 
-    // Get the messages div.
-    var formMessages = $('#form-messages');
+                            $('#contact-form .submit').attr('disabled', true);
+                            // $('#contact-form').append(
+                            //     '<div class="inner-loading"><div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>'
+                            // );
 
-    // Set up an event listener for the contact form.
-    $(form).submit(function(e) {
-        // Stop the browser from submitting the form.
-        e.preventDefault();
+                            /* Form Submit */
+                            $.ajax({
+                                type: "POST",
+                                url: './assets/js/contactengine.php',
+                                data: $('#contact-form')
+                                    .serialize()
+                            }).done(function (data) {
+                                console.log(data)
+                                //callback which can be used to show a thank you message
+                                //and reset the form
+                                setTimeout(function () {
+                                    $('#contact-form .submit')
+                                        .attr(
+                                            'disabled',
+                                            false);
+                                    $('#contactForm')[0]
+                                        .reset();
+                                    // $('.inner-loading')
+                                    //     .remove();
+                                }, 5000);
 
-        // Serialize the form data.
-        var formData = $(form).serialize();
+                            });
 
-        // Submit the form using AJAX.
-        $.ajax({
-            type: 'POST',
-            url: $(form).attr('action'),
-            data: formData
-        })
-        .done(function(response) {
-            // Make sure that the formMessages div has the 'success' class.
-            $(formMessages).removeClass('error');
-            $(formMessages).addClass('success');
 
-            // Set the message text.
-            $(formMessages).text(response);
 
-            // Clear the form.
-            $('#name, #email, #phone, #website, #message').val('');
-        })
-        .fail(function(data) {
-            // Make sure that the formMessages div has the 'error' class.
-            $(formMessages).removeClass('success');
-            $(formMessages).addClass('error');
 
-            // Set the message text.
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-            }
-        });
-    });
+                            /*End*/
+                        }
 
-})(jQuery);
+                    }, false);
+                });
+            }, false);
+        })();
+    

@@ -325,7 +325,7 @@
 								<h2 class="title title4 ser-style4">Get in touch</h2>
 							</div>
 							<div id="form-messages"></div>
-							<form id="contact-form" method="post" action="mailer.php">
+							<form id="contact-form" class="needs-validation" method="post" action="#">
 								<fieldset>
 									<div class="row">
 										<div class="col-lg-6 col-md-6 col-sm-6 mb-30">
@@ -334,12 +334,10 @@
 										<div class="col-lg-6 col-md-6 col-sm-6 mb-30">
 											<input class="from-control" type="text" id="email" name="email" placeholder="E-Mail" required="">
 										</div>   
-										<div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+										<div class="col-lg-12 mb-30">
 											<input class="from-control" type="text" id="phone" name="phone" placeholder="Phone Number" required="">
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-											<input class="from-control" type="text" id="website" name="website" placeholder="Your Website" required="">
-										</div>
+										
 										<div class="col-lg-12 mb-30">
 											<textarea class="from-control" id="message" name="message" placeholder="Your Message Here" required=""></textarea>
 										</div>
@@ -530,9 +528,10 @@
 	<!-- Nivo slider js -->
 	<script src="assets/inc/custom-slider/js/jquery.nivo.slider.js"></script>
 	<!-- contact form js -->
-	<script src="assets/js/contact.form.js"></script>
+	<script src="assets/js/contact.form.js?v=1.1"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+	
 </body>
 
 </html>
