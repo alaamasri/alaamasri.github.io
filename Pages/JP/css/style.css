@@ -520,7 +520,8 @@ footer {
   padding-top: 90px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
-          justify-content: flex-start; }
+          justify-content: flex-start;
+  z-index: 1; }
 .about-page p {
   font-size: 18px; }
 .about-page span {
