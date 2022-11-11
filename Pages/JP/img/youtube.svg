@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.064044mm"
+   height="7.0449719mm"
+   viewBox="0 0 10.064044 7.0449721"
+   version="1.1"
+   id="svg9319">
+  <sodipodi:namedview
+     id="namedview9321"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="11.473419"
+     inkscape:cx="9.5873779"
+     inkscape:cy="11.548432"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1904" />
+  <defs
+     id="defs9316">
+    <inkscape:path-effect
+       effect="powermask"
+       id="path-effect11216"
+       is_visible="true"
+       lpeversion="1"
+       uri="#mask-powermask-path-effect11216"
+       invert="false"
+       hide_mask="false"
+       background="false"
+       background_color="#ffffffff" />
+    <mask
+       maskUnits="userSpaceOnUse"
+       id="mask-powermask-path-effect11216">
+      <g
+         id="g11214"
+         transform="translate(-9.2105009,17.303726)">
+        <path
+           d="M 0,0 V -3.093 H -3.564 V -7.151 H 0 V -17.304 H 4.387 V -7.151 H 7.658 L 8.28,-3.093 H 4.387 v 2.633 c 0,1.11 0.544,2.192 2.287,2.192 h 1.771 v 3.455 c 0,0 -1.607,0.274 -3.143,0.274 C 2.096,5.461 0,3.518 0,0"
+           style="fill:#36373c;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path11212" />
+      </g>
+    </mask>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-171.16242,-185.03684)">
+    <g
+       id="g1904"
+       transform="matrix(0.35277777,0,0,-0.35277777,177.90541,188.75618)">
+      <path
+         d="M 0,0 -7.178,-3.552 C -7.46,-3.704 -8.416,-3.5 -8.416,-3.18 v 7.289 c 0,0.325 0.964,0.529 1.246,0.368 L -0.299,0.738 C -0.011,0.574 0.292,0.158 0,0 m 9.414,4.282 c 0,3.458 -2.803,6.261 -6.26,6.261 h -16.008 c -3.458,0 -6.26,-2.803 -6.26,-6.261 v -7.448 c 0,-3.458 2.802,-6.261 6.26,-6.261 H 3.154 c 3.457,0 6.26,2.803 6.26,6.261 z"
+         style="fill:#e8e8e8;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path1906" />
+    </g>
+  </g>
+</svg>
