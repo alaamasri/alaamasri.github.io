@@ -296,9 +296,9 @@ a:hover {
     font-weight: 500;
 
     &:hover {
-        color: #fff;
-        background-color: $textColor;
-        border-color: $textColor;
+        color: #fff !important;
+        background-color: $textColor !important;
+        border-color: $textColor !important;
     }
 }
 
