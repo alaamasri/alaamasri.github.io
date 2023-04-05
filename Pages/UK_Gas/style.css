@@ -2990,11 +2990,16 @@ blockquote p {
   align-items: center;
   justify-content: space-between;
 }
+    .full-width-header .rs-header .menu-area .row-table .col-cell:last-child{
+        margin-left:auto;
+    }
 
-.full-width-header .rs-header .menu-area .row-table .col-cell.header-logo {
-  display: flex;
-  flex: 1;
-}
+
+
+    .full-width-header .rs-header .menu-area .row-table .col-cell.header-logo {
+        display: flex;
+        flex: 1;
+    }
 
 .full-width-header .rs-header .menu-area .logo-area a .sticky-logo {
   display: none;
@@ -3008,7 +3013,7 @@ blockquote p {
 .full-width-header .rs-header .menu-area .rs-menu-area {
   display: flex;
   align-items: center;
-  margin-right: 65px;
+  margin-right: 10px;
 }
 
 .full-width-header .rs-header .menu-area .main-menu {
@@ -3017,7 +3022,7 @@ blockquote p {
 
 .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.nav-menu li {
   display: inline-block;
-  margin-right: 26px;
+  margin-right: 20px;
   padding: 0;
 }
 
