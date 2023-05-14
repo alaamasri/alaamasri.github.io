@@ -1,0 +1,139 @@
+.online-services-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+        &:not(.btn-primary) {
+            @extend .btn-line, .btn-txt-icon;
+            color: $brandColor;
+        }
+
+        border-radius: 5px;
+        width: 120px;
+        height: 55px;
+        margin: 0 20px;
+
+        img {
+            width: 22px;
+        }
+    }
+}
+
+.btn-branch {
+    color: $text-color;
+    border-radius: 18px;
+    padding: 5px 30px 5px 10px;
+    margin: 0 3px 3px 0;
+    display: inline-flex;
+    font-size: 14px;
+    border: 1px solid $brandColor;
+    position: relative;
+    background-color: #fff;
+    transition: color .3s;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+
+
+    > img {
+        margin-right: 3px;
+        width: 20px;
+        height: 20px;
+    }
+
+    &:hover {
+        color: $brandColor;
+    }
+
+    .del {
+        font-weight: 400;
+        transform: rotateZ( 45deg );
+        font-size: 28px;
+        position: absolute;
+        right: 5px;
+        top: -5px;
+        cursor: pointer;
+        color: $brandColor;
+    }
+
+    &.disabled {
+        border-color: $text-color;
+
+
+        span, .del {
+            color: $text-color !important;
+        }
+    }
+}
+
+
+.offer-photos {
+    margin: 0 -7.5px;
+    overflow: auto;
+    max-height: 70vh;
+    @extend .custom-scroll-slim;
+
+    .item {
+        margin-bottom: 15px;
+        padding: 0 7.5px;
+
+        img:not(.delete-icon) {
+            width: 100%;
+        }
+
+        .delete-icon {
+            position: absolute;
+            top: 6px;
+            right: 12px;
+            cursor: pointer;
+            width: 20px;
+            @extend .click-effect;
+        }
+    }
+}
+
+
+// Drag Upload Control
+.drag-upload-control-mini {
+    position: relative;
+    display: block;
+    @extend .form-control;
+    background: url('../img/online-order/Upload .svg') no-repeat #ffffff;
+    background-position: center center;
+    background-size: 24px;
+    transition: border .3s;
+    cursor: pointer;
+
+
+
+    &:hover,
+    &:focus {
+        border: 1px dashed $brandColor;
+    }
+
+    > input {
+        position: absolute;
+        width: calc(100% - 30px);
+        opacity: 0;
+        cursor: pointer;
+        margin: auto;
+        left: 0;
+        height: 100%;
+        right: 0;
+    }
+}
+.discount-cards > .item{
+    max-width:initial;
+}
+@media screen and (max-width:480px) {
+    .online-services-buttons .btn {
+        font-size: 12px;
+        margin: 0 5px;
+
+        img {
+            width: 17px;
+        }
+    }
+}

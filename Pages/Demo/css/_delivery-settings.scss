@@ -1,0 +1,126 @@
+
+.restaurant-cards {
+    > .item {
+        margin-bottom: 20px;
+
+
+        .wrapper {
+            background-color: #fff;
+            border: 1px solid $border-color-dark;
+            border-radius: 20px;
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        
+
+        .icon-line {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            > img {
+                margin-right: 5px;
+                flex-shrink: 0;
+            }
+        }
+
+        .crd-footer {
+            background-color: $bg;
+            padding: 9px 12px;
+        }
+
+        .logo-container {
+            padding-top: 37%;
+            position: relative;
+            background:#fff;
+            .logo {
+                max-width: 70%;
+                max-height: 70%;
+                @extend .absolute-center;
+            }
+
+            .action-btn {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border: 0;
+                padding:0;
+                box-shadow: 0;
+                @extend .click-effect;
+            }
+
+            .branch-name {
+                color: #fff;
+                position: absolute;
+                left: 8px;
+                bottom: 7px;
+            }
+        }
+    }
+}
+.edit-branch-search input {
+    border: 0;
+    background-color: #e6e6e6;
+}
+
+.branch-list {
+    max-height:calc(239px - 56px);
+    overflow:auto;
+    .btn {
+        width: 100%;
+        @extend .btn-txt-icon;
+        @extend .btn-gray;
+        margin-bottom: 10px;
+        justify-content: start;
+
+        img {
+            margin: 0 7px 0 0 !important;
+        }
+
+        &.active {
+            @extend .btn-primary;
+            color: #fff;
+
+            img {
+                display: none !important;
+            }
+
+            img.d-none {
+                display: block !important;
+            }
+        }
+    }
+}
+
+
+.branch-block{
+    position:absolute;
+    left:15px;
+    top:15px;
+   
+}
+
+@media screen and (min-width:1200px) {
+    .branch-cards > .item {
+        max-width: 370px
+    }
+}
+
+@media screen and (max-width: 1199.5px) {
+    .panel-body {
+        padding: 20px 15px !important;
+    }
+}

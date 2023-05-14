@@ -1,0 +1,129 @@
+.body-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-bg {
+    background-size: cover;
+    align-self: stretch;
+    min-height: 700px;
+
+    .login-bg-overlay {
+        display: flex;
+        flex-wrap: wrap;
+        @extend .absolute-fill;
+        background: rgba(0,0,0,.5);
+        justify-content: center;
+        align-content: center;
+        color: #fff;
+        text-align: center;
+        direction: ltr;
+
+        h1 {
+            width: 100%;
+            font-weight: 700;
+            font-size: 3.5rem;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+.login-container {
+    background: #fff;
+    box-shadow: 0px 10px 99px #00000014;
+    padding: 0 15px;
+    max-width: 85%;
+    width: 1200px;
+}
+
+.login-form-container {
+    padding: 60px 50px;
+    //min-height:580px;
+    overflow: auto;
+    //max-height:calc(100vh - 120px);
+    .login-title {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: $text-color-dark;
+    }
+}
+
+.reg-account-option {
+    margin-bottom: 22px;
+
+    .wrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+        border-radius: 8px;
+        background: rgba(#CBEDF1,.35);
+        border: 1px solid rgba(#CBEDF1,.35);
+        padding: 12px 5px;
+        transition: all .2s;
+        cursor: pointer;
+
+        > img {
+            margin-bottom: 7px;
+            max-width:30px;
+        }
+
+        > span {
+            color: #1FB1C2;
+            width: 100%;
+            transition: color .2s;
+        }
+
+        &:hover {
+            border-color: #1FB1C2;
+        }
+    }
+
+    &:nth-child(2) .wrapper {
+        background: #e8f5fb;
+
+        &:hover {
+            border-color: #199ED3;
+        }
+
+        > span {
+            color: #199ED3;
+        }
+    }
+
+
+
+    &:nth-child(3) .wrapper {
+        background: #EAF1F1;
+
+        > span {
+            color: #3A8891;
+        }
+
+        &:hover {
+            border-color: #3A8891;
+        }
+    }
+
+    &:nth-child(4) .wrapper {
+        background: rgba(#000066,.07);
+
+        > span {
+            color: #000066;
+        }
+
+        &:hover {
+            border-color: #000066;
+        }
+    }
+}
+

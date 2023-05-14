@@ -1,0 +1,210 @@
+﻿$menuBrown: #8E6424;
+
+.menu-container {
+    border-radius: 4px;
+    background: #f9f2d3; /* Old browsers */
+    background: -moz-linear-gradient(-46deg, #f9f2d3 0%, #f9f2d3 50%, #f1e9c9 51%, #f1e9c9 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-46deg, #f9f2d3 0%,#f9f2d3 50%,#f1e9c9 51%,#f1e9c9 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(134deg, #f9f2d3 0%,#f9f2d3 50%,#f1e9c9 51%,#f1e9c9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f2d3', endColorstr='#f1e9c9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    position: relative;
+    padding: 20px 30px 40px;
+    margin: 0;
+    min-height: 500px;
+
+    &:before {
+        content: '';
+        border: 1px solid #9F9F9F;
+        border-radius: 4px;
+
+        @extend .absolute-center;
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+    }
+
+    .item {
+        margin-bottom: 20px;
+        /*      @media screen and (min-width:1920px) {
+            max-width: 250px;
+        }*/
+        .wrapper {
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            display: inline-flex;
+            flex-wrap: wrap;
+            max-width: 160px;
+        }
+
+        .img-container {
+            width: 100%;
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+
+            &:before {
+                @extend .absolute-fill;
+                content: "";
+                display: block;
+                background: linear-gradient(180deg, rgba(#848484,.33) 40%, #848484 100%) 0% 0% no-repeat padding-box;
+                z-index: 2;
+            }
+
+            > img {
+                @extend .cover-image;
+                @extend .absolute-fill;
+                z-index: 1;
+            }
+
+
+
+            > .name {
+                position: absolute;
+                padding: 0 10px;
+                font-size: 14px;
+                bottom: 10px;
+                left: 0;
+                width: 100%;
+                color: #fbfbfb;
+                z-index: 2;
+                line-height: 22px;
+                text-align: center;
+            }
+        }
+
+        .iphone-chk-group {
+            top: 30px;
+            position: absolute;
+            right: 7px;
+            padding: 2px 12px;
+            background: #E5DCBA;
+            text-align: right;
+            z-index: 2;
+            border-radius: 20px;
+
+            lable {
+                padding-right: 24px;
+            }
+        }
+
+        .iphone-chk-group.top-left {
+            position: absolute;
+            left: -12px;
+            top: 10px;
+            right: auto;
+            background: none;
+
+            label {
+                padding-left: 0
+            }
+        }
+
+        .actions {
+            position: absolute;
+            z-index: 3;
+            right: 10px;
+            height: 100%;
+            top: 3px;
+            width: 30px;
+            cursor: pointer;
+
+
+            img {
+                margin-top: 8px;
+                @extend .click-effect;
+            }
+        }
+    }
+}
+
+
+.iphone-chk-group.menu-main-chk {
+
+    label:before {
+        background-color: #CBBE8E;
+    }
+
+    label:after {
+        background: $darkGray;
+    }
+
+
+
+    input:checked ~ label:after {
+        background-color: $menuBrown;
+    }
+}
+
+
+.menu-main-chk {
+    margin-top: -24px;
+}
+
+
+.branch-menu {
+    display: inline-flex;
+    align-items: center;
+    color: $menuBrown;
+
+    > img {
+        margin-right: 5px;
+        flex-shrink: 0;
+    }
+}
+
+.products-menu {
+    .item {
+        cursor: pointer;
+        transition: opacity .2s;
+
+
+
+        .status {
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        .img-container:after {
+            content: "";
+            border: 6px solid $brandColor;
+            @extend .absolute-fill;
+            background: rgba($brandColor,.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity .2s;
+        }
+
+        &:hover {
+            .img-container:after {
+                opacity: 1;
+            }
+        }
+    }
+
+    > .item.selected {
+
+        .status {
+            background: #F1F1F1;
+            border-radius: 23px;
+            position: absolute;
+            top: 2px;
+            z-index: 2;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: fit-content;
+            padding: 2px 12px;
+            opacity: 1;
+        }
+
+        .img-container:after {
+            opacity: 1;
+        }
+    }
+}
+
+
+
+.products-menu.custom-scroll {
+    height: 650px
+}

@@ -1,0 +1,372 @@
+.discount-cards {
+    > .item {
+        margin-bottom: 20px;
+        max-width:370px;
+        &:before {
+            content: "";
+            height: 39px;
+            width: 39px;
+            top: 0;
+            left: -9px;
+            position: absolute;
+            background-image: url(../img/discounts/price-tag.svg);
+            background-size: 39px;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        .wrapper {
+            background-color: #fff;
+            border: 1px solid $border-color-dark;
+            border-radius: 20px;
+            position: relative;
+            padding: 24px 54px 0 24px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        &.gift-wrap {
+            .wrapper {
+                padding-left: 44px;
+
+                .icon-line:first-of-type {
+                    margin-top: 10px;
+                }
+
+                .crd-footer {
+                    margin-left: -44px;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                &:before {
+                    content: "";
+                    left: 0;
+                    top: 10px;
+                    height: 20px;
+                    width: 100%;
+                    display: block;
+                    background: $brandColor;
+                    position: absolute;
+                    z-index: 0;
+                }
+
+                &:after {
+                    content: "";
+                    left: 10px;
+                    top: 0px;
+                    width: 20px;
+                    height: 100%;
+                    display: block;
+                    background: $brandColor;
+                    position: absolute;
+                    z-index: 0;
+                }
+            }
+            /* &:before {
+                content: "";
+                height: 29px;
+                width: 119px;
+                top: -29px;
+                left: 0;
+                position: absolute;
+                background-image: url(../img/discounts/gift-wrap2.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                z-index: 0;
+            }*/
+        }
+
+
+        .actions {
+            position: absolute;
+            top: 20px;
+            right: 22px;
+            width: 30px;
+
+            > img, > div, > a {
+                margin-bottom: 6px;
+            }
+        }
+
+        .icon-line {
+            display: flex;
+            align-items: center;
+            margin-bottom:7px;
+            > img {
+                margin-right: 12px;
+                flex-shrink: 0;
+            }
+        }
+
+        .crd-footer {
+            background-color: $lightGray;
+            padding: 12px 24px;
+            margin: 0 -54px 0 -24px;
+            display: flex;
+
+            > div, > a {
+                &:first-child {
+                    padding-right: 5px;
+                    min-width: 105px;
+                }
+
+                &:last-child {
+                    margin-left: auto;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.added-discount-cards {
+    > .item {
+        margin-bottom: 20px;
+
+        .cat-products {
+            margin-right:10px;
+            .item {
+                margin-bottom: 0;
+                width: 122px;
+            }
+        }
+
+        .wrapper {
+            background-color: #fff;
+            border: 1px solid $border-color-dark;
+            border-radius: 20px;
+            position: relative;
+            padding: 15px 38px 15px 15px;
+            overflow: hidden;
+            height: 100%;
+            flex-wrap:wrap;
+            display: flex;
+        }
+
+        
+
+
+        .actions {
+            position: absolute;
+            top: 20px;
+            right: 8px;
+            width: 30px;
+
+            > img, > div, > a {
+                margin-bottom: 6px;
+            }
+        }
+
+        .icon-line {
+            display: flex;
+            align-items: center;
+            margin-bottom:7px;
+            > img {
+                align-self:start;
+                margin-top:2px;
+                margin-right: 9px;
+                flex-shrink: 0;
+            }
+        }
+
+        .other-info{
+            min-width:190px;
+            margin-top:9px;
+        }
+    }
+}
+
+
+
+
+.cat-products {
+    .item {
+        margin-bottom: 30px;
+        align-self: start;
+
+        .wrapper {
+            border-radius: 9px;
+            position: relative;
+            min-height: 116px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        img {
+            @extend .absolute-fill;
+            @extend .cover-image;
+        }
+
+        .title {
+            @extend .absolute-fill;
+            background: linear-gradient(180deg, rgba(132, 132, 132, 0.33) 40%, #848484 100%) 0% 0% no-repeat padding-box;
+            display: flex;
+            padding: 0 10px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            transition: background .3s;
+            user-select: none;
+        }
+
+        &.active {
+            .title {
+                background: rgba($brandColor,.8);
+            }
+        }
+
+        &.with-qty {
+
+
+            .wrapper:before {
+                content: "";
+                @extend .absolute-fill;
+                background: linear-gradient(180deg, rgba(132, 132, 132, 0.33) 40%, #848484 100%) 0% 0% no-repeat padding-box;
+                z-index: 1;
+            }
+
+            &.active .wrapper:before {
+                background: rgba($brandColor,.8);
+            }
+
+            .title {
+                background: none;
+                z-index: 1;
+            }
+
+            .title {
+                margin-top: -10px;
+            }
+        }
+
+        .form-group-qty {
+            position: absolute;
+            z-index: 1;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+}
+
+.cat-buttons {
+    display: flex;
+
+    .btn {
+        display: flex;
+        margin-left: 10px;
+        white-space: nowrap;
+
+        img {
+            max-width: 23px;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+
+    > .btn {
+        width: 42px;
+        height: 42px;
+        align-self: start;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .wrapper {
+        overflow: auto;
+        display: flex;
+        padding-left: 10px;
+        width: calc(100% - 30px);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    &.cat-buttons-lg {
+        .btn {
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            img {
+                max-width: 60px;
+            }
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.titled-wrapper {
+    border: 1px solid $border-color-dark;
+    border-radius: 14px;
+    padding: 10px 10px;
+
+    .title {
+        margin: -24px 0 10px;
+        background: #fff;
+        display: block;
+        width: fit-content;
+        padding: 0 10px;
+        font-size:16px;
+    }
+}
+// Popup tabs [most of it from bootstrap css]
+.tab-content {
+    width: 100%;
+}
+
+.nav-pills {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid $border-color-dark;
+
+    > li {
+        flex-grow: 100;
+        text-align: center;
+
+
+        a.nav-link {
+            background: transparent;
+            border-radius: 0;
+            color: $text-color;
+
+            &:hover, &.active, &:active {
+                color: $brandColor;
+                background: none;
+            }
+
+            &.active, &:active {
+                border-bottom: 3px solid $brandColor;
+            }
+        }
+    }
+}
+
+.attr-checklist .wrapper {
+    height: 100%;
+    border-left: 1px solid $border-color-dark;
+    padding-left: 30px;
+}
+
+
+
+@media screen and (max-width: 1199.5px) {
+    .panel-body {
+        padding: 20px 15px !important;
+    }
+}

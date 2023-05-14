@@ -1,0 +1,591 @@
+$navbar-height: 50px;
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    padding-left: 5px;
+    background-color: #fff;
+}
+
+
+.navbar {
+    min-height: $navbar-height;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    background: #fff;
+}
+
+.navbar-content {
+    background-image: url(../img/navbg.jpg);
+    background-color: $brandColor;
+    background-repeat: repeat-x;
+    background-size: 180px;
+    background-position: 51px -6px;
+    width: 100%;
+    border-radius: 30px 0 0 30px;
+}
+
+// sidebar
+.content-screen {
+    display: flex;
+    padding-top: $navbar-height;
+    min-height: 100vh;
+    height: 100%;
+    overflow: auto;
+    width: 100%;
+    // background-color: $lightGray;
+    background-color: #fff;
+}
+
+.menu-btn {
+    background: #EFEFEF;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: 0;
+    transition: opacity .2s;
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.sidebar {
+    overflow: auto;
+    background-color: #fff;
+    width: $navbar-height;
+    flex-shrink: 0;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    width: 300px;
+    padding: 0px 15px 80px 0;
+    transition: width .3s;
+    max-height: 100vh;
+    @extend .hide-scroll;
+
+    .item {
+        display: flex;
+        align-items: center;
+        padding: 0 17px;
+        height: 50px;
+        position: relative;
+        transition: color .3s, background .2s, margin .2s, opacity .2s, width .1s, border-radius .1s,padding .2s;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: $lightGray;
+        border-radius: 30px 13px 13px 30px;
+        margin-top: 13px;
+        width: 100%;
+
+        &.has-list {
+            // to add arrow and handle the animation
+            &:after {
+                content: "";
+                @include arrow(right, 3px, 10px, $darkGray);
+                margin: -1px 8px 0 auto;
+                transition: transform .3s;
+            }
+        }
+
+        &.expanded {
+
+            &:after {
+                transform: rotateZ(135deg);
+                margin: -3px 8px 0 auto;
+            }
+        }
+
+
+        .icon {
+            width: 36px;
+
+            img {
+                transition: all .2s;
+                max-width: 28px;
+            }
+
+            &:last-of-type {
+                display: none;
+            }
+        }
+
+        &.active {
+            color: #fff;
+            background-color: $brandColor;
+
+            &:after {
+                border-color: #fff;
+            }
+
+            .icon {
+
+
+                &:first-child {
+                    display: none;
+                }
+
+                &:last-of-type {
+                    display: block;
+                }
+            }
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    &.sidebar-collapsed {
+        width: 60px;
+        left: 5px;
+
+        span {
+            display: none;
+        }
+
+        .item {
+            width: 50px;
+            padding: 0 14px;
+            border-radius: 50%;
+
+            &.has-list:after {
+                display: none;
+            }
+        }
+
+        .nav-list {
+            display: none !important;
+        }
+    }
+
+    .nav-list {
+        margin: 10px 0 -5px;
+        display: none;
+
+        .list-item {
+            width: 100%;
+            color: $darkGray;
+            display: block;
+            font-size: 14px;
+            position: relative;
+            padding: 6px 5px 5px 55px;
+            transition: color;
+
+            &:hover {
+                color: $brandColor;
+            }
+
+            &:before {
+                content: "";
+                width: 3px;
+                height: 100%;
+                background-color: $darkGray;
+                @extend .absolute-center;
+                right: initial;
+                left: 30.5px;
+                opacity: .7
+            }
+
+            &::after {
+                content: "";
+                width: 15px;
+                height: 15px;
+                border: 2px solid #fff;
+                background-color: $darkGray;
+                border-radius: 50%;
+                @extend .absolute-center;
+                right: initial;
+                left: 25px;
+            }
+
+            &.active, &:active {
+                &:after {
+                    background-color: $brandColorLight;
+                }
+
+                color: $brandColor;
+            }
+        }
+    }
+
+    .sidebar-bottom {
+        position: fixed;
+        bottom: 0px;
+        width: $navbar-height;
+        left: 0;
+    }
+}
+
+.content-screen .content {
+    /*padding: 80px 33px 33px;*/
+    padding: 15px 20px;
+    position: relative;
+    width: calc(100% - 300px );
+    margin-left: auto;
+    transition: width .3s;
+    overflow: auto;
+
+    &.expanded {
+        width: calc(100% - 60px );
+    }
+}
+
+.pattern-bg {
+    background: url(../img/bodybg.jpg) 10px 11px;
+    background-size: 170px;
+}
+
+.nav-actions {
+    border-bottom: 2px solid $lightGray;
+    padding: 5px 15px;
+    border-radius: 50px;
+    background-color: $bg;
+    display: flex;
+    width: auto;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 15px;
+    height: 40px;
+    align-items: center;
+
+    > button, >div {
+        border: 0;
+        cursor: pointer;
+        margin-left: 17px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .no-bg {
+        background: transparent;
+    }
+    // To extend the light gray Background
+    // &:after{
+    //     content:"";
+    //     height: 50px;
+    //     position: absolute;
+    //     background-color: $bg;
+    //     bottom:-52px;
+    //     left:0;
+    //     width:100%;
+    // }
+}
+
+.user-profile {
+    @include circle-profile-pic(30px,$lightGray);
+}
+
+.panel-button {
+    font-weight: 300;
+    border: 0;
+    align-items: center;
+    color: $text-color;
+    font-size: 20px;
+
+    img {
+        margin-right: 5px;
+        width: 25px !important;
+    }
+}
+
+.f-25 .panel-button img {
+    margin-top: -5px;
+}
+
+//Forms centered panel with steps
+.panel-body {
+    transition: padding .2s;
+    background-color: #fff;
+    border: 1px solid $border-color-dark;
+    border-radius: 16px;
+    padding: 15px 25px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+}
+
+.pager {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+
+    > button {
+        height: 30px;
+        width: 30px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: color .3s,background .3s;
+        border: 0;
+        color: $text-color;
+
+        &.active {
+            background: $brandColor;
+            color: #fff;
+        }
+
+        &:hover:not(.active):not(.sep) {
+            background: $lightGray;
+        }
+    }
+
+    .pager-prev, .pager-next {
+        color: $brandColor;
+        background: $lightGray;
+
+        img {
+            max-width: 9px;
+            margin-top: -1px;
+        }
+
+        @extend .click-effect;
+    }
+
+    .pager-prev, .pager-next, button.active {
+        margin-right: 13px;
+    }
+
+    .pager-next {
+        margin-left: 13px;
+    }
+}
+
+.centered-panel {
+    max-width: 1300px;
+    margin-left: auto;
+}
+
+.user-pop {
+    overflow: auto;
+    background-color: #fff;
+    width: 350px;
+    max-width:100%;
+    opacity: 0;
+    position: fixed;
+    height: 100%;
+    right: -350px;
+    padding: 15px 15px 80px 0;
+    transition: width .3s;
+    max-height: 100vh;
+    z-index: 9;
+    box-shadow: -2px 10px 10px 4px rgba(0, 0, 0, .15);
+    transition: all .2s;
+    margin-top:-15px;
+
+    &.expanded {
+        
+        opacity: 1;
+        right: 0px;
+    }
+
+    .main-profile-info {
+        display: flex;
+
+        .info {
+            flex-grow: 100;
+            align-items: center;
+
+            > div {
+                margin-bottom: 7px;
+            }
+        }
+
+
+        .profile-pic {
+            align-self: start;
+            flex-shrink: 0;
+            position: relative;
+
+            > img {
+                cursor: pointer;
+                background: #fff;
+                height: 110px;
+                min-width: 110px;
+                width: 110px;
+                border-radius: 50%;
+                @extend .cover-image;
+                border: 1px solid $border-color-dark;
+            }
+
+            .edit-pic {
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                width: 30px;
+                height: 30px;
+                left: 82px;
+                bottom: 8px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .user-pages {
+        a {
+            display: block;
+            width: 100%;
+            color: $text-color;
+            margin-bottom: 7px;
+            font-size: 16px;
+
+            &:hover {
+                color: $brandColor;
+            }
+        }
+    }
+}
+
+
+// Notifications Pop
+.notifications-pop {
+    top: 60px;
+    position: absolute;
+    left: -305px;
+    width: 350px;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: auto;
+        top: -20px;
+        @include triangle($bg, 10px, top);
+        border-bottom-width: 20px;
+        right: 22px;
+        left: initial;
+    }
+
+    .wrapper {
+        max-width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 4px 0px 11px 4px rgba(0, 0, 0, .1);
+        background: #fff;
+
+        .close-icon {
+            font-size: 30px;
+            transform: rotateZ(45deg);
+            font-weight: 100;
+            text-shadow: none;
+            color: $text-color;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+
+        .btn:last-child {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+
+        .items-list {
+            background-color: #ffffff;
+            max-height: 280px;
+            overflow: auto;
+            @extend .custom-scroll-slim;
+
+
+            .item {
+                width: 100%;
+                @extend .profile-card;
+                padding: 10px 12px;
+                border-bottom: 1px solid #e5e5e5;
+                transition:background .2s;
+                &:hover{
+                    background:$bg;
+                }
+                &:last-child {
+                    border: 0;
+                }
+
+                .info {
+                    flex-grow: 100;
+                    font-weight: normal;
+
+                    a {
+                        color: $text-color;
+                        text-decoration: underline;
+                        font-weight: bold;
+                    }
+                }
+
+                > img {
+                    width: 48px;
+                    height: 48px;
+                    min-width: 48px;
+                }
+            }
+        }
+    }
+}
+
+
+.notification-badge {
+    position: absolute;
+    top: -2px;
+    right: 0px;
+    width: 15px;
+    font-size: 10px;
+    height: 15px;
+    border-radius: 50%;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $brandColor;
+}
+//transfer orders modal
+.btn-branch {
+    color: $text-color;
+    border-radius: 18px;
+    padding: 2px 30px 2px 10px;
+    margin: 0 3px 3px 0;
+    display: inline-flex;
+    font-size: 14px;
+    border: 1px solid $brandColor;
+    position: relative;
+    background-color: #fff;
+    transition: color .3s;
+    align-items: center;
+    margin-bottom: 10px;
+
+    > img {
+        margin-right: 3px;
+        width: 16px;
+        height: 16px;
+    }
+
+    &:hover {
+        color: $brandColor;
+    }
+
+    .del {
+        font-weight: 400;
+        transform: rotateZ( 45deg );
+        font-size: 26px;
+        position: absolute;
+        right: 5px;
+        top: -7px;
+        cursor: pointer;
+        color: $brandColor;
+    }
+}

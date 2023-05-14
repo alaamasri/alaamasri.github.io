@@ -1,0 +1,178 @@
+@media screen and (max-width:1199.5px) {
+    // Main system
+
+    .content-screen .content, .content-screen .content.expanded {
+        width: 100%;
+        padding: 15px 10px 33px;
+    }
+
+    .sidebar {
+        z-index: 9;
+        left: 0;
+        padding-right: 15px;
+
+        &.sidebar-collapsed {
+            width: 0;
+            padding: 0;
+        }
+    }
+
+    // menu-product responsive
+    .panel-body {
+        padding: 20px 15px;
+    }
+
+    .steps {
+        padding: 20px 0;
+    }
+
+    //Forms responsive
+    .iphone-chk-group label {
+        font-size: 14px;
+    }
+    // menu - menus
+
+    .menu-main-chk {
+        margin-top: 0;
+    }
+
+    .menu-container .item .iphone-chk-group {
+        top: 8px;
+    }
+
+    body {
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .inscreen-scroll {
+        max-height: initial;
+        overflow: initial;
+        padding: initial;
+    }
+
+    .steps .step {
+        display: inline-flex;
+        margin: 0 30px 10px 0;
+    }
+
+    // discounts
+
+    .attr-checklist .wrapper {
+        border-left: 0px;
+        padding-left: 0;
+    }
+
+
+    // modal close button
+    .modal-content.px-3 .modal-header .close {
+        padding: 10px;
+    }
+
+    // User profile popup
+    .user pop {
+        .main-profile-info {
+            flex-wrap: wrap;
+
+            .profile-pic {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .info {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .cat-search {
+        padding: 0 !important;
+    }
+
+    .content-screen .content {
+        padding: 15px 15px 15px
+    }
+
+    // Menu Products
+    .attr-cards {
+        .slick-prev {
+            transform: rotateZ(-180deg);
+        }
+
+        .slick-next {
+            right: 0;
+            transform: translateX(0);
+        }
+    }
+
+    //branches{
+    .branch-cards > .item .map-container {
+        padding-top: 27%;
+    }
+}
+
+@media screen and (max-width:480px) {
+
+    .nav-actions .btn-txt-icon {
+        font-size: 0;
+
+        > img {
+            margin: 0;
+        }
+    }
+
+    // menu-product responsive
+    .panel-header {
+        flex-wrap: wrap;
+
+        .ml-auto {
+            margin-left: 0 !important;
+        }
+
+        .panel-button {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+
+    .channel-prices .item {
+        width: 100%;
+    }
+
+    //add discount
+
+    .attr-checklist .form-group-qty {
+        width: 73px;
+
+        input {
+            height: 22px;
+            width: 24px;
+        }
+    }
+    //branches{
+    .branch-cards > .item .map-container {
+        padding-top: 40%;
+    }
+
+    // Notifications pop
+    .notifications-pop {
+        position:fixed;
+        left:0;
+        right:0;
+        margin:auto;
+        width:95%;
+        &:before{
+            right:69px;
+        }
+    }
+}
+
+@media screen and (max-height:480px) and (orientation:landscape){
+    .notifications-pop .wrapper .items-list {
+        background-color: #ffffff;
+        max-height: 50vh;
+    }
+    }

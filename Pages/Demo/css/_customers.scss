@@ -1,0 +1,342 @@
+
+
+.table-fixed-header {
+    background: #fff;
+
+    .table-header {
+        /*background: #fff;
+        color: #a1a1a1;*/
+        > div {
+            &:nth-child(2) {
+                padding-left: 22px;
+            }
+
+            font-weight: 500;
+        }
+    }
+
+
+
+    .table-row, .table-header {
+        > div {
+            justify-content: start;
+            text-align: left;
+        }
+    }
+}
+
+.table-center {
+    .table-row, .table-header {
+        > div {
+            justify-content: center;
+            text-align: center;
+
+            &:nth-child(2) {
+                padding-left: 15px;
+            }
+        }
+    }
+}
+
+.table-style2 .table-header > div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.table-header, .table-row {
+    &.active .table-input, .table-input.active {
+        border-bottom: 1px solid $brandColor !important;
+    }
+}
+
+.table-header, .table-row {
+    .table-input {
+        text-align: left;
+        font-weight: 500
+    }
+}
+//Profile pic selection
+.profile-pic-selector {
+    display: flex;
+
+    img {
+        cursor: pointer;
+        display: flex;
+        margin-left: 20px;
+        white-space: nowrap;
+        font-size: 18px;
+        background: #fff;
+        height: 120px;
+        min-width: 120px;
+        width: 120px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        @extend .cover-image;
+
+        &:hover {
+            border: 3px solid rgba($brandColor,.6);
+        }
+
+        &.active {
+            border: 3px solid $brandColor;
+        }
+
+
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+
+
+
+    .wrapper {
+        overflow: auto;
+        display: flex;
+        padding-left: 10px;
+        width: calc(100% - 30px);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+}
+// add customer modal
+.add-customer-modal {
+    .icon-line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 7px;
+
+        > img {
+            align-self: start;
+            flex-shrink: 0;
+            max-width: 18px;
+            margin-right: 9px;
+            margin-top: 2px;
+        }
+    }
+}
+
+.main-profile-info {
+    display: flex;
+
+    > .info {
+        flex-grow: 100;
+
+        > div {
+            margin-bottom: 7px;
+        }
+    }
+
+
+    .profile-pic {
+        margin-right: 20px;
+        align-self: start;
+        flex-shrink: 0;
+        position: relative;
+
+        > img {
+            cursor: pointer;
+            background: #fff;
+            height: 120px;
+            min-width: 120px;
+            width: 120px;
+            border-radius: 50%;
+            @extend .cover-image;
+            border: 3px solid $brandColor;
+            object-fit:contain;
+        }
+
+        .edit-pic {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            right: 0;
+            bottom: 8px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.address-map {
+    position: relative;
+    height: 239px;
+    border-radius: 13px;
+    overflow: hidden;
+
+    ifrane {
+        border: 0;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.customer-note {
+    background-image: url('../img/customers/note.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 239px;
+    height: 239px;
+    margin: 0 auto;
+    padding: 15px 38px 60px;
+
+    .wrapper {
+        overflow: auto;
+        max-height: 158px;
+        @extend .hide-scroll;
+    }
+}
+
+.customer-order {
+    .info {
+        > div {
+            margin-bottom: 7px;
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            grid-gap: 10px;
+        }
+    }
+
+    .icon-line {
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+
+        > img {
+            flex-shrink: 0;
+            max-width: 18px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.customer-order-details {
+    .items-container {
+        border-right: 1px solid $text-color;
+
+        &:nth-child(3n):not(fisrt-child) {
+            border-right: 0;
+        }
+    }
+
+    .item {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $text-color;
+    }
+}
+
+.customer-inquires {
+    .item {
+        background-color: #fff;
+        border: 1px solid #707070;
+        border-radius: 16px;
+        padding: 15px 25px;
+        margin-bottom: 15px;
+        display: flex;
+
+        > div:first-child {
+            min-width: 120px;
+            align-self: start;
+        }
+    }
+}
+
+.customer-order-brief {
+    flex-wrap: wrap;
+}
+
+.delivery-system {
+    .main-profile-info .profile-pic > img{
+        width:60px;
+        height:60px;
+        min-width:60px;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .customer-order-brief {
+        flex-wrap: wrap;
+
+
+        .order-no {
+            margin-bottom: 12px;
+            width: 100%;
+        }
+
+        .icon-line {
+            margin-bottom: 7px;
+            width: 50%;
+            padding-left: 0;
+        }
+    }
+}
+
+@media screen and (max-width:991px) {
+    .main-profile-info {
+        flex-wrap: wrap;
+
+        .profile-pic {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+    }
+
+    .customer-pages {
+        justify-content: start !important;
+    }
+
+    .other-info {
+        margin-bottom: 30px;
+    }
+
+    .customer-nav-buttons {
+        .btn {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .customer-order-details .items-container {
+        border-right: 0px !important;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .customer-inquires .item > div:first-child {
+        min-width: 80px;
+    }
+
+    .customer-order-brief {
+
+
+        .icon-line {
+            margin-bottom: 7px;
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+}

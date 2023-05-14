@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./css/bootstrap_rtl.min.css" />
+    <link rel="stylesheet" href="./css/general_rtl.css">
+</head>
+
+
+<body class="dashboard-body">
+    <div class="sidebar-container"></div>
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex mb-5">
+                    <div class="dash-title">نظرة عامة</div>
+                    <div class="btn-menu  ml-auto">
+                        <span class="btn btn-primary btn-down btn-txt-icon wide" onclick="$(this).next('.hidden-ddl').fadeToggle();"><img src="img/dashboard/dash-add.svg" /> إضافة</span>
+                        <div class="hidden-ddl">
+                            <a class="item" href=""><img src="img/dashboard/new-prop.svg" /> عقار جديد</a>
+                            <a class="item" href=""><img src="img/dashboard/new-contract.svg" /> عقد جديد</a>
+                            <a class="item" href=""><img src="img/dashboard/new-invoice.svg" /> فاتورة جديدة</a>
+                            <a class="item" href=""><img src="img/dashboard/new-invoice.svg" /> رسالة جديدة</a>
+                            <a class="item" href=""><img src="img/dashboard/new-file.svg" /> ملف جديد</a>
+                            <a class="item" href=""><img src="img/dashboard/beni-name.svg" /> اسم المستفيد</a>
+                        </div>
+                    </div>
+                    <span class="btn-circle-icon ml-3"><img src="img/dashboard/dash-bell.svg" /></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex">
+                    <div class="dash-section-title">التحصيلات</div>
+                    <span class="btn-circle-icon ml-auto"><img src="img/dashboard/calendar.svg" /></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 dash-payment-stats">
+                    <div class="row colored-boxes">
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper">
+                                <img src="img/dashboard/dash-total.svg" />
+                                <div class="info">
+                                    <div class="title">إجمالي المحصل</div>
+                                    <div class="amount ltr">1350 SAR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #E5F4F5;">
+                                <img src="img/dashboard/dash-online.svg" />
+                                <div class="info">
+                                    <div class="title" style="color: #1FB1C2">المحصل يدوي</div>
+                                    <div class="amount ltr">1350 SAR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #E2F7E8;">
+                                <img src="img/dashboard/dash-cash.svg" />
+                                <div class="info">
+                                    <div class="title" style="color: #1FC250 ">المحصل اونلاين</div>
+                                    <div class="amount ltr">1350 SAR</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #FFDEDE;">
+                                <img src="img/dashboard/dash-unpaid.svg" />
+                                <div class="info">
+                                    <div class="title" style="color: #FF0000">إجمالي المعلق</div>
+                                    <div class="amount ltr">1350 SAR</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row my-5">
+                <div class="col-12 d-flex">
+                    <div class="dash-section-title">العقود والفواتير</div>
+                </div>
+                <div class="col-12">
+                    <img class="w-100" src="img/dashboard/chart2.jpg" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex">
+                    <div class="dash-section-title">الوحدات والعقارات</div>
+                </div>
+                <div class="col-12">
+                    <div class="row colored-boxes">
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper">
+                                <div class="title">العقارات الفعالة</div>
+                                <div class="amount ltr">5</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #E5F4F5;">
+                                <div class="title" style="color: #1FB1C2">إجمالي الوحدات</div>
+                                <div class="amount ltr">4</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #E2F7E8;">
+                                <div class="title" style="color: #1FC250 ">الوحدات المؤجرة</div>
+                                <div class="amount ltr">3</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 item">
+                            <div class="wrapper" style="background: #F6EAFB;">
+                                <div class="title" style="color: #C37AE2">الوحدات الشاغرة</div>
+                                <div class="amount ltr">5 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 my-5">
+                    <img class="w-100" src="img/dashboard/chart.jpg" />
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex">
+                        <div class="dash-section-title">آخر 10 عقود مضافة</div>
+                        <a class="btn btn-primary ml-auto">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive hide-scroll pb-1 table-style2">
+                        <div class="table-fixed-header">
+                            <div class="table-header justify-content-start">
+                                <div class="col-3">الاسم</div>
+                                <div class="col-3">اسم العقار</div>
+                                <div class="col-3">رقم الوحدة</div>
+                                <div class="col-3">نوع العقد</div>
+                            </div>
+                            <!-- You can determain the height of the table manually -->
+                            <div class="table-body">
+                                <div class="table-row justify-content-start">
+                                    <div class="col-3">Mohammad</div>
+                                    <div class="col-3">Salama</div>
+                                    <div class="col-3">2</div>
+                                    <div class="col-3">Investment</div>
+                                </div>
+                                <div class="table-row justify-content-start">
+                                    <div class="col-3">Mohammad</div>
+                                    <div class="col-3">Salama</div>
+                                    <div class="col-3">1</div>
+                                    <div class="col-3">Rent</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="d-flex">
+                        <div class="dash-section-title">آخر 10 فواتير مدفوعة</div>
+                        <a class="btn btn-primary ml-auto">عرض الكل</a>
+                    </div>
+                    <div class="table-responsive hide-scroll pb-1 table-style2">
+                        <div class="table-fixed-header">
+                            <div class="table-header justify-content-start">
+                                <div class="col-3">الاسم</div>
+                                <div class="col-3">اسم العقار</div>
+                                <div class="col-3">رقم الوحدة</div>
+                                <div class="col-3">المبلغ الإجمالي</div>
+                            </div>
+                            <!-- You can determain the height of the table manually -->
+                            <div class="table-body">
+                                <div class="table-row justify-content-start">
+                                    <div class="col-3">Mohammad</div>
+                                    <div class="col-3">Salama</div>
+                                    <div class="col-3">2</div>
+                                    <div class="col-3">100.00 SAR</div>
+                                </div>
+                                <div class="table-row justify-content-start">
+                                    <div class="col-3">Mohammad</div>
+                                    <div class="col-3">Salama</div>
+                                    <div class="col-3">1</div>
+                                    <div class="col-3">500.00 SAR</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div> <!--Container-->
+    </div>
+
+
+
+    <script src="./js/jquery.min.js"></script>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+</body>
+
+</html>

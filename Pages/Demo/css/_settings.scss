@@ -1,0 +1,243 @@
+
+// Popup tabs [most of it from bootstrap css]
+.tab-content {
+    width: 100%;
+}
+
+.nav-pills {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid $border-color-dark;
+
+    > li {
+        flex-grow: 100;
+        text-align: center;
+
+
+        a.nav-link {
+            background: transparent;
+            border-radius: 0;
+            color: $text-color;
+
+            &:hover, &.active, &:active {
+                color: $brandColor;
+                background: none;
+            }
+
+            &.active, &:active {
+                border-bottom: 3px solid $brandColor;
+            }
+        }
+    }
+}
+
+
+
+.circle-item {
+    cursor: pointer;
+    display: inline-flex;
+    margin-left: 40px;
+    height: 120px;
+    min-width: 120px;
+    width: 120px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #fff;
+    flex-wrap: wrap;
+    transition: border .2s;
+    border:1px solid $text-color;
+
+    
+
+    img {
+        margin-bottom: -30px;
+        max-width: 45px;
+    }
+
+    .title {
+        padding: 0 12px;
+        width: 100%;
+        line-height: 17px;
+        text-align: center;
+        color: $text-color;
+    }
+
+    &:hover {
+        border: 1px solid rgba($brandColor,.6);
+        opacity: 1;
+    }
+
+    &.active {
+        border: 3px solid $brandColor;
+    }
+
+
+
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.printing-item {
+    text-align: center;
+    border-radius: 9px;
+    padding: 8px 20px;
+    width: fit-content;
+    margin: 0 auto 10px;
+    min-width: 170px;
+    border: 1px solid $border-color-dark;
+
+    .table  td, .table  th {
+        color: $text-color;
+    }
+}
+
+.main-profile-info {
+    display: flex;
+
+    > .info {
+        flex-grow: 100;
+
+        > div {
+            margin-bottom: 7px;
+        }
+    }
+
+
+    .profile-pic {
+        margin-right: 20px;
+        align-self: start;
+        flex-shrink: 0;
+        position: relative;
+
+        > img {
+            cursor: pointer;
+            background: #fff;
+            height: 120px;
+            min-width: 120px;
+            width: 120px;
+            border-radius: 50%;
+            @extend .cover-image;
+            border: 3px solid $brandColor;
+        }
+
+        .edit-pic {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            left: 90px;
+            bottom: 8px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+.user-details{
+    .info {
+        > div {
+            margin-bottom: 7px;
+            display: grid;
+            grid-template-columns: .5fr 1fr;
+            grid-gap: 10px;
+        }
+    }
+
+    .icon-line {
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+
+        > img {
+            flex-shrink: 0;
+            max-width: 18px;
+            margin-right: 5px;
+        }
+    }
+}
+
+
+@media screen and (max-width:991px) {
+    .main-profile-info {
+        flex-wrap: wrap;
+
+        .profile-pic {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+    }
+
+
+
+}
+
+.pricing-plans {
+    .item {
+        margin-bottom: 20px;
+
+        .wrapper {
+            transition: border .3s;
+            border: 2px solid $text-color;
+            border-radius: 20px;
+            overflow: hidden;
+            padding-bottom: 20px;
+            cursor: pointer;
+            margin: 0 auto;
+
+            > div:not(.title) {
+                padding: 0 10px;
+            }
+        }
+
+        &.active, &:hover {
+            .wrapper {
+                border-color: $brandColor;
+            }
+        }
+
+        .title {
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 500;
+            background: $brandColor;
+            color: #fff;
+            border-bottom: 2px solid $text-color;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: 500;
+            font-size: 20px;
+        }
+    }
+}
+
+
+
+.value-list {
+    margin: 20px 0;
+
+    .list-item {
+        display: flex;
+        align-content: center;
+        margin-bottom: 10px;
+
+        img {
+            margin-right: 7px;
+            width: 20px;
+            align-self: start;
+            flex-shrink: 0;
+        }
+    }
+}
+

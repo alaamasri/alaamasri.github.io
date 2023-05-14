@@ -1,0 +1,410 @@
+//Buttons
+button {
+    background: transparent;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: color .2s,background .2s, border .2s;
+    box-shadow: initial !important;
+    padding: .375rem 1rem;
+    align-self: start;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &.round {
+        border-radius: 23px;
+    }
+
+
+
+    &.wide {
+        width: 160px;
+    }
+}
+
+.btn-primary {
+    background-color: $brandColor;
+    border-color: $brandColor;
+
+    &:hover,
+    &:focus {
+        background-color: darken($brandColor,2);
+        border-color: darken($brandColor,2);
+    }
+
+    &:active,
+    &.active {
+        background-color: darken($brandColor,8) !important;
+        border-color: darken($brandColor,8) !important;
+    }
+}
+
+.btn-secondary {
+    background-color: $brandColorLight;
+    border-color: $brandColorLight;
+
+    &:hover,
+    &:focus {
+        background-color: darken($brandColorLight,2);
+        border-color: darken($brandColorLight,2);
+    }
+
+    &:active,
+    &.active {
+        background-color: darken($brandColorLight,8) !important;
+        border-color: darken($brandColorLight,8) !important;
+    }
+}
+
+
+.btn-gray {
+    background-color: #e6e6e6;
+    color: $text-color;
+
+    &:hover {
+        background-color: darken(#e6e6e6, 6);
+    }
+}
+
+
+
+.btn-lg {
+    font-size: 16px;
+    font-weight: 500;
+    min-height: 47px;
+}
+
+.btn-xl {
+    font-size: 16px;
+    font-weight: 600;
+    height: 60px;
+}
+
+.btn-small {
+    padding: 0px 7px;
+    border-radius: 10px;
+}
+
+.btn-white {
+    background-color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: 0px 2px 5px 0px rgba(128, 128, 128, 0.3);
+    color: $text-color;
+    padding: 10px 23px;
+    transition: box-shadow .3s;
+
+    &:hover {
+        box-shadow: 0px 2px 5px 0px rgba(128, 128, 128, 0.5);
+    }
+}
+
+.btn-danger {
+    background-color: $danger;
+    border-color: $danger;
+}
+
+.btn.text-white {
+    &:before {
+        border-color: #ffffff;
+    }
+}
+
+.btn-back {
+    &:before {
+        content: "";
+        @include arrow(left, 2px, 7px, $brandColor);
+        vertical-align: middle;
+        margin-right: 12px;
+        margin-top: -2px;
+    }
+}
+
+.btn-next {
+    &:after {
+        content: "";
+        @include arrow(right, 2px, 7px, $brandColor);
+        vertical-align: middle;
+        margin-right: 12px;
+        margin-top: -2px;
+    }
+
+    &.btn-primary:after {
+        border-color: #ffffff;
+    }
+}
+
+.btn-down {
+    &:after {
+        content: "";
+        @include arrow(down, 2px, 7px, $brandColor);
+        vertical-align: middle;
+        margin-right: 12px;
+        margin-top: -2px;
+    }
+
+    &.btn-primary:after {
+        border-color: #ffffff;
+    }
+}
+.btn-down, .btn-right, .btn-left, .btn-up {
+    &.wide {
+        &:after {
+            margin-right:auto;
+        }
+    }
+    }
+    .btn-link {
+        color: #000;
+
+        &:hover {
+            color: #000
+        }
+    }
+
+    .btn-line {
+        color: $brandColor;
+        border-color: $brandColor;
+        background-color: #fff;
+
+        &:active, &:hover {
+            color: darken($brandColor,8);
+            border-color: darken($brandColor,8);
+        }
+    }
+
+    .btn-line-danger {
+        color: $danger;
+        border-color: $danger;
+        background-color: #fff;
+
+        &:active, &:hover {
+            color: darken($danger,8);
+            border-color: darken($danger,8);
+        }
+    }
+
+    .btn-line-gray {
+        color: $text-color;
+        border-color: $text-color;
+
+        &:hover, &.active {
+            color: $brandColor;
+            border-color: $brandColor;
+        }
+    }
+
+    .btn-round {
+        border-radius: 10px;
+    }
+
+
+    .btn-squared {
+        padding: 97% 0 0;
+        position: relative;
+
+        > span,
+        > img {
+            @extend .absolute-center;
+        }
+
+        > span {
+            display: flex;
+            padding: 0 15px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+
+    .btn-squared-icon {
+        border: 0;
+        background: $border-color;
+        justify-content: center;
+        align-content: center;
+        width: 150px;
+        max-width: 100%;
+        height: 150px;
+        display: flex;
+        flex-wrap: wrap;
+        cursor: pointer;
+        color: $text-color;
+        transition: background .3s;
+
+
+        img {
+            max-width: 70%;
+            margin-bottom: 10px;
+        }
+
+        > span {
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    .btn-dark-gray {
+        background: #A5A5A5;
+    }
+
+    .btn-black {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .btn-label {
+        padding: 4px 9px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .btn-success {
+        color: white;
+        background-color: $success;
+        border-color: $success;
+    }
+
+    .btn-warning {
+        color: white;
+        background-color: $warning;
+        border-color: $warning;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+    //Btn radio list
+
+    .btn-radios-list {
+        display: flex;
+        justify-items: stretch;
+        flex-wrap: wrap;
+
+        .btn {
+            flex-grow: 100;
+            margin-right: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .btn-txt-icon {
+        display: inline-flex;
+        align-items: center;
+        align-self: start;
+
+        > img {
+            margin-left: 8px;
+        }
+
+        &.btn-small, &.btn-small-sqd {
+            > img {
+                margin-left: 6px;
+            }
+        }
+    }
+
+    .click-effect {
+        transition: transform .2s;
+
+        &:active {
+            transform: scale(.95);
+        }
+    }
+
+    .btn-circle {
+        border-radius: 50%;
+    }
+
+    .btn-circle-icon {
+        width: 34px;
+        height: 34px;
+        background: #EAF1F1;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        display: flex;
+
+        img {
+            width: 16px;
+        }
+    }
+
+    .btn-menu {
+        position: relative;
+
+        .hidden-ddl {
+            background: #FFFFFF;
+            box-shadow: 0px 6px 20px #0000000D;
+            border-radius: 8px;
+            width: 170px;
+            padding: 7px 0;
+            position: absolute;
+            top: 42px;
+            right: 0;
+            display: none;
+            z-index: 2;
+
+            > .item {
+                color: $text-color-dark;
+                padding: 9px 20px;
+                display: flex;
+                align-content: center;
+
+                &:hover {
+                    color: $brandColor;
+                    opacity: 1;
+                    background: $lightGray;
+                }
+
+                > img {
+                    width: 18px;
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+
+    .status-txt {
+        color: #23B63A;
+        display: flex;
+        align-items: center;
+
+        &:before {
+            content: "";
+            height: 7px;
+            width: 7px;
+            min-width: 7px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            margin-left: 7px;
+            background: #23B63A;
+        }
+
+        &.danger {
+            color: $danger;
+
+            &:before {
+                background: $danger;
+            }
+        }
+
+        &.warning {
+            color: $warning;
+
+            &:before {
+                background: $warning;
+            }
+        }
+    }
+
