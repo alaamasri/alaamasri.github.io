@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./css/bootstrap_rtl.min.css" />
+    <link rel="stylesheet" href="./css/general_rtl.css">
+</head>
+
+
+<body class="dashboard-body">
+    <div class="sidebar-container"></div>
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex mb-3">
+                    <div class="dash-title">العقارات</div>
+
+                    <span class="btn-circle-icon ml-auto"><img src="img/dashboard/dash-bell.svg" /></span>
+                </div>
+            </div>
+
+
+
+            <div class="row mb-5">
+                <div class="col-12 white-panel">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="dash-section-title">اضافة عقار</div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="اسم العقار" id="PropertyName" />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+
+                            <div class="form-group form-group-arrow no-label">
+                                <input type="text" class="form-control form-list" placeholder="نوع العقار" id="PropertyRegion" />
+                                <!-- <div class="err-msg">Please fill the name</div> -->
+                                <ul class="ddl has-add-btn">
+
+                                    <li>منزل مستقل</li>
+                                    <li>مجمع سكني</li>
+                                    <li>شقة</li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="العنوان 1" id="AddressLine1" />
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="(اختياري) العنوان 2" id="Heading2" />
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="مجموع الوحدات" pattern="[0-9]+" maxlength="8" id="TotalUnits" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="وحدات شاغرة" pattern="[0-9]+" maxlength="8" id="VacantUnits" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="التحصيل الشهري الإلكتروني" title="Currency" maxlength="15" pattern="^\d+(?:\.\d{1,2})?$" id="ElcontrnicsMonthlyCollection" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="التحصيل الشهري اليدوي" title="Currency" maxlength="15" pattern="^\d+(?:\.\d{1,2})?$" id="ManualMonthlyCollection" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="إجمالي المعلق" title="Currency" maxlength="15" pattern="^\d+(?:\.\d{1,2})?$" id="Totalcommentator" />
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-primary btn-txt-icon btn-lg justify-content-center mb-3" onclick="Q.SubmitData()">
+                                <img style="width: 20px;" src="./img/add_white.svg" />Save
+                            </button>
+                            <button class="btn btn-primary btn-txt-icon btn-lg justify-content-center mb-3">
+                                <img style="width: 20px;" src="./img/add_white.svg" />Add unit
+                            </button>
+                            <p style="color:red">You need to add atleast one unit before saving</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="row mb-5">
+                <div class="col-12 white-panel">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="dash-section-title">Add Unit</div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Unit Number" id="unitNumber" required />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+
+                            <div class="form-group form-group-arrow no-label">
+                                <input type="text" class="form-control form-list" placeholder="Unit Type" id="unitType" required />
+                                <!-- <div class="err-msg">Please fill the name</div> -->
+                                <ul class="ddl has-add-btn">
+
+                                    <li>منزل مستقل</li>
+                                    <li>مجمع سكني</li>
+                                    <li>شقة</li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Area sqm" id="UnitArea" required />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Floor" id="unitFloor" />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Rooms Number" id="unitRooms" />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Bathrooms Number" id="unitBathrooms" />
+                            </div>
+                        </div>
+                        <div class="col-12  col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Car Park (Yes/no)" id="unitCarPark" />
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary">Copy</button> <button class="btn btn-primary">Cancel</button> <button class="btn btn-primary">Save</button>
+                        </div>
+
+                        
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <button class="btn btn-primary btn-txt-icon btn-lg justify-content-center" onclick="Q.SubmitData()" data-dismiss="modal" aria-label="Close" data-target="#successModal" data-toggle="modal">
+                                <img style="width: 20px;" src="./img/add_white.svg" />إضافة وحدة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div> <!--Container-->
+    </div>
+
+    
+
+
+
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-hidden="true"
+         aria-labelledby="catProdMod">
+        <div class="modal-dialog modal-dialog-centered modal-padding" role="document" style="width:350px;">
+            <div class="modal-content px-4 radius-8">
+
+                <div class="modal-body px-0 pb-4">
+                    <div class="container-fluid p-0">
+
+
+                        <div class="row text-center">
+                            <div class="col-12"><img src="img/dashboard/success.svg" /></div>
+                            <div class="f-20 w-100 mb-2 text-dark">تم إضافة العقار بنجاح</div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <button class="btn btn-primary w-100 btn-lg justify-content-center" data-dismiss="modal" aria-label="Close">تم</button>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="./js/jquery.min.js"></script>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+</body>
+
+</html>

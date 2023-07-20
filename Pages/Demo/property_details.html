@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="./css/bootstrap_rtl.min.css" />
+    <link rel="stylesheet" href="./css/general_rtl.css">
+</head>
+
+
+<body class="dashboard-body">
+    <div class="sidebar-container"></div>
+    <div class="dashboard">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-flex mb-3">
+                    <div class="dash-title">Property Name</div>
+
+                    <span class="btn-circle-icon ml-auto"><img src="img/dashboard/dash-bell.svg" /></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 dash-payment-stats">
+                    <div class="row colored-boxes">
+                        <div class="col-12 col-md-4 item">
+                            <div class="wrapper">
+                                <div class="info text-center">
+                                    <div class="amount ltr f-26">5</div>
+                                    <div class="title">Total Units</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 item">
+                            <div class="wrapper" style="background: #E5F4F5;">
+                                <div class="info text-center">
+                                    <div class="amount ltr f-26">2</div>
+                                    <div class="title" style="color: #1FB1C2">Free Units</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 item">
+                            <div class="wrapper" style="background: #E2F7E8;">
+                                <div class="info text-center">
+                                    <div class="amount ltr f-26">10</div>
+                                    <div class="title" style="color: #1FC250 ">Rented Unit</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 mx-0">
+                <div class="col-12 col-lg-12 white-panel">
+                    <div class="row">
+                        <div class="col-12 white-panel-title"><a href="#" class="title-menu"><img src="img/dashboard/title-menu.svg"></a><span class="text-primary">هذا العقار ينتمي إلى {username}</span></div>
+                    </div>
+
+                    <div class="row text-dark">
+                        <div class="col-12 col-md-4 mb-3">
+                            <strong>النوع:</strong>
+                            <span> سكني </span>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <strong>رقم الهاتف:</strong>
+                            <span class="ltr"> +966 541 563 985 </span>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <strong>(Nickname)اسم المستفيد:</strong>
+                            <a href="#"> محمد</a>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <strong> العنوان:</strong>
+                            <span> Al Riyadh, Abha, Abdullah street </span>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3">
+                            <strong>الرقم الآلي للعقار:</strong>
+                            <span class="ltr">125634 </span>
+                        </div>
+                        <div class="col-12 col-md-4 mb-3"></div>
+                        <p class="col-12 " style="color:red">Everything here, same data from , property table, the above are just demo data</p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+            <div class="row mb-5 mx-0">
+
+                <div class="col-12 col-lg-12 white-panel">
+                    <div class="">
+                        <div class="dash-section-title">Units<p style="color:red;">The Table below will have same as the fields we registered </p></div>
+                        
+                    </div>
+
+                    <div class="col-12 px-0">
+                        <div class="row">
+                            <div class="col-11">
+                                <div class="form-group form-group-search">
+                                    <input type="text" class="form-control gray-bg" placeholder="ابحث باسم العقار او المنطقة">
+                                </div>
+                            </div>
+                            <div class="col-1 pl-0"><span class="btn btn-line-gray btn-txt-icon btn-filter w-100" style="height:38px;" onclick="$(this).toggleClass('btn-primary').toggleClass('btn-line-gray');$(this).parents('.row').find('.filter-actions').toggleClass('d-flex')"><img class="mr-1" style="width:20px;" src="img/filter.svg" /> فلتر</span></div>
+                            <div class="col-12 filter-actions" style="display:none;">
+                                <div class="btn-menu mr-3">
+                                    <span class="btn btn-line btn-down" onclick="$(this).next('.hidden-ddl').fadeToggle();"> نوع العقد</span>
+                                    <div class="hidden-ddl">
+                                        <div class="item">
+                                            <div class="item form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check0" id="check0" value="option1">
+                                                <label class="form-check-label" for="check0">
+                                                    <span class="text-dark"> الإيجار</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check1" id="check1" value="option1">
+                                                <label class="form-check-label" for="check1">
+                                                    <span class="text-dark"> رسوم الخدمة</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check2" id="check2" value="option1">
+                                                <label class="form-check-label" for="check2">
+                                                    <span class="text-dark"> إستثمارى</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check3" id="check3" value="option1">
+                                                <label class="form-check-label" for="check3">
+                                                    <span class="text-dark"> قسط</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="btn-menu mr-3">
+                                    <span class="btn btn-line btn-down" onclick="$(this).next('.hidden-ddl').fadeToggle();"> حالة العقد</span>
+                                    <div class="hidden-ddl">
+                                        <div class="item">
+                                            <div class="item form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check0" id="check0" value="option1">
+                                                <label class="form-check-label" for="check0">
+                                                    <span class="text-dark"> الإيجار</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check1" id="check1" value="option1">
+                                                <label class="form-check-label" for="check1">
+                                                    <span class="text-dark"> رسوم الخدمة</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check2" id="check2" value="option1">
+                                                <label class="form-check-label" for="check2">
+                                                    <span class="text-dark"> إستثمارى</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check3" id="check3" value="option1">
+                                                <label class="form-check-label" for="check3">
+                                                    <span class="text-dark"> قسط</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="btn-menu mr-3">
+                                    <span class="btn btn-line btn-down" onclick="$(this).next('.hidden-ddl').fadeToggle();"> حالة الفاتورة</span>
+                                    <div class="hidden-ddl">
+                                        <div class="item">
+                                            <div class="item form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check0" id="check0" value="option1">
+                                                <label class="form-check-label" for="check0">
+                                                    <span class="text-dark"> الإيجار</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check1" id="check1" value="option1">
+                                                <label class="form-check-label" for="check1">
+                                                    <span class="text-dark"> رسوم الخدمة</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check2" id="check2" value="option1">
+                                                <label class="form-check-label" for="check2">
+                                                    <span class="text-dark"> إستثمارى</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check3" id="check3" value="option1">
+                                                <label class="form-check-label" for="check3">
+                                                    <span class="text-dark"> قسط</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="btn-menu mr-3">
+                                    <span class="btn btn-line btn-down" onclick="$(this).next('.hidden-ddl').fadeToggle();"> العقارات</span>
+                                    <div class="hidden-ddl">
+                                        <div class="item">
+                                            <div class="item form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check0" id="check0" value="option1">
+                                                <label class="form-check-label" for="check0">
+                                                    <span class="text-dark"> الإيجار</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check1" id="check1" value="option1">
+                                                <label class="form-check-label" for="check1">
+                                                    <span class="text-dark"> رسوم الخدمة</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check2" id="check2" value="option1">
+                                                <label class="form-check-label" for="check2">
+                                                    <span class="text-dark"> إستثمارى</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="form-group form-check mb-0">
+                                                <input class="form-check-input" type="checkbox" name="check3" id="check3" value="option1">
+                                                <label class="form-check-label" for="check3">
+                                                    <span class="text-dark"> قسط</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="table-responsive hide-scroll mt-3">
+                        <div class="table-fixed-header">
+                            <div class="table-header justify-content-start">
+                                <div class="col table-check">
+                                    <div class="form-group form-check">
+                                        <input class="form-check-input" type="checkbox" name="exampleRadio" id="exampleRadio" value="option1">
+                                        <label class="form-check-label" for="exampleRadio">
+                                            <span class="req-lbl text-primary"> </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">unitNumber </div>
+                                <div class="col">unitType</div>
+                                <div class="col">UnitArea</div>
+                                <div class="col">unitFloor</div>
+                                <div class="col">unitRooms</div>
+                                <div class="col">unitBathrooms</div>
+                                <div class="col">unitCarPark</div>
+                            </div>
+                            <!-- You can determain the height of the table manually -->
+                            <div class="table-body">
+                                <div class="table-row justify-content-start">
+                                    <div class="col table-check">
+                                        <div class="form-group form-check">
+                                            <input class="form-check-input" type="checkbox" name="exampleRadio" id="exampleRadio" value="option1">
+                                            <label class="form-check-label" for="exampleRadio">
+                                                <span class="req-lbl text-primary"> </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">Salama</div>
+                                    <div class="col">Abha</div>
+                                    <div class="col">10</div>
+                                    <div class="col">2</div>
+                                    <div class="col">0.00 SAR</div>
+                                    <div class="col">2000.00 SAR</div>
+                                    <div class="col">0.00 SAR</div>
+                                </div>
+                                <div class="table-row justify-content-start">
+                                    <div class="col table-check">
+                                        <div class="form-group form-check">
+                                            <input class="form-check-input" type="checkbox" name="exampleRadio" id="exampleRadio" value="option1">
+                                            <label class="form-check-label" for="exampleRadio">
+                                                <span class="req-lbl text-primary"> </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">Salama</div>
+                                    <div class="col">Abha</div>
+                                    <div class="col">10</div>
+                                    <div class="col">2</div>
+                                    <div class="col">0.00 SAR</div>
+                                    <div class="col">2000.00 SAR</div>
+                                    <div class="col">0.00 SAR</div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                  
+
+                </div>
+
+            </div>
+            
+            
+
+        </div> <!--Container-->
+    </div>
+
+    
+
+
+
+
+    
+
+
+
+
+    <script src="./js/jquery.min.js"></script>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/scripts.js"></script>
+
+</body>
+
+</html>
