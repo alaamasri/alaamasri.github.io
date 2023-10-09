@@ -1,27 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<style>
-.video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-#mobileVideo{display: none;}
-/* Style for mobile devices */
-@media (max-width: 768px) {
-    #desktopVideo {
-        display: none; /* Hide the desktop video on mobile */
-    }
-    #mobileVideo{display: block;}
-}
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Quote Un Quote</title>
+
+    <style>
+        .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #mobileVideo {
+            display: none;
+        }
+
+        /* Style for mobile devices */
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            margin: 10%;
+            text-align: center;
+        }
+
+        .btn-hover {
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            background-size: 300% 100%;
+            color: white;
+            position: absolute;
+            right: 50px;
+            bottom: 40px;
+            z-index: 99;
+            font-size: 20px;
+            border-radius: 50px 15px 50px 15px;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+            padding: 10px 50px;
+            text-decoration: none;
+            font-family: Roboto;
+            text-transform: uppercase;
+        }
+
+        .btn-hover:hover {
+            background-position: 100% 0;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .btn-hover:focus {
+            outline: none;
+        }
+
+        .btn-hover.color-3 {
+            background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+            box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+        }
+
+        @media (max-width: 768px) {
+            #desktopVideo {
+                display: none;
+                /* Hide the desktop video on mobile */
+            }
+
+            #mobileVideo {
+                display: block;
+            }
+
+            .btn-hover {
+                left: 0;
+                right: 0;
+                width: 280px;
+                bottom: 3vh;
+                margin: 0 auto;
+                font-size:16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <section id="banner">
+        <a href="#" class="btn-hover color-3">Contact Us</a>
         <!-- Mobile Video -->
         <video id="mobileVideo" class="video" autoplay loop muted playsinline preload="auto" poster="poster.png">
             <source src="mobile.mp4" type="video/mp4">
@@ -29,10 +107,11 @@
         </video>
 
         <!-- Desktop Video -->
-        <video id="desktopVideo"  class="video" autoplay loop muted playsinline preload="auto" poster="poster.png">
+        <video id="desktopVideo" class="video" autoplay loop muted playsinline preload="auto" poster="poster.png">
             <source src="desktop.mp4" type="video/mp4">
             <source src="desktop.webm" type="video/webm">Sorry, your browser does not support HTML5 video.
         </video>
     </section>
 </body>
+
 </html>
