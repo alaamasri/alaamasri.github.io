@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Full Background</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Default (Desktop) Background */
+        body {
+            background-image: url('bg-desk.jpg');
+        }
+
+        /* Mobile Background */
+        @media (max-width: 768px) {
+            body {
+                background-image: url('bg-mob.jpg');
+            }
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            position: absolute;
+        }
+
+        .logo {
+            width: 18vw;
+        }
+
+        .soon {
+            font-size: 1.8rem;
+            color: #c63663;
+            font-family: Arial, sans-serif;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transform: translate(100%, -.4vw);
+        }
+
+        /* Mobile: Center-Bottom +10% */
+        @media (max-width: 1024px) {
+            .container {
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .soon{
+                font-size: 1.2rem;
+                bottom:0;
+            }
+            .logo{
+                width:180px;
+            }
+        }
+
+        /* Desktop: Center-Right +10% */
+        @media (min-width: 1025px) {
+            .container {
+                right: 10%;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <span class="soon">..soon</span>
+    </div>
+</body>
+
+</html>
