@@ -316,9 +316,9 @@ h2.contact-title .dot { color: var(--a); }
 a.contact-detail-link:hover { color: var(--a); }
 @media (max-width: 900px) {
   .contact-detail-location { display: none !important; }
-  .contact-details { gap: 16px !important; }
-  .contact-details .contact-detail { flex: 0 0 100%; width: 100%; }
-  .contact-details .contact-detail .value { overflow-wrap: anywhere; }
+  .contact-details { flex-wrap: nowrap !important; gap: 16px !important; }
+  .contact-details .contact-detail { flex: 1; min-width: 0; }
+  .contact-details .contact-detail .value { font-size: 13px !important; white-space: nowrap; }
 }
 .contact-cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 52px; }
 
