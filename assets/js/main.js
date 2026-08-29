@@ -195,6 +195,42 @@
     update();
   }
 
+  function setupCursor() {
+    if (reduced || !window.matchMedia('(pointer: fine)').matches) return;
+
+    const ball = document.createElement('div');
+    ball.className = 'cursor-ball';
+    ball.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(ball);
+
+    const mouse = { x: 0, y: 0 };
+    const pos = { x: 0, y: 0 };
+    const ratio = 0.15;
+
+    document.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX; mouse.y = e.clientY;
+      ball.classList.add('is-visible');
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => ball.classList.remove('is-visible'));
+    document.addEventListener('mouseenter', () => ball.classList.add('is-visible'));
+
+    const tick = () => {
+      pos.x += (mouse.x - pos.x) * ratio;
+      pos.y += (mouse.y - pos.y) * ratio;
+      ball.style.transform = `translate(${pos.x}px, ${pos.y}px) translate(-50%, -50%)`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    const hoverSelector = 'a, button, .svc-card, .wcard-info';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverSelector)) ball.classList.add('is-hover');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverSelector)) ball.classList.remove('is-hover');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     setupParticles();
     setupReveal();
@@ -202,5 +238,6 @@
     setupNavActive();
     setupRotator();
     setupWorkSticky();
+    setupCursor();
   });
 })();

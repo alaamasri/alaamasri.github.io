@@ -331,6 +331,18 @@ a.contact-detail-link:hover { color: var(--a); }
 .footer-inner span, .footer-inner a { font-size: 13px; color: var(--mu); transition: color .25s; }
 .footer-inner a:hover { color: var(--a); }
 
+/* ---------- Custom cursor ---------- */
+.cursor-ball {
+  position: fixed; top: 0; left: 0; width: 34px; height: 34px;
+  border: 2px solid rgba(255, 255, 255, .5); border-radius: 50%;
+  pointer-events: none; mix-blend-mode: difference; z-index: 300;
+  opacity: 0; transform: translate(-50%, -50%);
+  transition: width .3s ease, height .3s ease, border-width .3s ease, opacity .3s ease;
+}
+.cursor-ball.is-visible { opacity: 1; }
+.cursor-ball.is-hover { width: 64px; height: 64px; border-width: 1px; }
+@media (pointer: coarse) { .cursor-ball { display: none !important; } }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track, .spin-star, .spin-star-hero, .rail-right .rail-cue { animation: none !important; }
