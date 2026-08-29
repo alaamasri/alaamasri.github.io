@@ -217,6 +217,7 @@ h2.section-title {
   display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 40px;
   border: 1px solid var(--bd); border-radius: 100px; padding: 12px 12px 12px 26px; width: fit-content;
 }
+@media (max-width: 900px) { .svc-cta-capsule { flex-wrap: nowrap !important; } }
 .svc-cta-capsule span.label { font-family: 'Space Grotesk', sans-serif; font-size: 15px; letter-spacing: -.01em; color: var(--mu); }
 
 .spin-star { animation: spin 22s linear infinite; }
