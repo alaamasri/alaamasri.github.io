@@ -194,6 +194,7 @@ p { text-wrap: pretty; }
 
 /* ---------- Services ---------- */
 #services { scroll-margin-top: 80px; padding: 130px 32px; border-top: 1px solid var(--bd); position: relative; overflow: clip; }
+@media (max-width: 900px) { #services { padding-top: 70px !important; } }
 .svc-diamond { position: absolute; top: 120px; right: 8%; width: 12px; height: 12px; background: var(--a); transform: rotate(45deg); pointer-events: none; }
 .svc-ring { position: absolute; bottom: 120px; right: 5%; width: 150px; height: 150px; border: 1px solid var(--bd); border-radius: 50%; pointer-events: none; }
 .section-inner { max-width: 1460px; margin: 0 auto; }
@@ -239,6 +240,7 @@ h2.section-title {
 
 /* ---------- Work ---------- */
 #work { scroll-margin-top: 80px; padding: 130px 32px 150px; border-top: 1px solid var(--bd); background: var(--bg2); overflow: clip; }
+@media (max-width: 900px) { #work { padding-bottom: 80px !important; } }
 .work-header { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 84px; }
 h2.work-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(38px, 5.6vw, 78px); line-height: 1; letter-spacing: -.038em; margin: 26px 0 0; }
 h2.work-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--tx); }
