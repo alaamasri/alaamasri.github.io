@@ -13,6 +13,7 @@
     ['https://xbyform.com/', 'X by Form', 'Second storefront for the Form label, sharing components with the main store.', ['Shopify', 'Apparel']],
     ['https://sukaina.skin', 'Sukaina Skin', 'Skincare storefront build with a product-led landing experience.', ['Shopify', 'Beauty']],
     ['https://bft-uae.com/', 'BFT', 'Bright Future Trading — a UAE supplier of food and veterinary raw materials across the Levant and GCC.', ['Web', 'Trading']],
+    ['https://global.numeira.com/', 'Numeira', 'Shopify storefront for a Dead Sea minerals brand — bath salts, magnesium flakes and mud-based skincare shipped worldwide.', ['Shopify', 'Beauty']],
   ];
 
   function setupParticles() {
