@@ -9,7 +9,7 @@
     ['https://crossarabia.com/', 'Cross Arabia', '360° solutions for healthy-food brands, from first talks through product launch.', ['Web', 'F&B Brands']],
     ['https://www.jabaholdings.com/', 'JABA Holdings', 'Madrid-based Spanish real-estate investment company (SOCIMI/REIT), built bilingual on Umbraco.', ['Umbraco', 'Real Estate']],
     ['https://crossjo.com/', 'Cross Jordan', 'FMCG distribution in Jordan, representing international functional-food and healthy-snack brands.', ['Web', 'FMCG']],
-    ['https://dough-works.com/', 'Dough Works', 'Online ordering for a bakery — menu, delivery areas and checkout.', ['E-Commerce', 'Food']],
+    ['https://dough-works.com/', 'Dough Works', "Custom-coded Shopify subscription portal for a bakery's B2B parent company — weekly pre-orders, account dashboards and Sunday delivery.", ['Shopify', 'Subscription']],
     ['https://xbyform.com/', 'X by Form', 'Second storefront for the Form label, sharing components with the main store.', ['Shopify', 'Apparel']],
     ['https://sukaina.skin', 'Sukaina Skin', 'Skincare storefront build with a product-led landing experience.', ['Shopify', 'Beauty']],
     ['https://bft-uae.com/', 'BFT', 'Bright Future Trading — a UAE supplier of food and veterinary raw materials across the Levant and GCC.', ['Web', 'Trading']],
