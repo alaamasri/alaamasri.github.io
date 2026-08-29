@@ -200,6 +200,7 @@ p { text-wrap: pretty; }
 @media (max-width: 900px) { .two-col { grid-template-columns: 1fr !important; } }
 
 .svc-brief { position: sticky; top: 112px; }
+@media (max-width: 900px) { .svc-brief { position: static !important; top: auto !important; } }
 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-shown { opacity: 1; transform: translateY(0); }
@@ -251,7 +252,7 @@ h2.work-title .outline { color: transparent; -webkit-text-stroke: 1.5px var(--tx
 @media (max-width: 900px) {
   .wcols { gap: 32px; }
   .wcard {
-    position: static !important; height: auto !important; display: flex; flex-direction: column;
+    position: sticky !important; top: 104px !important; height: auto !important; display: flex; flex-direction: column;
     background: var(--bg2);
   }
   .wcard img { height: auto; aspect-ratio: 4 / 3; }
