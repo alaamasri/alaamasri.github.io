@@ -65,7 +65,6 @@ h1,h2,h3,h4{margin:0;font-family:Tajawal,system-ui,sans-serif;line-height:1.35;t
   background:rgba(31,145,76,.12);color:var(--teal);
   padding:8px 15px;border-radius:5px;
 }
-.eyebrow svg{width:13px;height:13px;flex:none}
 .eyebrow--ondark{background:rgba(63,203,122,.14);color:var(--pop)}
 .eyebrow--pop{background:rgba(63,203,122,.16);color:var(--pop)}
 
@@ -124,22 +123,63 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 
 /* ---------- floating rounded nav ---------- */
 .navwrap{position:absolute;inset-inline:0;top:46px;z-index:70}
+:root{
+  --nav-bg:rgba(255,255,255,.94);--nav-border:rgba(15,44,76,.08);
+  --nav-shadow:0 14px 34px rgba(6,28,48,.18);--nav-text:var(--navy);
+}
+html[data-nav="transparent"]{
+  --nav-bg:rgba(255,255,255,.08);--nav-border:rgba(255,255,255,.22);
+  --nav-shadow:none;--nav-text:#fff;
+}
 .navbar{
   position:relative;display:flex;align-items:center;gap:26px;height:78px;padding-inline:26px;
-  background:rgba(255,255,255,.94);border:1px solid rgba(15,44,76,.08);
-  border-radius:10px;backdrop-filter:blur(9px);box-shadow:0 14px 34px rgba(6,28,48,.18);
+  background:var(--nav-bg);border:1px solid var(--nav-border);
+  border-radius:10px;backdrop-filter:blur(9px);box-shadow:var(--nav-shadow);
+  transition:background-color .25s,border-color .25s,box-shadow .25s;
 }
 .brand{display:flex;align-items:center;text-decoration:none;flex:none}
-.logo-mark{display:block;width:83px;object-fit:contain}
+.logo-mark{display:block;width:83px;object-fit:contain;transition:filter .25s}
+html[data-nav="transparent"] .logo-mark{filter:brightness(0) invert(1)}
 span.logo-mark{background:var(--logo) left center/contain no-repeat}
 .menu{display:flex;align-items:center;gap:30px;margin-inline-start:auto}
 .menu a{
-  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:var(--navy);
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:var(--nav-text);
   text-decoration:none;position:relative;padding-block:5px;transition:color .2s;
 }
 .menu a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--pop);transform:scaleX(0);transform-origin:right;transition:transform .25s ease-out}
 .menu a:hover{color:var(--pop)}
 .menu a:hover::after{transform:scaleX(1)}
+
+/* ---------- floating settings dock (fixed to the viewport, independent of the nav bar) ---------- */
+.dock-settings{position:fixed;top:50%;left:0;transform:translateY(-50%);z-index:95}
+.dock-settings__trigger{
+  width:50px;height:50px;border:1px solid var(--line);border-inline-start:0;
+  border-radius:0 14px 14px 0;background:#fff;color:var(--navy);cursor:pointer;
+  display:grid;place-items:center;box-shadow:0 14px 34px rgba(6,28,48,.18);
+  transition:background-color .2s,color .2s;
+}
+.dock-settings__trigger:hover{color:var(--pop)}
+.dock-settings__trigger svg{width:20px;height:20px;transition:transform .25s ease}
+.dock-settings__trigger[aria-expanded="true"] svg{transform:rotate(40deg)}
+.dock-settings__panel{
+  position:absolute;top:50%;left:calc(100% + 14px);width:250px;
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;
+  box-shadow:0 24px 50px rgba(6,28,48,.2);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transform:translateY(-50%) translateX(-8px);
+  transition:opacity .2s ease,visibility .2s,transform .2s ease;
+}
+.dock-settings__panel.is-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(-50%) translateX(0)}
+.nav-settings__group + .nav-settings__group{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.nav-settings__label{display:block;font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.75rem;color:var(--navy);margin-bottom:10px}
+.nav-settings__row{display:flex;gap:8px}
+.nav-settings__swatch{
+  flex:1;padding:9px 6px;border-radius:8px;border:1px solid var(--line);background:var(--tint);
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.8125rem;color:var(--muted);
+  cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;
+}
+.nav-settings__swatch:hover{color:var(--navy)}
+.nav-settings__swatch.is-active{background:var(--teal);border-color:var(--teal);color:#fff}
 
 /* ---------- services mega menu ---------- */
 /* .menu-item is intentionally NOT position:relative: the panel must escape up to
@@ -211,18 +251,22 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
 }
 .menu a.lang-switch::after{display:none}
 .menu a.lang-switch:hover{background:var(--teal);color:#fff}
+html[data-nav="transparent"] .menu a.lang-switch{border-color:#fff;color:#fff}
+html[data-nav="transparent"] .menu a.lang-switch:hover{background:#fff;color:var(--navy)}
 @media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:940px){.mega-panel{display:none}}
 .grid-btn{
-  width:58px;height:58px;flex:none;border:0;border-radius:8px;background:#fff;cursor:pointer;
+  width:58px;height:58px;flex:none;border:0;border-radius:8px;background:var(--nav-bg);cursor:pointer;
   display:none;grid-template-columns:repeat(3,4px);grid-auto-rows:4px;gap:4px;
-  place-content:center;justify-items:center;
+  place-content:center;justify-items:center;transition:background-color .25s;
 }
 .grid-btn i{width:4px;height:4px;border-radius:50%;background:var(--teal);display:block}
 .grid-btn:hover i{background:var(--navy)}
 
-/* ---------- about mega menu (vertical category list + top-aligned detail pane) ---------- */
-.mega-panel--about{width:min(680px,calc(100vw - 48px))}
+/* ---------- services mega menu: alternate "list" view (vertical category list + top-aligned detail pane) ---------- */
+.mega-panel.mega-services--list{width:min(680px,calc(100vw - 48px))}
+.mega-services__view{display:none}
+.mega-services__view.is-active{display:block}
 .mega-panel__card--flush{padding:0}
 .svc-demo__panel{display:grid;grid-template-columns:260px 1fr}
 .svc-demo__list{display:flex;flex-direction:column;background:var(--tint);border-inline-end:1px solid var(--line);max-height:calc(100vh - 160px);overflow-y:auto}
@@ -610,10 +654,106 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
         <a class="brand" href="#top" aria-label="Arab Experts Group — home"><img class="logo-mark" src="../Sources/logo.png" alt="Arab Experts Group"></a>
         <nav class="menu" id="menu" aria-label="Main">
           <a href="#why">Why Us</a>
+          <a href="#about">About Us</a>
           <span class="menu-item">
-            <a href="#about" aria-haspopup="true" aria-expanded="false" aria-controls="mega-about">About Us<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <div class="mega-panel mega-panel--about" id="mega-about">
-             <div class="mega-panel__card mega-panel__card--flush">
+            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">Services<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="mega-panel" id="mega-services">
+             <div class="mega-panel__card mega-services__view mega-services__view--grid is-active">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <span class="mega-col__num">10</span>
+                  <h4>Business Sector Services</h4>
+                  <ul>
+                    <li>Company Formation, Amendment &amp; Liquidation</li>
+                    <li>Restructuring &amp; Governance</li>
+                    <li>Foreign Investment Policies &amp; Procedures</li>
+                    <li>Legal File Preparation</li>
+                    <li>Industrial &amp; Professional Establishments</li>
+                    <li>Licenses &amp; Trademarks</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">03</span>
+                  <h4>Audit &amp; Review</h4>
+                  <ul>
+                    <li>Off-Plan Sales (WAFI)</li>
+                    <li>Audit &amp; Financial Reporting</li>
+                    <li>Internal Control</li>
+                    <li>Asset Impairment Testing</li>
+                    <li>Fair Value &amp; Purchase Price Allocation</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">04</span>
+                  <h4>Financial Consulting</h4>
+                  <ul>
+                    <li>Business &amp; Operations Strategy</li>
+                    <li>Financial Advisory</li>
+                    <li>Governance &amp; Risk Management</li>
+                    <li>Mergers &amp; Acquisitions</li>
+                    <li>Human Resources</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">09</span>
+                  <h4>Contractor Qualification &amp; Classification</h4>
+                  <ul>
+                    <li>Facility Classification &amp; Qualification</li>
+                    <li>Legal, Financial &amp; Technical Advisory</li>
+                    <li>Classification File Preparation &amp; Follow-up</li>
+                    <li>Coordinating Office &amp; Field Visits</li>
+                    <li>ISO Certification Readiness</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">01</span>
+                  <h4>Zakat, Tax &amp; VAT</h4>
+                  <ul>
+                    <li>Tax Compliance Law</li>
+                    <li>Tax &amp; Zakat Analysis and Studies</li>
+                    <li>Tax &amp; Zakat Advisory</li>
+                    <li>Zakat &amp; Tax Compliance</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">02</span>
+                  <h4>Judicial Support</h4>
+                  <ul>
+                    <li>Dispute Cases</li>
+                    <li>Bankruptcy Cases</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">06</span>
+                  <h4>Feasibility Studies</h4>
+                  <ul>
+                    <li>Investment Opportunity Analysis</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">07</span>
+                  <h4>Administrative Restructuring</h4>
+                  <ul>
+                    <li>Independent Professional Assessments</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">08</span>
+                  <h4>Brand Identity</h4>
+                  <ul>
+                    <li>Corporate Identity &amp; Image</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">05</span>
+                  <h4>Management Consulting</h4>
+                </div>
+              </div>
+              <div class="mega-footer">
+                <a href="#services">View Services Section<svg><use href="#arr"/></svg></a>
+              </div>
+             </div>
+             <div class="mega-panel__card mega-panel__card--flush mega-services__view mega-services__view--list">
               <div class="svc-demo__panel">
                 <div class="svc-demo__list" role="tablist" aria-orientation="vertical">
                   <button type="button" class="svc-demo__item is-active" role="tab" aria-selected="true" aria-controls="demo-10" id="demo-10-tab" data-target="demo-10"><span class="svc-demo__num">10</span><span>Business Sector Services</span></button>
@@ -711,106 +851,6 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
              </div>
             </div>
           </span>
-          <span class="menu-item">
-            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">Services<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <div class="mega-panel" id="mega-services">
-             <div class="mega-panel__card">
-              <div class="mega-grid">
-                <div class="mega-col">
-                  <span class="mega-col__num">10</span>
-                  <h4>Business Sector Services</h4>
-                  <ul>
-                    <li>Company Formation, Amendment &amp; Liquidation</li>
-                    <li>Restructuring &amp; Governance</li>
-                    <li>Foreign Investment Policies &amp; Procedures</li>
-                    <li>Legal File Preparation</li>
-                    <li>Industrial &amp; Professional Establishments</li>
-                    <li>Licenses &amp; Trademarks</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">03</span>
-                  <h4>Audit &amp; Review</h4>
-                  <ul>
-                    <li>Off-Plan Sales (WAFI)</li>
-                    <li>Audit &amp; Financial Reporting</li>
-                    <li>Internal Control</li>
-                    <li>Asset Impairment Testing</li>
-                    <li>Fair Value &amp; Purchase Price Allocation</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">04</span>
-                  <h4>Financial Consulting</h4>
-                  <ul>
-                    <li>Business &amp; Operations Strategy</li>
-                    <li>Financial Advisory</li>
-                    <li>Governance &amp; Risk Management</li>
-                    <li>Mergers &amp; Acquisitions</li>
-                    <li>Human Resources</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">09</span>
-                  <h4>Contractor Qualification &amp; Classification</h4>
-                  <ul>
-                    <li>Facility Classification &amp; Qualification</li>
-                    <li>Legal, Financial &amp; Technical Advisory</li>
-                    <li>Classification File Preparation &amp; Follow-up</li>
-                    <li>Coordinating Office &amp; Field Visits</li>
-                    <li>ISO Certification Readiness</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">01</span>
-                  <h4>Zakat, Tax &amp; VAT</h4>
-                  <ul>
-                    <li>Tax Compliance Law</li>
-                    <li>Tax &amp; Zakat Analysis and Studies</li>
-                    <li>Tax &amp; Zakat Advisory</li>
-                    <li>Zakat &amp; Tax Compliance</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">02</span>
-                  <h4>Judicial Support</h4>
-                  <ul>
-                    <li>Dispute Cases</li>
-                    <li>Bankruptcy Cases</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">06</span>
-                  <h4>Feasibility Studies</h4>
-                  <ul>
-                    <li>Investment Opportunity Analysis</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">07</span>
-                  <h4>Administrative Restructuring</h4>
-                  <ul>
-                    <li>Independent Professional Assessments</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">08</span>
-                  <h4>Brand Identity</h4>
-                  <ul>
-                    <li>Corporate Identity &amp; Image</li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <span class="mega-col__num">05</span>
-                  <h4>Management Consulting</h4>
-                </div>
-              </div>
-              <div class="mega-footer">
-                <a href="#services">View Services Section<svg><use href="#arr"/></svg></a>
-              </div>
-             </div>
-            </div>
-          </span>
           <a href="#clients">Our Clients</a>
           <a href="#contact">Contact Us</a>
           <a class="lang-switch" href="../index.html" lang="ar" dir="rtl">العربية</a>
@@ -822,9 +862,31 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
     </div>
   </div>
 
+  <div class="dock-settings">
+    <button type="button" class="dock-settings__trigger" id="navSettingsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="navSettingsPanel" aria-label="Display settings">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+    <div class="dock-settings__panel" id="navSettingsPanel">
+      <div class="nav-settings__group">
+        <span class="nav-settings__label">Navbar appearance</span>
+        <div class="nav-settings__row">
+          <button type="button" class="nav-settings__swatch is-active" data-nav-style="solid" aria-pressed="true">Solid</button>
+          <button type="button" class="nav-settings__swatch" data-nav-style="transparent" aria-pressed="false">Transparent</button>
+        </div>
+      </div>
+      <div class="nav-settings__group">
+        <span class="nav-settings__label">Services menu style</span>
+        <div class="nav-settings__row">
+          <button type="button" class="nav-settings__swatch is-active" data-services-style="grid" aria-pressed="true">Grid</button>
+          <button type="button" class="nav-settings__swatch" data-services-style="list" aria-pressed="false">List</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="wrap rv">
     <div class="hero__inner stag hero-stag">
-      <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>Welcome to Arab Experts Group<svg><use href="#trend"/></svg></span>
+      <span class="eyebrow eyebrow--ondark">Welcome to Arab Experts Group</span>
       <h1>Excellence Is<br>Our Way Forward<span class="dot">.</span></h1>
       <p class="lede lede--ondark">We are a reference in professional consulting for leading companies across local and international markets, serving clients from around the world.</p>
       <div class="pair">
@@ -903,7 +965,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
   <div class="wrap">
     <div class="sec-head sec-head--split">
       <div class="col">
-        <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>Services<svg><use href="#trend"/></svg></span>
+        <span class="eyebrow eyebrow--ondark">What We Offer</span>
         <h2 class="h-sec h-sec--ondark">Services</h2>
       </div>
     </div>
@@ -1175,6 +1237,61 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
       if (!megaHost.contains(e.relatedTarget)) megaScheduleHide();
     });
   });
+
+  // Display settings popover: navbar solid/transparent, services menu grid/list.
+  // Choices persist in localStorage and are re-applied on load.
+  var settingsHost = document.querySelector('.dock-settings');
+  if (settingsHost) {
+    var settingsBtn = document.getElementById('navSettingsBtn');
+    var settingsPanel = document.getElementById('navSettingsPanel');
+    settingsBtn.addEventListener('click', function(){
+      var open = settingsPanel.classList.toggle('is-open');
+      settingsBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(e){
+      if (!settingsHost.contains(e.target)) {
+        settingsPanel.classList.remove('is-open');
+        settingsBtn.setAttribute('aria-expanded','false');
+      }
+    });
+
+    function applyNavStyle(style){
+      document.documentElement.setAttribute('data-nav', style);
+      document.querySelectorAll('[data-nav-style]').forEach(function(b){
+        var on = b.dataset.navStyle === style;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+    var navStyle = localStorage.getItem('aeg-nav-style') || 'solid';
+    applyNavStyle(navStyle);
+    document.querySelectorAll('[data-nav-style]').forEach(function(b){
+      b.addEventListener('click', function(){
+        localStorage.setItem('aeg-nav-style', b.dataset.navStyle);
+        applyNavStyle(b.dataset.navStyle);
+      });
+    });
+
+    var servicesPanel = document.getElementById('mega-services');
+    function applyServicesStyle(style){
+      servicesPanel.classList.toggle('mega-services--list', style === 'list');
+      document.querySelectorAll('.mega-services__view--grid').forEach(function(v){ v.classList.toggle('is-active', style === 'grid'); });
+      document.querySelectorAll('.mega-services__view--list').forEach(function(v){ v.classList.toggle('is-active', style === 'list'); });
+      document.querySelectorAll('[data-services-style]').forEach(function(b){
+        var on = b.dataset.servicesStyle === style;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+    var servicesStyle = localStorage.getItem('aeg-services-menu') || 'grid';
+    applyServicesStyle(servicesStyle);
+    document.querySelectorAll('[data-services-style]').forEach(function(b){
+      b.addEventListener('click', function(){
+        localStorage.setItem('aeg-services-menu', b.dataset.servicesStyle);
+        applyServicesStyle(b.dataset.servicesStyle);
+      });
+    });
+  }
 
   document.querySelectorAll('.stag').forEach(function(g){
     Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); });
