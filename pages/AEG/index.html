@@ -21,11 +21,11 @@
    tile and painted as masked CSS layers.
    ========================================================================== */
 :root{
-  --navy:#0F2C4C;
-  --navy-2:#16405F;
-  --navy-deep:#08243F;
-  --teal:#1F8EA1;
-  --pop:#4CCFE6;
+  --navy:#0E2A4C;
+  --navy-2:#163C63;
+  --navy-deep:#03152E;
+  --teal:#1F914C;
+  --pop:#3FCB7A;
   --ink:#1B2A36;
   --muted:#566E81;
   --line:#DCE6EC;
@@ -62,12 +62,12 @@ h1,h2,h3,h4{margin:0;font-family:Tajawal,system-ui,sans-serif;line-height:1.35;t
   display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
   font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.75rem;
   
-  background:rgba(31,142,161,.12);color:var(--teal);
+  background:rgba(31,145,76,.12);color:var(--teal);
   padding:8px 15px;border-radius:5px;
 }
 .eyebrow svg{width:13px;height:13px;flex:none}
-.eyebrow--ondark{background:rgba(76,207,230,.14);color:var(--pop)}
-.eyebrow--pop{background:rgba(76,207,230,.16);color:var(--pop)}
+.eyebrow--ondark{background:rgba(63,203,122,.14);color:var(--pop)}
+.eyebrow--pop{background:rgba(63,203,122,.16);color:var(--pop)}
 
 /* ---------- headings ---------- */
 .h-sec{font-size:clamp(2rem,3.7vw,3.15rem);font-weight:800;}
@@ -97,7 +97,7 @@ h1,h2,h3,h4{margin:0;font-family:Tajawal,system-ui,sans-serif;line-height:1.35;t
 a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset:3px}
 
 /* ---------- pattern layers ---------- */
-.hero::before,.services::before,.bigcta::before,#why::before{
+.hero::before,.services::before,#why::before{
   content:"";position:absolute;inset-block:0;left:0;width:46%;z-index:0;
   background-color:var(--pat-c,#fff);
   -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
@@ -126,22 +126,85 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 .navwrap{position:absolute;inset-inline:0;top:46px;z-index:70}
 .navbar{
   position:relative;display:flex;align-items:center;gap:26px;height:78px;padding-inline:26px;
-  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);
-  border-radius:10px;backdrop-filter:blur(9px);
+  background:rgba(255,255,255,.94);border:1px solid rgba(15,44,76,.08);
+  border-radius:10px;backdrop-filter:blur(9px);box-shadow:0 14px 34px rgba(6,28,48,.18);
 }
 .brand{display:flex;align-items:center;text-decoration:none;flex:none}
-.logo-mark{display:block;width:112px;height:44px;background:var(--logo) left center/contain no-repeat;filter:brightness(0) invert(1)}
+.logo-mark{display:block;width:83px;object-fit:contain}
+span.logo-mark{background:var(--logo) left center/contain no-repeat}
 .menu{display:flex;align-items:center;gap:30px;margin-inline-start:auto}
 .menu a{
-  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:#fff;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:var(--navy);
   text-decoration:none;position:relative;padding-block:5px;transition:color .2s;
 }
 .menu a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--pop);transform:scaleX(0);transform-origin:right;transition:transform .25s ease-out}
 .menu a:hover{color:var(--pop)}
 .menu a:hover::after{transform:scaleX(1)}
+
+/* ---------- services mega menu ---------- */
+/* .menu-item is intentionally NOT position:relative: the panel must escape up to
+   .navbar (already position:relative) as its containing block, so it centers under
+   the whole nav pill instead of the small "خدماتنا" link, wherever that link sits.
+   Open/close state is JS-driven (see script), not pure CSS :hover — the trigger link
+   is much narrower than the 980px panel, so a diagonal path toward a far column
+   crosses navbar space that belongs to neither element; CSS hover has no way to
+   forgive that. JS gives a short grace period on mouseleave instead. */
+.mega-panel{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  width:min(980px,calc(100vw - 48px));padding-top:22px;
+  opacity:0;visibility:hidden;pointer-events:none;z-index:80;
+  transition:opacity .22s ease,visibility .22s;
+}
+.mega-panel.is-open{
+  opacity:1;visibility:visible;pointer-events:auto;
+}
+.mega-panel__card{
+  position:relative;max-height:calc(100vh - 160px);overflow-y:auto;overflow-x:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 30px 70px rgba(6,28,48,.24);padding:32px 30px 26px;
+}
+.mega-panel__card::before{
+  content:"";position:absolute;inset-block:0;left:0;width:46%;z-index:0;background-color:var(--navy);
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-size:640px auto,100% 100%;
+          mask-size:640px auto,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat;
+          mask-repeat:repeat-y,no-repeat;
+  -webkit-mask-position:top left,center;
+          mask-position:top left,center;
+  -webkit-mask-composite:source-in;
+          mask-composite:intersect;
+  opacity:.09;pointer-events:none;
+}
+.mega-panel__card .mega-grid,.mega-panel__card .mega-footer{position:relative;z-index:1}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 22px}
+.mega-col__num{
+  display:inline-block;font-family:Tajawal,system-ui,sans-serif;font-weight:700;
+  font-size:.6875rem;color:var(--pop);margin-bottom:6px;font-variant-numeric:tabular-nums;
+}
+.mega-col h4{font-size:.875rem;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:10px}
+.mega-col ul{display:grid;gap:8px}
+.mega-col li{position:relative;padding-inline-start:14px;font-size:.75rem;color:var(--muted);line-height:1.45}
+.mega-col li::before{
+  content:"";position:absolute;inset-inline-start:0;top:.5em;
+  width:4px;height:4px;border-radius:50%;background:var(--teal);
+}
+.mega-footer{
+  margin-top:26px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;
+}
+.mega-footer a{
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.8125rem;color:var(--teal);
+  text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+}
+.mega-footer a:hover{color:var(--pop)}
+.mega-footer a svg{width:14px;height:14px}
+@media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:940px){.mega-panel{display:none}}
 .grid-btn{
   width:58px;height:58px;flex:none;border:0;border-radius:8px;background:#fff;cursor:pointer;
-  display:grid;grid-template-columns:repeat(3,4px);grid-auto-rows:4px;gap:4px;
+  display:none;grid-template-columns:repeat(3,4px);grid-auto-rows:4px;gap:4px;
   place-content:center;justify-items:center;
 }
 .grid-btn i{width:4px;height:4px;border-radius:50%;background:var(--teal);display:block}
@@ -149,7 +212,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 
 /* ---------- hero ---------- */
 .hero::before{
-  --pat-o:.26;--pat-s:760px;z-index:1;
+  --pat-o:0;--pat-s:760px;z-index:1;
   -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
           mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
   -webkit-mask-position:top right,center;
@@ -172,11 +235,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 
 /* ---------- why-us cards ---------- */
 .grid4{display:grid;grid-template-columns:repeat(2,1fr);column-gap:76px}
-.wcard{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-block:34px;border-top:1px solid var(--line)}
+.wcard{position:relative;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-block:34px;padding-inline-start:22px;border-top:1px solid var(--line)}
 .wcard:nth-child(-n+2){border-top:0;padding-top:8px}
-.wcard__ico{color:var(--teal);padding-top:4px}
+.wcard::before{
+  content:"";position:absolute;inset-block:8px;inset-inline-start:0;width:2px;background:var(--pop);
+  transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.wcard:hover::before,.wcard:focus-within::before{transform:scaleY(1)}
+.wcard__ico{color:var(--teal);padding-top:4px;transition:transform .35s cubic-bezier(.16,1,.3,1),color .3s}
+.wcard:hover .wcard__ico,.wcard:focus-within .wcard__ico{transform:translateY(-3px) scale(1.1);color:var(--pop)}
 .wcard__ico svg{width:26px;height:26px;display:block}
-.wcard h3{font-size:1.375rem;font-weight:700;margin-bottom:9px;}
+.wcard h3{font-size:1.375rem;font-weight:700;margin-bottom:9px;transition:color .3s}
+.wcard:hover h3,.wcard:focus-within h3{color:var(--teal)}
 .wcard p{color:var(--muted);font-size:.9375rem;max-width:44ch}
 
 /* ---------- swoosh ---------- */
@@ -197,20 +267,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 }
 .bignum p{margin-top:14px;font-size:.9375rem;color:var(--muted)}
 .minis{display:grid;gap:26px}
-.mini{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
-.mini b{font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:1.75rem;color:var(--navy);padding-inline-end:20px;border-inline-end:1px solid var(--line);font-variant-numeric:tabular-nums}
-.mini span{color:var(--muted);font-size:.9375rem;line-height:1.6}
-.about .about .col{display:flex;flex-direction:column;gap:20px}
+.mini{display:grid;grid-template-columns:auto 1fr;gap:20px}
+.mini b{
+  display:flex;align-items:center;font-family:Tajawal,system-ui,sans-serif;font-weight:700;
+  font-size:1.75rem;color:var(--navy);padding-inline-end:20px;border-inline-end:1px solid var(--line);
+  font-variant-numeric:tabular-nums;
+}
+.mini span{display:flex;align-items:center;color:var(--muted);font-size:.9375rem;line-height:1.6}
+.about .col{display:flex;flex-direction:column;gap:20px}
 .about .h-sec{font-size:clamp(1.9rem,2.9vw,2.7rem)}
 .sparks{display:grid;gap:14px;margin-block:6px}
 .sparks li{display:flex;gap:13px;align-items:center;font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:1.0625rem;color:var(--navy)}
 .sparks svg{width:19px;height:19px;color:var(--pop);flex:none}
-.rule{height:1px;background:var(--line)}
+.rule{height:1px;background:var(--line);transform-origin:right;transform:scaleX(1)}
+.js .rv .rule{transform:scaleX(0);transition:transform .8s cubic-bezier(.16,1,.3,1) .35s}
+.js .rv.in .rule{transform:scaleX(1)}
 
 
 
 /* ---------- dark services band ---------- */
-#why::before{--pat-c:var(--navy);--pat-o:.1;--pat-s:640px}
+#why::before{
+  --pat-c:var(--navy);--pat-o:.1;--pat-s:640px;right:0;
+  -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-position:top right,center;
+          mask-position:top right,center;
+}
 .services{
   position:relative;padding-block:104px 120px;background:var(--navy);
   -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C46.0%20L0.0%2C23.4%20L5.5%2C22.8%20L11.1%2C21.8%20L16.6%2C18.9%20L22.2%2C24.2%20L27.7%2C24.3%20L33.2%2C21.4%20L38.8%2C19.1%20L44.3%2C14.6%20L49.8%2C20.8%20L55.4%2C18.1%20L60.9%2C15.9%20L66.5%2C22.7%20L72.0%2C16.5%20L77.5%2C20.0%20L83.1%2C17.6%20L88.6%2C15.2%20L94.2%2C20.8%20L99.7%2C16.9%20L105.2%2C19.6%20L110.8%2C25.4%20L116.3%2C17.6%20L121.8%2C21.2%20L127.4%2C18.2%20L132.9%2C16.0%20L138.5%2C17.5%20L144.0%2C21.8%20L149.5%2C20.4%20L155.1%2C19.8%20L160.6%2C20.1%20L166.2%2C18.1%20L171.7%2C11.7%20L177.2%2C13.5%20L182.8%2C15.2%20L188.3%2C16.3%20L193.8%2C12.5%20L199.4%2C14.4%20L204.9%2C21.5%20L210.5%2C22.4%20L216.0%2C26.0%20L221.5%2C19.7%20L227.1%2C19.7%20L232.6%2C19.8%20L238.2%2C17.4%20L243.7%2C15.2%20L249.2%2C11.9%20L254.8%2C12.1%20L260.3%2C16.4%20L265.8%2C19.2%20L271.4%2C17.9%20L276.9%2C21.2%20L282.5%2C23.8%20L288.0%2C18.3%20L293.5%2C13.9%20L299.1%2C22.3%20L304.6%2C21.9%20L310.2%2C20.5%20L315.7%2C19.2%20L321.2%2C21.8%20L326.8%2C21.5%20L332.3%2C20.7%20L337.8%2C22.7%20L343.4%2C22.1%20L348.9%2C18.6%20L354.5%2C21.9%20L360.0%2C21.9%20L365.5%2C24.3%20L371.1%2C17.0%20L376.6%2C14.9%20L382.2%2C17.9%20L387.7%2C19.4%20L393.2%2C20.5%20L398.8%2C17.8%20L404.3%2C14.9%20L409.8%2C22.6%20L415.4%2C18.8%20L420.9%2C18.6%20L426.5%2C21.5%20L432.0%2C22.9%20L437.5%2C24.6%20L443.1%2C20.1%20L448.6%2C11.5%20L454.2%2C13.0%20L459.7%2C16.4%20L465.2%2C17.6%20L470.8%2C21.6%20L476.3%2C16.2%20L481.8%2C15.4%20L487.4%2C13.5%20L492.9%2C16.5%20L498.5%2C16.1%20L504.0%2C14.6%20L509.5%2C15.7%20L515.1%2C23.3%20L520.6%2C23.2%20L526.2%2C20.8%20L531.7%2C22.2%20L537.2%2C22.7%20L542.8%2C26.4%20L548.3%2C24.7%20L553.8%2C26.6%20L559.4%2C21.5%20L564.9%2C30.2%20L570.5%2C24.3%20L576.0%2C23.6%20L581.5%2C20.0%20L587.1%2C22.7%20L592.6%2C25.0%20L598.2%2C20.3%20L603.7%2C22.0%20L609.2%2C22.4%20L614.8%2C24.6%20L620.3%2C23.8%20L625.8%2C21.3%20L631.4%2C20.8%20L636.9%2C23.5%20L642.5%2C21.7%20L648.0%2C20.6%20L653.5%2C18.2%20L659.1%2C18.2%20L664.6%2C18.5%20L670.2%2C20.2%20L675.7%2C20.5%20L681.2%2C13.5%20L686.8%2C19.1%20L692.3%2C18.0%20L697.8%2C14.2%20L703.4%2C14.1%20L708.9%2C15.5%20L714.5%2C13.6%20L720.0%2C18.5%20L725.5%2C19.3%20L731.1%2C19.7%20L736.6%2C17.0%20L742.2%2C17.5%20L747.7%2C18.0%20L753.2%2C19.8%20L758.8%2C22.4%20L764.3%2C21.0%20L769.8%2C17.6%20L775.4%2C26.0%20L780.9%2C24.1%20L786.5%2C19.4%20L792.0%2C16.8%20L797.5%2C21.7%20L803.1%2C17.4%20L808.6%2C25.6%20L814.2%2C24.4%20L819.7%2C19.5%20L825.2%2C20.5%20L830.8%2C21.4%20L836.3%2C18.1%20L841.8%2C15.5%20L847.4%2C13.8%20L852.9%2C21.2%20L858.5%2C18.8%20L864.0%2C24.1%20L869.5%2C22.7%20L875.1%2C22.7%20L880.6%2C24.6%20L886.2%2C24.4%20L891.7%2C18.7%20L897.2%2C18.0%20L902.8%2C24.1%20L908.3%2C25.9%20L913.8%2C25.6%20L919.4%2C29.2%20L924.9%2C27.6%20L930.5%2C24.8%20L936.0%2C22.0%20L941.5%2C20.8%20L947.1%2C24.9%20L952.6%2C25.5%20L958.2%2C24.0%20L963.7%2C22.3%20L969.2%2C23.9%20L974.8%2C16.8%20L980.3%2C16.1%20L985.8%2C20.2%20L991.4%2C17.6%20L996.9%2C17.7%20L1002.5%2C14.6%20L1008.0%2C14.4%20L1013.5%2C20.9%20L1019.1%2C20.3%20L1024.6%2C19.4%20L1030.2%2C20.0%20L1035.7%2C19.7%20L1041.2%2C20.0%20L1046.8%2C12.4%20L1052.3%2C13.1%20L1057.8%2C12.5%20L1063.4%2C16.0%20L1068.9%2C16.0%20L1074.5%2C21.4%20L1080.0%2C15.2%20L1085.5%2C21.4%20L1091.1%2C16.3%20L1096.6%2C19.4%20L1102.2%2C16.5%20L1107.7%2C24.8%20L1113.2%2C15.4%20L1118.8%2C20.3%20L1124.3%2C15.4%20L1129.8%2C20.4%20L1135.4%2C19.3%20L1140.9%2C21.3%20L1146.5%2C14.1%20L1152.0%2C20.5%20L1157.5%2C15.6%20L1163.1%2C18.8%20L1168.6%2C17.3%20L1174.2%2C17.5%20L1179.7%2C20.3%20L1185.2%2C16.2%20L1190.8%2C14.4%20L1196.3%2C13.0%20L1201.8%2C13.8%20L1207.4%2C14.3%20L1212.9%2C17.9%20L1218.5%2C17.6%20L1224.0%2C21.0%20L1229.5%2C19.6%20L1235.1%2C15.3%20L1240.6%2C15.1%20L1246.2%2C15.8%20L1251.7%2C13.9%20L1257.2%2C18.0%20L1262.8%2C14.8%20L1268.3%2C17.4%20L1273.8%2C19.8%20L1279.4%2C22.5%20L1284.9%2C22.5%20L1290.5%2C20.7%20L1296.0%2C18.4%20L1301.5%2C19.3%20L1307.1%2C19.5%20L1312.6%2C16.9%20L1318.2%2C21.0%20L1323.7%2C21.5%20L1329.2%2C20.0%20L1334.8%2C24.6%20L1340.3%2C26.0%20L1345.8%2C23.1%20L1351.4%2C23.1%20L1356.9%2C24.9%20L1362.5%2C19.3%20L1368.0%2C20.2%20L1373.5%2C18.9%20L1379.1%2C23.7%20L1384.6%2C19.4%20L1390.2%2C16.8%20L1395.7%2C17.4%20L1401.2%2C21.6%20L1406.8%2C17.7%20L1412.3%2C18.8%20L1417.8%2C21.4%20L1423.4%2C26.6%20L1428.9%2C27.2%20L1434.5%2C17.9%20L1440.0%2C22.0%20L1440.0%2C46.0%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440.0%2C0%20L1440.0%2C21.7%20L1434.5%2C20.8%20L1428.9%2C25.0%20L1423.4%2C25.4%20L1417.8%2C20.1%20L1412.3%2C20.0%20L1406.8%2C29.0%20L1401.2%2C19.8%20L1395.7%2C21.0%20L1390.2%2C24.5%20L1384.6%2C24.8%20L1379.1%2C23.5%20L1373.5%2C23.9%20L1368.0%2C24.3%20L1362.5%2C28.5%20L1356.9%2C22.2%20L1351.4%2C27.2%20L1345.8%2C25.6%20L1340.3%2C20.6%20L1334.8%2C21.4%20L1329.2%2C19.5%20L1323.7%2C19.9%20L1318.2%2C24.4%20L1312.6%2C17.1%20L1307.1%2C16.6%20L1301.5%2C22.3%20L1296.0%2C22.4%20L1290.5%2C23.4%20L1284.9%2C22.2%20L1279.4%2C25.7%20L1273.8%2C19.3%20L1268.3%2C21.1%20L1262.8%2C21.3%20L1257.2%2C19.1%20L1251.7%2C15.5%20L1246.2%2C23.0%20L1240.6%2C16.6%20L1235.1%2C4.4%20L1229.5%2C21.3%20L1224.0%2C24.5%20L1218.5%2C24.1%20L1212.9%2C20.4%20L1207.4%2C24.0%20L1201.8%2C22.1%20L1196.3%2C18.1%20L1190.8%2C21.4%20L1185.2%2C22.0%20L1179.7%2C18.2%20L1174.2%2C19.8%20L1168.6%2C21.8%20L1163.1%2C15.3%20L1157.5%2C14.6%20L1152.0%2C12.8%20L1146.5%2C20.0%20L1140.9%2C22.2%20L1135.4%2C22.8%20L1129.8%2C13.4%20L1124.3%2C14.9%20L1118.8%2C11.5%20L1113.2%2C11.9%20L1107.7%2C16.7%20L1102.2%2C12.9%20L1096.6%2C19.7%20L1091.1%2C17.6%20L1085.5%2C17.4%20L1080.0%2C18.5%20L1074.5%2C16.8%20L1068.9%2C18.7%20L1063.4%2C15.3%20L1057.8%2C15.7%20L1052.3%2C15.8%20L1046.8%2C21.6%20L1041.2%2C15.6%20L1035.7%2C20.2%20L1030.2%2C17.1%20L1024.6%2C22.3%20L1019.1%2C22.6%20L1013.5%2C18.4%20L1008.0%2C20.1%20L1002.5%2C21.1%20L996.9%2C18.5%20L991.4%2C15.9%20L985.8%2C24.7%20L980.3%2C19.8%20L974.8%2C19.2%20L969.2%2C21.7%20L963.7%2C24.9%20L958.2%2C20.3%20L952.6%2C22.2%20L947.1%2C24.9%20L941.5%2C21.9%20L936.0%2C24.0%20L930.5%2C24.4%20L924.9%2C21.0%20L919.4%2C23.3%20L913.8%2C23.9%20L908.3%2C28.2%20L902.8%2C28.7%20L897.2%2C26.7%20L891.7%2C22.9%20L886.2%2C20.5%20L880.6%2C19.7%20L875.1%2C22.7%20L869.5%2C25.8%20L864.0%2C27.5%20L858.5%2C23.9%20L852.9%2C19.6%20L847.4%2C21.4%20L841.8%2C15.3%20L836.3%2C15.2%20L830.8%2C15.8%20L825.2%2C21.9%20L819.7%2C23.1%20L814.2%2C24.3%20L808.6%2C21.7%20L803.1%2C21.6%20L797.5%2C12.7%20L792.0%2C16.0%20L786.5%2C15.5%20L780.9%2C15.1%20L775.4%2C21.2%20L769.8%2C21.7%20L764.3%2C19.3%20L758.8%2C16.8%20L753.2%2C24.4%20L747.7%2C23.1%20L742.2%2C17.9%20L736.6%2C24.1%20L731.1%2C25.3%20L725.5%2C31.6%20L720.0%2C25.5%20L714.5%2C23.0%20L708.9%2C26.7%20L703.4%2C19.8%20L697.8%2C24.3%20L692.3%2C25.8%20L686.8%2C25.8%20L681.2%2C20.1%20L675.7%2C23.6%20L670.2%2C20.3%20L664.6%2C22.1%20L659.1%2C26.0%20L653.5%2C26.5%20L648.0%2C20.4%20L642.5%2C29.8%20L636.9%2C27.2%20L631.4%2C30.2%20L625.8%2C26.6%20L620.3%2C26.5%20L614.8%2C31.4%20L609.2%2C25.5%20L603.7%2C29.4%20L598.2%2C28.4%20L592.6%2C24.4%20L587.1%2C30.9%20L581.5%2C14.4%20L576.0%2C29.2%20L570.5%2C25.5%20L564.9%2C30.9%20L559.4%2C26.1%20L553.8%2C25.6%20L548.3%2C26.8%20L542.8%2C29.4%20L537.2%2C27.3%20L531.7%2C26.8%20L526.2%2C24.8%20L520.6%2C27.8%20L515.1%2C28.8%20L509.5%2C24.5%20L504.0%2C25.2%20L498.5%2C27.0%20L492.9%2C28.2%20L487.4%2C32.1%20L481.8%2C34.6%20L476.3%2C26.6%20L470.8%2C31.3%20L465.2%2C33.5%20L459.7%2C27.0%20L454.2%2C32.3%20L448.6%2C32.7%20L443.1%2C25.6%20L437.5%2C26.9%20L432.0%2C29.5%20L426.5%2C34.5%20L420.9%2C28.2%20L415.4%2C32.5%20L409.8%2C31.7%20L404.3%2C33.1%20L398.8%2C27.6%20L393.2%2C32.8%20L387.7%2C30.0%20L382.2%2C31.9%20L376.6%2C28.9%20L371.1%2C27.9%20L365.5%2C28.0%20L360.0%2C30.3%20L354.5%2C26.5%20L348.9%2C32.5%20L343.4%2C19.2%20L337.8%2C26.2%20L332.3%2C30.7%20L326.8%2C26.2%20L321.2%2C28.5%20L315.7%2C23.7%20L310.2%2C23.6%20L304.6%2C22.0%20L299.1%2C27.7%20L293.5%2C22.1%20L288.0%2C28.1%20L282.5%2C23.1%20L276.9%2C23.0%20L271.4%2C22.3%20L265.8%2C24.6%20L260.3%2C26.6%20L254.8%2C20.8%20L249.2%2C21.2%20L243.7%2C29.8%20L238.2%2C26.6%20L232.6%2C28.2%20L227.1%2C30.2%20L221.5%2C26.7%20L216.0%2C24.3%20L210.5%2C24.0%20L204.9%2C23.7%20L199.4%2C24.3%20L193.8%2C26.2%20L188.3%2C23.4%20L182.8%2C28.5%20L177.2%2C26.0%20L171.7%2C26.8%20L166.2%2C20.8%20L160.6%2C19.2%20L155.1%2C16.5%20L149.5%2C18.4%20L144.0%2C17.5%20L138.5%2C19.7%20L132.9%2C28.4%20L127.4%2C24.3%20L121.8%2C25.6%20L116.3%2C17.5%20L110.8%2C25.8%20L105.2%2C21.4%20L99.7%2C26.5%20L94.2%2C26.3%20L88.6%2C27.5%20L83.1%2C22.8%20L77.5%2C22.4%20L72.0%2C23.8%20L66.5%2C26.2%20L60.9%2C24.6%20L55.4%2C25.3%20L49.8%2C22.1%20L44.3%2C22.0%20L38.8%2C23.8%20L33.2%2C21.7%20L27.7%2C25.5%20L22.2%2C22.1%20L16.6%2C19.5%20L11.1%2C26.6%20L5.5%2C22.6%20L0.0%2C21.7%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),linear-gradient(#000,#000);
@@ -225,12 +307,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
           mask-composite:add,add;
 }
 .services::before{
-  --pat-o:.24;--pat-s:720px;
+  --pat-o:.18;--pat-s:720px;
   -webkit-mask-image:var(--pat),
-                     linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
+                     linear-gradient(to right,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
                      linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 110px),transparent 100%);
           mask-image:var(--pat),
-                     linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
+                     linear-gradient(to right,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
                      linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 110px),transparent 100%);
   -webkit-mask-size:var(--pat-s) auto,100% 100%,100% 100%;
           mask-size:var(--pat-s) auto,100% 100%,100% 100%;
@@ -252,7 +334,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 }
 .avatars span:first-child{margin-inline-start:0}
 .partners p{color:var(--on-dark-muted);font-size:.875rem;max-width:24ch;line-height:1.5}
-.grid-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .svc-more{display:flex;justify-content:center;margin-top:48px}
 .scard{
   position:relative;background:var(--navy-2);border:1px solid rgba(255,255,255,.09);border-radius:12px;
@@ -271,7 +353,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 }
 .scard__bg::after{
   content:"";position:absolute;inset:0;border-radius:12px;
-  background:linear-gradient(180deg,rgba(8,36,63,0) 0%,rgba(8,36,63,.10) 28%,rgba(8,36,63,.62) 66%,rgba(8,36,63,.9) 100%);
+  background:linear-gradient(180deg,rgba(8,36,63,0) 0%,rgba(8,36,63,.10) 28%,rgba(8,36,63,.62) 66%,rgb(8 36 63) 100%);
 }
 .scard:hover .scard__bg,.scard:focus-within .scard__bg{opacity:1;transform:scale(1)}
 .scard__top,.scard h3,.scard p,.scard__more{position:relative;z-index:1}
@@ -287,6 +369,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 .scard:hover h3,.scard:hover p,.scard:focus-within h3,.scard:focus-within p{transform:translateY(-52px)}
 .scard__more .pill{height:44px;padding-inline:22px;font-size:.875rem}
 .scard__more .circ{width:44px;height:44px}
+.scard:hover .scard__more .circ,.scard:focus-within .scard__more .circ{transform:rotate(45deg)}
+.scard__num{transition:opacity .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.scard:hover .scard__num,.scard:focus-within .scard__num{opacity:0;transform:scale(.85)}
 .scard__thumb{
   position:relative;width:142px;height:104px;border-radius:9px;overflow:hidden;flex:none;
   background-image:var(--img);background-size:cover;background-position:center;
@@ -296,7 +381,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 .scard:hover .scard__thumb,.scard:focus-within .scard__thumb{opacity:0;transform:scale(.92)}
 .scard__num{
   width:62px;height:62px;border-radius:12px;flex:none;display:grid;place-items:center;
-  background:rgba(76,207,230,.13);color:var(--pop);
+  background:rgba(63,203,122,.13);color:var(--pop);
   font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:1.6rem;
   font-variant-numeric:tabular-nums;
 }
@@ -304,67 +389,110 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 /* ---------- clients ---------- */
 .logo-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .logo-tile{
-  aspect-ratio:16/9;border:1px dashed #C3D6E0;border-radius:8px;background:var(--paper);
-  display:grid;place-items:center;padding:14px;text-align:center;
-  transition:border-color .25s,background-color .25s;
+  aspect-ratio:16/9;border:1px solid var(--line);border-radius:8px;background:var(--paper);
+  display:grid;place-items:center;padding:20px;text-align:center;
+  transition:border-color .25s,background-color .25s,transform .25s;
 }
-.logo-tile:hover{border-color:var(--teal);background:var(--tint)}
-.logo-tile__name{font-size:.8125rem;font-weight:500;color:var(--muted);line-height:1.5}
-.clients-note{margin-top:26px;font-size:.8125rem;color:var(--muted);text-align:center}
+.logo-tile:hover{border-color:var(--teal);background:var(--tint);transform:translateY(-3px)}
+.logo-tile img{max-width:210px;max-height:100%;object-fit:contain}
+
+/* ---------- branches map ---------- */
+#branches{position:relative;z-index:3;padding-block:110px 110px;background:var(--navy);overflow:hidden}
+.branches-bg{
+  position:absolute;top:-70px;bottom:-70px;left:0;right:0;z-index:0;background:var(--navy);overflow:hidden;
+}
+.branches-bg::before{
+  content:"";position:absolute;inset-block:0;left:0;width:46%;
+  background-color:#fff;
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.7) 60%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.7) 60%,transparent 100%);
+  -webkit-mask-size:680px auto,100% 100%;
+          mask-size:680px auto,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat;
+          mask-repeat:repeat-y,no-repeat;
+  -webkit-mask-position:top left,center;
+          mask-position:top left,center;
+  -webkit-mask-composite:source-in;
+          mask-composite:intersect;
+  opacity:.2;
+}
+#branches .wrap{position:relative;z-index:2}
+.branches-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:72px;align-items:center}
+.branch-map{position:relative;z-index:3;display:grid;place-items:center}
+.branch-map svg.ksa{position:relative;width:100%;max-width:620px;height:auto;overflow:visible}
+.ksa-shape path{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.09);stroke-width:1;stroke-linejoin:round}
+.ksa-pin{color:var(--pop);transform-box:fill-box;transform-origin:bottom center}
+.js .rv .ksa-pin{
+  opacity:0;transform:translateY(-16px) scale(.6);
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i,0) * 160ms + 250ms);
+}
+.js .rv.in .ksa-pin{opacity:1;transform:none}
+.ksa-pin__label{font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:15px;fill:#fff}
+
+.branch-list{display:grid;gap:0}
+.branch-item{display:flex;gap:18px;align-items:flex-start;padding-block:24px;border-top:1px solid rgba(255,255,255,.14)}
+.branch-item:first-child{border-top:0;padding-top:4px}
+.branch-item__ico{
+  width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(63,203,122,.15);color:var(--pop);
+}
+.branch-item__ico svg{width:20px;height:20px}
+.branch-item h3{font-size:1.1875rem;font-weight:700;color:#fff;margin-bottom:6px}
+.branch-item p{font-size:.9375rem;color:var(--on-dark-muted);line-height:1.65}
+@media (max-width:900px){
+  .branches-wrap{grid-template-columns:1fr}
+  .branch-map svg.ksa{max-width:460px;margin-inline:auto;display:block}
+}
 @media (max-width:1040px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:680px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
 
-/* ---------- big display CTA ---------- */
-.bigcta::before{--pat-o:.2;--pat-s:720px}
-.bigcta{position:relative;background:var(--navy);padding-block:104px 128px;overflow:hidden}
-.bigcta .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
-.bigcta .eyebrow{align-self:center}
-.bigcta__type{
-  font-family:Tajawal,system-ui,sans-serif;font-weight:900;
-  font-size:clamp(2.3rem,7.4vw,6.2rem);line-height:1.18;
-  color:#EAF7FB;margin:0;text-shadow:0 12px 54px rgba(6,28,48,.45);
-}
-.talk{display:flex;align-items:center;justify-content:center;margin-top:.18em;position:relative;z-index:3}
-.talk__pill{
-  display:inline-flex;align-items:center;height:88px;padding-inline:52px;border-radius:60px;
-  background:#fff;color:var(--navy);text-decoration:none;transform:rotate(-2.6deg);
-  font-family:Tajawal,system-ui,sans-serif;font-weight:800;
-  font-size:clamp(1.6rem,3.9vw,3.05rem);
-  box-shadow:0 18px 60px rgba(8,36,63,.5);transition:transform .25s;
-}
-.talk__pill:hover{transform:rotate(0deg)}
-.talk .circ{width:80px;height:80px;margin-inline-start:-16px;box-shadow:0 14px 34px rgba(6,28,48,.5),0 0 26px rgba(76,207,230,.3)}
-.talk .circ svg{width:26px;height:26px}
-
 /* ---------- footer ---------- */
-.footer{background:var(--navy-deep);color:var(--on-dark-muted);position:relative;overflow:hidden}
+.footer{background:var(--navy-deep);color:var(--on-dark-muted);position:relative;z-index:2;overflow:hidden}
 .footer .wrap{position:relative;z-index:2}
 .footer__chev{position:absolute;inset-inline:0;bottom:0;z-index:0;width:100%;height:auto}
-.footer-main{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:56px;padding-block:78px 58px}
+.footer-main{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:56px;padding-block:24px 58px}
 .footer h4{color:#fff;font-family:Tajawal,system-ui,sans-serif;font-size:1.375rem;font-weight:700;margin-bottom:26px}
 .footer a{text-decoration:none;transition:color .2s}
 .footer a:hover{color:var(--pop)}
 .fcontact{display:grid;gap:20px;text-align:end;align-content:start}
 .fcontact .lbl{display:block;font-family:Tajawal,system-ui,sans-serif;font-size:.6875rem;color:var(--pop);margin-bottom:5px}
-.fmid{text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
-.fmid .logo-mark{width:150px;height:58px}
+.fmid{text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
+.fmid .logo-mark{width:150px;height:58px;filter:brightness(0) invert(1)}
 .fmid p{font-size:.9375rem;max-width:38ch}
 .socials-row{display:flex;gap:11px}
 .socials-row a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.09);display:grid;place-items:center;color:#fff}
 .socials-row a:hover{background:var(--pop);color:var(--navy)}
 .socials-row svg{width:16px;height:16px}
 .flinks{display:grid;gap:14px;font-size:.9375rem}
-.branches{display:grid;gap:16px;padding-block:34px;border-top:1px solid rgba(255,255,255,.11);grid-template-columns:repeat(3,1fr)}
-.branch{font-size:.8125rem;line-height:1.65}
-.branch b{display:block;color:var(--pop);font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.6875rem;margin-bottom:6px}
+.iso-row{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 26px;padding-block:26px;
+  border-top:1px solid rgba(255,255,255,.11);font-size:.8125rem;
+}
+.iso-row .lbl{margin-bottom:0}
+.iso-item{display:flex;flex-direction:column;gap:3px}
+.iso-item b{font-weight:600;color:var(--on-dark);font-size:.8125rem}
+.iso-item span{font-size:.6875rem;color:var(--on-dark-muted)}
+.iso-item + .iso-item{border-inline-start:1px solid rgba(255,255,255,.16);padding-inline-start:26px}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.11);padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:.8125rem}
 .footer-bottom .right{margin-inline-start:auto}
 
 /* ---------- reveal ---------- */
 .js .rv{opacity:0;transition:opacity .5s ease-out}
 .js .rv.in{opacity:1}
-.js .rv .stag > *{opacity:0;transform:translateY(22px);transition:opacity .62s cubic-bezier(.16,1,.3,1),transform .62s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0) * 65ms)}
-.js .rv.in .stag > *{opacity:1;transform:none}
+/* hero gets one authored, weightier entrance rather than the routine reveal (page-load timed, not scroll-scrubbed) */
+.js .rv .hero-stag > *{transform:translateY(34px) scale(.978);transition-duration:.85s,.85s;transition-timing-function:cubic-bezier(.16,1,.3,1);transition-delay:calc(150ms + var(--i,0) * 110ms)}
+.js .rv.in .hero-stag > *{transform:none}
+
+/* everything else: fade-up is scroll-scrubbed via JS (inline opacity/transform), so it can never be outrun by a fast scroll.
+   This CSS only sets the pre-scrub hidden state before the first frame runs. --rise controls how far each group travels. */
+.js .stag:not(.hero-stag) > *{opacity:0;transform:translateY(var(--rise,28px))}
+.grid-svc{--rise:72px}
+.grid4{--rise:46px}
+.branch-list{--rise:72px}
+
+/* signature swoosh draws itself in once, echoing the site's hand-drawn line */
+.swoosh path{transition:stroke-dashoffset 1.15s cubic-bezier(.16,1,.3,1)}
 
 /* ---------- responsive ---------- */
 @media (max-width:1180px){
@@ -377,6 +505,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 }
 @media (max-width:940px){
   .menu{display:none}
+  .grid-btn{display:grid}
   .menu.open{
     display:flex;position:absolute;inset-inline:0;top:calc(100% + 10px);flex-direction:column;
     align-items:stretch;gap:0;background:var(--navy);border:1px solid rgba(255,255,255,.16);
@@ -387,15 +516,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
     .hero > .wrap{padding-block:150px 110px}
   .footer-main{grid-template-columns:1fr;gap:44px;text-align:center}
   .fcontact{text-align:center}
-  .branches{grid-template-columns:1fr}
 }
 @media (max-width:680px){
   .section{padding-block:74px}
   .services{padding-block:18px 74px}
   .grid-svc,.grid4{grid-template-columns:1fr}
   .about .wrap{grid-template-columns:1fr}
-    .talk__pill{height:64px;padding-inline:28px}
-  .talk .circ{width:58px;height:58px}
   .navbar{height:68px;padding-inline:16px;gap:12px}
   .logo-mark{width:92px;height:36px}
   .grid-btn{width:46px;height:46px}
@@ -403,7 +529,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-  .js .rv,.js .rv .stag > *{opacity:1;transform:none}
+  .js .rv,.js .rv .stag > *,.js .rv .ksa-pin{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -412,11 +538,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
   <defs>
     <linearGradient id="swooshgrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0F2C4C"/><stop offset="45%" stop-color="#1F8EA1"/><stop offset="100%" stop-color="#4CCFE6"/>
+      <stop offset="0%" stop-color="#0E2A4C"/><stop offset="45%" stop-color="#1F914C"/><stop offset="100%" stop-color="#3FCB7A"/>
     </linearGradient>
     <symbol id="arr" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7h-5M21 7v5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12A7 7 0 105 10c0 5.5 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="10" r="2.6" fill="var(--navy)"/></symbol>
   </defs>
 </svg>
 
@@ -439,11 +566,110 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
   <div class="navwrap">
     <div class="wrap">
       <div class="navbar">
-        <a class="brand" href="#top" aria-label="Arab Experts Group — home"><span class="logo-mark" role="img" aria-label="مجموعة الخبراء العرب"></span></a>
+        <a class="brand" href="#top" aria-label="Arab Experts Group — home"><img class="logo-mark" src="Sources/logo.png" alt="مجموعة الخبراء العرب"></a>
         <nav class="menu" id="menu" aria-label="الرئيسية">
           <a href="#why">لماذا نحن</a>
           <a href="#about">من نحن</a>
-          <a href="#services">خدماتنا</a>
+          <span class="menu-item">
+            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">خدماتنا</a>
+            <div class="mega-panel" id="mega-services">
+             <div class="mega-panel__card">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <span class="mega-col__num">10</span>
+                  <h4>خدمات قطاع الأعمال</h4>
+                  <ul>
+                    <li>تأسيس وتعديل وتصفية الشركات</li>
+                    <li>إعادة الهيكلة والحوكمة</li>
+                    <li>السياسات والإجراءات للاستثمار الأجنبي</li>
+                    <li>تجهيز الملفات القانونية</li>
+                    <li>المنشآت الصناعية والمهنية</li>
+                    <li>الرخص والعلامات التجارية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">03</span>
+                  <h4>التدقيق والمراجعة</h4>
+                  <ul>
+                    <li>البيع على الخارطة (وافي)</li>
+                    <li>التدقيق والتقارير المالية</li>
+                    <li>الرقابة الداخلية</li>
+                    <li>اختبار انخفاض قيمة الأصول</li>
+                    <li>القيمة العادلة وتخصيص سعر الشراء</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">04</span>
+                  <h4>الاستشارات المالية</h4>
+                  <ul>
+                    <li>استراتيجية الأعمال والعمليات</li>
+                    <li>استشارات مالية</li>
+                    <li>الحوكمة وإدارة المخاطر</li>
+                    <li>عمليات الدمج والاستحواذ</li>
+                    <li>موارد بشرية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">09</span>
+                  <h4>تأهيل وتصنيف المقاولين</h4>
+                  <ul>
+                    <li>تصنيف وتأهيل المنشآت</li>
+                    <li>استشارات قانونية ومالية وفنية</li>
+                    <li>إعداد ومتابعة ملف التصنيف</li>
+                    <li>التنسيق للزيارات المكتبية والميدانية</li>
+                    <li>التأهيل لشهادات الآيزو</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">01</span>
+                  <h4>الزكاة والضريبة والقيمة المضافة</h4>
+                  <ul>
+                    <li>قانون الامتثال الضريبي</li>
+                    <li>تحليل ودراسات ضريبية وزكوية</li>
+                    <li>استشارات ضريبية وزكوية</li>
+                    <li>الالتزام الزكوي والضريبي</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">02</span>
+                  <h4>الدعم القضائي</h4>
+                  <ul>
+                    <li>قضايا المنازعات</li>
+                    <li>قضايا الإفلاس</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">06</span>
+                  <h4>دراسات الجدوى الاقتصادية</h4>
+                  <ul>
+                    <li>تحليل الفرص الاستثمارية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">07</span>
+                  <h4>إعادة الهيكلة الإدارية</h4>
+                  <ul>
+                    <li>تقييمات مهنية مستقلة</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">08</span>
+                  <h4>الهوية التجارية</h4>
+                  <ul>
+                    <li>هوية وصورة المؤسسة</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">05</span>
+                  <h4>الاستشارات الإدارية</h4>
+                </div>
+              </div>
+              <div class="mega-footer">
+                <a href="#services">عرض قسم الخدمات<svg><use href="#arr"/></svg></a>
+              </div>
+             </div>
+            </div>
+          </span>
           <a href="#clients">عملاؤنا</a>
           <a href="#contact">تواصل معنا</a>
         </nav>
@@ -454,8 +680,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
     </div>
   </div>
 
-  <div class="wrap">
-    <div class="hero__inner">
+  <div class="wrap rv">
+    <div class="hero__inner stag hero-stag">
       <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>مرحباً بكم في مجموعة الخبراء العرب<svg><use href="#trend"/></svg></span>
       <h1>التميّز هو<br>طريقنا إلى الأمام<span class="dot">.</span></h1>
       <p class="lede lede--ondark">نحن مرجع في قطاع الاستشارات المهنية لخدمات قطاع أعمال الشركات المرموقة بالأسواق المحلية والأجنبية والعملاء من جميع أنحاء العالم.</p>
@@ -538,10 +764,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
         <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>خدماتنا<svg><use href="#trend"/></svg></span>
         <h2 class="h-sec h-sec--ondark">خدماتنا</h2>
       </div>
-      <div class="partners">
-        <div class="avatars"><span>MoC</span><span>MoH</span><span>MoD</span><span>16+</span></div>
-        <p>وزارات ومجموعات وشركات عائلية في رحلتنا</p>
-      </div>
     </div>
 
     <div class="grid-svc stag">
@@ -608,7 +830,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
           <div class="scard__thumb"></div>
         </div>
         <h3>الاستشارات<br>الإدارية</h3>
-        <p>استشارات نموذج التشغيل والأداء لفرق القيادة أمام القرارات الهيكلية.</p>
+        <p>استشارات إدارية متخصصة تدعم قرارات المنشأة وتطوير أدائها.</p>
         <div class="scard__more">
           <a class="pill pill--ondark" href="#contact">اقرأ المزيد</a>
           <a class="circ" href="#contact" aria-label="اقرأ المزيد"><svg><use href="#arr"/></svg></a>
@@ -646,40 +868,85 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
       <h2 class="h-sec">عملاؤنا وشركاء النجاح</h2>
     </div>
     <div class="logo-wall stag">
-        <div class="logo-tile"><span class="logo-tile__name">وزارة الثقافة</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">وزارة الصحة</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">وزارة الدفاع</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">الجري للنقليات</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">الدريس</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">دار الهندسة</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">آل سعيدان للعقارات</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">رابغ للصناعات المعدنية</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">ذاخر للتطوير</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">مجموعة وافر</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">المجال العربي القابضة</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">بالبيد للسيارات</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">سيدار بريدج</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">شبكات</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">جاسكو</span></div>
-        <div class="logo-tile"><span class="logo-tile__name">سمامة</span></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-03.png" alt="وزارة الثقافة" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-04.png" alt="وزارة الصحة" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-05.png" alt="وزارة الدفاع" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-01.png" alt="الجري للنقليات" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-02.png" alt="الدريس" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-06.png" alt="دار الهندسة" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-07.png" alt="آل سعيدان للعقارات" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-08.png" alt="رابغ للصناعات المعدنية" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-09.png" alt="ذاخر للتطوير" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-11.png" alt="مجموعة وافر" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-12.png" alt="المجال العربي القابضة" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-13.png" alt="بالبيد للسيارات" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-14.png" alt="سيدار بريدج" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-15.png" alt="شبكات" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-17.png" alt="جاسكو" loading="lazy"></div>
+        <div class="logo-tile"><img src="Sources/clients/partner-18.png" alt="سمامة" loading="lazy"></div>
     </div>
-    <p class="clients-note">مواضع الشعارات جاهزة، ويمكن استبدالها بملفات شعارات العملاء.</p>
   </div>
 </section>
 
-<section class="bigcta rv" id="contact">
+<section class="section rv" id="branches">
+  <div class="branches-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <h2 class="bigcta__type">لديك قرار<br>تتخذه؟</h2>
-    <div class="talk">
-      <a class="talk__pill" href="mailto:info@ba-audit.com">هيّا نتحدث</a>
-      <a class="circ" href="mailto:info@ba-audit.com" aria-label="Email Arab Experts Group"><svg><use href="#arr"/></svg></a>
+    <div class="sec-head">
+      <h2 class="h-sec h-sec--ondark">فروعنا في المملكة</h2>
+    </div>
+    <div class="branches-wrap">
+      <div class="branch-map">
+        <svg class="ksa" viewBox="30 20 940 780" aria-hidden="true">
+          <g class="ksa-shape">
+          <path d="M600.3 753.7l13.6-110.8 11.6-90.8 12.3-100.7 0.3-10.5-0.7-5.7-1-3.4-1.8-4.2-1.8-3-1.8-2.2-10.9-11-15.3-11.1-0.7-0.9-0.6-0.9-0.3-0.7-0.4-2.2-1-64.1-0.2-1.5-0.3-0.9-0.4-0.9-0.6-0.9-0.6-0.6-0.5-0.4-13.8-5.5-0.9-0.6-0.8-0.9-1.2-1.8-7.1-7-1-0.6-0.9-0.3-1.1-0.1-6.4 1.2-1 0-1-0.2-1.1-0.3-1-0.5-10.6-7.7-2.7-1.5-1.9-0.7-1.9-0.4-7.2-0.2-1.8-0.4-1-0.4-1.8-1.3-4.1-3.9-2.7-3.3-0.9-0.8-0.9-0.5-1-0.2-3.1-0.3-2-0.6-12.3-7.1-0.9-0.9-1.1-1.3-0.5-1.3-1.2-4.2-0.6-1.2-0.7-1-1.8-1.7-3.7-2.7-0.5-0.3-0.5-0.6-1.1-1.7-0.4-1-0.2-0.9 0-0.9 0.1-0.8 0.4-1.4 1.1-2.8 0.9-1.6 7.2-8.8 2.1-3.1 15.2-28.7 2.6-3.9 3.4-3.8 4.2-3.9 6.1-3.4 20.4-7.7 0.6-0.6 0.7-0.2 1.9-0.4 1.9-0.4 4.8 0.6 4.8 0.6 4.9 0.6 4.8 0.6 4.3 0.5 4.3 0.6 4.3 0.6 4.3 0.6 2.4 0.3 0.5 0.9 2.1 3.5 2.4 6.6 0.2 1.3 0.2 2.6 0.4 1.5 0.6 1.5 0.6 1.1 1 0.8 0.9 0.7 0.9 0.9 0.3 1.3 2.3 0 7.7-0.1 7.7-0.1 7.6-0.1 7.7-0.1 1 1.1 0.6 0.4 1.1 0.5 0.1 0.4 0.4 2.1 0 1.7-0.3 1.1-1-0.4-0.2 0.3-0.1 0.2 0 0.2 0.8 0 0.7-0.2 0.6-0.4 0.2-0.8 0.5 0.4 0 0.4-0.5 0.9-0.2 1.3-0.1 0.6 0.3 1.1 0.5 1 3.6 4 0.2 0.6-0.6 0.9-0.3 0.9 0 1 0.2 1 0.4 0.8 1.4 1.9 0.3 0.5-0.1 0.6 0 0.2 0.7 0.4 1.4 0.6 0.5 0.1 1.5-0.1 0.4 0.2 0.8 0.4 0.5 0.1 0.2 0.2 0 0.3-0.1 0.3-0.2 0.2-0.3 0.2-0.3 0-0.3-0.2-0.7 0.4-0.2 0.3 0 0.7 0.4 0.7 0.9 0.9 1 0.7 0.8 0.4 0 0.2 1 1.5 1.7 1.7 0.2 0.5-0.4 1 0 0.6 0 0.6 0.2 0.2-0.1 0.4-0.4 0.7-0.6 0.8-0.6 0.5 0.4-0.6 0-0.4-0.1-1.2 0.1-0.7 0.3-0.4 0.1-0.4-0.2-0.7-0.6 0.7-0.7 1.8-0.7 0.5 0.8-2.1 0.1-0.6-0.3-0.9-0.3 0.1-0.4 0.7-0.8 3.4 0 0.8-0.1 0.1-0.2 0.3 0.1 0.3 0.5-0.1 0.2-0.2 0.3-0.8 0.3-0.3 0 2.2 0.2 0.5 0.4-0.1 0.4-0.4 0.2-0.5 0.4 0.5 0 0.7-0.1 0.8 0.6 0.2 0.4-0.3 0.3-0.4 0.2-0.5 0 0.8-0.1 0.3-0.2 0.2 0.2 0.5 0 0.3-0.3 0.1-0.5 0.1 0.5 1 0.1 0.3-1-0.5-0.5 0-0.3 0.5 0.9 0.4 0.8 0 0.6-0.5 0.4-0.9 0.3 0 0.3 0.7-0.5 0.6-0.2 0.9 0.2 0.8 0.8 0 0.3-0.3-0.2-0.4-0.3-0.3-0.1-0.3 0.3-0.5 0.5-0.2 1-0.3 0.8-0.1 0.6 0.3 1.5 1.5 1.6 0.8 0.4 0.6-0.8 0.6 0.6 0.2 0.6 0 0.2-0.4-0.2-0.5 0.7 0.3 0.8 0.2 1.6 0.2 0.4-0.2 0.7-0.4 0.4-0.1 0.4 0 0.9 0.3 0.5 0 0.8 0.3 0.7 0.6 1 1.4 0.3 0.3 0.3 0.2 0.3 0.2 0.3 0.4 0.1 0.3 0.1 0.9 0.1 0.4-0.6 0-0.3-0.2-0.1-0.5 0.1-0.6-0.3 0-0.9 1.1-2.4-0.3-0.8 0.9-0.4 0-0.3-0.9-0.7 0-1.6 0.9 0.3 0.2 1 0.2 0.5 0.3 0.3 0.2 0.3 0.3 0.3 0.2 0.5 0.3 0.3 0.3 0.2 0.2 0.3-0.1 0.7-0.7 0-0.1 0.2-0.2 0.1-0.3 0.2-0.2 0.2 0.2 0.4 0.3 0.4 0.2-0.3 0.7-0.4 0.3-0.5 0.2-0.3 0.5-0.1 0.5-0.1 1.2-0.1 0.6 0.5-0.1 0.5-0.3 0.5-0.4 0.4-0.4 0.5-0.1 0.6 0.1 0.9 0.5-0.4 1 0.2 0.9 0.3 1 0.2 1-0.1 2 0.2 0.9 0.7-0.1 0 0.9 0.3 0.3 0.5-0.1 0.4-0.4-0.2-0.8 0.4-0.4 0.7-0.1 0.6 0.6 0.3-0.4 0.2 0.6-0.1 0.5-0.3 0.5-0.1 0.6-0.2 0.4-0.3 0.2-0.5 0-0.5-0.1 0.4 0.6 1 0.2 0.4 0.5 0.4-0.2 0.3-0.4 0.5-1 0 0.2 0.1 0 0.2 0.1-0.5 0.9 0.4 0.1 1.1-0.3 0.7 0.1 1.1 0.5 0.7 0-1.1-1.2-0.4-0.8 0.6-0.6 0.6-0.1 0.4 0.3 0.4 0.3 0.4 0.2 0.3-0.2 0.9-0.8-0.2 0.7-0.4 1.2 0 0.7 0.3 1.1 0.2 0.6 0.2 0.3 0.8 0.4 0.8 0.9 2.5 3.9 1.3 1.6 0.4 0.3 1.2 0.5 0.4 0.4 0.6 0.6 0.5 0.4 2.6 1.2 1.7 1.2 1 0.1 1 0 1 0.1 1.4 0.8 1.2 1.2 2.2 3 0.7 1.3 3.2 2.3 0.7 0.8 0.1 1.2-1.9-1.7-1.1-0.7-2.3-0.3-0.6-0.2-0.4-0.5-0.4-1.8-0.4 0.3-0.4 0.8-0.2 0.8 0 0.6 0 0.6 0.2 0.5 0.3 0.5 0.4 0.4 0.1 0.3-0.2 2.9 0.1 0.8 1.2 3.7 0.5 0.8 0.7 0.7 0.7 0.5 3.7 1.3 1.3 1.1 0.8 1.6 0.3 2.2 0 5.3-0.2 1.1-0.4 1-0.9 0.5 0-0.7-0.3-0.3-0.5 0.2-0.4 0.5 0.3 1.2-0.1 1.9-0.4 1.9-0.4 1.3-0.6-0.5-0.2-0.7 0-0.8-0.1-0.7-0.3-0.6-0.4-0.3-0.4-0.3-0.3-0.4-0.2-0.2-0.2 0-0.2-0.1-0.1-1.4-0.1-0.3-0.1-0.3-0.4-0.5-0.5-0.5-0.6-0.4-0.4 0.2-1.2 2.2-0.3 0.3-0.5 0.3 0.2 0.6 0.5 0.7 0.2 0.2 0.1 0.4 0.4 0.6 0.1 0.5-0.1 0.1-0.3 0.1-0.3 0.2-0.2 0.4 0.1 0.7 0.2 0.7 0 0.7-0.3 0.7 0.7 0.3 0.7-0.4 0.3-0.7-0.2-0.8 0.4 0.1 0.3 0.2 0.5 0.7 0.2 0.1 0.2-0.1 0.1 0.1 0.1 0.3 0 0.3 0 0.2 0.2 0 0.2 0 1.1 0.3 0.5 0.7 0.2 0.8 0.5 0.9 0 0.3-0.9 0.9 0.5 2.2 1 2.5 0.8 1.6 2.6 3.2 1.1 1.8 0.5 2.2-0.3 0-0.8-2.2-0.3-0.4-0.5-0.1-0.6-0.3-0.6-0.4-0.5-0.8-0.7-0.5-0.6-0.1-0.2 0.9 0.4 0.7 1.1 0.8 0.3 0.5 0.2-0.5 0.1-0.2 0.3 0 1.6 3.4 5 6.4 1.1 1-0.1-0.6-0.3-0.8-0.1-0.6 0.3-0.2 0.5-0.3 0.2 0.1 0.2 1.1 0.2 0.3 0.2 0.1 0.1 0.1 0.3 0.7 0.8 0.4 1.5 0.4 0.4 0.5 0.8 2.1-0.3 0.3 0.5 0.8 0.6 1.2 0.5 1.4 0.2 1.1 0 0.6-0.3 1 0 0.6 0.1 0.7 0.2 0.4 0.2 0.3 0.2 0.8 0.6 1.2 0.2 0.7-0.3 2 0.3 1.9 0.4 1.1 0.5 0.6 0.3-0.9 1.1 0.9 1.2 1.5 0.5 0.8 0.7 0.7 0.9 3.1 1 0.7 0.9 0.8 0.4 1.9 0.1 2.9 0.1 0.5 0.4 0.9 0.5 0.8 0.4 0.4 0.7 0 0.8-0.8 0.1-0.1 0.1 0.1 3.1 5.1 2 2.3 2.2 1 2.6 0.3 2.4 0 0.7-0.2 1.6-0.5 2.9-2.4 0.1 0.4 0.3 0 1.9-0.3 0.4 0.2 0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.3 0.5-0.4 0.1 0.3 0 0.1-0.1 0.4-0.1 0.4-0.3 0.1-0.3 0.3 0.1 0.5 0.2 0.4 0.1 0.1-0.1 1.6 0.3 0.3 0.7-0.3 0.6-0.4 1.2-2.1 0.1-0.2 0.5-0.4 0.5-0.4 0.4-0.6 0-1.1 0.6 0.4 0.8 0 0.7 0.2 0.2 0.6 0.3 0.6 0.5 0.1 0.7 0 0.6 0.4 0 0.4-0.7 0.3-0.9 0.3-0.7 0.4-0.4 0.7-0.1 0-1 1.1-0.2 0.4-0.2 0.6-0.2 0.3-2.6 1.9-0.4 0.6-0.1 0.2-0.6 0.8-0.2 0.4-0.1 0.5-0.1 1.1-0.1 0.4 0 0.3 0 0.3 0 0.3-0.1 0.1-0.5-0.1-0.2 0.1-0.1 0.1 0 1.1 0 0.5 0.2 0.2 2.7 0.3 1-0.3 0.5-0.3 0.4-0.3 0.4-0.3 0.6-0.1 2.9 0.6 0.7 0.6 1.3 1.5 1.9 0.5 0.2 1.9 0 1.2-0.1 3 0.3 1.2 0.6 1.1 2.5 3.2 2.2 3 2.3 2.9 2.2 2.9 2.3 3 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.2 3 2.3 2.9 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.3 3 0.9 0.8 1 0.3 7 1 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 5.9 0.8 0.6-0.2 2.9-3.7 2.7 4.6 3.5 5.8 3.5 5.8 3.5 5.9 3.5 5.8 2.3 3.8 0.4 1 0 1.1-1.6 5.3-0.2 0.6-0.3 1-0.8 2.6-1.2 4-1.6 5.2-1.9 6.2-2.2 6.9-2.2 7.3-0.6 1.8-1.8 5.8-2.4 7.6-2.2 7.3-2.2 6.9-1.9 6.1-1.6 5.2-1.2 4-0.8 2.5-0.3 1-1.4 4.4-6.5 2.3-7.4 2.6-7.4 2.6-7.3 2.6-7.4 2.7-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.3 2.6-7.4 2.7-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-4.6 1.6-0.2 0.1-0.8 0.1-6 0.8-6.9 1-6.9 1-6.9 1-6.9 1-6.9 1-7 0.9-6.9 1-6.9 1-6.9 1-6.9 1-6.9 0.9-6.9 1-6.9 1-7 1-6.9 1-3.2 0.4-3.7 0.6-5.6 0.7-3.4 1.3-0.3 0.2-0.8 0.4-1 0.5-1 0.5-1 0.5-1 0.5-0.3 0.1-0.8 0.4-0.9 0.5-1.2 0.6-0.9 0.5-6.9 3.5-8.3 4.3-7.4 3.8-5.5 2.8-0.3 0.3-0.7 0.4-3.3 4.2-3.9 5-6.9 8.5-6.4 8.1-4.2 5.3-0.7 1.4-2.1 5.6-2.9 8-1.2 1.6 0 0.1z m92.2-479.1l0.8 0.4 2.3 0.6 2.2 0.7-0.8 0.3-0.6-0.2-0.7-0.3-0.7-0.2-0.7 0.1-0.7 0.3-0.6 0.4-0.5 0.5-0.4-0.3-0.2 0-0.3-0.2-0.3-0.1 0-0.3 0.6-0.3 0.1-0.2-0.2-0.3-0.2-0.2-0.1-0.2-0.5-0.2-0.5 0.1-0.4 0.1-0.4 0.1-0.6 0.3-0.5 0.5-0.5 0.8-0.3 0.8-0.1-1.3 0.8-1.2 1.2-0.9 1.3-0.3 0.5 0.1 0.4 0.2 0.6 0.4z"/>
+          <path d="M557.1 190.2l-0.6 0.6-20.4 7.7-6.1 3.4-4.2 3.9-3.4 3.8-2.6 3.9-15.2 28.7-2.1 3.1-7.2 8.8-0.9 1.6-1.1 2.8-0.4 1.4-0.1 0.8 0 0.9 0.2 0.9 0.4 1 1.1 1.7 0.5 0.6-1.8 2.6-0.9 0.5-1.1 0.5-1-0.1-0.9-0.4-0.8-0.6-0.6-0.8-0.1-0.1-0.2-0.3-0.8-0.7-0.6-1.4-1.1-1.3-7.2-6.5-1-0.7-1.9-1.1-1.5-0.5-13.3-2.1-1.2-0.4-1.5-0.7-1.1-0.9-1.1-1-1.5-2.1-3.6-9.6-7.3-13.2-0.7-1-1-0.8-1.2-0.4-1.5 0.1-1.2 0.5-5 3.3-1.7 0.8-1 0.2-1.1-0.1-1.7-0.6-4.6-2.4-1.2-0.4-1.5-0.1-4.3 0.4-1.1-0.1-1.2-0.3-1.5-1-1-1.1-0.6-1.5-0.3-1.1-0.1-0.6-0.2-3.7-0.1-0.4-0.4-0.4-0.9-0.5-1.5 0-1.3 0.2-1.2 0.6-3.5 1.9-1.2 0.5-1.3 0.3-1.4 0.1-1.6-0.2-2.1-0.8-1.5-1-1.3-1-5.2-6.3-1-0.9-0.9-0.6-2-0.8-14.8-3.4-1.1-0.1-4.6 0.3-5.3 1.3-1.1 0.2-1.1 0-1.5-0.3-10.5-3.4-1.4-0.2-1.8-0.1-3.1 0.4-22.9 5.3-1 0-2.5-0.6-5-2.1 6.1-6.1 0.7-1 0.4-1 0.2-0.7 0.1-0.3 1.1-16.5 0.2-1 0.3-1.1 0.6-1 0.8-1 1.1-1.1 4.7-3.6 36-22.5 3.6-2.9 1.9-2 0.8-1 0.2-1-0.3-1-0.8-0.9-6.5-5-2.1-2-0.7-1.1-1.3-2.2-1.9-4.6-0.6-0.8-1.1-1.4-0.8-0.9-1.6-1-1.3-0.5-5.1-0.7-3.5 0-2.4-0.3-1.4-0.5-1.2-0.6-8.6-6.9-1.4-0.7-1.6-0.4-4.3 0-2.6 0.4-23.6-0.6-4-0.9-1.5-0.6-1.1-0.6-3.2-2.8-1-0.8-1-0.6-1.4-0.3-29.2-4.6-5.7-0.1-13.3 2-19.2 1.9-2.1-0.1-1.9-0.5-1-0.4-1-0.5-0.9-0.8-0.7-1-1.5-2.6-0.8-1.7-1.2-2.2-1.4-2-1.3-1.3-3.8-2.7-0.7-0.9-0.3-0.8-0.1-0.7-0.1-0.3-0.2-1.3-0.2-3.1 0.2-1.7 5.2-19.3 8.1-2.4 9.7-2.8 9.7-2.8 9.7-2.9 4.9-1.4 1.5-0.6 5.2-4.9 0.8-0.7 0.4-0.1 0.2 0 0.1-0.1 0.1 0 0.1-0.1 8.6 1.5 8.5 1.5 8.5 1.4 8.6 1.5 3.4 0.6 14.8 2.9 2.3 0.9 2.4 1.4 4.4 2.6 3.8 2.3 3.8 2.3 3.8 2.2 3.8 2.3 3.8 2.3 3.7 2.2 3.8 2.3 3.8 2.3 3.8 2.2 3.8 2.3 3.8 2.2 3.8 2.3 3.7 2.3 3.8 2.2 3.8 2.3 3.8 2.2 3.8 2.3 2.9 2.5 3.7 3.2 3.6 3.1 3.6 3.2 3.7 3.2 4.1 3.5 4.1 3.6 4.1 3.6 0.8 0.7 3.2 2.8 0.1 0 4.5 3.8 3.8 3.1 3.8 3.1 3.8 3.1 3.8 3.1 5 4 4.9 4 5 4.1 4.9 4 2.1 1.7 2.9 2.3 4.9 4 4.9 4 5 4 4.1 3.4 4.1 3.3 4.1 3.3 4.1 3.4 3.4 2.6 0.2 0.1 0.3 0.2 0.3 0.1 0.3 0.1 3.9 0.3 3.5 0.3 3.4 0.4 3.4 0.3 3.5 0.3 4.4 0.4 4.4 0.4 4.4 0.4 4.5 0.4 4.4 0.4 4.4 0.4 4.4 0.4 4.4 0.4 3.3 0.3 3.3 0.3 3.3 0.3 3.3 0.3 4.5 0.4 1.9-0.4 1.2-0.2z"/>
+          <path d="M192.8 56.2l-5.2 19.3-0.2 1.7 0.2 3.1 0.2 1.3 0.1 0.3 0.1 0.7 0.3 0.8 0.7 0.9 3.8 2.7 1.3 1.3 1.4 2 1.2 2.2 0.8 1.7 1.5 2.6 0.7 1 0.9 0.8 1 0.5 1 0.4 1.9 0.5 2.1 0.1 19.2-1.9 13.3-2 5.7 0.1 29.2 4.6 1.4 0.3 1 0.6 1 0.8 3.2 2.8 1.1 0.6 1.5 0.6 4 0.9 23.6 0.6 2.6-0.4 4.3 0 1.6 0.4 1.4 0.7 8.6 6.9 1.2 0.6 1.4 0.5 2.4 0.3 3.5 0 5.1 0.7 1.3 0.5 1.6 1 0.8 0.9 1.1 1.4 0.6 0.8 1.9 4.6 1.3 2.2 0.7 1.1 2.1 2 6.5 5 0.8 0.9 0.3 1-0.2 1-0.8 1-1.9 2-3.6 2.9-36 22.5-4.7 3.6-1.1 1.1-0.8 1-0.6 1-0.3 1.1-0.2 1-1.1 16.5-0.1 0.3-0.2 0.7-0.4 1-0.7 1-6.1 6.1-2.7-0.7-0.9 0.1-16.4 6.8-16 9.1-7.5 2.1-16.3 7.8-1.1 0.7-1 0.7-4.7 5.2-1.7-1.4-0.6-0.3-0.7-0.2-1.1-0.1-1.5 0.3-1.3 0.3-4.5 2.3-1.1 0.5-1 0.1-1.1-0.1-0.9-0.6-0.7-0.8-1.2-2.9-1.9 0-0.8-0.1-0.9-0.3-1.5-0.9-1-0.2-1.4 0.4-1.1 0.5-1.4 0.5-1.6 0.1-8.6-0.9-2.7-0.6-4.7-1.6-2-1.2-2.9-2.4-0.7-0.9-0.7-1-0.5-1-0.7-1.7-0.5-2.1-0.3-2.8-0.1-4.4 0.4-7.9-0.2-1.1-0.4-1-0.8-0.6-1-0.2-0.9 0.3-2.7 2.6-2.9 1.8-0.9 0.8-0.6 1-0.5 1-1.8 4.5-0.5 1-0.7 0.9-1 0.5-1.2 0.3-7.4-0.5-3.6-0.7-6.6-2.2-2.5-0.4-3.4 0-10.3 2.3-4.8 1.8-0.7 0-1 0-1.8-0.6-0.3-0.2-0.3-0.3-11.1-14.5-1.4-1.3-1.9-1.3-1-0.5-8.5-2.1-2.8 0-3.4 0.6-5.7 0.4-8.9 1.7-1.8 0.6-1.5 0.7-1.5 1.5-0.7 0.4-1.1 0.2-6.2-0.6-3.5-0.9-1.5-0.1-1.4 0.3-3.7 0.1 0-0.2-0.7-0.3 0-0.3 0.6-1.1 0.7-2 0.3-2.1-0.5-1.2 0-0.7 0.5-0.9 0.4-1.1 0.9-4.4 0.2-0.7 0.5-1.1-0.1-0.3 0.1-0.7 0.4-0.4 1-0.6-0.3-0.8-0.1-1.1 0.1-0.7 0.6 0.3 0-0.2 0-0.1 0.1-0.1 0.2 0-0.4-0.7-0.1-0.8 0.2-0.8 4.8 0.9 5.1 0.9 6.7 1.1 6 1.1 6.4 1.1 5.1 0.9 2.5 0.4 5 0.9 4.5 0.7 1.1 0 1.1-0.5 4.7-3.8 4.6-3.8 5-4.2 3.3-2.8 2.8-4.7 2.7-4.5 2-3.4 2.4-4.1 1-1.1 1.2-0.6 3.7-0.8 3.9-0.8 6.2-1.3 6.1-1.2 5.8-1.2 5.1-1.1 0.9-0.8 1.9-4.7 1.5-3.5 1.5-3.8 1.3-3.1 0.6-0.9 1-0.8 4.6-2.7 5.3-2.9 3.1-1.8 0.3-0.2 0.1 0-0.1 0-2.1-2.5-4.7-5.6-4.8-5.6-4.7-5.6-4.7-5.6-0.2-0.1-0.1-0.2-0.1-0.2-0.2-0.1-5.6-6.1-5.5-6-0.1-0.1-5.6-6.1-5.6-6.1 1.6-0.5 9.1-2.8 10.6-3.2 10.7-3.2 2.6-0.7 8.1-2.5 1.6-0.4z"/>
+          <path d="M613.9 642.9l-13.6 110.8-0.1 0-0.9 0.6-0.9 0.5-0.9 0.5-0.3 0.3-1.9 1.1-5.3 3.1-1 0.4-0.3 0-1 0-0.9 0-1.1 0-1 0-0.1 0-0.9 0-0.9 0-0.9 0 0 0.1-0.3-0.1-0.6 0-0.5-0.3-3.7-5.1-3.1-4.5-2.8-3.9-1.6-0.9-9.6 1.3-7.2 1-10.4-1.1-8.2-0.8-10.7-1.1-9.2-1-1.9-0.6-7.1-4.1-2.4-0.5-7.3-0.1-1 0-0.9 0-4.5 0-8.7-0.1-0.1 0-0.8 0.2-2.6 1-0.1 0.1-1.3 0-2.9-0.6-2.7-0.1-4.1 0.4-3.3 0.8-0.9 0.1-1.8-0.6-0.9-0.1-0.6 0.5-0.4 0.7-0.2 0.4-0.7 0.8-0.8 0.4-1.1-0.2-1.7-0.8-0.7-0.1-0.9 0.5-0.1 0-0.6 0.8-0.2 0.4-0.4 0.5-0.6 0.6-1.1 0.2-0.5-0.1-0.2-0.2-0.2-0.2-0.1-0.3 0.1-0.9 0-0.1 0-0.4-0.3-0.2-1 0.4-0.8 0-1.2-0.1-0.5-0.1-1.6 0.2-0.8 0-0.8-0.3-1-0.7-0.8-0.7-2.2-2.5 0-1.4 1.2-4.6-0.1-2.4-0.9-2.7-0.1-1.1 0-1.3 0.4-1.8 1.1-10-0.1-1.9-0.4-1.9-0.7-2-0.4-2 0-1.1 0.4-1.3 0.9-1.7 1.1-1.4 7-7.4 4.8-4.2 1.4-1.4 0.5-0.8 0.5-0.9 1-2.5 0.6-1.1 1-1 1-0.7 1-0.4 3-0.6 1.9-0.7 2-1 1.9-1.3 0.8-0.8 0.6-0.8 0.6-0.9 0.4-1.2 0.3-1.2 0.1-1.7 0-1.6-0.2-2-1.5-5.8 0-1.1 0.3-1.2 1.1-1.7 1-0.9 2.8-1.5 0.7-0.5 0.4-0.6 0.3-1 0.2-1.5 0-5.8 12 7.6 3.1 1.5 2.3 0.9 4.1 1 11.1 0.7 101.1-10.9 5.6-1.6z"/>
+          <path d="M474.6 643.7l0 5.8-0.2 1.5-0.3 1-0.4 0.6-0.7 0.5-2.8 1.5-1 0.9-1.1 1.7-0.3 1.2 0 1.1 1.5 5.8 0.2 2 0 1.6-0.1 1.7-0.3 1.2-0.4 1.2-0.6 0.9-0.6 0.8-0.8 0.8-1.9 1.3-2 1-1.9 0.7-3 0.6-1 0.4-1 0.7-1 1-0.6 1.1-1 2.5-0.5 0.9-0.5 0.8-1.4 1.4-4.8 4.2-7 7.4-1.1 1.4-0.9 1.7-0.4 1.3 0 1.1 0.4 2 0.7 2 0.4 1.9 0.1 1.9-1.1 10-0.4 1.8 0 1.3 0.1 1.1 0.9 2.7 0.1 2.4-1.2 4.6 0 1.4-0.8-0.9-1.8-1.1-1-0.4-2.2-1-0.7-0.2-1.5 0-0.8-0.2-0.9 0.1-1 0.4-2.1 1.3-1.3-2-2.3-3.4-0.7-0.9-0.9-0.8-3.3-1.2-0.8-0.6-0.7-0.9-1.3-2.9-0.6-0.9-1.1-1.1-3.4-2.7-0.7-1.2-0.2-1.1 0.1-1.9-0.2-0.8-0.6-0.7-1.7-0.3-0.3 0-2 1.2-1.8 1.3-0.8 0.8-0.6 0.9-0.9 1.8-2 7.5-0.4 0.9-0.6 0.6-0.8 0.4-0.9 0-0.9-0.4-1.1-0.7-4-4.2-0.7-1.1-0.6-1.1-0.3-0.9-0.5-1-0.9-0.8-1.2-0.7-1-0.2-6.8-0.1-1-0.3-0.9-0.5-0.9-1.1-0.5-0.9-0.5-1.7-0.3-0.4-0.7-0.8-1.1-0.6-1-0.3-0.9-0.1-2.9 0.4-0.9-0.2-0.7-0.7-0.4-1.2 0-1.1 0-1 0.9-5.4 0-1-0.2-0.8-0.4-0.7-1.7-0.5-4.9 0.4 1.5-5.8 0.2-1.2 0-1.2-0.3-1.4-3-9-0.5-0.9-0.7-0.7-0.8-0.5-0.9-0.3-1.9-0.4-1.8-0.1-4.7 0-0.9-0.2-0.8-0.5-0.8-0.7-0.5-0.9-0.3-1-0.3-0.9-0.2-1.9 0.3-10.6 0.1-0.9 0.4-0.4 0.7 0.3 0.7 0.6 0.9 0.4 0.8 0.1 0.8-0.4 2.2-1.7 1.9-1.1 1-0.3 0.9-0.2 1 0 4.8 0.5 0.6 0 0.6-0.2 0.8-0.3 0.8-0.6 0.6-0.8 0.4-0.9 1.5-4.7 0-1.1-0.3-1.1-1.8-3.1-0.2-0.9-0.1-1.2 0-1.1 1.3-6 0.1-0.9 0-0.9-0.3-1-0.5-0.9-0.7-0.8-0.5-0.4-0.6-0.3-0.9-0.1-1.8 0.1-1.9 0.8 4.3-9.5 0.7-2.3 0.2-3.2 0.4-1.3 0.6-1.2 1-0.9 5.1-3.6 0.9-0.9 1-1.4 0.3-1.1-0.2-1.1-0.5-0.8-1.1-1.1-0.3-1.4-0.1-1.2 2.1-7.1 0.8 1.3 4.4 9.1 0.7 1 0.8 0.7 0.9 0.5 1 0.3 1.2-0.1 1.4-0.4 2.4-1.3 1.4-1.1 11-9.9 8.5-4.7 1.2-1 1.7-1.7 1.1-0.7 1.2-0.5 1.5-0.3 2.7-0.1 0.7-0.1 0.8-0.3 2.7-1.1 1.4-0.4 1.8-0.3 1.2 0.1 1.2 0.2 2.7 1 1.3-0.1 1.5-0.5 6.8-4 4.6-1.8 6.3 5.7 2.3 2.8 1.4 2.2 2.6 3.4 3.5 4 0.6 1.1 0.3 1 0.1 0.8-0.1 0.9 0 0.2-0.3 0.9-0.4 0.8-2.5 4.1-0.8 1.7-1.7 7.9 0 1.1 0.3 1.5 0.7 1.1 2.4 2.9 4.2 7 17 15.7 0.7 0.5z"/>
+          <path d="M356.1 698.4l4.9-0.4 1.7 0.5 0.4 0.7 0.2 0.8 0 1-0.9 5.4 0 1 0 1.1 0.4 1.2 0.7 0.7 0.9 0.2 2.9-0.4 0.9 0.1 1 0.3 1.1 0.6 0.7 0.8 0.3 0.4 0.5 1.7 0.5 0.9 0.9 1.1 0.9 0.5 1 0.3 6.8 0.1 1 0.2 1.2 0.7 0.9 0.8 0.5 1 0.3 0.9 0.6 1.1 0.7 1.1 4 4.2 1.1 0.7 0.9 0.4 0.9 0 0.8-0.4 0.6-0.6 0.4-0.9 2-7.5 0.9-1.8 0.6-0.9 0.8-0.8 1.8-1.3 2-1.2 0.3 0 1.7 0.3 0.6 0.7 0.2 0.8-0.1 1.9 0.2 1.1 0.7 1.2 3.4 2.7 1.1 1.1 0.6 0.9 1.3 2.9 0.7 0.9 0.8 0.6 3.3 1.2 0.9 0.8 0.7 0.9 2.3 3.4 1.3 2-1.7 1.1-2.6 2.2-1.1 1-2.1 2.6-0.1 0.2 2.4 0.8 0.9 0.7 0.3 0.7 0.1 0.2-0.1 0.9-1 0.5-1 0.3-1.1 0.4-0.9 0.8-0.3 0.8 0.1 1.1-0.3 0.9-0.9 1.8-0.2 0.9 0.1 0.8 0.4 0.7 0.2 1 0 1-0.2 0.9-0.7 1.7-0.3 1.1 0.2 0.8 0.9 1.7 0.5 1.7 0.5 0.4 1.6 0.4 0.5 0.4 0.3 0.5 0 0.6-0.1 0.4-0.4 0.3-0.4 0.2-0.4 0.2-0.6 1 0.1 0.6 0.4 0.7 0.3 1 0 0.1-0.3 0.8-0.4 0.1-0.3 0.1-1-0.3-0.8-0.2-1-0.2-0.6 0.2-0.2 0.6-0.1 1-0.1 0.8-1.1 3-0.6 0.7-0.8 0.6-0.1 0.1-1.9 1.1-0.6 0.3-0.5 0.1-1.2 0.2-0.5 0.2-0.1 0.6 0.1 0.7 0 0.7-0.3 0.7-1.2 0.8-1.5 0.6-0.3 0.2-1.7 0.6-0.1-0.2 0-1.3 0-0.3-0.3-0.5 0.6-1.4-0.3-0.9-2.1-2.3-0.5-1.1-0.1-0.8 0-2 0.5-1.9 0-0.8-0.8-0.2 0.3-0.4-0.5-0.5-0.4-0.7-0.1-0.6 0.4-0.3-0.2-0.5-1.2-1.1-0.3-0.3-0.6-0.8-1-1.1-0.3-0.3-1.3-0.7-0.5-0.1-0.5 0.3-1.4-2.1 0.6-2-0.3-0.7 0-2.2-0.2-0.8-0.4-0.2-0.5-0.3-0.1-0.5-0.4-0.4-0.8-0.1-0.9 0-0.6 0-0.5-0.5-0.4-0.7-0.6-1.3-0.2-0.6-0.2-1.6-0.2-0.6-0.4-0.4-1.9-0.8 0.1 0.8 0.3 0.7 0.8 1.3-0.9 0.5 0.4 3-0.4 0.8-0.3-0.9 0-3.1-0.2-1-0.6-1.7-0.7-6.1-0.3-1.1-0.2-0.8 0.3-2.3-0.1-0.9-0.3-1.1-0.3-0.4-0.4-0.1-0.5-0.1-0.3-0.1-0.2-0.2-0.1-0.4-0.3-0.5-4.6-4-0.4-0.1-0.1 0.2-0.3-0.4-0.5-0.9-0.8-1.2-0.3-0.8-0.2-0.4-0.3-0.1-1 0.2-0.4-0.1-0.2-0.6-0.2-0.4-1.9-1.9-0.1 0.1-0.2 0.1-0.4 0.1-0.2 0-0.4-0.4-1.3-1.9-0.5-0.3-2.5-2.4-1 0.4-1.6-1.1-1 0.1-0.4-1.2-0.7-0.7-1-0.7-0.8-0.8-1.8-2.3-0.3-0.8 0.1-0.6 0.1-0.5-0.1-0.3-0.5-0.2-0.4-0.1 0-0.4 0-0.4-0.1-0.3-1.8-1.6-0.7-1 0.4-0.8-0.2-0.3 0.8-1.9 0.4-0.8 0.7-0.8 0.8-0.5 2.7-1.5 0.8-0.8 0.5-0.7 0.8-1.8z m17.9 72.8l0 0.6-0.1 0.8-0.3 1 0.1 0.8 0.4 1.3-0.4 0.9 0 0.1-1-0.1-1.2-1.4-1-0.4-0.9 0-0.5-0.5 1.3-0.5 0.7-0.5-0.3-1-1.1-0.6-1.1 0.2-1.3 0.1-0.9 0.2-0.8 0.5-0.7 0.4-0.8-0.3-1-0.9-0.7-0.7-1-0.2-1.1-0.8-1.1-0.9-0.5-0.9-0.3-1.4-0.7-0.5-0.8 0-0.5-0.1 0.1-0.3 0-1-0.7-0.8-0.4-0.9 0.1-0.8 0.6 0.2 0.3 0.3 0.5 0.4 1.7 0.8 0.9 1.1 0.5 0.6 0.1 1.1 0 0.5 0.8 0.9 0.7 0.6 0.3 0.2 1.6-0.2 0.5 0.9 0.8 0 0.9-0.3 0.8 0 0.5 0.5 0 0.5 0.5 0 1.3-0.5-1.2-0.3-0.7-1 0.6-0.8 0.3-1.3 0.3-0.4 0.6-0.1 0.2 0.1 0.4 0.2 1.2 0.7 0 0.7 0.6 1-0.1 0.5 1.1 0.1 0.3 0.9 1.6 0.7z m-11.5-3.9l-0.6-0.5-0.7-0.8-1.1-1.4-0.9-1.3-0.3-0.5 0.5-0.4 1-0.1 0.8-0.2 0.5-0.5 0.4-0.8 0.5 0 0.1 0.1 0.2-0.9-0.3-1.1-0.6-0.3-0.6-0.3-0.5 0-1-0.2-0.5-0.1-0.2-0.2 0.4-0.3 0.4-0.2 0.1 0.4 1.4 0.1 1.1 0.5 0.7 0.8 0.1 0.2 0.2 1.2 0 0.9-0.2 1 0.2 0.8 1.4 0.3 0.4 1-1.8 0.1-0.5 0.6 0.2 0.8 1.1 0.4 0.6 0.3 0.8 0.4 0.3 1.1 0 0.5-1.3-0.8-1.6-0.4-0.7-0.2z"/>
+          <path d="M57.1 199.6l3.7-0.1 1.4-0.3 1.5 0.1 3.5 0.9 6.2 0.6 1.1-0.2 0.7-0.4 1.5-1.5 1.5-0.7 1.8-0.6 8.9-1.7 5.7-0.4 3.4-0.6 2.8 0 8.5 2.1 1 0.5 1.9 1.3 1.4 1.3 11.1 14.5 0.3 0.3 0.3 0.2 1.8 0.6 1 0 0.7 0 4.8-1.8 10.3-2.3 3.4 0 2.5 0.4 6.6 2.2 3.6 0.7 7.4 0.5 1.2-0.3 1-0.5 0.7-0.9 0.5-1 1.8-4.5 0.5-1 0.6-1 0.9-0.8 2.9-1.8 2.7-2.6 0.9-0.3 1 0.2 0.8 0.6 0.4 1 0.2 1.1-0.4 7.9 0.1 4.4 0.3 2.8 0.5 2.1 0.7 1.7 0.5 1 0.7 1 0.7 0.9 2.9 2.4 2 1.2 4.7 1.6 2.7 0.6 8.6 0.9 1.6-0.1 1.4-0.5 1.1-0.5 1.4-0.4 1 0.2 1.5 0.9 0.9 0.3 0.8 0.1 1.9 0 1.2 2.9 0.7 0.8 0.9 0.6 1.1 0.1 1-0.1 1.1-0.5 4.5-2.3 1.3-0.3 1.5-0.3 1.1 0.1 0.7 0.2 0.6 0.3 1.7 1.4 0.8 1 0.7 0.5 1 0.4 13.9 3.3 2.4 0.9 1.6 0.9 0.9 1.1 0.2 0.2 1 1 1.3 0.9 2.6 1.3 5.1 4.2 2.5 2.5 0.6 1 0.4 1.1 4.7 19.1 0.5 0.9 0.7 0.9 0.6 0.7 1.7 1.1 5.2 2.8 1 0.9 0.9 1.1 0.2 1-0.1 1-0.4 1-0.7 1-0.8 0.9-5.3 4.6-2 2.7-1.3 2.6-2.5 7.8-0.8 1.6-0.7 1-0.7 0.5-1.4-2.2-0.8-0.6-1-0.6-0.9-0.1-18 2.7-4.3 0.1-2.1-0.3-1.7-0.6-5.2-4-5.4-2-1.6-0.8-1-0.9-0.7-1.9-0.5-1-1-0.8-0.8-0.1-0.5 0.5 0 0.9 0.2 0.9 0.1 1-0.2 0.7-1.1 0.5-1-0.1-1.1-0.3-3.2-1.5-1.4-0.5-1 0-1 0.1-0.6 0.3-3.8 3.1-1.2 0.8-1.3 0.3-0.9-0.3-0.4-0.7 0-0.9 0.1-1 0-1-0.3-0.9-0.7-0.8-2.7-1.7-0.7-0.8-0.3-0.8-0.1-0.8 0.1-0.4 0-0.2 0-0.2-0.1-0.6-0.4-0.7-0.7-0.5-0.9-0.4-1-0.1-4.3-0.2-1.9-0.3-1.2-0.7-1-0.8-2.4-3.7-0.9-1.7-0.8-2-1.2-4.4-0.4-0.8-0.6-0.9-1.1-0.8-0.8-0.3-0.8 0.1-8.1 4.4-0.9 0.3-1 0.2-1-0.1-1.8-0.3-1.3-0.5-3.6-2.3-2-0.9-1.3-0.2-1.2 0-0.9 0.3-11.1 5.3-5 1.2-0.9 0.5-0.8 0.7-0.2 0.8 0.2 0.8 0.7 0.5 0.9 0.1 2.8-0.5 0.8-0.1 0.6 0.1 0.7 0.3 0.8 0.5 0.6 0.7 0.4 0.6 0.4 0.9 0.6 2.9 0.1 1.3-0.1 2.7-0.9 6.5 0.1 2.1 0.2 1.1 0.3 1.1 0.4 1 0.6 1 0.7 0.9 0.9 0.9 1 0.7 1 0.4 5 1.5 0.9 0.5 0.8 0.9 0.4 1.1 0.1 1.2-0.3 1-0.3 0.8-2.6 4.3-0.8 2-0.2 1-0.1 1 0.1 1 0.3 1 2.5 5 0.6 2 0.5 2 0.2 0.8 0.4 0.6 0.6-0.2 1.6-1.3 0.9-0.3 1 0.1 7.7 4.5 0.7 0.5 0.2 0.3 0.2 0.1 0.6 2.7 0.4 1 0.5 0.9 0.8 1 5.6 4.7 0.8 0.9 0.6 0.9 0.7 1.4 1.3 3.6 1.5 5.8 0.4 1 0.1 0.1 0.3 0.1 0.7 0.2 2.7 0.2 0.9 0.1 0.6 0.4 0.6 0.5 0.3 0.9 0.1 0.9-1.6 10.9 0.6 15.7-0.2 0.7-0.4 0.9-0.9 1.2-1 0.8-1 0.5-1.1 0.2-2.1-0.1-1.9-0.4-1 0-0.9 0.1-1 0.6-0.9 1-1.2 1.5-1 1-1.1 0.7-1 0.4-0.9 0.3-1.7 0.2-3.5 0-0.9 0.2-0.9 0.4-0.7 0.8-0.5 0.8-0.3 0.9-0.5 2.8-0.1 0.3-2.7-4-2.7-3.7-1.2-1.7-0.1-1.3 0.2-0.4 0-0.4-0.1-0.5-0.1-0.3-0.3-0.2-0.6 0.6-0.4 0-0.8-0.4-0.5-0.8-0.8-1.7 1.1 0 1 0.2 1 0 1-0.4 0.6-0.8 0-2.4 1-2-0.1-1-0.9-2-0.2-1.2 0.2-2.8 0-1.1-0.3-1-0.3-0.9-0.5-0.9-0.9-1-0.5-0.5-0.4-0.3-0.4-0.4-0.4-0.9-0.4-0.3-0.9-0.7-0.8-1-0.7-1-0.6-1.1-0.1-0.5-0.1-1.1-0.1-0.4-0.2-0.4-0.7-0.7-0.2-0.5 0.7-0.5-0.6-1.1-1.9-2-0.3-0.6-0.7-2-0.3-0.4-0.5-0.4-0.3-0.2 0-0.3 0-0.6-0.1-0.3-0.4-0.5-0.6-1.4-0.3-0.5-0.6-0.4-1.3-0.6-0.5-0.3-1.7-2.7-1.1-1.4-0.9-0.1-0.1 0.6 0.3 0.5 0.1 0.5-0.5 0.3-0.5-0.2-1.3-0.9-0.7-0.2-0.4-0.3-0.9-1.2-0.3-0.5-0.1-0.3 0.1-1-0.1-0.3-0.5-0.1-0.3-0.3-0.5-1.2-0.1-1.1 0.4-1.1 0.9-1 0.6-1 0.2-1.3-0.2-1.4-0.4-1.1-1-1.1-1.4-0.7-1.5-0.4-1.4-0.1-1.6-0.6-1-1.3-2.8-6.6-1-1.6-1.8-2.6-3.2-7.9-3.4-6.1-2.1-2.7-2.5-2.2-1.1-1.3-0.7-2.1-1.3-2.3-0.9-3-0.7 0.2-0.6-0.5-1.1-1.7-2.8-2.5-3.4-4.5-1.2-2.4-0.2-0.4 0-0.5 0.1-0.4 0.4-0.7 0.1-0.4-0.2-0.6-1.1-1.5-3.6-4.4-2-1.4-0.6-0.5-1-1.2-1.2-1.9-1.3-1.3-1.6-3.1-0.5-1.2-0.1-1-0.1-1.8-0.2-0.9-0.4-0.6-1.4-1.6-0.8-1.3-1.1-2.9-0.9-1.3-0.4-0.3-0.9-0.3-0.3-0.2-0.2-0.4-0.2-0.6-0.5-1-0.2-1.3-0.4-0.7-2.2-2.6-0.7-1.2-0.4-0.4-0.7-0.4-2.1-1.6 0 0.3-0.3 0-0.4-0.6 0.5-0.5 1-0.5 0.7-0.4 0.5 0.2-0.1-0.3-0.4-0.7-0.2-0.1-1.2-0.3-0.4-0.2-0.3 0 0 0.4-0.2 0-0.2-0.3-0.3-0.4-0.3-0.2-0.3-0.1-0.8 0-0.3 0-0.6-0.6-2-1.4-0.4 0.3-0.5 0-0.5 0 0.2 0.2 0.1 0.3 0.2 0.2-0.4-0.3-0.5-0.3-0.5-0.2-0.5 0.3-0.4 0.3-1.4 0.4-0.3 0.2-0.3 0.2-0.1 0.4-0.3 0 0-0.4-0.3 0-0.6 0.2-0.9-0.2-0.8 0-0.6 0.7-0.2-0.2-0.2-0.1 0-0.4 0.4 0 0-0.3-0.2-0.4 0.2-0.2 0.4-0.3 0.4-0.1-0.4-0.2-0.4 0-0.5 0-0.4 0.2 0 0.3 0.3 0 0 0.4-0.5 0.1-0.3 0.4-0.4 0.8-0.2-0.2-0.1 0-0.1-0.1-0.2 0 0.2-0.3 0.2-0.3 0.4-0.2 0.4-0.2 0-0.2 0-0.2 0-0.3-0.6 0-0.5 0.1-0.3 0.3-0.1 0.6-0.2-0.2-0.1 0-0.1 0.1-0.2 0.1 0-0.2 0-0.3 0-0.2-0.2 0 0 0.4-0.4 0-0.2-0.4-0.2-0.3-0.2 0.1-0.3 0.2-0.4-0.3-0.1-0.1-0.2-0.4-0.2-0.2-0.3-0.6-0.1 0.1-0.1 0.1-0.2 0.2-0.2 0.2-0.5-0.4-0.2 0.2 0 0.5-0.2 0.4-0.3 0.2-0.6 0.3-0.2 0.2 0 0.3 0.9 0.7 0 0.3-0.3 0.1-0.1 0-0.1 0.1-0.1 0.1-0.3-0.3-0.2 0.9-0.1 0.6-0.3 0.4-0.9 0.1 0.1-0.2 0.1 0 0.1-0.1-0.3-0.4-0.2-0.7-0.1-0.6 0-1.2-0.3-0.3-1.1 0.4 0.2-0.6-0.2-0.3 0.6-0.9 0.4-0.4 0.4-0.2 0-0.2 0.3-0.1 0.3-0.4 0.3-0.1-0.3-0.4 0.1-0.2 0.2-0.2 0.2-0.2 0.4 0 0 0.2-0.1 0-0.1 0-0.1 0.1 0.4 0.2 0.4 0.1 0.2-0.1 0.2-0.5-0.3 0 0-0.4-0.3-0.3 0.1-0.3 0.3-0.3 0.5-0.1 0-0.3-0.2-0.5 0.4-2.2 0.2 0.1 0.3 0.1 0.2 0.1-0.1-0.1 0.1-0.5-0.3 0.1-0.1 0.1-0.3-0.2 0.9-0.9 0.9-1.6 0.7-1.8 0.4-2.3 0.9-1.3 0.3-1.4 0.3-0.9 1.2-2.1-0.3-2.2-0.1-2.3-0.7-2.3 0.8-3 0.6-1.6 0.7-1.3 0-0.3-0.3 0 0.7-1.2 0.1-0.6-0.2-0.6 0-0.3 0.5-1.5-0.1-0.4z m94.3 168.1l0.4 0.4 0.2 0.2-0.1 0-0.2-0.1-0.3 0 0 0.2 0.2 0.3-0.4-0.1-0.8-0.5-0.3-0.5 0.1-0.4-0.4 0-0.5 0.2-0.3-0.4-0.2-0.7-0.4 0-0.5 0.3-0.1-0.3 0.3-0.9 0.4-0.5 0.6 0 0.6 0.1 0.5 0.3 0.4 1 0.3-0.1 0.1-0.3 0.1 0.2 0.3 1.6z m-3.7 0.1l0.7-0.1 0.1 0.2-0.7 0.5-0.4 0.2-0.4 0.6-0.5 0.8-0.6 0.5-0.9-0.6-0.8-0.9-0.8-0.6-1.8-1.9-0.1-0.1-0.1-0.3 0-0.2 0.1-0.1 0-0.2-0.5-0.5-0.5-0.7 0.1-0.4 0.4 0.1 0.4 0.4 0.8 1 0.4 0.3 0.8 0.4 1.5 0.7 0.7 0.2 0.6 0 0.4 0.3 0.2 0.3-0.9 0-0.2 0.7 0.4 0.5 0.5-0.1 0.5-0.6 0.6-0.4z m-4-5.5l-0.4-0.2-0.6-0.5 0.1-0.7 0.6-0.4 0.6 0.1 0.4 0.5 0 0.6-0.4 0.4-0.3 0.2z m-2.5 1.7l-0.5-0.4-0.2 0-0.2-0.1-0.2-0.3 0-0.5-0.4-0.1-0.6-0.1-0.1-0.2 0.2 0.1-0.1-0.3-0.4-0.5-0.6-0.4-0.8 0-0.3 0.3-0.2 0.1-0.4 0.1 0.1-0.4 0.4-0.7 0.7-0.1 0.8 0.2 2.1 1.5 0.2 0.3 0.3 0.6 0.6 0.4 0.7 0.2 1 0.6 1.5 1.3 0.4 0.4-0.1 0.2-0.2 0.2 0.1 0.2-0.2-0.2-0.7-0.5-0.6-0.3-0.4-0.2-0.2-0.3-0.2-0.5-0.4-0.2-0.3 0.1-0.4-0.1-0.4-0.4z m4.7-2.5l0-1.4-0.1-0.3 0-0.5 0.3-0.4 0.4-0.1 0.4 0.1 0.2 0.5 0 0.4-0.1 0.4-0.2 0-0.3-0.2 0 0.1 0.1 0.3 0 0.2-0.1 0 0.3 0.6 0.3 1.3-0.2 0.4-0.5-0.7-0.3-0.2-0.2-0.5z m-9.4-1.1l0 0.3-0.3 0.5-0.3 0.3-0.3-0.2-0.6-0.4-3.4-1.8-1-0.2-0.3 0.7-0.4-0.2-0.8-0.8-0.6-0.7-0.2-1 0.3-0.8 1.1-1.1 0.5-0.6 0.3-0.2 0.1 0.3-0.3 0.5-0.7 1.1 0.1 0.4 0.3 0.4 0.3 0.3 0.2 0 0.2 0.1 0.3 0.3 0.3 0.2 0.4 0.1 1.1 1.2 0.5 0.4 0.6 0 0.4-0.1 0.1 0.2 0 0.3 0.2 0.4 0.4 0.2 0.4-0.1-0.1-0.1 0-0.2 0.2-0.2 0.4 0.1 0.6 0.4z m-6-7.6l0-0.4-0.1-1 0.1-2 0.7-1.6 1-1.1 0.3-0.1-0.5 0.6-0.5 0.7-0.4 0.8-0.1 1 0.4 0.8 0.8 0.8 0.3 0.1 0.4 0.1-0.1 0.3-0.3 0.6-0.2 0.7 0.1 0.2 0 0.3 0.4 0.3 0.5-0.2 0.1 0.1-0.2 0.4-0.4 0.3-0.6-0.1-0.9-0.7-0.4-0.4-0.4-0.5z"/>
+          <path d="M166.7 409.6l0.1-0.3 0.5-2.8 0.3-0.9 0.5-0.8 0.7-0.8 0.9-0.4 0.9-0.2 3.5 0 1.7-0.2 0.9-0.3 1-0.4 1.1-0.7 1-1 1.2-1.5 0.9-1 1-0.6 0.9-0.1 1 0 1.9 0.4 2.1 0.1 1.1-0.2 1-0.5 1-0.8 0.9-1.2 0.4-0.9 0.2-0.7-0.6-15.7 1.6-10.9-0.1-0.9-0.3-0.9-0.6-0.5-0.6-0.4-0.9-0.1-2.7-0.2-0.7-0.2-0.3-0.1-0.1-0.1-0.4-1-1.5-5.8-1.3-3.6-0.7-1.4-0.6-0.9-0.8-0.9-5.6-4.7-0.8-1-0.5-0.9-0.4-1-0.6-2.7-0.2-0.1-0.2-0.3-0.7-0.5-7.7-4.5-1-0.1-0.9 0.3-1.6 1.3-0.6 0.2-0.4-0.6-0.2-0.8-0.5-2-0.6-2-2.5-5-0.3-1-0.1-1 0.1-1 0.2-1 0.8-2 2.6-4.3 0.3-0.8 0.3-1-0.1-1.2-0.4-1.1-0.8-0.9-0.9-0.5-5-1.5-1-0.4-1-0.7-0.9-0.9-0.7-0.9-0.6-1-0.4-1-0.3-1.1-0.2-1.1-0.1-2.1 0.9-6.5 0.1-2.7-0.1-1.3-0.6-2.9-0.4-0.9-0.4-0.6-0.6-0.7-0.8-0.5-0.7-0.3-0.6-0.1-0.8 0.1-2.8 0.5-0.9-0.1-0.7-0.5-0.2-0.8 0.2-0.8 0.8-0.7 0.9-0.5 5-1.2 11.1-5.3 0.9-0.3 1.2 0 1.3 0.2 2 0.9 3.6 2.3 1.3 0.5 1.8 0.3 1 0.1 1-0.2 0.9-0.3 8.1-4.4 0.8-0.1 0.8 0.3 1.1 0.8 0.6 0.9 0.4 0.8 1.2 4.4 0.8 2 0.9 1.7 2.4 3.7 1 0.8 1.2 0.7 1.9 0.3 4.3 0.2 1 0.1 0.9 0.4 0.7 0.5 0.4 0.7 0.1 0.6 0 0.2 0 0.2-0.1 0.4 0.1 0.8 0.3 0.8 0.7 0.8 2.7 1.7 0.7 0.8 0.3 0.9 0 1-0.1 1 0 0.9 0.4 0.7 0.9 0.3 1.3-0.3 1.2-0.8 3.8-3.1 0.6-0.3 1-0.1 1 0 1.4 0.5 3.2 1.5 1.1 0.3 1 0.1 1.1-0.5 0.2-0.7-0.1-1-0.2-0.9 0-0.9 0.5-0.5 0.8 0.1 1 0.8 0.5 1 0.7 1.9 1 0.9 1.6 0.8 5.4 2 5.2 4 1.7 0.6 2.1 0.3 4.3-0.1 18-2.7 0.9 0.1 1 0.6 0.8 0.6 1.4 2.2 0.8 2 0.2 1 0.1 1.2 0 1.1-0.4 1.7-0.2 0.6-1.5 2.9-0.6 1.4 0.1 1.2 0.4 1 0.9 0.8 0.9 0.3 1 0.1 2-0.4 1.1 0 0.9 0.8 0.4 1 0.1 1-2.4 16.2 0 1.4 0.2 1.2 1.3 5.3 0.8 4.8-0.4 12.7 0.2 1.3 0.5 1.1 0.6 0.9 0.7 0.7 0.5 0.4 0.8 0.4 0.9 0.3 1 0.1 1 0 1-0.2 10.7-3.8 2.2-0.3 5.1 0.1 1.9-0.2 0.9-0.2 0.8-0.2 0.6-0.3 0.8-0.4 0.8-0.6 0.9-0.8 3.1-4 1-0.9 1.2-0.7 1.5-0.5 1.2-0.3 7.4-0.3 12.1 1.9 3.7 1 1.1 0.4 5.7 1.4 1.9 0.6 0.8 0.6 0.7 0.9 0.3 1.2 0.2 1.1-0.9 12.4 0.2 1.1 0.4 1.1 0.8 1.3 1 0.8 1 0.5 5.6 1.5 0.7 0.3 0.4 0.4 0.1 0.1 0.8 1.3 0.7 1.8 2.3 9 0.8 1.9 0.6 0.9 0.7 0.7 3.7 2.8 0.1 1.6-0.6 2.1-0.5 1.4-0.1 0.2-2 2.6-0.7 1.1-0.3 0.8 0 0.7 0.1 0.3 0.6 1.6 0 1.1-0.1 1.8-0.8 3.6-0.5 8.1 0.1 4.3-5.6-0.8-2.8 0.1-1 0.5-0.8 0.6-0.6 0.9-0.2 0.9 0.1 1 1.1 3.1 0.2 1 0.1 1-0.1 2.1-0.3 1.1-0.6 1.3-1.1 1.7-1.1 1.1-1 0.8-7.7 3.4-5.6 3.1-1.9 1.5-1.3 1.4-0.5 1.1 0.3 1 0.8 0.8 0.9 0.7 4.7 2.6 0.7 0.8 0.3 1-0.5 1.3-0.8 0.9-1 0.6-5 1.8-1.2 0.8-1.3 1.1-6 6.1-12.3 9.7-1.7 2-3.1 4.8-1.1 1.2-1 0.4-1.1 0.1-6.6-2.1-1.1-0.1-1.3 0.3-1.8 1.1-4.4 3.7-0.9 0.6-0.2 0-1.1 0.3-0.9 0.1-1 0-2.8-0.4-0.2 0-0.9-0.6-0.5-0.8-0.2-0.9 0.2-0.9 0.4-1.9 0.3-2-0.1-1-0.2-1-0.4-1-0.7-0.9-0.8-0.7-0.8-0.6-1.3-0.7-2.9-0.9-0.8-0.4-0.6-0.7-0.1-0.9 0.2-1 2.4-5.6 0.2-0.9 0.3-2.2 0-1.4-0.2-0.9-0.3-0.9-0.5-0.8-0.8-0.7-0.9-0.2-0.9-0.1-4.1 0.5-9.2 2.9-3.3 0.6-1-0.4-0.4-0.8-0.2-1.9-0.2-0.9-0.4-0.8-0.9-0.5-1.2 0-4.6 0.8-1.7 0.1-1.5-0.2-1-0.7-1-0.8-3.3-4-3.5-3.1-0.6-0.6-1.8-2.9-0.9-0.8-1.1-0.4-1.3 0.1-3 0.7-5.4 0.4-1.4 0.2-0.1-1-0.1-1.3-0.3-1-0.1-0.9-0.7-0.7-0.3-0.5-0.2-0.8 0-0.8-1 0.6-0.4-0.3-0.4 0 0.1 0.8 0.4 0.4 1.1 0.4 0 0.3-1.5-0.1-0.9-0.9-0.1-2.3-1.9-2.5-1-3.2-0.3-1.1-0.2-1.2-0.3-1.1-0.7-0.8-0.4-0.2-0.5-0.1-0.7-0.3-0.4-0.5-0.2-0.6-0.3-0.9-0.6-0.6-0.7-0.3-0.7-0.2-0.6-0.3-0.4-0.3-0.4-0.8-0.7-0.8-0.4-0.3-0.7-0.5-0.8-0.3-0.8-0.1-1-0.7-0.5-0.4-0.9-0.8-0.8-1.1-0.9-0.6-0.7-0.7-1.3-1.3-0.4-0.2-0.3 0-0.4 0.1-0.4 0.3-0.9-0.7-0.7-0.6-1.8-1.1-1.3-1 0.2-0.6 0.8-0.5 1-0.2-0.4-0.4-0.6 0.2-0.8 0.4-0.4-0.6 0.5-0.8 0.2-0.7-0.4-0.2-0.3 0.3-0.6 0.1-0.2 0.5 0.2 0.2 0.2 0.5 0 0.6 0.1 0.4-0.3 0.3-0.9-0.4-1.3 0.4-2-1.5-0.6-0.6-1.7-1.3-0.4-1-0.5-0.4-0.8-0.3-0.7-0.5-0.7-0.6-0.8-0.5-1 0-0.5-0.1-0.7 0.5-0.1 0.7 0.2 0.9-1.8 0.1-0.5-0.7-1.2-0.6-1 0.3-1-1-0.6-1.1-0.9-1.3-1.6-1.3-0.5-1.6 0.5-1 0.3 0.1 0.8 0.6 0.4-0.8-0.3-0.8-3.2-4.7z"/>
+          <path d="M353 630.7l1.9-0.8 1.8-0.1 0.9 0.1 0.6 0.3 0.5 0.4 0.7 0.8 0.5 0.9 0.3 1 0 0.9-0.1 0.9-1.3 6 0 1.1 0.1 1.2 0.2 0.9 1.8 3.1 0.3 1.1 0 1.1-1.5 4.7-0.4 0.9-0.6 0.8-0.8 0.6-0.8 0.3-0.6 0.2-0.6 0-4.8-0.5-1 0-0.9 0.2-1 0.3-1.9 1.1-2.2 1.7-0.8 0.4-0.8-0.1-0.9-0.4-0.7-0.6-0.7-0.3-0.4 0.4-0.1 0.9-0.3 10.6 0.2 1.9 0.3 0.9 0.3 1 0.5 0.9 0.8 0.7 0.8 0.5 0.9 0.2 4.7 0 1.8 0.1 1.9 0.4 0.9 0.3 0.8 0.5 0.7 0.7 0.5 0.9 3 9 0.3 1.4 0 1.2-0.2 1.2-1.5 5.8-0.8 1.8-0.5 0.7-0.8 0.8-2.7 1.5-0.8 0.5-0.7 0.8-0.4 0.8-0.8 1.9-0.5-0.7-0.3-0.5-0.1-0.6-0.2-0.2-0.4-0.2-0.3-0.2 0.2-0.7-0.8-0.1-0.9-0.3 0.2-0.2 0-0.1 0.1-0.1 0.3-0.2-0.3-0.5-0.4-0.3-0.5 0-0.6 0.2 0.3-0.4 0.2-0.5 0.1-0.4-0.3-0.3 0.3-0.6-0.3-0.3-0.5-0.1-0.7 0.1 0.1-0.6-0.1-0.9-0.3-0.9-0.4-0.6-0.2-0.5-0.3-1.7-0.1-0.4-0.1-0.4-0.1-2.4-0.1-0.3-0.1-0.2-0.2-0.1-0.3 0-0.2-0.2-0.1-0.4 0-0.4-0.1-0.3-1.6-1.1-0.2-0.3-0.1-0.5-0.2-0.5-0.3-0.5-0.7-0.3-0.2-0.2-0.2-0.2-0.1-0.1-0.3 0.1-0.4 0.4-0.2 0.1-0.5-0.2-0.4-0.3-0.5-0.3-0.3-0.5-1.2-2.5-0.5-0.7-0.5-0.6-0.3-0.6 0-0.6 0.1-0.9 1-3 0.2-0.9 0.1-0.3 0.2-0.2 0.1-0.3-0.4-0.6-0.2-0.1-1-0.5-1.8-0.5-0.4-1.4 0-0.3-0.9-1.1-0.2-0.1 0-0.5 0.1-0.5 0.2-0.9 0.2-0.5 0.2-0.4 0.2-0.3 0.1-0.8 0.2-1 0.6-1.1-0.4-0.7-0.8-0.5-0.9-0.4-1.8-0.5-0.8-0.6-0.4-1.2-0.7-1-0.1-0.4 0-0.5 0.3-1.1 0-0.4-0.3-0.9 0-0.4-0.2-0.4-0.8-0.5-0.2-0.4-0.2-0.9-0.4-0.5-0.7-0.4-1.2-0.9 0.1-0.2 0.1-0.5-0.1-0.5-0.5-0.7-0.1-0.4 0-0.5-0.3-0.7 0.1-0.5 0.3-0.5 0.4-0.3 0.2-0.4-0.3-0.3 0.1-0.5-0.1-0.5-0.3-0.4-0.1-0.6-3.6-1.3-1.1-0.5-2.2-2.3-1-0.6 0-0.3 0.5 0.1 1 0.6 0.2-1.9-0.1-2.3-0.3-1-2-2.9-0.8-0.5-2.2-0.3-0.9 0-0.4 0.5 0.5 1.1-0.6-0.5-0.6-1-0.3-0.9-0.1-0.4-0.6-0.4-1.8-2.6-1.3-0.8-0.3-0.3 0.1-0.3 0.5-1.2-0.3-0.9-0.5-0.5-1.3-0.5-1.6-1-0.4-0.2-0.4-0.6-0.4-0.1-0.4-0.3-1-1.5-0.4-0.1-1-0.3-0.4-0.1-0.8-0.2-0.9-0.5-2-1.6-1.5-1.7 0.3-0.7-0.7-0.5-1.2-0.3-1.3-0.2-0.3-0.3-0.4-0.5-0.6-0.7-0.4-0.4 0-0.2-0.4-0.3-1.4-1.3-0.7-0.3-1 0-1 0.2-0.9 0.3-0.4 0.4-1-0.4-1.8-1.1-1-0.4 0 0.6 0.3 0.3 0.4 0.2 0.3 0.4 0.2 0.1 0.4 0.2 0.3 0.3-0.3 0.2-0.7-0.2-4.3-2.6-0.6-0.6-0.5-0.2-0.9-0.3-0.8-0.4-0.6-1.3-0.8-0.8-2.3-1.8-1.2-1.2-2.5-4.1-0.9-0.7 0-0.4 0.4 0 0.4 0 0.2-0.2 0.2-0.4-0.7-0.1-0.5-0.4-1-0.9-0.3-0.5-0.3-1.4-0.2-0.5-1.4-1.6-0.1-0.8 0.7-1.1-1.5-0.5-0.6-0.1 0.1 0.4 0.2 0.2 0.2 0.2 0.3 0.2-0.8-0.3-1-0.6-0.5-0.7 0.3-0.7-0.4-0.2-0.2-0.3 0-0.3 0.3-0.4 0.2 0.3 0.3 0.3 0.4 0.2 0.6 0.1-0.2-0.5-0.1-0.3 0-0.3-0.1-0.4-0.2 0-0.3 0.1-0.3-0.2-0.6-0.8-0.2 0-0.1 0.8-0.9-0.6-1.3-0.9-0.8-1.2 0-1.1 0.2 0.3 0.3 0.3 0.3 0.1 0.1-0.3-0.1-0.6-0.3-0.2-0.3-0.1-0.3-0.2-0.4-0.2-0.5 0-0.4 0.2-0.5 0.1 0-0.2-1.2-1.8-0.3-0.7-0.1-0.8 0-1.1-0.1-0.4-0.6-0.4-0.2-0.5 0-0.5-0.2-0.2-0.3-0.1-1.8-1.3-0.5-0.5-0.2-1.3-0.4-0.9-0.1-0.5 0.1-0.3 0.4-0.6 0.1-0.3-0.3-0.6-1.7-2.5-0.5-0.4-1.4-2.2 3.4-3 0.5-1.1 0.1-1.5-0.4-1.3-0.6-0.7 0-0.3 0.4-0.4 0-0.6-0.7-1.5-0.6 0.9-0.4 0.2-0.4-0.6-0.4-0.9 0.3-0.3-0.7-1-0.2-1.4 0.1-1.4-0.1-1.3-0.4-1.2 0-0.7 0.9-0.3 0.2-0.3 0.2-0.6 0-0.8-0.3-0.5-0.3 0.9-0.3 0.5-0.3 0.2-0.6 0-0.1-0.2 0-0.4-0.2-0.4-0.3-0.2-0.1-0.2-0.2-0.2-0.2-0.3-0.2-0.5 0-0.7-0.2-0.4-0.5-0.3-0.1-0.2-0.2-0.4 0-0.1-1.5-1.9-1.3-2.7-0.7-4 0-0.9 1.2-0.4 1.1 1.5 0.9 0 0.2-1 0-0.9 0.1-0.5 0.1-0.2 0.6-0.4 0.1-0.2 0.1-0.9 0.4-1.9 0.1-0.9-0.2 0-0.7 1.6-0.2-0.7 0.1-0.5 0.3-0.5 0.1-0.7 0-1.9 0.4-1.3 1.4-1.6 0.4-2 0.3-0.5 0.4-0.3 0.4-0.5 0.6-1.3 0.7-0.8 0.2-0.2 0-0.6-0.3-0.5-0.4-0.3-0.5 0.1-0.3 0.5-0.3 1.3-0.3 0.5-1 0.2-0.1-1.4 0.6-1.9-0.4-2.6 0.3-2.6-0.3-1.3-0.3-0.6-1.2-1.6-1.1-2.6-0.9-1.4-0.3-0.8 0.1-0.5 1.2-1.1-0.1-0.4-2.1-2.3-0.8-0.7-0.4 0.2 0.1 0.3 0.8 0.8 0.3 0.4 0.1 0.5 0.1 0.5 0.1 0.5 0.3 0.4-0.3 0.4-0.6-1.4-1.2-1.8-1.2-1.3-2.2-4.1 0-0.6 1.3 0.7 1.4 3.1 0.7 0.2 0.5 0.3 0.4-0.1 0.3-0.3 0.3-0.5-0.5-0.6-0.7-1.4-0.4-0.3-0.3-0.1-0.4-0.3-0.3-0.5-0.1-0.5-0.4-0.8-0.8-0.3-1-0.3-0.7-0.4-0.9 0.2-0.6-0.7-0.9-2 0.5-0.5 0.3-0.6 0.3-0.7 0.1-0.7-0.1-1.3-0.2-0.7-0.1-0.6-0.5-0.2-0.4 0.7-0.5-1.1-0.8-1-0.8-1.5-0.7-1-0.4-1-0.5-0.7-0.1-0.6-0.4-0.9 0-0.6-0.3-1.4-0.6-1.1-0.5-1.4-0.2-0.9 1.4-0.2 5.4-0.4 3-0.7 1.3-0.1 1.1 0.4 0.9 0.8 1.8 2.9 0.6 0.6 3.5 3.1 3.3 4 1 0.8 1 0.7 1.5 0.2 1.7-0.1 4.6-0.8 1.2 0 0.9 0.5 0.4 0.8 0.2 0.9 0.2 1.9 0.4 0.8 1 0.4 3.3-0.6 9.2-2.9 4.1-0.5 0.9 0.1 0.9 0.2 0.8 0.7 0.5 0.8 0.3 0.9 0.2 0.9 0 1.4-0.3 2.2-0.2 0.9-2.4 5.6-0.2 1 0.1 0.9 0.6 0.7 0.8 0.4 2.9 0.9 1.3 0.7 0.8 0.6 0.8 0.7 0.7 0.9 0.4 1 0.2 1 0.1 1-0.3 2-0.4 1.9-0.2 0.9 0.2 0.9 0.5 0.8 0.9 0.6 0.2 0 2.8 0.4 1 0 0.9-0.1 1.1-0.3 0.2 0 0.9-0.6 4.4-3.7 1.8-1.1 1.3-0.3 1.1 0.1 6.6 2.1 1.1-0.1 1-0.4 1.1-1.2 3.1-4.8 1.7-2 12.3-9.7 6-6.1 1.3-1.1 1.2-0.8 5-1.8 1-0.6 0.8-0.9 0.5-1.3-0.3-1-0.7-0.8-4.7-2.6-0.9-0.7-0.8-0.8-0.3-1 0.5-1.1 1.3-1.4 1.9-1.5 5.6-3.1 7.7-3.4 1-0.8 1.1-1.1 1.1-1.7 0.6-1.3 0.3-1.1 0.1-2.1-0.1-1-0.2-1-1.1-3.1-0.1-1 0.2-0.9 0.6-0.9 0.8-0.6 1-0.5 2.8-0.1 5.6 0.8-0.4 4.5 0.1 3 0.3 0.9 0.5 0.7 0.5 0.4 1.6 1 0.9 0.7 0.9 0.9 0.8 1.5 2.3 7.4 1.1 2.5 0.4 1.2 1.3 6.7 5.5 13.3 0.5 0.6 0.6 0.7 0.8 0.7 0.9 0.6 1 0.4 0.9 0.3 1.6 0.3 6.7-0.1 9.4 0.8 1.9 0.4 1.1 0.4 1 0.5 1.2 1 0.6 1 0.2 1-0.2 0.8-0.6 2-0.3 4.8 0.1 1.1 0.3 1.2 0.9 1.8 0.9 0.8 1 0.6 1.9 0.7 1 0.1 1-0.1 5.1-1.4 0.9-0.2 1 0.1 5.1 1 0.9 0.2 0.8 0.5 0.7 0.7 0 0.2-1.2 6.9 0 1.9 2.2 15.6 0 0.9-0.2 1-0.3 0.9-0.4 1-0.5 0.9-1.3 1.7-0.5 0.9-0.4 0.9-0.1 0.9 0.6 7.8-0.3 2-1.8 6.7 0 0.9 0 1 0.3 1 0.5 0.9 11.3 16.9-4.6 1.8-6.8 4-1.5 0.5-1.3 0.1-2.7-1-1.2-0.2-1.2-0.1-1.8 0.3-1.4 0.4-2.7 1.1-0.8 0.3-0.7 0.1-2.7 0.1-1.5 0.3-1.2 0.5-1.1 0.7-1.7 1.7-1.2 1-8.5 4.7-11 9.9-1.4 1.1-2.4 1.3-1.4 0.4-1.2 0.1-1-0.3-0.9-0.5-0.8-0.7-0.7-1-4.4-9.1-0.8-1.3-2.5-2.1-0.8-0.3-1.1-0.2-0.9 0.3-4 2.3-1 0.4-0.9 0.3-4.6 0-1.4 0.2-1.2 0.3-2.1 0.9-1.3 0.4-0.9-0.1-0.5-0.2-0.7-0.5-0.6-0.8-0.5-0.9-1.3-3.8-0.7-1-0.9-0.8-1.3-0.6-1.1-0.1-1 0.1-1 0.4-0.8 0.6-0.7 0.8-0.4 0.7-0.3 0.5-0.2 0.8-0.1 0.9 0.1 1 0.4 1.9 0.7 2.7 0.1 1.4 0 0.5-0.3 1.2-3 5.5-1.2 3-0.6 0.9-1 0.9-1 0.5-1 0.3-4.2 0.6-1.4 0.4-1.1 0.6-0.9 0.7-3.3 3.4-0.6 0.9-0.1 0.9 0.2 0.8 0.7 0.8 0.9 0.4 3.2 1 0.2 0.1 0.4 0.3 0.5 0.8 0.4 0.9 0.3 1 0 1-0.5 4.7 0.1 0.9 0.8 3 0.1 0.9-0.3 3.8 0.1 0.9 0.2 1 0.5 0.9 0.6 0.7 0.5 0.3 3.3 1.8 1.1 1 2.7 3.6 0.9 0.8 1 0.5 1.2 0.2 1 0 1-0.1 0.9-0.3 0.9-0.5 0.8-0.6 0.5-0.9 0.3-0.9 1.1-4.9 2.7-7.3 1.2-2 0.5-0.6 0.4-0.4 0.8-0.4 0.9-0.1 4 0 1.5-0.2 1.2-0.6z"/>
+          <path d="M495 265.8l0.5 0.3 3.7 2.7 1.8 1.7 0.7 1 0.6 1.2 1.2 4.2 0.5 1.3 1.1 1.3 0.9 0.9 12.3 7.1 2 0.6 3.1 0.3 1 0.2 0.9 0.5 0.9 0.8 2.7 3.3 4.1 3.9 1.8 1.3 1 0.4 1.8 0.4 7.2 0.2 1.9 0.4 1.9 0.7 2.7 1.5 10.6 7.7 1 0.5 1.1 0.3 1 0.2 1 0 6.4-1.2 1.1 0.1 0.9 0.3 1 0.6 7.1 7 1.2 1.8 0.8 0.9 0.9 0.6 13.8 5.5 0.5 0.4 0.6 0.6 0.6 0.9 0.4 0.9 0.3 0.9 0.2 1.5 1 64.1 0.4 2.2 0.3 0.7 0.6 0.9 0.7 0.9 15.3 11.1 10.9 11 1.8 2.2 1.8 3 1.8 4.2 1 3.4 0.7 5.7-0.3 10.5-12.3 100.7-11.6 90.8-5.6 1.6-101.1 10.9-11.1-0.7-4.1-1-2.3-0.9-3.1-1.5-12-7.6-0.7-0.5-17-15.7-4.2-7-2.4-2.9-0.7-1.1-0.3-1.5 0-1.1 1.7-7.9 0.8-1.7 2.5-4.1 0.4-0.8 0.3-0.9 0-0.2 0.1-0.9-0.1-0.8-0.3-1-0.6-1.1-3.5-4-2.6-3.4-1.4-2.2-2.3-2.8-6.3-5.7-11.3-16.9-0.5-0.9-0.3-1 0-1 0-0.9 1.8-6.7 0.3-2-0.6-7.8 0.1-0.9 0.4-0.9 0.5-0.9 1.3-1.7 0.5-0.9 0.4-1 0.3-0.9 0.2-1 0-0.9-2.2-15.6 0-1.9 1.2-6.9 0-0.2-0.7-0.7-0.8-0.5-0.9-0.2-5.1-1-1-0.1-0.9 0.2-5.1 1.4-1 0.1-1-0.1-1.9-0.7-1-0.6-0.9-0.8-0.9-1.8-0.3-1.2-0.1-1.1 0.3-4.8 0.6-2 0.2-0.8-0.2-1-0.6-1-1.2-1-1-0.5-1.1-0.4-1.9-0.4-9.4-0.8-6.7 0.1-1.6-0.3-0.9-0.3-1-0.4-0.9-0.6-0.8-0.7-0.6-0.7-0.5-0.6-5.5-13.3-1.3-6.7-0.4-1.2-1.1-2.5-2.3-7.4-0.8-1.5-0.9-0.9-0.9-0.7-1.6-1-0.5-0.4-0.5-0.7-0.3-0.9-0.1-3 0.4-4.5-0.1-4.3 0.5-8.1 0.8-3.6 0.1-1.8 0-1.1-0.6-1.6-0.1-0.3 0-0.7 0.3-0.8 0.7-1.1 2-2.6 0.1-0.2 0.5-1.4 0.6-2.1-0.1-1.6 0.9-1.8 2.8-4.4 0.6-0.6 1.2-0.9 1-0.4 1-0.2 0.9 0.2 4.6 2.3 1.9 0.7 3.1 0.8 7.8 0.8 2.1 0 6.2-0.9 2 0.1 3.4 0.9 0.8 0 0.9-0.2 1-0.5 1.1-0.9 0.8-1.2 0.7-1.7 0.1-1.3-0.3-1.1-1.2-2-0.4-0.9-0.2-1 0.2-1.2 0.6-1.3 4.2-5.5 4.1-4.2 1.1-0.7 1-0.5 14.4-3.5 1.7-0.8 1.1-0.7 2.3-2.2 3.1-2 0.9-1 0.8-1.3 1.6-3.2 1.2-1.6 0.7-0.7 0.5-0.5 0.7-0.5 0.9-0.4 0.9-0.3 1-0.2 2 0 9.2 1.2 10.3-0.7 3.9 0.3 0.9-0.1 0.8-0.3 0.5-0.7 0.3-0.9 0.2-1 0.1-1.4 0-1.7-0.4-2.8-0.5-1.7-0.6-1.4-1.2-2.2-0.3-1.1 0.2-1.4 0.5-2.2-0.2-1.5-0.1-0.2-3.3-4.5-3.8-6.4-1.1-1.3-3.4-3.4-0.7-1-0.5-0.9-0.2-1 0-1 0.9-6.3 0-2.1-0.3-2.2 0.1-1.1 0.8-1.1 1-0.6 1-0.3 1.7-0.4 0.5-0.2 0.7-0.7 3.2-4.6 1.6-1.8 1.9-1.8 1.1-0.8 1.1-0.6 2.1-0.7 1-0.5 0.8-0.7 0.6-0.8 0.3-0.8 0.2-0.6 0-0.1 0-0.7-0.1-0.9-0.3-1-0.4-1.1-0.5-1-0.7-1-0.9-0.9-1.8-1.5-1.9-1.4-2.8-1.2-0.3-0.6-0.4-1.7-0.1-1.1 0.1-1 0.1-0.9 0.5-1.5 0.6-1.6 1.2-1.9 1.1-1.5 1.4-1.2 0.6-0.5 0.1 0 2.5-1 0.8 0.7 0.2 0.3 0.1 0.1 0.6 0.8 0.8 0.6 0.9 0.4 1 0.1 1.1-0.5 0.9-0.5 1.8-2.6z"/>
+          <path d="M370.1 406.2l-3.7-2.8-0.7-0.7-0.6-0.9-0.8-1.9-2.3-9-0.7-1.8-0.8-1.3-0.1-0.1-0.4-0.4-0.7-0.3-5.6-1.5-1-0.5-1-0.8-0.8-1.3-0.4-1.1-0.2-1.1 0.9-12.4-0.2-1.1-0.3-1.2-0.7-0.9-0.8-0.6-1.9-0.6-5.7-1.4-1.1-0.4 1.7-1.5 1.7-0.6 2.6-0.3 1.5-0.4 6.9-3.8 1.6-0.7 1.4-0.4 4.2-0.4 1-0.3 0.7-0.7 0.3-0.7-0.2-0.8-0.2-0.6-2-3.7-0.3-1.1-0.1-1 0.2-1.2 0.6-1 1.1-1.2 1-0.5 0.9-0.1 0.7 0.2 3.4 1.3 1.1 0.3 1 0 0.8-0.2 0.5-0.8 0.2-0.8 0-0.8-0.1-0.4-0.8-3.9 0-1 0-1 0.2-0.9 0.7-2.1 1-2 0.6-0.7 0.9-0.5 0.9 0 1 0.1 1.1-0.1 2-0.5 0.9-0.4 0.6-0.9 0.3-1 0.7-1.7 1.2-2.1 5.1-5.9 11.3-9.2 5.2-3.4 9.9-4.2 1.5-1 0.9-1.1 0.6-1.1 1.8-3.9 1.5-1.9 2.1-2.1 3.3-2.1 16.3-8.4 2.2-0.8 1-0.3 1 0 0.9 0.1 1 0.4 1 0.5 1.6 1.4 3.1 3.3 5.5 4.5 1.9 1.1 1 0.3 4.5 0.3 2.9 0.6 1 0 0.8-0.2 0.8-0.5 0.6-0.4 3.3-4.6 1.8-1.7 2.8 1.2 1.9 1.4 1.8 1.5 0.9 0.9 0.7 1 0.5 1 0.4 1.1 0.3 1 0.1 0.9 0 0.7 0 0.1-0.2 0.6-0.3 0.8-0.6 0.8-0.8 0.7-1 0.5-2.1 0.7-1.1 0.6-1.1 0.8-1.9 1.8-1.6 1.8-3.2 4.6-0.7 0.7-0.5 0.2-1.7 0.4-1 0.3-1 0.6-0.8 1.1-0.1 1.1 0.3 2.2 0 2.1-0.9 6.3 0 1 0.2 1 0.5 0.9 0.7 1 3.4 3.4 1.1 1.3 3.8 6.4 3.3 4.5 0.1 0.2 0.2 1.5-0.5 2.2-0.2 1.4 0.3 1.1 1.2 2.2 0.6 1.4 0.5 1.7 0.4 2.8 0 1.7-0.1 1.4-0.2 1-0.3 0.9-0.5 0.7-0.8 0.3-0.9 0.1-3.9-0.3-10.3 0.7-9.2-1.2-2 0-1 0.2-0.9 0.3-0.9 0.4-0.7 0.5-0.5 0.5-0.7 0.7-1.2 1.6-1.6 3.2-0.8 1.3-0.9 1-3.1 2-2.3 2.2-1.1 0.7-1.7 0.8-14.4 3.5-1 0.5-1.1 0.7-4.1 4.2-4.2 5.5-0.6 1.3-0.2 1.2 0.2 1 0.4 0.9 1.2 2 0.3 1.1-0.1 1.3-0.7 1.7-0.8 1.2-1.1 0.9-1 0.5-0.9 0.2-0.8 0-3.4-0.9-2-0.1-6.2 0.9-2.1 0-7.8-0.8-3.1-0.8-1.9-0.7-4.6-2.3-0.9-0.2-1 0.2-1 0.4-1.2 0.9-0.6 0.6-2.8 4.4-0.9 1.8z"/>
+          <path d="M303.1 203l5 2.1 2.5 0.6 1 0 22.9-5.3 3.1-0.4 1.8 0.1 1.4 0.2 10.5 3.4 1.5 0.3 1.1 0 1.1-0.2 5.3-1.3 4.6-0.3 1.1 0.1 14.8 3.4 2 0.8 0.9 0.6 1 0.9 5.2 6.3 1.3 1 1.5 1 2.1 0.8 1.6 0.2 1.4-0.1 1.3-0.3 1.2-0.5 3.5-1.9 1.2-0.6 1.3-0.2 1.5 0 0.9 0.5 0.4 0.4 0.1 0.4 0.2 3.7 0.1 0.6 0.3 1.1 0.6 1.5 1 1.1 1.5 1 1.2 0.3 1.1 0.1 4.3-0.4 1.5 0.1 1.2 0.4 4.6 2.4 1.7 0.6 1.1 0.1 1-0.2 1.7-0.8 5-3.3 1.2-0.5 1.5-0.1 1.2 0.4 1 0.8 0.7 1 7.3 13.2 3.6 9.6 1.5 2.1 1.1 1 1.1 0.9 1.5 0.7 1.2 0.4 13.3 2.1 1.5 0.5 1.9 1.1 1 0.7 7.2 6.5 1.1 1.3 0.6 1.4-2.5 1-0.1 0-0.6 0.5-1.4 1.2-1.1 1.5-1.2 1.9-0.6 1.6-0.5 1.5-0.1 0.9-0.1 1 0.1 1.1 0.4 1.7 0.3 0.6-1.8 1.7-3.3 4.6-0.6 0.4-0.8 0.5-0.8 0.2-1 0-2.9-0.6-4.5-0.3-1-0.3-1.9-1.1-5.5-4.5-3.1-3.3-1.6-1.4-1-0.5-1-0.4-0.9-0.1-1 0-1 0.3-2.2 0.8-16.3 8.4-3.3 2.1-2.1 2.1-1.5 1.9-1.8 3.9-0.6 1.1-0.9 1.1-1.5 1-9.9 4.2-5.2 3.4-11.3 9.2-5.1 5.9-1.2 2.1-0.7 1.7-0.3 1-0.6 0.9-0.9 0.4-2 0.5-1.1 0.1-1-0.1-0.9 0-0.9 0.5-0.6 0.7-1 2-0.7 2.1-0.2 0.9 0 1 0 1 0.8 3.9 0.1 0.4 0 0.8-0.2 0.8-0.5 0.8-0.8 0.2-1 0-1.1-0.3-3.4-1.3-0.7-0.2-0.9 0.1-1 0.5-1.1 1.2-0.6 1-0.2 1.2 0.1 1 0.3 1.1 2 3.7 0.2 0.6 0.2 0.8-0.3 0.7-0.7 0.7-1 0.3-4.2 0.4-1.4 0.4-1.6 0.7-6.9 3.8-1.5 0.4-2.6 0.3-1.7 0.6-1.7 1.5-3.7-1-12.1-1.9-7.4 0.3-1.2 0.3-1.5 0.5-1.2 0.7-1 0.9-3.1 4-0.9 0.8-0.8 0.6-0.8 0.4-0.6 0.3-0.8 0.2-0.9 0.2-1.9 0.2-5.1-0.1-2.2 0.3-10.7 3.8-1 0.2-1 0-1-0.1-0.9-0.3-0.8-0.4-0.5-0.4-0.7-0.7-0.6-0.9-0.5-1.1-0.2-1.3 0.4-12.7-0.8-4.8-1.3-5.3-0.2-1.2 0-1.4 2.4-16.2-0.1-1-0.4-1-0.9-0.8-1.1 0-2 0.4-1-0.1-0.9-0.3-0.9-0.8-0.4-1-0.1-1.2 0.6-1.4 1.5-2.9 0.2-0.6 0.4-1.7 0-1.1-0.1-1.2-0.2-1-0.8-2 0.7-0.5 0.7-1 0.8-1.6 2.5-7.8 1.3-2.6 2-2.7 5.3-4.6 0.8-0.9 0.7-1 0.4-1 0.1-1-0.2-1-0.9-1.1-1-0.9-5.2-2.8-1.7-1.1-0.6-0.7-0.7-0.9-0.5-0.9-4.7-19.1-0.4-1.1-0.6-1-2.5-2.5-5.1-4.2-2.6-1.3-1.3-0.9-1-1-0.2-0.2-0.9-1.1-1.6-0.9-2.4-0.9-13.9-3.3-1-0.4-0.7-0.5-0.8-1 4.7-5.2 1-0.7 1.1-0.7 16.3-7.8 7.5-2.1 16-9.1 16.4-6.8 0.9-0.1 2.7 0.7z"/>
+          <path d="M367.4 592.6l-2.1 7.1 0.1 1.2 0.3 1.4 1.1 1.1 0.5 0.8 0.2 1.1-0.3 1.1-1 1.4-0.9 0.9-5.1 3.6-1 0.9-0.6 1.2-0.4 1.3-0.2 3.2-0.7 2.3-4.3 9.5-1.2 0.6-1.5 0.2-4 0-0.9 0.1-0.8 0.4-0.4 0.4-0.5 0.6-1.2 2-2.7 7.3-1.1 4.9-0.3 0.9-0.5 0.9-0.8 0.6-0.9 0.5-0.9 0.3-1 0.1-1 0-1.2-0.2-1-0.5-0.9-0.8-2.7-3.6-1.1-1-3.3-1.8-0.5-0.3-0.6-0.7-0.5-0.9-0.2-1-0.1-0.9 0.3-3.8-0.1-0.9-0.8-3-0.1-0.9 0.5-4.7 0-1-0.3-1-0.4-0.9-0.5-0.8-0.4-0.3-0.2-0.1-3.2-1-0.9-0.4-0.7-0.8-0.2-0.8 0.1-0.9 0.6-0.9 3.3-3.4 0.9-0.7 1.1-0.6 1.4-0.4 4.2-0.6 1-0.3 1-0.5 1-0.9 0.6-0.9 1.2-3 3-5.5 0.3-1.2 0-0.5-0.1-1.4-0.7-2.7-0.4-1.9-0.1-1 0.1-0.9 0.2-0.8 0.3-0.5 0.4-0.7 0.7-0.8 0.8-0.6 1-0.4 1-0.1 1.1 0.1 1.3 0.6 0.9 0.8 0.7 1 1.3 3.8 0.5 0.9 0.6 0.8 0.7 0.5 0.5 0.2 0.9 0.1 1.3-0.4 2.1-0.9 1.2-0.3 1.4-0.2 4.6 0 0.9-0.3 1-0.4 4-2.3 0.9-0.3 1.1 0.2 0.8 0.3 2.5 2.1z"/>
+          </g>
+          <g class="ksa-pin" style="--i:0">
+            <use href="#pin" x="496" y="431" width="46" height="46"/>
+            <text class="ksa-pin__label" x="519" y="500" text-anchor="middle">الرياض</text>
+          </g>
+          <g class="ksa-pin" style="--i:1">
+            <use href="#pin" x="618" y="197" width="44" height="44"/>
+            <text class="ksa-pin__label" x="640" y="260" text-anchor="middle">الخبر</text>
+          </g>
+          <g class="ksa-pin" style="--i:2">
+            <use href="#pin" x="236" y="354" width="44" height="44"/>
+            <text class="ksa-pin__label" x="258" y="417" text-anchor="middle">المدينة المنورة</text>
+          </g>
+        </svg>
+      </div>
+      <div class="branch-list stag">
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>المنطقة الوسطى، الرياض</h3><p>طريق الملك فهد، حي العليا، شارع المعرفة. ص.ب 4198، 12311</p></div>
+        </div>
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>المنطقة الشرقية، الخبر</h3><p>الخبر الشمالية، طريق الأمير نايف مع طريق 21. ص.ب 4198، 12311</p></div>
+        </div>
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>المنطقة الغربية، المدينة المنورة</h3><p>طريق سيد الشهداء، مبنى الداوودية. ص.ب 4198، 12311</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer class="footer">
+<footer class="footer" id="contact">
   <svg class="footer__chev" viewBox="0 0 1440 300" fill="none" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M-40 300 L360 90 L640 250 L1080 40 L1480 300" stroke="rgba(76,207,230,.10)" stroke-width="56"/>
+    <path d="M-40 300 L360 90 L640 250 L1080 40 L1480 300" stroke="rgba(63,203,122,.10)" stroke-width="56"/>
   </svg>
   <div class="wrap">
     <div class="footer-main">
@@ -687,20 +954,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
         <h4>تواصل معنا</h4>
         <div><span class="lbl">البريد الإلكتروني</span><a href="mailto:info@ba-audit.com"><bdi>info@ba-audit.com</bdi></a></div>
         <div><span class="lbl">الهاتف</span>
-          <a href="tel:+966112933360"><bdi>+966 11 29 333 60</bdi></a><br>
-          <a href="tel:+966112933390"><bdi>+966 11 29 333 90</bdi></a><br>
-          <a href="tel:+966597433303"><bdi>+966 59 743 3303</bdi></a>
+          <a href="tel:+966112933360"><bdi>+966 11 29 333 60</bdi></a>
         </div>
         <div><span class="lbl">المقر الرئيسي</span>طريق الملك فيصل، برج الوفاء، الدور الثالث (مكتب 24)، الرياض. ص.ب 4198، 12311</div>
       </div>
 
       <div class="fmid">
-        <span class="logo-mark" role="img" aria-label="مجموعة الخبراء العرب"></span>
+        <img class="logo-mark" src="Sources/logo.png" alt="مجموعة الخبراء العرب">
         <p>مرجع في الاستشارات المهنية لخدمات قطاع أعمال الشركات في المملكة العربية السعودية.</p>
         <div class="socials-row">
-          <a href="#contact" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
-          <a href="#contact" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
-          <a href="mailto:info@ba-audit.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg></a>
+          <a href="#contact" aria-label="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+          <a href="#contact" aria-label="X"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
+          <a href="mailto:info@ba-audit.com" aria-label="Email"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg></a>
         </div>
       </div>
 
@@ -716,10 +981,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
       </div>
     </div>
 
-    <div class="branches">
-      <div class="branch"><b>المنطقة الوسطى، الرياض</b>طريق الملك فهد، حي العليا، شارع المعرفة. ص.ب 4198، 12311</div>
-      <div class="branch"><b>المنطقة الشرقية، الخبر</b>الخبر الشمالية، طريق الأمير نايف مع طريق 21. ص.ب 4198، 12311</div>
-      <div class="branch"><b>المنطقة الغربية، المدينة المنورة</b>طريق سيد الشهداء، مبنى الداوودية. ص.ب 4198، 12311</div>
+    <div class="iso-row">
+      <span class="lbl">شهادات الأيزو</span>
+      <span class="iso-item"><b>ISO 9001:2015</b><span>نظام إدارة الجودة</span></span>
+      <span class="iso-item"><b>ISO 22301:2019</b><span>إدارة استمرارية الأعمال</span></span>
+      <span class="iso-item"><b>ISO/IEC 27001:2022</b><span>أمن المعلومات</span></span>
     </div>
 
     <div class="footer-bottom">
@@ -742,12 +1008,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
     if (e.target.tagName === 'A') { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
   });
 
+  // Services mega menu: JS-driven with a short close delay, so a diagonal mouse path
+  // toward a far column (crossing navbar space that belongs to neither the trigger
+  // link nor the panel) doesn't instantly drop the menu — pure CSS :hover has no way
+  // to forgive that path since the trigger is far narrower than the panel.
+  var megaHost = document.querySelector('.menu-item');
+  if (megaHost) {
+    var megaPanel = megaHost.querySelector('.mega-panel');
+    var megaTrigger = megaHost.querySelector('a');
+    var megaHideTimer = null;
+    function megaShow(){ clearTimeout(megaHideTimer); megaPanel.classList.add('is-open'); megaTrigger.setAttribute('aria-expanded','true'); }
+    function megaScheduleHide(){
+      clearTimeout(megaHideTimer);
+      megaHideTimer = setTimeout(function(){
+        megaPanel.classList.remove('is-open');
+        megaTrigger.setAttribute('aria-expanded','false');
+      }, 400);
+    }
+    megaHost.addEventListener('mouseenter', megaShow);
+    megaHost.addEventListener('mouseleave', megaScheduleHide);
+    megaPanel.addEventListener('mouseenter', megaShow);
+    megaPanel.addEventListener('mouseleave', megaScheduleHide);
+    megaTrigger.addEventListener('focus', megaShow);
+    megaHost.addEventListener('focusout', function(e){
+      if (!megaHost.contains(e.relatedTarget)) megaScheduleHide();
+    });
+  }
+
   document.querySelectorAll('.stag').forEach(function(g){
     Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); });
   });
 
   var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
-  if (!items.length) return;
+  var scrubEls = Array.prototype.slice.call(document.querySelectorAll('.stag:not(.hero-stag) > *'));
+  if (!items.length && !scrubEls.length) return;
   // Arm the hidden state only once this script is known to run, so content is never gated on JS.
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.documentElement.classList.add('js');
@@ -758,15 +1052,99 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset
     var h = window.innerHeight || document.documentElement.clientHeight;
     for (var i = items.length - 1; i >= 0; i--) {
       var el = items[i], r = el.getBoundingClientRect();
-      if (r.top < h * 0.92 && r.bottom > 0) { el.classList.add('in'); items.splice(i,1); }
+      if (r.top < h * 0.78 && r.bottom > 0) { el.classList.add('in'); items.splice(i,1); }
     }
-    if (!items.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+    // Scroll-scrubbed fade-up: progress is a direct function of scroll position, not a timer,
+    // so the motion is always visible no matter how fast someone scrolls through it.
+    var startY = h * 0.96, endY = h * 0.55;
+    for (var j = scrubEls.length - 1; j >= 0; j--) {
+      var sEl = scrubEls[j], sr = sEl.getBoundingClientRect();
+      if (sr.top >= startY) continue;
+      var rise = parseFloat(getComputedStyle(sEl.parentNode).getPropertyValue('--rise')) || 28;
+      var p = (startY - sr.top) / (startY - endY);
+      if (p > 1) p = 1; else if (p < 0) p = 0;
+      sEl.style.opacity = p;
+      sEl.style.transform = 'translateY(' + ((1 - p) * rise) + 'px)';
+      if (p >= 1) scrubEls.splice(j, 1);
+    }
+    if (!items.length && !scrubEls.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
   }
   function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(reveal); } }
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', onScroll);
   window.addEventListener('load', reveal);
   reveal();
+})();
+
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  var swooshPath = document.querySelector('.swoosh path');
+  if (swooshPath) {
+    var len = swooshPath.getTotalLength();
+    swooshPath.style.strokeDasharray = len;
+    swooshPath.style.strokeDashoffset = len;
+    var swooshObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { swooshPath.style.strokeDashoffset = '0'; swooshObs.disconnect(); }
+      });
+    }, { threshold:.4 });
+    swooshObs.observe(swooshPath);
+  }
+
+  var counters = document.querySelectorAll('.bignum__val, .mini b');
+  counters.forEach(function(counter){
+    var target = parseInt(counter.textContent, 10);
+    if (isNaN(target)) return;
+    var suffix = counter.textContent.replace(/[0-9]/g, '');
+    var counterObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        counterObs.disconnect();
+        var start = null, duration = 1100;
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          counter.textContent = Math.round(eased * target) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold:.5 });
+    counterObs.observe(counter);
+  });
+})();
+
+(function(){
+  // Parallax: #branches' own background (navy + pattern) drifts slower than the page scroll,
+  // and the footer's content lags well behind before catching up to rest — two layers moving
+  // at visibly different rates, not just a quick settle on entry.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var branches = document.getElementById('branches');
+  var branchesBg = document.querySelector('.branches-bg');
+  var footer = document.querySelector('.footer');
+  var footerInner = document.querySelector('.footer .wrap');
+  if (!branches || !branchesBg || !footer || !footerInner) return;
+
+  var ticking = false;
+  function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
+  function update(){
+    ticking = false;
+    var br = branches.getBoundingClientRect();
+    var bgShift = clamp(br.top * 0.22, -60, 60);
+    branchesBg.style.transform = 'translateY(' + bgShift + 'px)';
+
+    var fr = footer.getBoundingClientRect();
+    var lag = clamp(fr.top * 0.35, 0, 170);
+    footerInner.style.transform = 'translateY(' + lag + 'px)';
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', update);
+  update();
 })();
 </script>
 
