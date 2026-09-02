@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arab Experts Group</title>
+<meta name="description" content="Arab Experts Group Professional Consulting: Zakat & Tax, Audit & Review, and Financial Advisory in Saudi Arabia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap">
+<style>
+/* ==========================================================================
+   Arab Experts Group
+   Layout language reproduced from the Consultio Finance 6 design:
+   floating rounded nav, full-bleed duotone hero + scroll cue,
+   "arrow" eyebrow pills, paired pill + circle-arrow buttons, gradient swoosh,
+   soft patterned section blends, photo-topped cards on a dark band, full-bleed
+   client band, oversized display CTA with an overlapping rotated pill.
+   Palette swapped to the AEG logo (teal #1F8EA1 -> navy #0F2C4C).
+   Pattern is the supplied islamic_geometric_wallpaper, mirrored into a seamless
+   tile and painted as masked CSS layers.
+   ========================================================================== */
+:root{
+  --navy:#0E2A4C;
+  --navy-2:#163C63;
+  --navy-deep:#03152E;
+  --teal:#1F914C;
+  --pop:#3FCB7A;
+  --ink:#1B2A36;
+  --muted:#566E81;
+  --line:#DCE6EC;
+  --tint:#EFF5F8;
+  --paper:#FFFFFF;
+  --on-dark:#FFFFFF;
+  --on-dark-muted:rgba(214,233,242,.76);
+  --wrap:1290px;
+  --pat:url("../Sources/patter_white.png");
+  --logo:url("../Sources/logo.png");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:Tajawal,system-ui,sans-serif;font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+::selection{background:var(--pop);color:var(--navy)}
+html{scrollbar-width:thin;scrollbar-color:#9DBCCB var(--tint)}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:var(--tint)}
+::-webkit-scrollbar-thumb{background:#9DBCCB;border-radius:20px;border:3px solid var(--tint)}
+::-webkit-scrollbar-thumb:hover{background:var(--teal)}
+.topbar a:hover,.flinks a:hover,.fcontact a:hover{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;font-family:Tajawal,system-ui,sans-serif;line-height:1.35;text-wrap:balance;color:var(--navy)}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:26px}
+
+/* ---------- eyebrow pill:  arrow LABEL arrow ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.75rem;
+  
+  background:rgba(31,145,76,.12);color:var(--teal);
+  padding:8px 15px;border-radius:5px;
+}
+.eyebrow svg{width:13px;height:13px;flex:none}
+.eyebrow--ondark{background:rgba(63,203,122,.14);color:var(--pop)}
+.eyebrow--pop{background:rgba(63,203,122,.16);color:var(--pop)}
+
+/* ---------- headings ---------- */
+.h-sec{font-size:clamp(2rem,3.7vw,3.15rem);font-weight:800;}
+.h-sec--ondark{color:var(--on-dark)}
+.lede{color:var(--muted);max-width:60ch}
+.lede--ondark{color:var(--on-dark-muted)}
+
+/* ---------- paired button: pill + circle arrow ---------- */
+.pair{display:inline-flex;align-items:center;gap:0}
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.9375rem;
+  height:56px;padding-inline:32px;border-radius:40px;text-decoration:none;
+  border:1px solid var(--navy);color:var(--navy);background:transparent;
+  transition:background-color .22s,color .22s,border-color .22s;
+}
+.pill:hover{background:var(--navy);color:#fff}
+.pill--ondark{border-color:rgba(255,255,255,.45);color:#fff}
+.pill--ondark:hover{background:#fff;color:var(--navy);border-color:#fff}
+.circ{
+  width:52px;height:52px;border-radius:50%;flex:none;margin-inline-start:-10px;
+  display:grid;place-items:center;background:var(--pop);color:var(--navy);
+  text-decoration:none;transition:transform .22s;
+}
+.circ svg{width:17px;height:17px}
+.pair:hover .circ{transform:rotate(45deg)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pop);outline-offset:3px}
+
+/* ---------- pattern layers ---------- */
+.hero::before,.services::before,#why::before{
+  content:"";position:absolute;inset-block:0;left:0;width:46%;z-index:0;
+  background-color:var(--pat-c,#fff);
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-size:var(--pat-s,700px) auto,100% 100%;
+          mask-size:var(--pat-s,700px) auto,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat;
+          mask-repeat:repeat-y,no-repeat;
+  -webkit-mask-position:top left,center;
+          mask-position:top left,center;
+  -webkit-mask-composite:source-in;
+          mask-composite:intersect;
+  opacity:var(--pat-o,.22);pointer-events:none;
+}
+
+/* ---------- hero pattern panel ---------- */
+/* ---------- top bar ---------- */
+.topbar{background:var(--navy-deep);color:var(--on-dark-muted);font-size:.8125rem}
+.topbar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px;min-height:46px}
+.topbar a{text-decoration:none;transition:color .2s}
+.topbar a:hover{color:var(--pop)}
+.topbar .socials{margin-inline-start:auto;display:flex;gap:16px;align-items:center}
+.topbar .socials svg{width:15px;height:15px;display:block}
+
+/* ---------- floating rounded nav ---------- */
+.navwrap{position:absolute;inset-inline:0;top:46px;z-index:70}
+.navbar{
+  position:relative;display:flex;align-items:center;gap:26px;height:78px;padding-inline:26px;
+  background:rgba(255,255,255,.94);border:1px solid rgba(15,44,76,.08);
+  border-radius:10px;backdrop-filter:blur(9px);box-shadow:0 14px 34px rgba(6,28,48,.18);
+}
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.logo-mark{display:block;width:83px;object-fit:contain}
+span.logo-mark{background:var(--logo) left center/contain no-repeat}
+.menu{display:flex;align-items:center;gap:30px;margin-inline-start:auto}
+.menu a{
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:var(--navy);
+  text-decoration:none;position:relative;padding-block:5px;transition:color .2s;
+}
+.menu a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--pop);transform:scaleX(0);transform-origin:right;transition:transform .25s ease-out}
+.menu a:hover{color:var(--pop)}
+.menu a:hover::after{transform:scaleX(1)}
+
+/* ---------- services mega menu ---------- */
+/* .menu-item is intentionally NOT position:relative: the panel must escape up to
+   .navbar (already position:relative) as its containing block, so it centers under
+   the whole nav pill instead of the small "Services" link, wherever that link sits.
+   Open/close state is JS-driven (see script), not pure CSS :hover — the trigger link
+   is much narrower than the 980px panel, so a diagonal path toward a far column
+   crosses navbar space that belongs to neither element; CSS hover has no way to
+   forgive that. JS gives a short grace period on mouseleave instead. */
+.mega-panel{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  width:min(980px,calc(100vw - 48px));padding-top:22px;
+  opacity:0;visibility:hidden;pointer-events:none;z-index:80;
+  transition:opacity .22s ease,visibility .22s;
+}
+.mega-panel.is-open{
+  opacity:1;visibility:visible;pointer-events:auto;
+}
+.mega-panel__card{
+  position:relative;max-height:calc(100vh - 160px);overflow-y:auto;overflow-x:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 30px 70px rgba(6,28,48,.24);padding:32px 30px 26px;
+}
+.mega-panel__card::before{
+  content:"";position:absolute;inset-block:0;left:0;width:46%;z-index:0;background-color:var(--navy);
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-size:640px auto,100% 100%;
+          mask-size:640px auto,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat;
+          mask-repeat:repeat-y,no-repeat;
+  -webkit-mask-position:top left,center;
+          mask-position:top left,center;
+  -webkit-mask-composite:source-in;
+          mask-composite:intersect;
+  opacity:.09;pointer-events:none;
+}
+.mega-panel__card .mega-grid,.mega-panel__card .mega-footer{position:relative;z-index:1}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 22px}
+.mega-col__num{
+  display:inline-block;font-family:Tajawal,system-ui,sans-serif;font-weight:700;
+  font-size:.6875rem;color:var(--pop);margin-bottom:6px;font-variant-numeric:tabular-nums;
+}
+.mega-col h4{font-size:.875rem;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:10px}
+.mega-col ul{display:grid;gap:8px}
+.mega-col li{position:relative;padding-inline-start:14px;font-size:.75rem;color:var(--muted);line-height:1.45}
+.mega-col li::before{
+  content:"";position:absolute;inset-inline-start:0;top:.5em;
+  width:4px;height:4px;border-radius:50%;background:var(--teal);
+}
+.mega-footer{
+  margin-top:26px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;
+}
+.mega-footer a{
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.8125rem;color:var(--teal);
+  text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+}
+.mega-footer a:hover{color:var(--pop)}
+.mega-footer a svg{width:14px;height:14px}
+.mega-caret{width:12px;height:12px;margin-inline-start:4px;vertical-align:-1px;transition:transform .2s ease}
+.menu-item a[aria-expanded="true"] .mega-caret{transform:rotate(180deg)}
+@media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:940px){.mega-panel{display:none}}
+.grid-btn{
+  width:58px;height:58px;flex:none;border:0;border-radius:8px;background:#fff;cursor:pointer;
+  display:none;grid-template-columns:repeat(3,4px);grid-auto-rows:4px;gap:4px;
+  place-content:center;justify-items:center;
+}
+.grid-btn i{width:4px;height:4px;border-radius:50%;background:var(--teal);display:block}
+.grid-btn:hover i{background:var(--navy)}
+
+/* ---------- hero ---------- */
+.hero::before{
+  --pat-o:0;--pat-s:760px;z-index:1;
+  -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-position:top right,center;
+          mask-position:top right,center;
+}
+.hero{position:relative;min-height:790px;display:flex;align-items:center;background:var(--navy);overflow:hidden;isolation:isolate}
+.hero__media{position:absolute;inset:0;z-index:0;background-image:var(--hero-bg),linear-gradient(96deg,var(--navy-deep) 0%,#12496A 52%,var(--teal) 130%);background-size:cover;background-position:center 30%;background-repeat:no-repeat}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(8,36,63,.94) 0%,rgba(8,36,63,.72) 42%,rgba(8,36,63,.30) 100%)}
+.hero > .wrap{position:relative;z-index:2;padding-block:150px 120px}
+.hero__inner{max-width:660px;display:flex;flex-direction:column;gap:24px}
+.hero h1{color:#fff;font-size:clamp(2.4rem,5vw,4.1rem);font-weight:800;line-height:1.3}
+.hero h1 .dot{color:var(--pop)}
+.hero .lede{font-size:1.0625rem;max-width:46ch}
+
+/* ---------- section shell ---------- */
+.section{padding-block:110px;position:relative}
+.sec-head{margin-bottom:56px}
+.sec-head--split{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:26px}
+.sec-head .col{display:flex;flex-direction:column;gap:18px;max-width:60ch}
+
+/* ---------- why-us cards ---------- */
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);column-gap:76px}
+.wcard{position:relative;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;padding-block:34px;padding-inline-start:22px;border-top:1px solid var(--line)}
+.wcard:nth-child(-n+2){border-top:0;padding-top:8px}
+.wcard::before{
+  content:"";position:absolute;inset-block:8px;inset-inline-start:0;width:2px;background:var(--pop);
+  transform:scaleY(0);transform-origin:top;transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.wcard:hover::before,.wcard:focus-within::before{transform:scaleY(1)}
+.wcard__ico{color:var(--teal);padding-top:4px;transition:transform .35s cubic-bezier(.16,1,.3,1),color .3s}
+.wcard:hover .wcard__ico,.wcard:focus-within .wcard__ico{transform:translateY(-3px) scale(1.1);color:var(--pop)}
+.wcard__ico svg{width:26px;height:26px;display:block}
+.wcard h3{font-size:1.375rem;font-weight:700;margin-bottom:9px;transition:color .3s}
+.wcard:hover h3,.wcard:focus-within h3{color:var(--teal)}
+.wcard p{color:var(--muted);font-size:.9375rem;max-width:44ch}
+
+/* ---------- swoosh ---------- */
+.swoosh{display:block;width:100%;height:auto;margin-block:-46px}
+
+/* ---------- about ---------- */
+.about .wrap{display:grid;grid-template-columns:.8fr 1fr;gap:88px;align-items:center}
+.bignum{position:relative;padding-top:16px;margin-bottom:52px}
+.bignum__circle{
+  position:absolute;top:0;inset-inline-start:-14px;width:132px;height:132px;border-radius:50%;
+  background:var(--pop);display:grid;place-items:center;text-align:center;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.9375rem;color:var(--navy);
+}
+.bignum__val{
+  position:relative;font-family:Tajawal,system-ui,sans-serif;font-weight:900;
+  font-size:clamp(3.4rem,6vw,5.3rem);color:var(--navy);
+  line-height:1;font-variant-numeric:tabular-nums;padding-top:66px;padding-inline-start:24px;
+}
+.bignum p{margin-top:14px;font-size:.9375rem;color:var(--muted)}
+.minis{display:grid;gap:26px}
+.mini{display:grid;grid-template-columns:auto 1fr;gap:20px}
+.mini b{
+  display:flex;align-items:center;font-family:Tajawal,system-ui,sans-serif;font-weight:700;
+  font-size:1.75rem;color:var(--navy);padding-inline-end:20px;border-inline-end:1px solid var(--line);
+  font-variant-numeric:tabular-nums;
+}
+.mini span{display:flex;align-items:center;color:var(--muted);font-size:.9375rem;line-height:1.6}
+.about .col{display:flex;flex-direction:column;gap:20px}
+.about .h-sec{font-size:clamp(1.9rem,2.9vw,2.7rem)}
+.sparks{display:grid;gap:14px;margin-block:6px}
+.sparks li{display:flex;gap:13px;align-items:center;font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:1.0625rem;color:var(--navy)}
+.sparks svg{width:19px;height:19px;color:var(--pop);flex:none}
+.rule{height:1px;background:var(--line);transform-origin:right;transform:scaleX(1)}
+.js .rv .rule{transform:scaleX(0);transition:transform .8s cubic-bezier(.16,1,.3,1) .35s}
+.js .rv.in .rule{transform:scaleX(1)}
+
+
+
+/* ---------- dark services band ---------- */
+#why::before{
+  --pat-c:var(--navy);--pat-o:.1;--pat-s:640px;left:auto;right:0;
+  -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.55) 45%,transparent 100%);
+  -webkit-mask-position:top right,center;
+          mask-position:top right,center;
+}
+.services{
+  position:relative;padding-block:104px 120px;background:var(--navy);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C46.0%20L0.0%2C23.4%20L5.5%2C22.8%20L11.1%2C21.8%20L16.6%2C18.9%20L22.2%2C24.2%20L27.7%2C24.3%20L33.2%2C21.4%20L38.8%2C19.1%20L44.3%2C14.6%20L49.8%2C20.8%20L55.4%2C18.1%20L60.9%2C15.9%20L66.5%2C22.7%20L72.0%2C16.5%20L77.5%2C20.0%20L83.1%2C17.6%20L88.6%2C15.2%20L94.2%2C20.8%20L99.7%2C16.9%20L105.2%2C19.6%20L110.8%2C25.4%20L116.3%2C17.6%20L121.8%2C21.2%20L127.4%2C18.2%20L132.9%2C16.0%20L138.5%2C17.5%20L144.0%2C21.8%20L149.5%2C20.4%20L155.1%2C19.8%20L160.6%2C20.1%20L166.2%2C18.1%20L171.7%2C11.7%20L177.2%2C13.5%20L182.8%2C15.2%20L188.3%2C16.3%20L193.8%2C12.5%20L199.4%2C14.4%20L204.9%2C21.5%20L210.5%2C22.4%20L216.0%2C26.0%20L221.5%2C19.7%20L227.1%2C19.7%20L232.6%2C19.8%20L238.2%2C17.4%20L243.7%2C15.2%20L249.2%2C11.9%20L254.8%2C12.1%20L260.3%2C16.4%20L265.8%2C19.2%20L271.4%2C17.9%20L276.9%2C21.2%20L282.5%2C23.8%20L288.0%2C18.3%20L293.5%2C13.9%20L299.1%2C22.3%20L304.6%2C21.9%20L310.2%2C20.5%20L315.7%2C19.2%20L321.2%2C21.8%20L326.8%2C21.5%20L332.3%2C20.7%20L337.8%2C22.7%20L343.4%2C22.1%20L348.9%2C18.6%20L354.5%2C21.9%20L360.0%2C21.9%20L365.5%2C24.3%20L371.1%2C17.0%20L376.6%2C14.9%20L382.2%2C17.9%20L387.7%2C19.4%20L393.2%2C20.5%20L398.8%2C17.8%20L404.3%2C14.9%20L409.8%2C22.6%20L415.4%2C18.8%20L420.9%2C18.6%20L426.5%2C21.5%20L432.0%2C22.9%20L437.5%2C24.6%20L443.1%2C20.1%20L448.6%2C11.5%20L454.2%2C13.0%20L459.7%2C16.4%20L465.2%2C17.6%20L470.8%2C21.6%20L476.3%2C16.2%20L481.8%2C15.4%20L487.4%2C13.5%20L492.9%2C16.5%20L498.5%2C16.1%20L504.0%2C14.6%20L509.5%2C15.7%20L515.1%2C23.3%20L520.6%2C23.2%20L526.2%2C20.8%20L531.7%2C22.2%20L537.2%2C22.7%20L542.8%2C26.4%20L548.3%2C24.7%20L553.8%2C26.6%20L559.4%2C21.5%20L564.9%2C30.2%20L570.5%2C24.3%20L576.0%2C23.6%20L581.5%2C20.0%20L587.1%2C22.7%20L592.6%2C25.0%20L598.2%2C20.3%20L603.7%2C22.0%20L609.2%2C22.4%20L614.8%2C24.6%20L620.3%2C23.8%20L625.8%2C21.3%20L631.4%2C20.8%20L636.9%2C23.5%20L642.5%2C21.7%20L648.0%2C20.6%20L653.5%2C18.2%20L659.1%2C18.2%20L664.6%2C18.5%20L670.2%2C20.2%20L675.7%2C20.5%20L681.2%2C13.5%20L686.8%2C19.1%20L692.3%2C18.0%20L697.8%2C14.2%20L703.4%2C14.1%20L708.9%2C15.5%20L714.5%2C13.6%20L720.0%2C18.5%20L725.5%2C19.3%20L731.1%2C19.7%20L736.6%2C17.0%20L742.2%2C17.5%20L747.7%2C18.0%20L753.2%2C19.8%20L758.8%2C22.4%20L764.3%2C21.0%20L769.8%2C17.6%20L775.4%2C26.0%20L780.9%2C24.1%20L786.5%2C19.4%20L792.0%2C16.8%20L797.5%2C21.7%20L803.1%2C17.4%20L808.6%2C25.6%20L814.2%2C24.4%20L819.7%2C19.5%20L825.2%2C20.5%20L830.8%2C21.4%20L836.3%2C18.1%20L841.8%2C15.5%20L847.4%2C13.8%20L852.9%2C21.2%20L858.5%2C18.8%20L864.0%2C24.1%20L869.5%2C22.7%20L875.1%2C22.7%20L880.6%2C24.6%20L886.2%2C24.4%20L891.7%2C18.7%20L897.2%2C18.0%20L902.8%2C24.1%20L908.3%2C25.9%20L913.8%2C25.6%20L919.4%2C29.2%20L924.9%2C27.6%20L930.5%2C24.8%20L936.0%2C22.0%20L941.5%2C20.8%20L947.1%2C24.9%20L952.6%2C25.5%20L958.2%2C24.0%20L963.7%2C22.3%20L969.2%2C23.9%20L974.8%2C16.8%20L980.3%2C16.1%20L985.8%2C20.2%20L991.4%2C17.6%20L996.9%2C17.7%20L1002.5%2C14.6%20L1008.0%2C14.4%20L1013.5%2C20.9%20L1019.1%2C20.3%20L1024.6%2C19.4%20L1030.2%2C20.0%20L1035.7%2C19.7%20L1041.2%2C20.0%20L1046.8%2C12.4%20L1052.3%2C13.1%20L1057.8%2C12.5%20L1063.4%2C16.0%20L1068.9%2C16.0%20L1074.5%2C21.4%20L1080.0%2C15.2%20L1085.5%2C21.4%20L1091.1%2C16.3%20L1096.6%2C19.4%20L1102.2%2C16.5%20L1107.7%2C24.8%20L1113.2%2C15.4%20L1118.8%2C20.3%20L1124.3%2C15.4%20L1129.8%2C20.4%20L1135.4%2C19.3%20L1140.9%2C21.3%20L1146.5%2C14.1%20L1152.0%2C20.5%20L1157.5%2C15.6%20L1163.1%2C18.8%20L1168.6%2C17.3%20L1174.2%2C17.5%20L1179.7%2C20.3%20L1185.2%2C16.2%20L1190.8%2C14.4%20L1196.3%2C13.0%20L1201.8%2C13.8%20L1207.4%2C14.3%20L1212.9%2C17.9%20L1218.5%2C17.6%20L1224.0%2C21.0%20L1229.5%2C19.6%20L1235.1%2C15.3%20L1240.6%2C15.1%20L1246.2%2C15.8%20L1251.7%2C13.9%20L1257.2%2C18.0%20L1262.8%2C14.8%20L1268.3%2C17.4%20L1273.8%2C19.8%20L1279.4%2C22.5%20L1284.9%2C22.5%20L1290.5%2C20.7%20L1296.0%2C18.4%20L1301.5%2C19.3%20L1307.1%2C19.5%20L1312.6%2C16.9%20L1318.2%2C21.0%20L1323.7%2C21.5%20L1329.2%2C20.0%20L1334.8%2C24.6%20L1340.3%2C26.0%20L1345.8%2C23.1%20L1351.4%2C23.1%20L1356.9%2C24.9%20L1362.5%2C19.3%20L1368.0%2C20.2%20L1373.5%2C18.9%20L1379.1%2C23.7%20L1384.6%2C19.4%20L1390.2%2C16.8%20L1395.7%2C17.4%20L1401.2%2C21.6%20L1406.8%2C17.7%20L1412.3%2C18.8%20L1417.8%2C21.4%20L1423.4%2C26.6%20L1428.9%2C27.2%20L1434.5%2C17.9%20L1440.0%2C22.0%20L1440.0%2C46.0%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440.0%2C0%20L1440.0%2C21.7%20L1434.5%2C20.8%20L1428.9%2C25.0%20L1423.4%2C25.4%20L1417.8%2C20.1%20L1412.3%2C20.0%20L1406.8%2C29.0%20L1401.2%2C19.8%20L1395.7%2C21.0%20L1390.2%2C24.5%20L1384.6%2C24.8%20L1379.1%2C23.5%20L1373.5%2C23.9%20L1368.0%2C24.3%20L1362.5%2C28.5%20L1356.9%2C22.2%20L1351.4%2C27.2%20L1345.8%2C25.6%20L1340.3%2C20.6%20L1334.8%2C21.4%20L1329.2%2C19.5%20L1323.7%2C19.9%20L1318.2%2C24.4%20L1312.6%2C17.1%20L1307.1%2C16.6%20L1301.5%2C22.3%20L1296.0%2C22.4%20L1290.5%2C23.4%20L1284.9%2C22.2%20L1279.4%2C25.7%20L1273.8%2C19.3%20L1268.3%2C21.1%20L1262.8%2C21.3%20L1257.2%2C19.1%20L1251.7%2C15.5%20L1246.2%2C23.0%20L1240.6%2C16.6%20L1235.1%2C4.4%20L1229.5%2C21.3%20L1224.0%2C24.5%20L1218.5%2C24.1%20L1212.9%2C20.4%20L1207.4%2C24.0%20L1201.8%2C22.1%20L1196.3%2C18.1%20L1190.8%2C21.4%20L1185.2%2C22.0%20L1179.7%2C18.2%20L1174.2%2C19.8%20L1168.6%2C21.8%20L1163.1%2C15.3%20L1157.5%2C14.6%20L1152.0%2C12.8%20L1146.5%2C20.0%20L1140.9%2C22.2%20L1135.4%2C22.8%20L1129.8%2C13.4%20L1124.3%2C14.9%20L1118.8%2C11.5%20L1113.2%2C11.9%20L1107.7%2C16.7%20L1102.2%2C12.9%20L1096.6%2C19.7%20L1091.1%2C17.6%20L1085.5%2C17.4%20L1080.0%2C18.5%20L1074.5%2C16.8%20L1068.9%2C18.7%20L1063.4%2C15.3%20L1057.8%2C15.7%20L1052.3%2C15.8%20L1046.8%2C21.6%20L1041.2%2C15.6%20L1035.7%2C20.2%20L1030.2%2C17.1%20L1024.6%2C22.3%20L1019.1%2C22.6%20L1013.5%2C18.4%20L1008.0%2C20.1%20L1002.5%2C21.1%20L996.9%2C18.5%20L991.4%2C15.9%20L985.8%2C24.7%20L980.3%2C19.8%20L974.8%2C19.2%20L969.2%2C21.7%20L963.7%2C24.9%20L958.2%2C20.3%20L952.6%2C22.2%20L947.1%2C24.9%20L941.5%2C21.9%20L936.0%2C24.0%20L930.5%2C24.4%20L924.9%2C21.0%20L919.4%2C23.3%20L913.8%2C23.9%20L908.3%2C28.2%20L902.8%2C28.7%20L897.2%2C26.7%20L891.7%2C22.9%20L886.2%2C20.5%20L880.6%2C19.7%20L875.1%2C22.7%20L869.5%2C25.8%20L864.0%2C27.5%20L858.5%2C23.9%20L852.9%2C19.6%20L847.4%2C21.4%20L841.8%2C15.3%20L836.3%2C15.2%20L830.8%2C15.8%20L825.2%2C21.9%20L819.7%2C23.1%20L814.2%2C24.3%20L808.6%2C21.7%20L803.1%2C21.6%20L797.5%2C12.7%20L792.0%2C16.0%20L786.5%2C15.5%20L780.9%2C15.1%20L775.4%2C21.2%20L769.8%2C21.7%20L764.3%2C19.3%20L758.8%2C16.8%20L753.2%2C24.4%20L747.7%2C23.1%20L742.2%2C17.9%20L736.6%2C24.1%20L731.1%2C25.3%20L725.5%2C31.6%20L720.0%2C25.5%20L714.5%2C23.0%20L708.9%2C26.7%20L703.4%2C19.8%20L697.8%2C24.3%20L692.3%2C25.8%20L686.8%2C25.8%20L681.2%2C20.1%20L675.7%2C23.6%20L670.2%2C20.3%20L664.6%2C22.1%20L659.1%2C26.0%20L653.5%2C26.5%20L648.0%2C20.4%20L642.5%2C29.8%20L636.9%2C27.2%20L631.4%2C30.2%20L625.8%2C26.6%20L620.3%2C26.5%20L614.8%2C31.4%20L609.2%2C25.5%20L603.7%2C29.4%20L598.2%2C28.4%20L592.6%2C24.4%20L587.1%2C30.9%20L581.5%2C14.4%20L576.0%2C29.2%20L570.5%2C25.5%20L564.9%2C30.9%20L559.4%2C26.1%20L553.8%2C25.6%20L548.3%2C26.8%20L542.8%2C29.4%20L537.2%2C27.3%20L531.7%2C26.8%20L526.2%2C24.8%20L520.6%2C27.8%20L515.1%2C28.8%20L509.5%2C24.5%20L504.0%2C25.2%20L498.5%2C27.0%20L492.9%2C28.2%20L487.4%2C32.1%20L481.8%2C34.6%20L476.3%2C26.6%20L470.8%2C31.3%20L465.2%2C33.5%20L459.7%2C27.0%20L454.2%2C32.3%20L448.6%2C32.7%20L443.1%2C25.6%20L437.5%2C26.9%20L432.0%2C29.5%20L426.5%2C34.5%20L420.9%2C28.2%20L415.4%2C32.5%20L409.8%2C31.7%20L404.3%2C33.1%20L398.8%2C27.6%20L393.2%2C32.8%20L387.7%2C30.0%20L382.2%2C31.9%20L376.6%2C28.9%20L371.1%2C27.9%20L365.5%2C28.0%20L360.0%2C30.3%20L354.5%2C26.5%20L348.9%2C32.5%20L343.4%2C19.2%20L337.8%2C26.2%20L332.3%2C30.7%20L326.8%2C26.2%20L321.2%2C28.5%20L315.7%2C23.7%20L310.2%2C23.6%20L304.6%2C22.0%20L299.1%2C27.7%20L293.5%2C22.1%20L288.0%2C28.1%20L282.5%2C23.1%20L276.9%2C23.0%20L271.4%2C22.3%20L265.8%2C24.6%20L260.3%2C26.6%20L254.8%2C20.8%20L249.2%2C21.2%20L243.7%2C29.8%20L238.2%2C26.6%20L232.6%2C28.2%20L227.1%2C30.2%20L221.5%2C26.7%20L216.0%2C24.3%20L210.5%2C24.0%20L204.9%2C23.7%20L199.4%2C24.3%20L193.8%2C26.2%20L188.3%2C23.4%20L182.8%2C28.5%20L177.2%2C26.0%20L171.7%2C26.8%20L166.2%2C20.8%20L160.6%2C19.2%20L155.1%2C16.5%20L149.5%2C18.4%20L144.0%2C17.5%20L138.5%2C19.7%20L132.9%2C28.4%20L127.4%2C24.3%20L121.8%2C25.6%20L116.3%2C17.5%20L110.8%2C25.8%20L105.2%2C21.4%20L99.7%2C26.5%20L94.2%2C26.3%20L88.6%2C27.5%20L83.1%2C22.8%20L77.5%2C22.4%20L72.0%2C23.8%20L66.5%2C26.2%20L60.9%2C24.6%20L55.4%2C25.3%20L49.8%2C22.1%20L44.3%2C22.0%20L38.8%2C23.8%20L33.2%2C21.7%20L27.7%2C25.5%20L22.2%2C22.1%20L16.6%2C19.5%20L11.1%2C26.6%20L5.5%2C22.6%20L0.0%2C21.7%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),linear-gradient(#000,#000);
+          mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C46.0%20L0.0%2C23.4%20L5.5%2C22.8%20L11.1%2C21.8%20L16.6%2C18.9%20L22.2%2C24.2%20L27.7%2C24.3%20L33.2%2C21.4%20L38.8%2C19.1%20L44.3%2C14.6%20L49.8%2C20.8%20L55.4%2C18.1%20L60.9%2C15.9%20L66.5%2C22.7%20L72.0%2C16.5%20L77.5%2C20.0%20L83.1%2C17.6%20L88.6%2C15.2%20L94.2%2C20.8%20L99.7%2C16.9%20L105.2%2C19.6%20L110.8%2C25.4%20L116.3%2C17.6%20L121.8%2C21.2%20L127.4%2C18.2%20L132.9%2C16.0%20L138.5%2C17.5%20L144.0%2C21.8%20L149.5%2C20.4%20L155.1%2C19.8%20L160.6%2C20.1%20L166.2%2C18.1%20L171.7%2C11.7%20L177.2%2C13.5%20L182.8%2C15.2%20L188.3%2C16.3%20L193.8%2C12.5%20L199.4%2C14.4%20L204.9%2C21.5%20L210.5%2C22.4%20L216.0%2C26.0%20L221.5%2C19.7%20L227.1%2C19.7%20L232.6%2C19.8%20L238.2%2C17.4%20L243.7%2C15.2%20L249.2%2C11.9%20L254.8%2C12.1%20L260.3%2C16.4%20L265.8%2C19.2%20L271.4%2C17.9%20L276.9%2C21.2%20L282.5%2C23.8%20L288.0%2C18.3%20L293.5%2C13.9%20L299.1%2C22.3%20L304.6%2C21.9%20L310.2%2C20.5%20L315.7%2C19.2%20L321.2%2C21.8%20L326.8%2C21.5%20L332.3%2C20.7%20L337.8%2C22.7%20L343.4%2C22.1%20L348.9%2C18.6%20L354.5%2C21.9%20L360.0%2C21.9%20L365.5%2C24.3%20L371.1%2C17.0%20L376.6%2C14.9%20L382.2%2C17.9%20L387.7%2C19.4%20L393.2%2C20.5%20L398.8%2C17.8%20L404.3%2C14.9%20L409.8%2C22.6%20L415.4%2C18.8%20L420.9%2C18.6%20L426.5%2C21.5%20L432.0%2C22.9%20L437.5%2C24.6%20L443.1%2C20.1%20L448.6%2C11.5%20L454.2%2C13.0%20L459.7%2C16.4%20L465.2%2C17.6%20L470.8%2C21.6%20L476.3%2C16.2%20L481.8%2C15.4%20L487.4%2C13.5%20L492.9%2C16.5%20L498.5%2C16.1%20L504.0%2C14.6%20L509.5%2C15.7%20L515.1%2C23.3%20L520.6%2C23.2%20L526.2%2C20.8%20L531.7%2C22.2%20L537.2%2C22.7%20L542.8%2C26.4%20L548.3%2C24.7%20L553.8%2C26.6%20L559.4%2C21.5%20L564.9%2C30.2%20L570.5%2C24.3%20L576.0%2C23.6%20L581.5%2C20.0%20L587.1%2C22.7%20L592.6%2C25.0%20L598.2%2C20.3%20L603.7%2C22.0%20L609.2%2C22.4%20L614.8%2C24.6%20L620.3%2C23.8%20L625.8%2C21.3%20L631.4%2C20.8%20L636.9%2C23.5%20L642.5%2C21.7%20L648.0%2C20.6%20L653.5%2C18.2%20L659.1%2C18.2%20L664.6%2C18.5%20L670.2%2C20.2%20L675.7%2C20.5%20L681.2%2C13.5%20L686.8%2C19.1%20L692.3%2C18.0%20L697.8%2C14.2%20L703.4%2C14.1%20L708.9%2C15.5%20L714.5%2C13.6%20L720.0%2C18.5%20L725.5%2C19.3%20L731.1%2C19.7%20L736.6%2C17.0%20L742.2%2C17.5%20L747.7%2C18.0%20L753.2%2C19.8%20L758.8%2C22.4%20L764.3%2C21.0%20L769.8%2C17.6%20L775.4%2C26.0%20L780.9%2C24.1%20L786.5%2C19.4%20L792.0%2C16.8%20L797.5%2C21.7%20L803.1%2C17.4%20L808.6%2C25.6%20L814.2%2C24.4%20L819.7%2C19.5%20L825.2%2C20.5%20L830.8%2C21.4%20L836.3%2C18.1%20L841.8%2C15.5%20L847.4%2C13.8%20L852.9%2C21.2%20L858.5%2C18.8%20L864.0%2C24.1%20L869.5%2C22.7%20L875.1%2C22.7%20L880.6%2C24.6%20L886.2%2C24.4%20L891.7%2C18.7%20L897.2%2C18.0%20L902.8%2C24.1%20L908.3%2C25.9%20L913.8%2C25.6%20L919.4%2C29.2%20L924.9%2C27.6%20L930.5%2C24.8%20L936.0%2C22.0%20L941.5%2C20.8%20L947.1%2C24.9%20L952.6%2C25.5%20L958.2%2C24.0%20L963.7%2C22.3%20L969.2%2C23.9%20L974.8%2C16.8%20L980.3%2C16.1%20L985.8%2C20.2%20L991.4%2C17.6%20L996.9%2C17.7%20L1002.5%2C14.6%20L1008.0%2C14.4%20L1013.5%2C20.9%20L1019.1%2C20.3%20L1024.6%2C19.4%20L1030.2%2C20.0%20L1035.7%2C19.7%20L1041.2%2C20.0%20L1046.8%2C12.4%20L1052.3%2C13.1%20L1057.8%2C12.5%20L1063.4%2C16.0%20L1068.9%2C16.0%20L1074.5%2C21.4%20L1080.0%2C15.2%20L1085.5%2C21.4%20L1091.1%2C16.3%20L1096.6%2C19.4%20L1102.2%2C16.5%20L1107.7%2C24.8%20L1113.2%2C15.4%20L1118.8%2C20.3%20L1124.3%2C15.4%20L1129.8%2C20.4%20L1135.4%2C19.3%20L1140.9%2C21.3%20L1146.5%2C14.1%20L1152.0%2C20.5%20L1157.5%2C15.6%20L1163.1%2C18.8%20L1168.6%2C17.3%20L1174.2%2C17.5%20L1179.7%2C20.3%20L1185.2%2C16.2%20L1190.8%2C14.4%20L1196.3%2C13.0%20L1201.8%2C13.8%20L1207.4%2C14.3%20L1212.9%2C17.9%20L1218.5%2C17.6%20L1224.0%2C21.0%20L1229.5%2C19.6%20L1235.1%2C15.3%20L1240.6%2C15.1%20L1246.2%2C15.8%20L1251.7%2C13.9%20L1257.2%2C18.0%20L1262.8%2C14.8%20L1268.3%2C17.4%20L1273.8%2C19.8%20L1279.4%2C22.5%20L1284.9%2C22.5%20L1290.5%2C20.7%20L1296.0%2C18.4%20L1301.5%2C19.3%20L1307.1%2C19.5%20L1312.6%2C16.9%20L1318.2%2C21.0%20L1323.7%2C21.5%20L1329.2%2C20.0%20L1334.8%2C24.6%20L1340.3%2C26.0%20L1345.8%2C23.1%20L1351.4%2C23.1%20L1356.9%2C24.9%20L1362.5%2C19.3%20L1368.0%2C20.2%20L1373.5%2C18.9%20L1379.1%2C23.7%20L1384.6%2C19.4%20L1390.2%2C16.8%20L1395.7%2C17.4%20L1401.2%2C21.6%20L1406.8%2C17.7%20L1412.3%2C18.8%20L1417.8%2C21.4%20L1423.4%2C26.6%20L1428.9%2C27.2%20L1434.5%2C17.9%20L1440.0%2C22.0%20L1440.0%2C46.0%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%201440%2046%27%20preserveAspectRatio%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C0%20L1440.0%2C0%20L1440.0%2C21.7%20L1434.5%2C20.8%20L1428.9%2C25.0%20L1423.4%2C25.4%20L1417.8%2C20.1%20L1412.3%2C20.0%20L1406.8%2C29.0%20L1401.2%2C19.8%20L1395.7%2C21.0%20L1390.2%2C24.5%20L1384.6%2C24.8%20L1379.1%2C23.5%20L1373.5%2C23.9%20L1368.0%2C24.3%20L1362.5%2C28.5%20L1356.9%2C22.2%20L1351.4%2C27.2%20L1345.8%2C25.6%20L1340.3%2C20.6%20L1334.8%2C21.4%20L1329.2%2C19.5%20L1323.7%2C19.9%20L1318.2%2C24.4%20L1312.6%2C17.1%20L1307.1%2C16.6%20L1301.5%2C22.3%20L1296.0%2C22.4%20L1290.5%2C23.4%20L1284.9%2C22.2%20L1279.4%2C25.7%20L1273.8%2C19.3%20L1268.3%2C21.1%20L1262.8%2C21.3%20L1257.2%2C19.1%20L1251.7%2C15.5%20L1246.2%2C23.0%20L1240.6%2C16.6%20L1235.1%2C4.4%20L1229.5%2C21.3%20L1224.0%2C24.5%20L1218.5%2C24.1%20L1212.9%2C20.4%20L1207.4%2C24.0%20L1201.8%2C22.1%20L1196.3%2C18.1%20L1190.8%2C21.4%20L1185.2%2C22.0%20L1179.7%2C18.2%20L1174.2%2C19.8%20L1168.6%2C21.8%20L1163.1%2C15.3%20L1157.5%2C14.6%20L1152.0%2C12.8%20L1146.5%2C20.0%20L1140.9%2C22.2%20L1135.4%2C22.8%20L1129.8%2C13.4%20L1124.3%2C14.9%20L1118.8%2C11.5%20L1113.2%2C11.9%20L1107.7%2C16.7%20L1102.2%2C12.9%20L1096.6%2C19.7%20L1091.1%2C17.6%20L1085.5%2C17.4%20L1080.0%2C18.5%20L1074.5%2C16.8%20L1068.9%2C18.7%20L1063.4%2C15.3%20L1057.8%2C15.7%20L1052.3%2C15.8%20L1046.8%2C21.6%20L1041.2%2C15.6%20L1035.7%2C20.2%20L1030.2%2C17.1%20L1024.6%2C22.3%20L1019.1%2C22.6%20L1013.5%2C18.4%20L1008.0%2C20.1%20L1002.5%2C21.1%20L996.9%2C18.5%20L991.4%2C15.9%20L985.8%2C24.7%20L980.3%2C19.8%20L974.8%2C19.2%20L969.2%2C21.7%20L963.7%2C24.9%20L958.2%2C20.3%20L952.6%2C22.2%20L947.1%2C24.9%20L941.5%2C21.9%20L936.0%2C24.0%20L930.5%2C24.4%20L924.9%2C21.0%20L919.4%2C23.3%20L913.8%2C23.9%20L908.3%2C28.2%20L902.8%2C28.7%20L897.2%2C26.7%20L891.7%2C22.9%20L886.2%2C20.5%20L880.6%2C19.7%20L875.1%2C22.7%20L869.5%2C25.8%20L864.0%2C27.5%20L858.5%2C23.9%20L852.9%2C19.6%20L847.4%2C21.4%20L841.8%2C15.3%20L836.3%2C15.2%20L830.8%2C15.8%20L825.2%2C21.9%20L819.7%2C23.1%20L814.2%2C24.3%20L808.6%2C21.7%20L803.1%2C21.6%20L797.5%2C12.7%20L792.0%2C16.0%20L786.5%2C15.5%20L780.9%2C15.1%20L775.4%2C21.2%20L769.8%2C21.7%20L764.3%2C19.3%20L758.8%2C16.8%20L753.2%2C24.4%20L747.7%2C23.1%20L742.2%2C17.9%20L736.6%2C24.1%20L731.1%2C25.3%20L725.5%2C31.6%20L720.0%2C25.5%20L714.5%2C23.0%20L708.9%2C26.7%20L703.4%2C19.8%20L697.8%2C24.3%20L692.3%2C25.8%20L686.8%2C25.8%20L681.2%2C20.1%20L675.7%2C23.6%20L670.2%2C20.3%20L664.6%2C22.1%20L659.1%2C26.0%20L653.5%2C26.5%20L648.0%2C20.4%20L642.5%2C29.8%20L636.9%2C27.2%20L631.4%2C30.2%20L625.8%2C26.6%20L620.3%2C26.5%20L614.8%2C31.4%20L609.2%2C25.5%20L603.7%2C29.4%20L598.2%2C28.4%20L592.6%2C24.4%20L587.1%2C30.9%20L581.5%2C14.4%20L576.0%2C29.2%20L570.5%2C25.5%20L564.9%2C30.9%20L559.4%2C26.1%20L553.8%2C25.6%20L548.3%2C26.8%20L542.8%2C29.4%20L537.2%2C27.3%20L531.7%2C26.8%20L526.2%2C24.8%20L520.6%2C27.8%20L515.1%2C28.8%20L509.5%2C24.5%20L504.0%2C25.2%20L498.5%2C27.0%20L492.9%2C28.2%20L487.4%2C32.1%20L481.8%2C34.6%20L476.3%2C26.6%20L470.8%2C31.3%20L465.2%2C33.5%20L459.7%2C27.0%20L454.2%2C32.3%20L448.6%2C32.7%20L443.1%2C25.6%20L437.5%2C26.9%20L432.0%2C29.5%20L426.5%2C34.5%20L420.9%2C28.2%20L415.4%2C32.5%20L409.8%2C31.7%20L404.3%2C33.1%20L398.8%2C27.6%20L393.2%2C32.8%20L387.7%2C30.0%20L382.2%2C31.9%20L376.6%2C28.9%20L371.1%2C27.9%20L365.5%2C28.0%20L360.0%2C30.3%20L354.5%2C26.5%20L348.9%2C32.5%20L343.4%2C19.2%20L337.8%2C26.2%20L332.3%2C30.7%20L326.8%2C26.2%20L321.2%2C28.5%20L315.7%2C23.7%20L310.2%2C23.6%20L304.6%2C22.0%20L299.1%2C27.7%20L293.5%2C22.1%20L288.0%2C28.1%20L282.5%2C23.1%20L276.9%2C23.0%20L271.4%2C22.3%20L265.8%2C24.6%20L260.3%2C26.6%20L254.8%2C20.8%20L249.2%2C21.2%20L243.7%2C29.8%20L238.2%2C26.6%20L232.6%2C28.2%20L227.1%2C30.2%20L221.5%2C26.7%20L216.0%2C24.3%20L210.5%2C24.0%20L204.9%2C23.7%20L199.4%2C24.3%20L193.8%2C26.2%20L188.3%2C23.4%20L182.8%2C28.5%20L177.2%2C26.0%20L171.7%2C26.8%20L166.2%2C20.8%20L160.6%2C19.2%20L155.1%2C16.5%20L149.5%2C18.4%20L144.0%2C17.5%20L138.5%2C19.7%20L132.9%2C28.4%20L127.4%2C24.3%20L121.8%2C25.6%20L116.3%2C17.5%20L110.8%2C25.8%20L105.2%2C21.4%20L99.7%2C26.5%20L94.2%2C26.3%20L88.6%2C27.5%20L83.1%2C22.8%20L77.5%2C22.4%20L72.0%2C23.8%20L66.5%2C26.2%20L60.9%2C24.6%20L55.4%2C25.3%20L49.8%2C22.1%20L44.3%2C22.0%20L38.8%2C23.8%20L33.2%2C21.7%20L27.7%2C25.5%20L22.2%2C22.1%20L16.6%2C19.5%20L11.1%2C26.6%20L5.5%2C22.6%20L0.0%2C21.7%20Z%27%20fill%3D%27white%27%2F%3E%3C%2Fsvg%3E"),linear-gradient(#000,#000);
+  -webkit-mask-size:100% 46px,100% 46px,100% calc(100% - 92px);
+          mask-size:100% 46px,100% 46px,100% calc(100% - 92px);
+  -webkit-mask-position:top left,bottom left,left 46px;
+          mask-position:top left,bottom left,left 46px;
+  -webkit-mask-repeat:no-repeat,no-repeat,no-repeat;
+          mask-repeat:no-repeat,no-repeat,no-repeat;
+  -webkit-mask-composite:source-over,source-over;
+          mask-composite:add,add;
+}
+.services::before{
+  --pat-o:.18;--pat-s:720px;
+  -webkit-mask-image:var(--pat),
+                     linear-gradient(to right,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
+                     linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 110px),transparent 100%);
+          mask-image:var(--pat),
+                     linear-gradient(to right,#000 0%,rgba(0,0,0,.5) 42%,transparent 100%),
+                     linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 110px),transparent 100%);
+  -webkit-mask-size:var(--pat-s) auto,100% 100%,100% 100%;
+          mask-size:var(--pat-s) auto,100% 100%,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat,no-repeat;
+          mask-repeat:repeat-y,no-repeat,no-repeat;
+  -webkit-mask-position:top right,center,center;
+          mask-position:top right,center,center;
+  -webkit-mask-composite:source-in,source-in;
+          mask-composite:intersect,intersect;
+}
+.services .wrap{position:relative;z-index:1}
+.services .sec-head{margin-bottom:48px}
+.partners{display:flex;align-items:center;gap:14px}
+.avatars{display:flex}
+.avatars span{
+  width:46px;height:46px;border-radius:50%;border:2px solid var(--navy);margin-inline-start:-12px;
+  background:var(--navy-2);display:grid;place-items:center;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:600;font-size:.6875rem;color:var(--pop);
+}
+.avatars span:first-child{margin-inline-start:0}
+.partners p{color:var(--on-dark-muted);font-size:.875rem;max-width:24ch;line-height:1.5}
+.grid-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.svc-more{display:flex;justify-content:center;margin-top:48px}
+.scard{
+  position:relative;background:var(--navy-2);border:1px solid rgba(255,255,255,.09);border-radius:12px;
+  padding:30px;display:flex;flex-direction:column;gap:18px;overflow:hidden;
+  transition:transform .28s,border-color .28s,background-color .28s;
+}
+.scard:hover{transform:translateY(-6px);background:#194968}
+.scard__top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.scard h3{color:#fff;font-size:1.375rem;font-weight:700;}
+.scard p{color:var(--on-dark-muted);font-size:.9375rem;line-height:1.6}
+.scard__bg{
+  position:absolute;inset:0;z-index:0;border-radius:12px;
+  background-image:var(--img);background-size:cover;background-position:center;
+  opacity:0;transform:scale(1.07);
+  transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
+}
+.scard__bg::after{
+  content:"";position:absolute;inset:0;border-radius:12px;
+  background:linear-gradient(180deg,rgba(8,36,63,0) 0%,rgba(8,36,63,.10) 28%,rgba(8,36,63,.62) 66%,rgb(8 36 63) 100%);
+}
+.scard:hover .scard__bg,.scard:focus-within .scard__bg{opacity:1;transform:scale(1)}
+.scard__top,.scard h3,.scard p,.scard__more{position:relative;z-index:1}
+.scard__more{
+  position:absolute;inset-block-end:22px;inset-inline-start:30px;z-index:2;
+  display:flex;align-items:center;pointer-events:none;
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s cubic-bezier(.16,1,.3,1) .08s,transform .45s cubic-bezier(.16,1,.3,1) .08s;
+}
+.scard:hover .scard__more,.scard:focus-within .scard__more{opacity:1;transform:none;pointer-events:auto}
+/* text lifts clear of the button as the card opens */
+.scard h3,.scard p{transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.scard:hover h3,.scard:hover p,.scard:focus-within h3,.scard:focus-within p{transform:translateY(-52px)}
+.scard__more .pill{height:44px;padding-inline:22px;font-size:.875rem}
+.scard__more .circ{width:44px;height:44px}
+.scard:hover .scard__more .circ,.scard:focus-within .scard__more .circ{transform:rotate(45deg)}
+.scard__num{transition:opacity .3s ease,transform .3s cubic-bezier(.16,1,.3,1)}
+.scard:hover .scard__num,.scard:focus-within .scard__num{opacity:0;transform:scale(.85)}
+.scard__thumb{
+  position:relative;width:142px;height:104px;border-radius:9px;overflow:hidden;flex:none;
+  background-image:var(--img);background-size:cover;background-position:center;
+  border:1px solid rgba(127,211,226,.22);
+  transition:opacity .38s cubic-bezier(.16,1,.3,1),transform .38s cubic-bezier(.16,1,.3,1);
+}
+.scard:hover .scard__thumb,.scard:focus-within .scard__thumb{opacity:0;transform:scale(.92)}
+.scard__num{
+  width:62px;height:62px;border-radius:12px;flex:none;display:grid;place-items:center;
+  background:rgba(63,203,122,.13);color:var(--pop);
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:1.6rem;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- clients ---------- */
+.logo-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.logo-tile{
+  aspect-ratio:16/9;border:1px solid var(--line);border-radius:8px;background:var(--paper);
+  display:grid;place-items:center;padding:20px;text-align:center;
+  transition:border-color .25s,background-color .25s,transform .25s;
+}
+.logo-tile:hover{border-color:var(--teal);background:var(--tint);transform:translateY(-3px)}
+.logo-tile img{max-width:210px;max-height:100%;object-fit:contain}
+
+/* ---------- branches map ---------- */
+#branches{position:relative;z-index:3;padding-block:110px 110px;background:var(--navy);overflow:hidden}
+.branches-bg{
+  position:absolute;top:-70px;bottom:-70px;left:0;right:0;z-index:0;background:var(--navy);overflow:hidden;
+}
+.branches-bg::before{
+  content:"";position:absolute;inset-block:0;left:0;width:46%;
+  background-color:#fff;
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.7) 60%,transparent 100%);
+          mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.7) 60%,transparent 100%);
+  -webkit-mask-size:680px auto,100% 100%;
+          mask-size:680px auto,100% 100%;
+  -webkit-mask-repeat:repeat-y,no-repeat;
+          mask-repeat:repeat-y,no-repeat;
+  -webkit-mask-position:top left,center;
+          mask-position:top left,center;
+  -webkit-mask-composite:source-in;
+          mask-composite:intersect;
+  opacity:.2;
+}
+#branches .wrap{position:relative;z-index:2}
+.branches-wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:72px;align-items:center}
+.branch-map{position:relative;z-index:3;display:grid;place-items:center}
+.branch-map svg.ksa{position:relative;width:100%;max-width:620px;height:auto;overflow:visible}
+.ksa-shape path{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.09);stroke-width:1;stroke-linejoin:round}
+.ksa-pin{color:var(--pop);transform-box:fill-box;transform-origin:bottom center}
+.js .rv .ksa-pin{
+  opacity:0;transform:translateY(-16px) scale(.6);
+  transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i,0) * 160ms + 250ms);
+}
+.js .rv.in .ksa-pin{opacity:1;transform:none}
+.ksa-pin__label{font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:15px;fill:#fff}
+
+.branch-list{display:grid;gap:0}
+.branch-item{display:flex;gap:18px;align-items:flex-start;padding-block:24px;border-top:1px solid rgba(255,255,255,.14)}
+.branch-item:first-child{border-top:0;padding-top:4px}
+.branch-item__ico{
+  width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(63,203,122,.15);color:var(--pop);
+}
+.branch-item__ico svg{width:20px;height:20px}
+.branch-item h3{font-size:1.1875rem;font-weight:700;color:#fff;margin-bottom:6px}
+.branch-item p{font-size:.9375rem;color:var(--on-dark-muted);line-height:1.65}
+@media (max-width:900px){
+  .branches-wrap{grid-template-columns:1fr}
+  .branch-map svg.ksa{max-width:460px;margin-inline:auto;display:block}
+}
+@media (max-width:1040px){.logo-wall{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:680px){.logo-wall{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- footer ---------- */
+.footer{background:var(--navy-deep);color:var(--on-dark-muted);position:relative;z-index:2;overflow:hidden}
+.footer .wrap{position:relative;z-index:2}
+.footer__chev{position:absolute;inset-inline:0;bottom:0;z-index:0;width:100%;height:auto}
+.footer-main{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:56px;padding-block:24px 58px}
+.footer h4{color:#fff;font-family:Tajawal,system-ui,sans-serif;font-size:1.375rem;font-weight:700;margin-bottom:26px}
+.footer a{text-decoration:none;transition:color .2s}
+.footer a:hover{color:var(--pop)}
+.fcontact{display:grid;gap:20px;text-align:end;align-content:start}
+.fcontact .lbl{display:block;font-family:Tajawal,system-ui,sans-serif;font-size:.6875rem;color:var(--pop);margin-bottom:5px}
+.fmid{text-align:center;display:flex;flex-direction:column;align-items:center;gap:26px}
+.fmid .logo-mark{width:150px;height:58px;filter:brightness(0) invert(1)}
+.fmid p{font-size:.9375rem;max-width:38ch}
+.socials-row{display:flex;gap:11px}
+.socials-row a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.09);display:grid;place-items:center;color:#fff}
+.socials-row a:hover{background:var(--pop);color:var(--navy)}
+.socials-row svg{width:16px;height:16px}
+.flinks{display:grid;gap:14px;font-size:.9375rem}
+.iso-row{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 26px;padding-block:26px;
+  border-top:1px solid rgba(255,255,255,.11);font-size:.8125rem;
+}
+.iso-row .lbl{margin-bottom:0}
+.iso-item{display:flex;flex-direction:column;gap:3px}
+.iso-item b{font-weight:600;color:var(--on-dark);font-size:.8125rem}
+.iso-item span{font-size:.6875rem;color:var(--on-dark-muted)}
+.iso-item + .iso-item{border-inline-start:1px solid rgba(255,255,255,.16);padding-inline-start:26px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.11);padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:.8125rem}
+.footer-bottom .right{margin-inline-start:auto}
+
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transition:opacity .5s ease-out}
+.js .rv.in{opacity:1}
+/* hero gets one authored, weightier entrance rather than the routine reveal (page-load timed, not scroll-scrubbed) */
+.js .rv .hero-stag > *{transform:translateY(34px) scale(.978);transition-duration:.85s,.85s;transition-timing-function:cubic-bezier(.16,1,.3,1);transition-delay:calc(150ms + var(--i,0) * 110ms)}
+.js .rv.in .hero-stag > *{transform:none}
+
+/* everything else: fade-up is scroll-scrubbed via JS (inline opacity/transform), so it can never be outrun by a fast scroll.
+   This CSS only sets the pre-scrub hidden state before the first frame runs. --rise controls how far each group travels. */
+.js .stag:not(.hero-stag) > *{opacity:0;transform:translateY(var(--rise,28px))}
+.grid-svc{--rise:72px}
+.grid4{--rise:46px}
+.branch-list{--rise:72px}
+
+/* signature swoosh draws itself in once, echoing the site's hand-drawn line */
+.swoosh path{transition:stroke-dashoffset 1.15s cubic-bezier(.16,1,.3,1)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1180px){
+  .about .wrap{grid-template-columns:1fr 1fr;gap:44px}
+  .about .col{grid-column:1/-1}
+  .grid-svc{grid-template-columns:repeat(2,1fr)}
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .wcard{border-inline-start:0;border-top:1px solid var(--line)}
+  .wcard:nth-child(-n+2){border-top:0}
+}
+@media (max-width:940px){
+  .menu{display:none}
+  .grid-btn{display:grid}
+  .menu.open{
+    display:flex;position:absolute;inset-inline:0;top:calc(100% + 10px);flex-direction:column;
+    align-items:stretch;gap:0;background:var(--navy);border:1px solid rgba(255,255,255,.16);
+    border-radius:10px;padding:8px 20px 16px;
+  }
+  .menu.open a{padding-block:13px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .menu.open a::after{display:none}
+    .hero > .wrap{padding-block:150px 110px}
+  .footer-main{grid-template-columns:1fr;gap:44px;text-align:center}
+  .fcontact{text-align:center}
+}
+@media (max-width:680px){
+  .section{padding-block:74px}
+  .services{padding-block:18px 74px}
+  .grid-svc,.grid4{grid-template-columns:1fr}
+  .about .wrap{grid-template-columns:1fr}
+  .navbar{height:68px;padding-inline:16px;gap:12px}
+  .logo-mark{width:92px;height:36px}
+  .grid-btn{width:46px;height:46px}
+  .footer-bottom .right{margin-inline-start:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .js .rv,.js .rv .stag > *,.js .rv .ksa-pin{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <linearGradient id="swooshgrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0E2A4C"/><stop offset="45%" stop-color="#1F914C"/><stop offset="100%" stop-color="#3FCB7A"/>
+    </linearGradient>
+    <symbol id="arr" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H8M17 7v9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M21 7h-5M21 7v5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="currentColor"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12A7 7 0 105 10c0 5.5 7 12 7 12z" fill="currentColor"/><circle cx="12" cy="10" r="2.6" fill="var(--navy)"/></symbol>
+  </defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:+966112933360"><bdi>+966 11 29 333 60</bdi></a>
+    <span>King Faisal Road, Al Wafa Tower, Riyadh</span>
+    <a href="mailto:info@ba-audit.com"><bdi>info@ba-audit.com</bdi></a>
+    <span class="socials">
+      <a href="#contact" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+      <a href="#contact" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
+    </span>
+  </div>
+</div>
+
+<main id="top">
+<section class="hero">
+  <div class="hero__media" style="--hero-bg:url('../Sources/bg2_flipped.webp')"></div>
+
+  <div class="navwrap">
+    <div class="wrap">
+      <div class="navbar">
+        <a class="brand" href="#top" aria-label="Arab Experts Group — home"><img class="logo-mark" src="../Sources/logo.png" alt="Arab Experts Group"></a>
+        <nav class="menu" id="menu" aria-label="Main">
+          <a href="#why">Why Us</a>
+          <a href="#about">About Us</a>
+          <span class="menu-item">
+            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">Services<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="mega-panel" id="mega-services">
+             <div class="mega-panel__card">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <span class="mega-col__num">10</span>
+                  <h4>Business Sector Services</h4>
+                  <ul>
+                    <li>Company Formation, Amendment &amp; Liquidation</li>
+                    <li>Restructuring &amp; Governance</li>
+                    <li>Foreign Investment Policies &amp; Procedures</li>
+                    <li>Legal File Preparation</li>
+                    <li>Industrial &amp; Professional Establishments</li>
+                    <li>Licenses &amp; Trademarks</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">03</span>
+                  <h4>Audit &amp; Review</h4>
+                  <ul>
+                    <li>Off-Plan Sales (WAFI)</li>
+                    <li>Audit &amp; Financial Reporting</li>
+                    <li>Internal Control</li>
+                    <li>Asset Impairment Testing</li>
+                    <li>Fair Value &amp; Purchase Price Allocation</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">04</span>
+                  <h4>Financial Consulting</h4>
+                  <ul>
+                    <li>Business &amp; Operations Strategy</li>
+                    <li>Financial Advisory</li>
+                    <li>Governance &amp; Risk Management</li>
+                    <li>Mergers &amp; Acquisitions</li>
+                    <li>Human Resources</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">09</span>
+                  <h4>Contractor Qualification &amp; Classification</h4>
+                  <ul>
+                    <li>Facility Classification &amp; Qualification</li>
+                    <li>Legal, Financial &amp; Technical Advisory</li>
+                    <li>Classification File Preparation &amp; Follow-up</li>
+                    <li>Coordinating Office &amp; Field Visits</li>
+                    <li>ISO Certification Readiness</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">01</span>
+                  <h4>Zakat, Tax &amp; VAT</h4>
+                  <ul>
+                    <li>Tax Compliance Law</li>
+                    <li>Tax &amp; Zakat Analysis and Studies</li>
+                    <li>Tax &amp; Zakat Advisory</li>
+                    <li>Zakat &amp; Tax Compliance</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">02</span>
+                  <h4>Judicial Support</h4>
+                  <ul>
+                    <li>Dispute Cases</li>
+                    <li>Bankruptcy Cases</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">06</span>
+                  <h4>Feasibility Studies</h4>
+                  <ul>
+                    <li>Investment Opportunity Analysis</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">07</span>
+                  <h4>Administrative Restructuring</h4>
+                  <ul>
+                    <li>Independent Professional Assessments</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">08</span>
+                  <h4>Brand Identity</h4>
+                  <ul>
+                    <li>Corporate Identity &amp; Image</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">05</span>
+                  <h4>Management Consulting</h4>
+                </div>
+              </div>
+              <div class="mega-footer">
+                <a href="#services">View Services Section<svg><use href="#arr"/></svg></a>
+              </div>
+             </div>
+            </div>
+          </span>
+          <a href="#clients">Our Clients</a>
+          <a href="#contact">Contact Us</a>
+        </nav>
+        <button class="grid-btn" id="gridbtn" aria-label="Menu" aria-expanded="false" aria-controls="menu">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap rv">
+    <div class="hero__inner stag hero-stag">
+      <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>Welcome to Arab Experts Group<svg><use href="#trend"/></svg></span>
+      <h1>Excellence Is<br>Our Way Forward<span class="dot">.</span></h1>
+      <p class="lede lede--ondark">We are a reference in professional consulting for leading companies across local and international markets, serving clients from around the world.</p>
+      <div class="pair">
+        <a class="pill pill--ondark" href="#contact">Free Consultation</a>
+        <a class="circ" href="#contact" aria-label="Get in touch"><svg><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section rv" id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="col">
+        <h2 class="h-sec">Why Choose<br>Arab Experts Group</h2>
+      </div>
+    </div>
+    <div class="grid4 stag">
+      <article class="wcard">
+        <span class="wcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 6a3.5 3.5 0 007 0zM17 7l-3 6a3.5 3.5 0 007 0z"/></svg></span>
+        <div><h3>Integrity &amp; Independence</h3><p>Professional judgment and respect for our commitments.</p></div>
+      </article>
+      <article class="wcard">
+        <span class="wcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21M11 8v6M8 11h6"/></svg></span>
+        <div><h3>Sharp Insight</h3><p>We consistently turn knowledge into insight and ideas into decisions — a key driver of our success and our clients' trust.</p></div>
+      </article>
+      <article class="wcard">
+        <span class="wcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.5l-5.6 3 1.1-6.3L3 7.8l6.3-.9L12 1.2l2.7 5.7 6.3.9-4.5 4.4 1.1 6.3z"/><path d="M5 22h14"/></svg></span>
+        <div><h3>Service Excellence</h3><p>We are obsessed with client experience, and the strength of relationship it builds is always the key to our success.</p></div>
+      </article>
+      <article class="wcard">
+        <span class="wcard__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 1.9.6 2.8a2 2 0 01-.5 2.1L8.1 9.8a16 16 0 006 6l1.2-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.8.6a2 2 0 011.8 2z"/></svg></span>
+        <div><h3>Easy Accessibility</h3><p>Our clients' trust comes first, clearly reflected in how easy it is to reach us.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<svg class="swoosh" viewBox="0 0 1440 250" fill="none" aria-hidden="true" preserveAspectRatio="none">
+  <path d="M-20 176 C 300 250, 560 120, 830 96 C 1010 80, 1090 130, 1040 168 C 1000 198, 930 176, 960 138 C 1000 88, 1180 40, 1460 62"
+        stroke="url(#swooshgrad)" stroke-width="19" stroke-linecap="round"/>
+</svg>
+
+<section class="section about rv" id="about" style="padding-top:30px">
+  <div class="wrap stag">
+    <div>
+      <div class="bignum">
+        <span class="bignum__circle">More<br>Than</span>
+        <div class="bignum__val">97%</div>
+        <p>of our inquirers become clients after their first consultation with our advisors.</p>
+      </div>
+      <div class="minis">
+        <div class="mini"><b>10</b><span>professional services spanning consulting, audit, and compliance.</span></div>
+        <div class="mini"><b>3</b><span>branches across the Central, Eastern, and Western regions.</span></div>
+        <div class="mini"><b>20+</b><span>years of senior advisory experience across the team.</span></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2 class="h-sec">We Are a Reference in Professional Consulting.</h2>
+      <p class="lede">Arab Experts Group for Professional Consulting was established in Saudi Arabia, holding a range of professional licenses accredited by the relevant government authorities. Our professionals bring a high level of scientific and practical capability, delivering their services with integrity and independence at a high standard of quality.</p>
+      <ul class="sparks">
+        <li><svg><use href="#spark"/></svg>Zakat, Tax &amp; VAT Compliance</li>
+        <li><svg><use href="#spark"/></svg>Audit &amp; Financial Reporting</li>
+        <li><svg><use href="#spark"/></svg>Governance &amp; Corporate Restructuring</li>
+      </ul>
+      <div class="rule"></div>
+      <div class="pair">
+        <a class="pill" href="#services">More About Us</a>
+        <a class="circ" href="#services" aria-label="See our services"><svg><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="services rv" id="services">
+  <div class="wrap">
+    <div class="sec-head sec-head--split">
+      <div class="col">
+        <span class="eyebrow eyebrow--ondark"><svg><use href="#trend"/></svg>Services<svg><use href="#trend"/></svg></span>
+        <h2 class="h-sec h-sec--ondark">Services</h2>
+      </div>
+    </div>
+
+    <div class="grid-svc stag">
+      <article class="scard" style="--img:url('../Sources/services/consultation_zakah_added value.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">01</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Zakat, Tax &amp; VAT<br>Advisory Services</h3>
+        <p>Tax compliance law, analysis and studies, and zakat and tax filings.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="scard" style="--img:url('../Sources/services/support.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">02</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Judicial<br>Support Services</h3>
+        <p>Specialized financial support in dispute and bankruptcy cases before judicial authorities.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="scard" style="--img:url('../Sources/services/audit.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">03</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Audit<br>&amp; Review</h3>
+        <p>WAFI off-plan sales audit, internal control, fair value, and impairment testing.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="scard" style="--img:url('../Sources/services/financial consultations.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">04</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Financial<br>Consulting Services</h3>
+        <p>Strategy and operations, governance and risk management, M&amp;A, and human resources.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="scard" style="--img:url('../Sources/services/management consultation.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">05</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Management<br>Consulting</h3>
+        <p>Specialized management consulting that supports organizational decisions and performance.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="scard" style="--img:url('../Sources/services/finanical studies.jpeg')">
+        <div class="scard__bg" aria-hidden="true"></div>
+        <div class="scard__top">
+          <span class="scard__num">06</span>
+          <div class="scard__thumb"></div>
+        </div>
+        <h3>Feasibility<br>Studies</h3>
+        <p>Assessing market, technical, and financial feasibility before committing capital.</p>
+        <div class="scard__more">
+          <a class="pill pill--ondark" href="#contact">Learn More</a>
+          <a class="circ" href="#contact" aria-label="Learn more"><svg><use href="#arr"/></svg></a>
+        </div>
+      </article>
+
+          </div>
+
+    <div class="svc-more">
+      <div class="pair">
+        <a class="pill pill--ondark" href="#contact">Other Services</a>
+        <a class="circ" href="#contact" aria-label="See all ten practices"><svg><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section rv" id="clients">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec">Our Clients &amp; Success Partners</h2>
+    </div>
+    <div class="logo-wall stag">
+        <div class="logo-tile"><img src="../Sources/clients/partner-03.png" alt="Ministry of Culture" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-04.png" alt="Ministry of Health" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-05.png" alt="Ministry of Defense" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-01.png" alt="Al Jeri Transportation" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-02.png" alt="Aldrees" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-06.png" alt="Dar Al-Handasah" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-07.png" alt="Al Saedan Real Estate" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-08.png" alt="Rabadh For Metal Industries" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-09.png" alt="Thakher Development Company" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-11.png" alt="Wafir Group" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-12.png" alt="Almajal Alarabi Holding" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-13.png" alt="Balubaid Automotive" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-14.png" alt="CedarBridge" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-15.png" alt="Shabakkat" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-17.png" alt="GASCO" loading="lazy"></div>
+        <div class="logo-tile"><img src="../Sources/clients/partner-18.png" alt="Samama" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section rv" id="branches">
+  <div class="branches-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-sec h-sec--ondark">Our Branches in the Kingdom</h2>
+    </div>
+    <div class="branches-wrap">
+      <div class="branch-map">
+        <svg class="ksa" viewBox="30 20 940 780" aria-hidden="true">
+          <g class="ksa-shape">
+          <path d="M600.3 753.7l13.6-110.8 11.6-90.8 12.3-100.7 0.3-10.5-0.7-5.7-1-3.4-1.8-4.2-1.8-3-1.8-2.2-10.9-11-15.3-11.1-0.7-0.9-0.6-0.9-0.3-0.7-0.4-2.2-1-64.1-0.2-1.5-0.3-0.9-0.4-0.9-0.6-0.9-0.6-0.6-0.5-0.4-13.8-5.5-0.9-0.6-0.8-0.9-1.2-1.8-7.1-7-1-0.6-0.9-0.3-1.1-0.1-6.4 1.2-1 0-1-0.2-1.1-0.3-1-0.5-10.6-7.7-2.7-1.5-1.9-0.7-1.9-0.4-7.2-0.2-1.8-0.4-1-0.4-1.8-1.3-4.1-3.9-2.7-3.3-0.9-0.8-0.9-0.5-1-0.2-3.1-0.3-2-0.6-12.3-7.1-0.9-0.9-1.1-1.3-0.5-1.3-1.2-4.2-0.6-1.2-0.7-1-1.8-1.7-3.7-2.7-0.5-0.3-0.5-0.6-1.1-1.7-0.4-1-0.2-0.9 0-0.9 0.1-0.8 0.4-1.4 1.1-2.8 0.9-1.6 7.2-8.8 2.1-3.1 15.2-28.7 2.6-3.9 3.4-3.8 4.2-3.9 6.1-3.4 20.4-7.7 0.6-0.6 0.7-0.2 1.9-0.4 1.9-0.4 4.8 0.6 4.8 0.6 4.9 0.6 4.8 0.6 4.3 0.5 4.3 0.6 4.3 0.6 4.3 0.6 2.4 0.3 0.5 0.9 2.1 3.5 2.4 6.6 0.2 1.3 0.2 2.6 0.4 1.5 0.6 1.5 0.6 1.1 1 0.8 0.9 0.7 0.9 0.9 0.3 1.3 2.3 0 7.7-0.1 7.7-0.1 7.6-0.1 7.7-0.1 1 1.1 0.6 0.4 1.1 0.5 0.1 0.4 0.4 2.1 0 1.7-0.3 1.1-1-0.4-0.2 0.3-0.1 0.2 0 0.2 0.8 0 0.7-0.2 0.6-0.4 0.2-0.8 0.5 0.4 0 0.4-0.5 0.9-0.2 1.3-0.1 0.6 0.3 1.1 0.5 1 3.6 4 0.2 0.6-0.6 0.9-0.3 0.9 0 1 0.2 1 0.4 0.8 1.4 1.9 0.3 0.5-0.1 0.6 0 0.2 0.7 0.4 1.4 0.6 0.5 0.1 1.5-0.1 0.4 0.2 0.8 0.4 0.5 0.1 0.2 0.2 0 0.3-0.1 0.3-0.2 0.2-0.3 0.2-0.3 0-0.3-0.2-0.7 0.4-0.2 0.3 0 0.7 0.4 0.7 0.9 0.9 1 0.7 0.8 0.4 0 0.2 1 1.5 1.7 1.7 0.2 0.5-0.4 1 0 0.6 0 0.6 0.2 0.2-0.1 0.4-0.4 0.7-0.6 0.8-0.6 0.5 0.4-0.6 0-0.4-0.1-1.2 0.1-0.7 0.3-0.4 0.1-0.4-0.2-0.7-0.6 0.7-0.7 1.8-0.7 0.5 0.8-2.1 0.1-0.6-0.3-0.9-0.3 0.1-0.4 0.7-0.8 3.4 0 0.8-0.1 0.1-0.2 0.3 0.1 0.3 0.5-0.1 0.2-0.2 0.3-0.8 0.3-0.3 0 2.2 0.2 0.5 0.4-0.1 0.4-0.4 0.2-0.5 0.4 0.5 0 0.7-0.1 0.8 0.6 0.2 0.4-0.3 0.3-0.4 0.2-0.5 0 0.8-0.1 0.3-0.2 0.2 0.2 0.5 0 0.3-0.3 0.1-0.5 0.1 0.5 1 0.1 0.3-1-0.5-0.5 0-0.3 0.5 0.9 0.4 0.8 0 0.6-0.5 0.4-0.9 0.3 0 0.3 0.7-0.5 0.6-0.2 0.9 0.2 0.8 0.8 0 0.3-0.3-0.2-0.4-0.3-0.3-0.1-0.3 0.3-0.5 0.5-0.2 1-0.3 0.8-0.1 0.6 0.3 1.5 1.5 1.6 0.8 0.4 0.6-0.8 0.6 0.6 0.2 0.6 0 0.2-0.4-0.2-0.5 0.7 0.3 0.8 0.2 1.6 0.2 0.4-0.2 0.7-0.4 0.4-0.1 0.4 0 0.9 0.3 0.5 0 0.8 0.3 0.7 0.6 1 1.4 0.3 0.3 0.3 0.2 0.3 0.2 0.3 0.4 0.1 0.3 0.1 0.9 0.1 0.4-0.6 0-0.3-0.2-0.1-0.5 0.1-0.6-0.3 0-0.9 1.1-2.4-0.3-0.8 0.9-0.4 0-0.3-0.9-0.7 0-1.6 0.9 0.3 0.2 1 0.2 0.5 0.3 0.3 0.2 0.3 0.3 0.3 0.2 0.5 0.3 0.3 0.3 0.2 0.2 0.3-0.1 0.7-0.7 0-0.1 0.2-0.2 0.1-0.3 0.2-0.2 0.2 0.2 0.4 0.3 0.4 0.2-0.3 0.7-0.4 0.3-0.5 0.2-0.3 0.5-0.1 0.5-0.1 1.2-0.1 0.6 0.5-0.1 0.5-0.3 0.5-0.4 0.4-0.4 0.5-0.1 0.6 0.1 0.9 0.5-0.4 1 0.2 0.9 0.3 1 0.2 1-0.1 2 0.2 0.9 0.7-0.1 0 0.9 0.3 0.3 0.5-0.1 0.4-0.4-0.2-0.8 0.4-0.4 0.7-0.1 0.6 0.6 0.3-0.4 0.2 0.6-0.1 0.5-0.3 0.5-0.1 0.6-0.2 0.4-0.3 0.2-0.5 0-0.5-0.1 0.4 0.6 1 0.2 0.4 0.5 0.4-0.2 0.3-0.4 0.5-1 0 0.2 0.1 0 0.2 0.1-0.5 0.9 0.4 0.1 1.1-0.3 0.7 0.1 1.1 0.5 0.7 0-1.1-1.2-0.4-0.8 0.6-0.6 0.6-0.1 0.4 0.3 0.4 0.3 0.4 0.2 0.3-0.2 0.9-0.8-0.2 0.7-0.4 1.2 0 0.7 0.3 1.1 0.2 0.6 0.2 0.3 0.8 0.4 0.8 0.9 2.5 3.9 1.3 1.6 0.4 0.3 1.2 0.5 0.4 0.4 0.6 0.6 0.5 0.4 2.6 1.2 1.7 1.2 1 0.1 1 0 1 0.1 1.4 0.8 1.2 1.2 2.2 3 0.7 1.3 3.2 2.3 0.7 0.8 0.1 1.2-1.9-1.7-1.1-0.7-2.3-0.3-0.6-0.2-0.4-0.5-0.4-1.8-0.4 0.3-0.4 0.8-0.2 0.8 0 0.6 0 0.6 0.2 0.5 0.3 0.5 0.4 0.4 0.1 0.3-0.2 2.9 0.1 0.8 1.2 3.7 0.5 0.8 0.7 0.7 0.7 0.5 3.7 1.3 1.3 1.1 0.8 1.6 0.3 2.2 0 5.3-0.2 1.1-0.4 1-0.9 0.5 0-0.7-0.3-0.3-0.5 0.2-0.4 0.5 0.3 1.2-0.1 1.9-0.4 1.9-0.4 1.3-0.6-0.5-0.2-0.7 0-0.8-0.1-0.7-0.3-0.6-0.4-0.3-0.4-0.3-0.3-0.4-0.2-0.2-0.2 0-0.2-0.1-0.1-1.4-0.1-0.3-0.1-0.3-0.4-0.5-0.5-0.5-0.6-0.4-0.4 0.2-1.2 2.2-0.3 0.3-0.5 0.3 0.2 0.6 0.5 0.7 0.2 0.2 0.1 0.4 0.4 0.6 0.1 0.5-0.1 0.1-0.3 0.1-0.3 0.2-0.2 0.4 0.1 0.7 0.2 0.7 0 0.7-0.3 0.7 0.7 0.3 0.7-0.4 0.3-0.7-0.2-0.8 0.4 0.1 0.3 0.2 0.5 0.7 0.2 0.1 0.2-0.1 0.1 0.1 0.1 0.3 0 0.3 0 0.2 0.2 0 0.2 0 1.1 0.3 0.5 0.7 0.2 0.8 0.5 0.9 0 0.3-0.9 0.9 0.5 2.2 1 2.5 0.8 1.6 2.6 3.2 1.1 1.8 0.5 2.2-0.3 0-0.8-2.2-0.3-0.4-0.5-0.1-0.6-0.3-0.6-0.4-0.5-0.8-0.7-0.5-0.6-0.1-0.2 0.9 0.4 0.7 1.1 0.8 0.3 0.5 0.2-0.5 0.1-0.2 0.3 0 1.6 3.4 5 6.4 1.1 1-0.1-0.6-0.3-0.8-0.1-0.6 0.3-0.2 0.5-0.3 0.2 0.1 0.2 1.1 0.2 0.3 0.2 0.1 0.1 0.1 0.3 0.7 0.8 0.4 1.5 0.4 0.4 0.5 0.8 2.1-0.3 0.3 0.5 0.8 0.6 1.2 0.5 1.4 0.2 1.1 0 0.6-0.3 1 0 0.6 0.1 0.7 0.2 0.4 0.2 0.3 0.2 0.8 0.6 1.2 0.2 0.7-0.3 2 0.3 1.9 0.4 1.1 0.5 0.6 0.3-0.9 1.1 0.9 1.2 1.5 0.5 0.8 0.7 0.7 0.9 3.1 1 0.7 0.9 0.8 0.4 1.9 0.1 2.9 0.1 0.5 0.4 0.9 0.5 0.8 0.4 0.4 0.7 0 0.8-0.8 0.1-0.1 0.1 0.1 3.1 5.1 2 2.3 2.2 1 2.6 0.3 2.4 0 0.7-0.2 1.6-0.5 2.9-2.4 0.1 0.4 0.3 0 1.9-0.3 0.4 0.2 0.1 0.1 0.1 0.2 0.2 0.2 0.3 0.3 0.5-0.4 0.1 0.3 0 0.1-0.1 0.4-0.1 0.4-0.3 0.1-0.3 0.3 0.1 0.5 0.2 0.4 0.1 0.1-0.1 1.6 0.3 0.3 0.7-0.3 0.6-0.4 1.2-2.1 0.1-0.2 0.5-0.4 0.5-0.4 0.4-0.6 0-1.1 0.6 0.4 0.8 0 0.7 0.2 0.2 0.6 0.3 0.6 0.5 0.1 0.7 0 0.6 0.4 0 0.4-0.7 0.3-0.9 0.3-0.7 0.4-0.4 0.7-0.1 0-1 1.1-0.2 0.4-0.2 0.6-0.2 0.3-2.6 1.9-0.4 0.6-0.1 0.2-0.6 0.8-0.2 0.4-0.1 0.5-0.1 1.1-0.1 0.4 0 0.3 0 0.3 0 0.3-0.1 0.1-0.5-0.1-0.2 0.1-0.1 0.1 0 1.1 0 0.5 0.2 0.2 2.7 0.3 1-0.3 0.5-0.3 0.4-0.3 0.4-0.3 0.6-0.1 2.9 0.6 0.7 0.6 1.3 1.5 1.9 0.5 0.2 1.9 0 1.2-0.1 3 0.3 1.2 0.6 1.1 2.5 3.2 2.2 3 2.3 2.9 2.2 2.9 2.3 3 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.2 3 2.3 2.9 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.2 2.9 2.3 2.9 2.3 3 0.9 0.8 1 0.3 7 1 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 6 0.8 5.9 0.8 0.6-0.2 2.9-3.7 2.7 4.6 3.5 5.8 3.5 5.8 3.5 5.9 3.5 5.8 2.3 3.8 0.4 1 0 1.1-1.6 5.3-0.2 0.6-0.3 1-0.8 2.6-1.2 4-1.6 5.2-1.9 6.2-2.2 6.9-2.2 7.3-0.6 1.8-1.8 5.8-2.4 7.6-2.2 7.3-2.2 6.9-1.9 6.1-1.6 5.2-1.2 4-0.8 2.5-0.3 1-1.4 4.4-6.5 2.3-7.4 2.6-7.4 2.6-7.3 2.6-7.4 2.7-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-7.3 2.6-7.4 2.7-7.4 2.6-7.4 2.6-7.4 2.6-7.4 2.6-4.6 1.6-0.2 0.1-0.8 0.1-6 0.8-6.9 1-6.9 1-6.9 1-6.9 1-6.9 1-7 0.9-6.9 1-6.9 1-6.9 1-6.9 1-6.9 0.9-6.9 1-6.9 1-7 1-6.9 1-3.2 0.4-3.7 0.6-5.6 0.7-3.4 1.3-0.3 0.2-0.8 0.4-1 0.5-1 0.5-1 0.5-1 0.5-0.3 0.1-0.8 0.4-0.9 0.5-1.2 0.6-0.9 0.5-6.9 3.5-8.3 4.3-7.4 3.8-5.5 2.8-0.3 0.3-0.7 0.4-3.3 4.2-3.9 5-6.9 8.5-6.4 8.1-4.2 5.3-0.7 1.4-2.1 5.6-2.9 8-1.2 1.6 0 0.1z m92.2-479.1l0.8 0.4 2.3 0.6 2.2 0.7-0.8 0.3-0.6-0.2-0.7-0.3-0.7-0.2-0.7 0.1-0.7 0.3-0.6 0.4-0.5 0.5-0.4-0.3-0.2 0-0.3-0.2-0.3-0.1 0-0.3 0.6-0.3 0.1-0.2-0.2-0.3-0.2-0.2-0.1-0.2-0.5-0.2-0.5 0.1-0.4 0.1-0.4 0.1-0.6 0.3-0.5 0.5-0.5 0.8-0.3 0.8-0.1-1.3 0.8-1.2 1.2-0.9 1.3-0.3 0.5 0.1 0.4 0.2 0.6 0.4z"/>
+          <path d="M557.1 190.2l-0.6 0.6-20.4 7.7-6.1 3.4-4.2 3.9-3.4 3.8-2.6 3.9-15.2 28.7-2.1 3.1-7.2 8.8-0.9 1.6-1.1 2.8-0.4 1.4-0.1 0.8 0 0.9 0.2 0.9 0.4 1 1.1 1.7 0.5 0.6-1.8 2.6-0.9 0.5-1.1 0.5-1-0.1-0.9-0.4-0.8-0.6-0.6-0.8-0.1-0.1-0.2-0.3-0.8-0.7-0.6-1.4-1.1-1.3-7.2-6.5-1-0.7-1.9-1.1-1.5-0.5-13.3-2.1-1.2-0.4-1.5-0.7-1.1-0.9-1.1-1-1.5-2.1-3.6-9.6-7.3-13.2-0.7-1-1-0.8-1.2-0.4-1.5 0.1-1.2 0.5-5 3.3-1.7 0.8-1 0.2-1.1-0.1-1.7-0.6-4.6-2.4-1.2-0.4-1.5-0.1-4.3 0.4-1.1-0.1-1.2-0.3-1.5-1-1-1.1-0.6-1.5-0.3-1.1-0.1-0.6-0.2-3.7-0.1-0.4-0.4-0.4-0.9-0.5-1.5 0-1.3 0.2-1.2 0.6-3.5 1.9-1.2 0.5-1.3 0.3-1.4 0.1-1.6-0.2-2.1-0.8-1.5-1-1.3-1-5.2-6.3-1-0.9-0.9-0.6-2-0.8-14.8-3.4-1.1-0.1-4.6 0.3-5.3 1.3-1.1 0.2-1.1 0-1.5-0.3-10.5-3.4-1.4-0.2-1.8-0.1-3.1 0.4-22.9 5.3-1 0-2.5-0.6-5-2.1 6.1-6.1 0.7-1 0.4-1 0.2-0.7 0.1-0.3 1.1-16.5 0.2-1 0.3-1.1 0.6-1 0.8-1 1.1-1.1 4.7-3.6 36-22.5 3.6-2.9 1.9-2 0.8-1 0.2-1-0.3-1-0.8-0.9-6.5-5-2.1-2-0.7-1.1-1.3-2.2-1.9-4.6-0.6-0.8-1.1-1.4-0.8-0.9-1.6-1-1.3-0.5-5.1-0.7-3.5 0-2.4-0.3-1.4-0.5-1.2-0.6-8.6-6.9-1.4-0.7-1.6-0.4-4.3 0-2.6 0.4-23.6-0.6-4-0.9-1.5-0.6-1.1-0.6-3.2-2.8-1-0.8-1-0.6-1.4-0.3-29.2-4.6-5.7-0.1-13.3 2-19.2 1.9-2.1-0.1-1.9-0.5-1-0.4-1-0.5-0.9-0.8-0.7-1-1.5-2.6-0.8-1.7-1.2-2.2-1.4-2-1.3-1.3-3.8-2.7-0.7-0.9-0.3-0.8-0.1-0.7-0.1-0.3-0.2-1.3-0.2-3.1 0.2-1.7 5.2-19.3 8.1-2.4 9.7-2.8 9.7-2.8 9.7-2.9 4.9-1.4 1.5-0.6 5.2-4.9 0.8-0.7 0.4-0.1 0.2 0 0.1-0.1 0.1 0 0.1-0.1 8.6 1.5 8.5 1.5 8.5 1.4 8.6 1.5 3.4 0.6 14.8 2.9 2.3 0.9 2.4 1.4 4.4 2.6 3.8 2.3 3.8 2.3 3.8 2.2 3.8 2.3 3.8 2.3 3.7 2.2 3.8 2.3 3.8 2.3 3.8 2.2 3.8 2.3 3.8 2.2 3.8 2.3 3.7 2.3 3.8 2.2 3.8 2.3 3.8 2.2 3.8 2.3 2.9 2.5 3.7 3.2 3.6 3.1 3.6 3.2 3.7 3.2 4.1 3.5 4.1 3.6 4.1 3.6 0.8 0.7 3.2 2.8 0.1 0 4.5 3.8 3.8 3.1 3.8 3.1 3.8 3.1 3.8 3.1 5 4 4.9 4 5 4.1 4.9 4 2.1 1.7 2.9 2.3 4.9 4 4.9 4 5 4 4.1 3.4 4.1 3.3 4.1 3.3 4.1 3.4 3.4 2.6 0.2 0.1 0.3 0.2 0.3 0.1 0.3 0.1 3.9 0.3 3.5 0.3 3.4 0.4 3.4 0.3 3.5 0.3 4.4 0.4 4.4 0.4 4.4 0.4 4.5 0.4 4.4 0.4 4.4 0.4 4.4 0.4 4.4 0.4 3.3 0.3 3.3 0.3 3.3 0.3 3.3 0.3 4.5 0.4 1.9-0.4 1.2-0.2z"/>
+          <path d="M192.8 56.2l-5.2 19.3-0.2 1.7 0.2 3.1 0.2 1.3 0.1 0.3 0.1 0.7 0.3 0.8 0.7 0.9 3.8 2.7 1.3 1.3 1.4 2 1.2 2.2 0.8 1.7 1.5 2.6 0.7 1 0.9 0.8 1 0.5 1 0.4 1.9 0.5 2.1 0.1 19.2-1.9 13.3-2 5.7 0.1 29.2 4.6 1.4 0.3 1 0.6 1 0.8 3.2 2.8 1.1 0.6 1.5 0.6 4 0.9 23.6 0.6 2.6-0.4 4.3 0 1.6 0.4 1.4 0.7 8.6 6.9 1.2 0.6 1.4 0.5 2.4 0.3 3.5 0 5.1 0.7 1.3 0.5 1.6 1 0.8 0.9 1.1 1.4 0.6 0.8 1.9 4.6 1.3 2.2 0.7 1.1 2.1 2 6.5 5 0.8 0.9 0.3 1-0.2 1-0.8 1-1.9 2-3.6 2.9-36 22.5-4.7 3.6-1.1 1.1-0.8 1-0.6 1-0.3 1.1-0.2 1-1.1 16.5-0.1 0.3-0.2 0.7-0.4 1-0.7 1-6.1 6.1-2.7-0.7-0.9 0.1-16.4 6.8-16 9.1-7.5 2.1-16.3 7.8-1.1 0.7-1 0.7-4.7 5.2-1.7-1.4-0.6-0.3-0.7-0.2-1.1-0.1-1.5 0.3-1.3 0.3-4.5 2.3-1.1 0.5-1 0.1-1.1-0.1-0.9-0.6-0.7-0.8-1.2-2.9-1.9 0-0.8-0.1-0.9-0.3-1.5-0.9-1-0.2-1.4 0.4-1.1 0.5-1.4 0.5-1.6 0.1-8.6-0.9-2.7-0.6-4.7-1.6-2-1.2-2.9-2.4-0.7-0.9-0.7-1-0.5-1-0.7-1.7-0.5-2.1-0.3-2.8-0.1-4.4 0.4-7.9-0.2-1.1-0.4-1-0.8-0.6-1-0.2-0.9 0.3-2.7 2.6-2.9 1.8-0.9 0.8-0.6 1-0.5 1-1.8 4.5-0.5 1-0.7 0.9-1 0.5-1.2 0.3-7.4-0.5-3.6-0.7-6.6-2.2-2.5-0.4-3.4 0-10.3 2.3-4.8 1.8-0.7 0-1 0-1.8-0.6-0.3-0.2-0.3-0.3-11.1-14.5-1.4-1.3-1.9-1.3-1-0.5-8.5-2.1-2.8 0-3.4 0.6-5.7 0.4-8.9 1.7-1.8 0.6-1.5 0.7-1.5 1.5-0.7 0.4-1.1 0.2-6.2-0.6-3.5-0.9-1.5-0.1-1.4 0.3-3.7 0.1 0-0.2-0.7-0.3 0-0.3 0.6-1.1 0.7-2 0.3-2.1-0.5-1.2 0-0.7 0.5-0.9 0.4-1.1 0.9-4.4 0.2-0.7 0.5-1.1-0.1-0.3 0.1-0.7 0.4-0.4 1-0.6-0.3-0.8-0.1-1.1 0.1-0.7 0.6 0.3 0-0.2 0-0.1 0.1-0.1 0.2 0-0.4-0.7-0.1-0.8 0.2-0.8 4.8 0.9 5.1 0.9 6.7 1.1 6 1.1 6.4 1.1 5.1 0.9 2.5 0.4 5 0.9 4.5 0.7 1.1 0 1.1-0.5 4.7-3.8 4.6-3.8 5-4.2 3.3-2.8 2.8-4.7 2.7-4.5 2-3.4 2.4-4.1 1-1.1 1.2-0.6 3.7-0.8 3.9-0.8 6.2-1.3 6.1-1.2 5.8-1.2 5.1-1.1 0.9-0.8 1.9-4.7 1.5-3.5 1.5-3.8 1.3-3.1 0.6-0.9 1-0.8 4.6-2.7 5.3-2.9 3.1-1.8 0.3-0.2 0.1 0-0.1 0-2.1-2.5-4.7-5.6-4.8-5.6-4.7-5.6-4.7-5.6-0.2-0.1-0.1-0.2-0.1-0.2-0.2-0.1-5.6-6.1-5.5-6-0.1-0.1-5.6-6.1-5.6-6.1 1.6-0.5 9.1-2.8 10.6-3.2 10.7-3.2 2.6-0.7 8.1-2.5 1.6-0.4z"/>
+          <path d="M613.9 642.9l-13.6 110.8-0.1 0-0.9 0.6-0.9 0.5-0.9 0.5-0.3 0.3-1.9 1.1-5.3 3.1-1 0.4-0.3 0-1 0-0.9 0-1.1 0-1 0-0.1 0-0.9 0-0.9 0-0.9 0 0 0.1-0.3-0.1-0.6 0-0.5-0.3-3.7-5.1-3.1-4.5-2.8-3.9-1.6-0.9-9.6 1.3-7.2 1-10.4-1.1-8.2-0.8-10.7-1.1-9.2-1-1.9-0.6-7.1-4.1-2.4-0.5-7.3-0.1-1 0-0.9 0-4.5 0-8.7-0.1-0.1 0-0.8 0.2-2.6 1-0.1 0.1-1.3 0-2.9-0.6-2.7-0.1-4.1 0.4-3.3 0.8-0.9 0.1-1.8-0.6-0.9-0.1-0.6 0.5-0.4 0.7-0.2 0.4-0.7 0.8-0.8 0.4-1.1-0.2-1.7-0.8-0.7-0.1-0.9 0.5-0.1 0-0.6 0.8-0.2 0.4-0.4 0.5-0.6 0.6-1.1 0.2-0.5-0.1-0.2-0.2-0.2-0.2-0.1-0.3 0.1-0.9 0-0.1 0-0.4-0.3-0.2-1 0.4-0.8 0-1.2-0.1-0.5-0.1-1.6 0.2-0.8 0-0.8-0.3-1-0.7-0.8-0.7-2.2-2.5 0-1.4 1.2-4.6-0.1-2.4-0.9-2.7-0.1-1.1 0-1.3 0.4-1.8 1.1-10-0.1-1.9-0.4-1.9-0.7-2-0.4-2 0-1.1 0.4-1.3 0.9-1.7 1.1-1.4 7-7.4 4.8-4.2 1.4-1.4 0.5-0.8 0.5-0.9 1-2.5 0.6-1.1 1-1 1-0.7 1-0.4 3-0.6 1.9-0.7 2-1 1.9-1.3 0.8-0.8 0.6-0.8 0.6-0.9 0.4-1.2 0.3-1.2 0.1-1.7 0-1.6-0.2-2-1.5-5.8 0-1.1 0.3-1.2 1.1-1.7 1-0.9 2.8-1.5 0.7-0.5 0.4-0.6 0.3-1 0.2-1.5 0-5.8 12 7.6 3.1 1.5 2.3 0.9 4.1 1 11.1 0.7 101.1-10.9 5.6-1.6z"/>
+          <path d="M474.6 643.7l0 5.8-0.2 1.5-0.3 1-0.4 0.6-0.7 0.5-2.8 1.5-1 0.9-1.1 1.7-0.3 1.2 0 1.1 1.5 5.8 0.2 2 0 1.6-0.1 1.7-0.3 1.2-0.4 1.2-0.6 0.9-0.6 0.8-0.8 0.8-1.9 1.3-2 1-1.9 0.7-3 0.6-1 0.4-1 0.7-1 1-0.6 1.1-1 2.5-0.5 0.9-0.5 0.8-1.4 1.4-4.8 4.2-7 7.4-1.1 1.4-0.9 1.7-0.4 1.3 0 1.1 0.4 2 0.7 2 0.4 1.9 0.1 1.9-1.1 10-0.4 1.8 0 1.3 0.1 1.1 0.9 2.7 0.1 2.4-1.2 4.6 0 1.4-0.8-0.9-1.8-1.1-1-0.4-2.2-1-0.7-0.2-1.5 0-0.8-0.2-0.9 0.1-1 0.4-2.1 1.3-1.3-2-2.3-3.4-0.7-0.9-0.9-0.8-3.3-1.2-0.8-0.6-0.7-0.9-1.3-2.9-0.6-0.9-1.1-1.1-3.4-2.7-0.7-1.2-0.2-1.1 0.1-1.9-0.2-0.8-0.6-0.7-1.7-0.3-0.3 0-2 1.2-1.8 1.3-0.8 0.8-0.6 0.9-0.9 1.8-2 7.5-0.4 0.9-0.6 0.6-0.8 0.4-0.9 0-0.9-0.4-1.1-0.7-4-4.2-0.7-1.1-0.6-1.1-0.3-0.9-0.5-1-0.9-0.8-1.2-0.7-1-0.2-6.8-0.1-1-0.3-0.9-0.5-0.9-1.1-0.5-0.9-0.5-1.7-0.3-0.4-0.7-0.8-1.1-0.6-1-0.3-0.9-0.1-2.9 0.4-0.9-0.2-0.7-0.7-0.4-1.2 0-1.1 0-1 0.9-5.4 0-1-0.2-0.8-0.4-0.7-1.7-0.5-4.9 0.4 1.5-5.8 0.2-1.2 0-1.2-0.3-1.4-3-9-0.5-0.9-0.7-0.7-0.8-0.5-0.9-0.3-1.9-0.4-1.8-0.1-4.7 0-0.9-0.2-0.8-0.5-0.8-0.7-0.5-0.9-0.3-1-0.3-0.9-0.2-1.9 0.3-10.6 0.1-0.9 0.4-0.4 0.7 0.3 0.7 0.6 0.9 0.4 0.8 0.1 0.8-0.4 2.2-1.7 1.9-1.1 1-0.3 0.9-0.2 1 0 4.8 0.5 0.6 0 0.6-0.2 0.8-0.3 0.8-0.6 0.6-0.8 0.4-0.9 1.5-4.7 0-1.1-0.3-1.1-1.8-3.1-0.2-0.9-0.1-1.2 0-1.1 1.3-6 0.1-0.9 0-0.9-0.3-1-0.5-0.9-0.7-0.8-0.5-0.4-0.6-0.3-0.9-0.1-1.8 0.1-1.9 0.8 4.3-9.5 0.7-2.3 0.2-3.2 0.4-1.3 0.6-1.2 1-0.9 5.1-3.6 0.9-0.9 1-1.4 0.3-1.1-0.2-1.1-0.5-0.8-1.1-1.1-0.3-1.4-0.1-1.2 2.1-7.1 0.8 1.3 4.4 9.1 0.7 1 0.8 0.7 0.9 0.5 1 0.3 1.2-0.1 1.4-0.4 2.4-1.3 1.4-1.1 11-9.9 8.5-4.7 1.2-1 1.7-1.7 1.1-0.7 1.2-0.5 1.5-0.3 2.7-0.1 0.7-0.1 0.8-0.3 2.7-1.1 1.4-0.4 1.8-0.3 1.2 0.1 1.2 0.2 2.7 1 1.3-0.1 1.5-0.5 6.8-4 4.6-1.8 6.3 5.7 2.3 2.8 1.4 2.2 2.6 3.4 3.5 4 0.6 1.1 0.3 1 0.1 0.8-0.1 0.9 0 0.2-0.3 0.9-0.4 0.8-2.5 4.1-0.8 1.7-1.7 7.9 0 1.1 0.3 1.5 0.7 1.1 2.4 2.9 4.2 7 17 15.7 0.7 0.5z"/>
+          <path d="M356.1 698.4l4.9-0.4 1.7 0.5 0.4 0.7 0.2 0.8 0 1-0.9 5.4 0 1 0 1.1 0.4 1.2 0.7 0.7 0.9 0.2 2.9-0.4 0.9 0.1 1 0.3 1.1 0.6 0.7 0.8 0.3 0.4 0.5 1.7 0.5 0.9 0.9 1.1 0.9 0.5 1 0.3 6.8 0.1 1 0.2 1.2 0.7 0.9 0.8 0.5 1 0.3 0.9 0.6 1.1 0.7 1.1 4 4.2 1.1 0.7 0.9 0.4 0.9 0 0.8-0.4 0.6-0.6 0.4-0.9 2-7.5 0.9-1.8 0.6-0.9 0.8-0.8 1.8-1.3 2-1.2 0.3 0 1.7 0.3 0.6 0.7 0.2 0.8-0.1 1.9 0.2 1.1 0.7 1.2 3.4 2.7 1.1 1.1 0.6 0.9 1.3 2.9 0.7 0.9 0.8 0.6 3.3 1.2 0.9 0.8 0.7 0.9 2.3 3.4 1.3 2-1.7 1.1-2.6 2.2-1.1 1-2.1 2.6-0.1 0.2 2.4 0.8 0.9 0.7 0.3 0.7 0.1 0.2-0.1 0.9-1 0.5-1 0.3-1.1 0.4-0.9 0.8-0.3 0.8 0.1 1.1-0.3 0.9-0.9 1.8-0.2 0.9 0.1 0.8 0.4 0.7 0.2 1 0 1-0.2 0.9-0.7 1.7-0.3 1.1 0.2 0.8 0.9 1.7 0.5 1.7 0.5 0.4 1.6 0.4 0.5 0.4 0.3 0.5 0 0.6-0.1 0.4-0.4 0.3-0.4 0.2-0.4 0.2-0.6 1 0.1 0.6 0.4 0.7 0.3 1 0 0.1-0.3 0.8-0.4 0.1-0.3 0.1-1-0.3-0.8-0.2-1-0.2-0.6 0.2-0.2 0.6-0.1 1-0.1 0.8-1.1 3-0.6 0.7-0.8 0.6-0.1 0.1-1.9 1.1-0.6 0.3-0.5 0.1-1.2 0.2-0.5 0.2-0.1 0.6 0.1 0.7 0 0.7-0.3 0.7-1.2 0.8-1.5 0.6-0.3 0.2-1.7 0.6-0.1-0.2 0-1.3 0-0.3-0.3-0.5 0.6-1.4-0.3-0.9-2.1-2.3-0.5-1.1-0.1-0.8 0-2 0.5-1.9 0-0.8-0.8-0.2 0.3-0.4-0.5-0.5-0.4-0.7-0.1-0.6 0.4-0.3-0.2-0.5-1.2-1.1-0.3-0.3-0.6-0.8-1-1.1-0.3-0.3-1.3-0.7-0.5-0.1-0.5 0.3-1.4-2.1 0.6-2-0.3-0.7 0-2.2-0.2-0.8-0.4-0.2-0.5-0.3-0.1-0.5-0.4-0.4-0.8-0.1-0.9 0-0.6 0-0.5-0.5-0.4-0.7-0.6-1.3-0.2-0.6-0.2-1.6-0.2-0.6-0.4-0.4-1.9-0.8 0.1 0.8 0.3 0.7 0.8 1.3-0.9 0.5 0.4 3-0.4 0.8-0.3-0.9 0-3.1-0.2-1-0.6-1.7-0.7-6.1-0.3-1.1-0.2-0.8 0.3-2.3-0.1-0.9-0.3-1.1-0.3-0.4-0.4-0.1-0.5-0.1-0.3-0.1-0.2-0.2-0.1-0.4-0.3-0.5-4.6-4-0.4-0.1-0.1 0.2-0.3-0.4-0.5-0.9-0.8-1.2-0.3-0.8-0.2-0.4-0.3-0.1-1 0.2-0.4-0.1-0.2-0.6-0.2-0.4-1.9-1.9-0.1 0.1-0.2 0.1-0.4 0.1-0.2 0-0.4-0.4-1.3-1.9-0.5-0.3-2.5-2.4-1 0.4-1.6-1.1-1 0.1-0.4-1.2-0.7-0.7-1-0.7-0.8-0.8-1.8-2.3-0.3-0.8 0.1-0.6 0.1-0.5-0.1-0.3-0.5-0.2-0.4-0.1 0-0.4 0-0.4-0.1-0.3-1.8-1.6-0.7-1 0.4-0.8-0.2-0.3 0.8-1.9 0.4-0.8 0.7-0.8 0.8-0.5 2.7-1.5 0.8-0.8 0.5-0.7 0.8-1.8z m17.9 72.8l0 0.6-0.1 0.8-0.3 1 0.1 0.8 0.4 1.3-0.4 0.9 0 0.1-1-0.1-1.2-1.4-1-0.4-0.9 0-0.5-0.5 1.3-0.5 0.7-0.5-0.3-1-1.1-0.6-1.1 0.2-1.3 0.1-0.9 0.2-0.8 0.5-0.7 0.4-0.8-0.3-1-0.9-0.7-0.7-1-0.2-1.1-0.8-1.1-0.9-0.5-0.9-0.3-1.4-0.7-0.5-0.8 0-0.5-0.1 0.1-0.3 0-1-0.7-0.8-0.4-0.9 0.1-0.8 0.6 0.2 0.3 0.3 0.5 0.4 1.7 0.8 0.9 1.1 0.5 0.6 0.1 1.1 0 0.5 0.8 0.9 0.7 0.6 0.3 0.2 1.6-0.2 0.5 0.9 0.8 0 0.9-0.3 0.8 0 0.5 0.5 0 0.5 0.5 0 1.3-0.5-1.2-0.3-0.7-1 0.6-0.8 0.3-1.3 0.3-0.4 0.6-0.1 0.2 0.1 0.4 0.2 1.2 0.7 0 0.7 0.6 1-0.1 0.5 1.1 0.1 0.3 0.9 1.6 0.7z m-11.5-3.9l-0.6-0.5-0.7-0.8-1.1-1.4-0.9-1.3-0.3-0.5 0.5-0.4 1-0.1 0.8-0.2 0.5-0.5 0.4-0.8 0.5 0 0.1 0.1 0.2-0.9-0.3-1.1-0.6-0.3-0.6-0.3-0.5 0-1-0.2-0.5-0.1-0.2-0.2 0.4-0.3 0.4-0.2 0.1 0.4 1.4 0.1 1.1 0.5 0.7 0.8 0.1 0.2 0.2 1.2 0 0.9-0.2 1 0.2 0.8 1.4 0.3 0.4 1-1.8 0.1-0.5 0.6 0.2 0.8 1.1 0.4 0.6 0.3 0.8 0.4 0.3 1.1 0 0.5-1.3-0.8-1.6-0.4-0.7-0.2z"/>
+          <path d="M57.1 199.6l3.7-0.1 1.4-0.3 1.5 0.1 3.5 0.9 6.2 0.6 1.1-0.2 0.7-0.4 1.5-1.5 1.5-0.7 1.8-0.6 8.9-1.7 5.7-0.4 3.4-0.6 2.8 0 8.5 2.1 1 0.5 1.9 1.3 1.4 1.3 11.1 14.5 0.3 0.3 0.3 0.2 1.8 0.6 1 0 0.7 0 4.8-1.8 10.3-2.3 3.4 0 2.5 0.4 6.6 2.2 3.6 0.7 7.4 0.5 1.2-0.3 1-0.5 0.7-0.9 0.5-1 1.8-4.5 0.5-1 0.6-1 0.9-0.8 2.9-1.8 2.7-2.6 0.9-0.3 1 0.2 0.8 0.6 0.4 1 0.2 1.1-0.4 7.9 0.1 4.4 0.3 2.8 0.5 2.1 0.7 1.7 0.5 1 0.7 1 0.7 0.9 2.9 2.4 2 1.2 4.7 1.6 2.7 0.6 8.6 0.9 1.6-0.1 1.4-0.5 1.1-0.5 1.4-0.4 1 0.2 1.5 0.9 0.9 0.3 0.8 0.1 1.9 0 1.2 2.9 0.7 0.8 0.9 0.6 1.1 0.1 1-0.1 1.1-0.5 4.5-2.3 1.3-0.3 1.5-0.3 1.1 0.1 0.7 0.2 0.6 0.3 1.7 1.4 0.8 1 0.7 0.5 1 0.4 13.9 3.3 2.4 0.9 1.6 0.9 0.9 1.1 0.2 0.2 1 1 1.3 0.9 2.6 1.3 5.1 4.2 2.5 2.5 0.6 1 0.4 1.1 4.7 19.1 0.5 0.9 0.7 0.9 0.6 0.7 1.7 1.1 5.2 2.8 1 0.9 0.9 1.1 0.2 1-0.1 1-0.4 1-0.7 1-0.8 0.9-5.3 4.6-2 2.7-1.3 2.6-2.5 7.8-0.8 1.6-0.7 1-0.7 0.5-1.4-2.2-0.8-0.6-1-0.6-0.9-0.1-18 2.7-4.3 0.1-2.1-0.3-1.7-0.6-5.2-4-5.4-2-1.6-0.8-1-0.9-0.7-1.9-0.5-1-1-0.8-0.8-0.1-0.5 0.5 0 0.9 0.2 0.9 0.1 1-0.2 0.7-1.1 0.5-1-0.1-1.1-0.3-3.2-1.5-1.4-0.5-1 0-1 0.1-0.6 0.3-3.8 3.1-1.2 0.8-1.3 0.3-0.9-0.3-0.4-0.7 0-0.9 0.1-1 0-1-0.3-0.9-0.7-0.8-2.7-1.7-0.7-0.8-0.3-0.8-0.1-0.8 0.1-0.4 0-0.2 0-0.2-0.1-0.6-0.4-0.7-0.7-0.5-0.9-0.4-1-0.1-4.3-0.2-1.9-0.3-1.2-0.7-1-0.8-2.4-3.7-0.9-1.7-0.8-2-1.2-4.4-0.4-0.8-0.6-0.9-1.1-0.8-0.8-0.3-0.8 0.1-8.1 4.4-0.9 0.3-1 0.2-1-0.1-1.8-0.3-1.3-0.5-3.6-2.3-2-0.9-1.3-0.2-1.2 0-0.9 0.3-11.1 5.3-5 1.2-0.9 0.5-0.8 0.7-0.2 0.8 0.2 0.8 0.7 0.5 0.9 0.1 2.8-0.5 0.8-0.1 0.6 0.1 0.7 0.3 0.8 0.5 0.6 0.7 0.4 0.6 0.4 0.9 0.6 2.9 0.1 1.3-0.1 2.7-0.9 6.5 0.1 2.1 0.2 1.1 0.3 1.1 0.4 1 0.6 1 0.7 0.9 0.9 0.9 1 0.7 1 0.4 5 1.5 0.9 0.5 0.8 0.9 0.4 1.1 0.1 1.2-0.3 1-0.3 0.8-2.6 4.3-0.8 2-0.2 1-0.1 1 0.1 1 0.3 1 2.5 5 0.6 2 0.5 2 0.2 0.8 0.4 0.6 0.6-0.2 1.6-1.3 0.9-0.3 1 0.1 7.7 4.5 0.7 0.5 0.2 0.3 0.2 0.1 0.6 2.7 0.4 1 0.5 0.9 0.8 1 5.6 4.7 0.8 0.9 0.6 0.9 0.7 1.4 1.3 3.6 1.5 5.8 0.4 1 0.1 0.1 0.3 0.1 0.7 0.2 2.7 0.2 0.9 0.1 0.6 0.4 0.6 0.5 0.3 0.9 0.1 0.9-1.6 10.9 0.6 15.7-0.2 0.7-0.4 0.9-0.9 1.2-1 0.8-1 0.5-1.1 0.2-2.1-0.1-1.9-0.4-1 0-0.9 0.1-1 0.6-0.9 1-1.2 1.5-1 1-1.1 0.7-1 0.4-0.9 0.3-1.7 0.2-3.5 0-0.9 0.2-0.9 0.4-0.7 0.8-0.5 0.8-0.3 0.9-0.5 2.8-0.1 0.3-2.7-4-2.7-3.7-1.2-1.7-0.1-1.3 0.2-0.4 0-0.4-0.1-0.5-0.1-0.3-0.3-0.2-0.6 0.6-0.4 0-0.8-0.4-0.5-0.8-0.8-1.7 1.1 0 1 0.2 1 0 1-0.4 0.6-0.8 0-2.4 1-2-0.1-1-0.9-2-0.2-1.2 0.2-2.8 0-1.1-0.3-1-0.3-0.9-0.5-0.9-0.9-1-0.5-0.5-0.4-0.3-0.4-0.4-0.4-0.9-0.4-0.3-0.9-0.7-0.8-1-0.7-1-0.6-1.1-0.1-0.5-0.1-1.1-0.1-0.4-0.2-0.4-0.7-0.7-0.2-0.5 0.7-0.5-0.6-1.1-1.9-2-0.3-0.6-0.7-2-0.3-0.4-0.5-0.4-0.3-0.2 0-0.3 0-0.6-0.1-0.3-0.4-0.5-0.6-1.4-0.3-0.5-0.6-0.4-1.3-0.6-0.5-0.3-1.7-2.7-1.1-1.4-0.9-0.1-0.1 0.6 0.3 0.5 0.1 0.5-0.5 0.3-0.5-0.2-1.3-0.9-0.7-0.2-0.4-0.3-0.9-1.2-0.3-0.5-0.1-0.3 0.1-1-0.1-0.3-0.5-0.1-0.3-0.3-0.5-1.2-0.1-1.1 0.4-1.1 0.9-1 0.6-1 0.2-1.3-0.2-1.4-0.4-1.1-1-1.1-1.4-0.7-1.5-0.4-1.4-0.1-1.6-0.6-1-1.3-2.8-6.6-1-1.6-1.8-2.6-3.2-7.9-3.4-6.1-2.1-2.7-2.5-2.2-1.1-1.3-0.7-2.1-1.3-2.3-0.9-3-0.7 0.2-0.6-0.5-1.1-1.7-2.8-2.5-3.4-4.5-1.2-2.4-0.2-0.4 0-0.5 0.1-0.4 0.4-0.7 0.1-0.4-0.2-0.6-1.1-1.5-3.6-4.4-2-1.4-0.6-0.5-1-1.2-1.2-1.9-1.3-1.3-1.6-3.1-0.5-1.2-0.1-1-0.1-1.8-0.2-0.9-0.4-0.6-1.4-1.6-0.8-1.3-1.1-2.9-0.9-1.3-0.4-0.3-0.9-0.3-0.3-0.2-0.2-0.4-0.2-0.6-0.5-1-0.2-1.3-0.4-0.7-2.2-2.6-0.7-1.2-0.4-0.4-0.7-0.4-2.1-1.6 0 0.3-0.3 0-0.4-0.6 0.5-0.5 1-0.5 0.7-0.4 0.5 0.2-0.1-0.3-0.4-0.7-0.2-0.1-1.2-0.3-0.4-0.2-0.3 0 0 0.4-0.2 0-0.2-0.3-0.3-0.4-0.3-0.2-0.3-0.1-0.8 0-0.3 0-0.6-0.6-2-1.4-0.4 0.3-0.5 0-0.5 0 0.2 0.2 0.1 0.3 0.2 0.2-0.4-0.3-0.5-0.3-0.5-0.2-0.5 0.3-0.4 0.3-1.4 0.4-0.3 0.2-0.3 0.2-0.1 0.4-0.3 0 0-0.4-0.3 0-0.6 0.2-0.9-0.2-0.8 0-0.6 0.7-0.2-0.2-0.2-0.1 0-0.4 0.4 0 0-0.3-0.2-0.4 0.2-0.2 0.4-0.3 0.4-0.1-0.4-0.2-0.4 0-0.5 0-0.4 0.2 0 0.3 0.3 0 0 0.4-0.5 0.1-0.3 0.4-0.4 0.8-0.2-0.2-0.1 0-0.1-0.1-0.2 0 0.2-0.3 0.2-0.3 0.4-0.2 0.4-0.2 0-0.2 0-0.2 0-0.3-0.6 0-0.5 0.1-0.3 0.3-0.1 0.6-0.2-0.2-0.1 0-0.1 0.1-0.2 0.1 0-0.2 0-0.3 0-0.2-0.2 0 0 0.4-0.4 0-0.2-0.4-0.2-0.3-0.2 0.1-0.3 0.2-0.4-0.3-0.1-0.1-0.2-0.4-0.2-0.2-0.3-0.6-0.1 0.1-0.1 0.1-0.2 0.2-0.2 0.2-0.5-0.4-0.2 0.2 0 0.5-0.2 0.4-0.3 0.2-0.6 0.3-0.2 0.2 0 0.3 0.9 0.7 0 0.3-0.3 0.1-0.1 0-0.1 0.1-0.1 0.1-0.3-0.3-0.2 0.9-0.1 0.6-0.3 0.4-0.9 0.1 0.1-0.2 0.1 0 0.1-0.1-0.3-0.4-0.2-0.7-0.1-0.6 0-1.2-0.3-0.3-1.1 0.4 0.2-0.6-0.2-0.3 0.6-0.9 0.4-0.4 0.4-0.2 0-0.2 0.3-0.1 0.3-0.4 0.3-0.1-0.3-0.4 0.1-0.2 0.2-0.2 0.2-0.2 0.4 0 0 0.2-0.1 0-0.1 0-0.1 0.1 0.4 0.2 0.4 0.1 0.2-0.1 0.2-0.5-0.3 0 0-0.4-0.3-0.3 0.1-0.3 0.3-0.3 0.5-0.1 0-0.3-0.2-0.5 0.4-2.2 0.2 0.1 0.3 0.1 0.2 0.1-0.1-0.1 0.1-0.5-0.3 0.1-0.1 0.1-0.3-0.2 0.9-0.9 0.9-1.6 0.7-1.8 0.4-2.3 0.9-1.3 0.3-1.4 0.3-0.9 1.2-2.1-0.3-2.2-0.1-2.3-0.7-2.3 0.8-3 0.6-1.6 0.7-1.3 0-0.3-0.3 0 0.7-1.2 0.1-0.6-0.2-0.6 0-0.3 0.5-1.5-0.1-0.4z m94.3 168.1l0.4 0.4 0.2 0.2-0.1 0-0.2-0.1-0.3 0 0 0.2 0.2 0.3-0.4-0.1-0.8-0.5-0.3-0.5 0.1-0.4-0.4 0-0.5 0.2-0.3-0.4-0.2-0.7-0.4 0-0.5 0.3-0.1-0.3 0.3-0.9 0.4-0.5 0.6 0 0.6 0.1 0.5 0.3 0.4 1 0.3-0.1 0.1-0.3 0.1 0.2 0.3 1.6z m-3.7 0.1l0.7-0.1 0.1 0.2-0.7 0.5-0.4 0.2-0.4 0.6-0.5 0.8-0.6 0.5-0.9-0.6-0.8-0.9-0.8-0.6-1.8-1.9-0.1-0.1-0.1-0.3 0-0.2 0.1-0.1 0-0.2-0.5-0.5-0.5-0.7 0.1-0.4 0.4 0.1 0.4 0.4 0.8 1 0.4 0.3 0.8 0.4 1.5 0.7 0.7 0.2 0.6 0 0.4 0.3 0.2 0.3-0.9 0-0.2 0.7 0.4 0.5 0.5-0.1 0.5-0.6 0.6-0.4z m-4-5.5l-0.4-0.2-0.6-0.5 0.1-0.7 0.6-0.4 0.6 0.1 0.4 0.5 0 0.6-0.4 0.4-0.3 0.2z m-2.5 1.7l-0.5-0.4-0.2 0-0.2-0.1-0.2-0.3 0-0.5-0.4-0.1-0.6-0.1-0.1-0.2 0.2 0.1-0.1-0.3-0.4-0.5-0.6-0.4-0.8 0-0.3 0.3-0.2 0.1-0.4 0.1 0.1-0.4 0.4-0.7 0.7-0.1 0.8 0.2 2.1 1.5 0.2 0.3 0.3 0.6 0.6 0.4 0.7 0.2 1 0.6 1.5 1.3 0.4 0.4-0.1 0.2-0.2 0.2 0.1 0.2-0.2-0.2-0.7-0.5-0.6-0.3-0.4-0.2-0.2-0.3-0.2-0.5-0.4-0.2-0.3 0.1-0.4-0.1-0.4-0.4z m4.7-2.5l0-1.4-0.1-0.3 0-0.5 0.3-0.4 0.4-0.1 0.4 0.1 0.2 0.5 0 0.4-0.1 0.4-0.2 0-0.3-0.2 0 0.1 0.1 0.3 0 0.2-0.1 0 0.3 0.6 0.3 1.3-0.2 0.4-0.5-0.7-0.3-0.2-0.2-0.5z m-9.4-1.1l0 0.3-0.3 0.5-0.3 0.3-0.3-0.2-0.6-0.4-3.4-1.8-1-0.2-0.3 0.7-0.4-0.2-0.8-0.8-0.6-0.7-0.2-1 0.3-0.8 1.1-1.1 0.5-0.6 0.3-0.2 0.1 0.3-0.3 0.5-0.7 1.1 0.1 0.4 0.3 0.4 0.3 0.3 0.2 0 0.2 0.1 0.3 0.3 0.3 0.2 0.4 0.1 1.1 1.2 0.5 0.4 0.6 0 0.4-0.1 0.1 0.2 0 0.3 0.2 0.4 0.4 0.2 0.4-0.1-0.1-0.1 0-0.2 0.2-0.2 0.4 0.1 0.6 0.4z m-6-7.6l0-0.4-0.1-1 0.1-2 0.7-1.6 1-1.1 0.3-0.1-0.5 0.6-0.5 0.7-0.4 0.8-0.1 1 0.4 0.8 0.8 0.8 0.3 0.1 0.4 0.1-0.1 0.3-0.3 0.6-0.2 0.7 0.1 0.2 0 0.3 0.4 0.3 0.5-0.2 0.1 0.1-0.2 0.4-0.4 0.3-0.6-0.1-0.9-0.7-0.4-0.4-0.4-0.5z"/>
+          <path d="M166.7 409.6l0.1-0.3 0.5-2.8 0.3-0.9 0.5-0.8 0.7-0.8 0.9-0.4 0.9-0.2 3.5 0 1.7-0.2 0.9-0.3 1-0.4 1.1-0.7 1-1 1.2-1.5 0.9-1 1-0.6 0.9-0.1 1 0 1.9 0.4 2.1 0.1 1.1-0.2 1-0.5 1-0.8 0.9-1.2 0.4-0.9 0.2-0.7-0.6-15.7 1.6-10.9-0.1-0.9-0.3-0.9-0.6-0.5-0.6-0.4-0.9-0.1-2.7-0.2-0.7-0.2-0.3-0.1-0.1-0.1-0.4-1-1.5-5.8-1.3-3.6-0.7-1.4-0.6-0.9-0.8-0.9-5.6-4.7-0.8-1-0.5-0.9-0.4-1-0.6-2.7-0.2-0.1-0.2-0.3-0.7-0.5-7.7-4.5-1-0.1-0.9 0.3-1.6 1.3-0.6 0.2-0.4-0.6-0.2-0.8-0.5-2-0.6-2-2.5-5-0.3-1-0.1-1 0.1-1 0.2-1 0.8-2 2.6-4.3 0.3-0.8 0.3-1-0.1-1.2-0.4-1.1-0.8-0.9-0.9-0.5-5-1.5-1-0.4-1-0.7-0.9-0.9-0.7-0.9-0.6-1-0.4-1-0.3-1.1-0.2-1.1-0.1-2.1 0.9-6.5 0.1-2.7-0.1-1.3-0.6-2.9-0.4-0.9-0.4-0.6-0.6-0.7-0.8-0.5-0.7-0.3-0.6-0.1-0.8 0.1-2.8 0.5-0.9-0.1-0.7-0.5-0.2-0.8 0.2-0.8 0.8-0.7 0.9-0.5 5-1.2 11.1-5.3 0.9-0.3 1.2 0 1.3 0.2 2 0.9 3.6 2.3 1.3 0.5 1.8 0.3 1 0.1 1-0.2 0.9-0.3 8.1-4.4 0.8-0.1 0.8 0.3 1.1 0.8 0.6 0.9 0.4 0.8 1.2 4.4 0.8 2 0.9 1.7 2.4 3.7 1 0.8 1.2 0.7 1.9 0.3 4.3 0.2 1 0.1 0.9 0.4 0.7 0.5 0.4 0.7 0.1 0.6 0 0.2 0 0.2-0.1 0.4 0.1 0.8 0.3 0.8 0.7 0.8 2.7 1.7 0.7 0.8 0.3 0.9 0 1-0.1 1 0 0.9 0.4 0.7 0.9 0.3 1.3-0.3 1.2-0.8 3.8-3.1 0.6-0.3 1-0.1 1 0 1.4 0.5 3.2 1.5 1.1 0.3 1 0.1 1.1-0.5 0.2-0.7-0.1-1-0.2-0.9 0-0.9 0.5-0.5 0.8 0.1 1 0.8 0.5 1 0.7 1.9 1 0.9 1.6 0.8 5.4 2 5.2 4 1.7 0.6 2.1 0.3 4.3-0.1 18-2.7 0.9 0.1 1 0.6 0.8 0.6 1.4 2.2 0.8 2 0.2 1 0.1 1.2 0 1.1-0.4 1.7-0.2 0.6-1.5 2.9-0.6 1.4 0.1 1.2 0.4 1 0.9 0.8 0.9 0.3 1 0.1 2-0.4 1.1 0 0.9 0.8 0.4 1 0.1 1-2.4 16.2 0 1.4 0.2 1.2 1.3 5.3 0.8 4.8-0.4 12.7 0.2 1.3 0.5 1.1 0.6 0.9 0.7 0.7 0.5 0.4 0.8 0.4 0.9 0.3 1 0.1 1 0 1-0.2 10.7-3.8 2.2-0.3 5.1 0.1 1.9-0.2 0.9-0.2 0.8-0.2 0.6-0.3 0.8-0.4 0.8-0.6 0.9-0.8 3.1-4 1-0.9 1.2-0.7 1.5-0.5 1.2-0.3 7.4-0.3 12.1 1.9 3.7 1 1.1 0.4 5.7 1.4 1.9 0.6 0.8 0.6 0.7 0.9 0.3 1.2 0.2 1.1-0.9 12.4 0.2 1.1 0.4 1.1 0.8 1.3 1 0.8 1 0.5 5.6 1.5 0.7 0.3 0.4 0.4 0.1 0.1 0.8 1.3 0.7 1.8 2.3 9 0.8 1.9 0.6 0.9 0.7 0.7 3.7 2.8 0.1 1.6-0.6 2.1-0.5 1.4-0.1 0.2-2 2.6-0.7 1.1-0.3 0.8 0 0.7 0.1 0.3 0.6 1.6 0 1.1-0.1 1.8-0.8 3.6-0.5 8.1 0.1 4.3-5.6-0.8-2.8 0.1-1 0.5-0.8 0.6-0.6 0.9-0.2 0.9 0.1 1 1.1 3.1 0.2 1 0.1 1-0.1 2.1-0.3 1.1-0.6 1.3-1.1 1.7-1.1 1.1-1 0.8-7.7 3.4-5.6 3.1-1.9 1.5-1.3 1.4-0.5 1.1 0.3 1 0.8 0.8 0.9 0.7 4.7 2.6 0.7 0.8 0.3 1-0.5 1.3-0.8 0.9-1 0.6-5 1.8-1.2 0.8-1.3 1.1-6 6.1-12.3 9.7-1.7 2-3.1 4.8-1.1 1.2-1 0.4-1.1 0.1-6.6-2.1-1.1-0.1-1.3 0.3-1.8 1.1-4.4 3.7-0.9 0.6-0.2 0-1.1 0.3-0.9 0.1-1 0-2.8-0.4-0.2 0-0.9-0.6-0.5-0.8-0.2-0.9 0.2-0.9 0.4-1.9 0.3-2-0.1-1-0.2-1-0.4-1-0.7-0.9-0.8-0.7-0.8-0.6-1.3-0.7-2.9-0.9-0.8-0.4-0.6-0.7-0.1-0.9 0.2-1 2.4-5.6 0.2-0.9 0.3-2.2 0-1.4-0.2-0.9-0.3-0.9-0.5-0.8-0.8-0.7-0.9-0.2-0.9-0.1-4.1 0.5-9.2 2.9-3.3 0.6-1-0.4-0.4-0.8-0.2-1.9-0.2-0.9-0.4-0.8-0.9-0.5-1.2 0-4.6 0.8-1.7 0.1-1.5-0.2-1-0.7-1-0.8-3.3-4-3.5-3.1-0.6-0.6-1.8-2.9-0.9-0.8-1.1-0.4-1.3 0.1-3 0.7-5.4 0.4-1.4 0.2-0.1-1-0.1-1.3-0.3-1-0.1-0.9-0.7-0.7-0.3-0.5-0.2-0.8 0-0.8-1 0.6-0.4-0.3-0.4 0 0.1 0.8 0.4 0.4 1.1 0.4 0 0.3-1.5-0.1-0.9-0.9-0.1-2.3-1.9-2.5-1-3.2-0.3-1.1-0.2-1.2-0.3-1.1-0.7-0.8-0.4-0.2-0.5-0.1-0.7-0.3-0.4-0.5-0.2-0.6-0.3-0.9-0.6-0.6-0.7-0.3-0.7-0.2-0.6-0.3-0.4-0.3-0.4-0.8-0.7-0.8-0.4-0.3-0.7-0.5-0.8-0.3-0.8-0.1-1-0.7-0.5-0.4-0.9-0.8-0.8-1.1-0.9-0.6-0.7-0.7-1.3-1.3-0.4-0.2-0.3 0-0.4 0.1-0.4 0.3-0.9-0.7-0.7-0.6-1.8-1.1-1.3-1 0.2-0.6 0.8-0.5 1-0.2-0.4-0.4-0.6 0.2-0.8 0.4-0.4-0.6 0.5-0.8 0.2-0.7-0.4-0.2-0.3 0.3-0.6 0.1-0.2 0.5 0.2 0.2 0.2 0.5 0 0.6 0.1 0.4-0.3 0.3-0.9-0.4-1.3 0.4-2-1.5-0.6-0.6-1.7-1.3-0.4-1-0.5-0.4-0.8-0.3-0.7-0.5-0.7-0.6-0.8-0.5-1 0-0.5-0.1-0.7 0.5-0.1 0.7 0.2 0.9-1.8 0.1-0.5-0.7-1.2-0.6-1 0.3-1-1-0.6-1.1-0.9-1.3-1.6-1.3-0.5-1.6 0.5-1 0.3 0.1 0.8 0.6 0.4-0.8-0.3-0.8-3.2-4.7z"/>
+          <path d="M353 630.7l1.9-0.8 1.8-0.1 0.9 0.1 0.6 0.3 0.5 0.4 0.7 0.8 0.5 0.9 0.3 1 0 0.9-0.1 0.9-1.3 6 0 1.1 0.1 1.2 0.2 0.9 1.8 3.1 0.3 1.1 0 1.1-1.5 4.7-0.4 0.9-0.6 0.8-0.8 0.6-0.8 0.3-0.6 0.2-0.6 0-4.8-0.5-1 0-0.9 0.2-1 0.3-1.9 1.1-2.2 1.7-0.8 0.4-0.8-0.1-0.9-0.4-0.7-0.6-0.7-0.3-0.4 0.4-0.1 0.9-0.3 10.6 0.2 1.9 0.3 0.9 0.3 1 0.5 0.9 0.8 0.7 0.8 0.5 0.9 0.2 4.7 0 1.8 0.1 1.9 0.4 0.9 0.3 0.8 0.5 0.7 0.7 0.5 0.9 3 9 0.3 1.4 0 1.2-0.2 1.2-1.5 5.8-0.8 1.8-0.5 0.7-0.8 0.8-2.7 1.5-0.8 0.5-0.7 0.8-0.4 0.8-0.8 1.9-0.5-0.7-0.3-0.5-0.1-0.6-0.2-0.2-0.4-0.2-0.3-0.2 0.2-0.7-0.8-0.1-0.9-0.3 0.2-0.2 0-0.1 0.1-0.1 0.3-0.2-0.3-0.5-0.4-0.3-0.5 0-0.6 0.2 0.3-0.4 0.2-0.5 0.1-0.4-0.3-0.3 0.3-0.6-0.3-0.3-0.5-0.1-0.7 0.1 0.1-0.6-0.1-0.9-0.3-0.9-0.4-0.6-0.2-0.5-0.3-1.7-0.1-0.4-0.1-0.4-0.1-2.4-0.1-0.3-0.1-0.2-0.2-0.1-0.3 0-0.2-0.2-0.1-0.4 0-0.4-0.1-0.3-1.6-1.1-0.2-0.3-0.1-0.5-0.2-0.5-0.3-0.5-0.7-0.3-0.2-0.2-0.2-0.2-0.1-0.1-0.3 0.1-0.4 0.4-0.2 0.1-0.5-0.2-0.4-0.3-0.5-0.3-0.3-0.5-1.2-2.5-0.5-0.7-0.5-0.6-0.3-0.6 0-0.6 0.1-0.9 1-3 0.2-0.9 0.1-0.3 0.2-0.2 0.1-0.3-0.4-0.6-0.2-0.1-1-0.5-1.8-0.5-0.4-1.4 0-0.3-0.9-1.1-0.2-0.1 0-0.5 0.1-0.5 0.2-0.9 0.2-0.5 0.2-0.4 0.2-0.3 0.1-0.8 0.2-1 0.6-1.1-0.4-0.7-0.8-0.5-0.9-0.4-1.8-0.5-0.8-0.6-0.4-1.2-0.7-1-0.1-0.4 0-0.5 0.3-1.1 0-0.4-0.3-0.9 0-0.4-0.2-0.4-0.8-0.5-0.2-0.4-0.2-0.9-0.4-0.5-0.7-0.4-1.2-0.9 0.1-0.2 0.1-0.5-0.1-0.5-0.5-0.7-0.1-0.4 0-0.5-0.3-0.7 0.1-0.5 0.3-0.5 0.4-0.3 0.2-0.4-0.3-0.3 0.1-0.5-0.1-0.5-0.3-0.4-0.1-0.6-3.6-1.3-1.1-0.5-2.2-2.3-1-0.6 0-0.3 0.5 0.1 1 0.6 0.2-1.9-0.1-2.3-0.3-1-2-2.9-0.8-0.5-2.2-0.3-0.9 0-0.4 0.5 0.5 1.1-0.6-0.5-0.6-1-0.3-0.9-0.1-0.4-0.6-0.4-1.8-2.6-1.3-0.8-0.3-0.3 0.1-0.3 0.5-1.2-0.3-0.9-0.5-0.5-1.3-0.5-1.6-1-0.4-0.2-0.4-0.6-0.4-0.1-0.4-0.3-1-1.5-0.4-0.1-1-0.3-0.4-0.1-0.8-0.2-0.9-0.5-2-1.6-1.5-1.7 0.3-0.7-0.7-0.5-1.2-0.3-1.3-0.2-0.3-0.3-0.4-0.5-0.6-0.7-0.4-0.4 0-0.2-0.4-0.3-1.4-1.3-0.7-0.3-1 0-1 0.2-0.9 0.3-0.4 0.4-1-0.4-1.8-1.1-1-0.4 0 0.6 0.3 0.3 0.4 0.2 0.3 0.4 0.2 0.1 0.4 0.2 0.3 0.3-0.3 0.2-0.7-0.2-4.3-2.6-0.6-0.6-0.5-0.2-0.9-0.3-0.8-0.4-0.6-1.3-0.8-0.8-2.3-1.8-1.2-1.2-2.5-4.1-0.9-0.7 0-0.4 0.4 0 0.4 0 0.2-0.2 0.2-0.4-0.7-0.1-0.5-0.4-1-0.9-0.3-0.5-0.3-1.4-0.2-0.5-1.4-1.6-0.1-0.8 0.7-1.1-1.5-0.5-0.6-0.1 0.1 0.4 0.2 0.2 0.2 0.2 0.3 0.2-0.8-0.3-1-0.6-0.5-0.7 0.3-0.7-0.4-0.2-0.2-0.3 0-0.3 0.3-0.4 0.2 0.3 0.3 0.3 0.4 0.2 0.6 0.1-0.2-0.5-0.1-0.3 0-0.3-0.1-0.4-0.2 0-0.3 0.1-0.3-0.2-0.6-0.8-0.2 0-0.1 0.8-0.9-0.6-1.3-0.9-0.8-1.2 0-1.1 0.2 0.3 0.3 0.3 0.3 0.1 0.1-0.3-0.1-0.6-0.3-0.2-0.3-0.1-0.3-0.2-0.4-0.2-0.5 0-0.4 0.2-0.5 0.1 0-0.2-1.2-1.8-0.3-0.7-0.1-0.8 0-1.1-0.1-0.4-0.6-0.4-0.2-0.5 0-0.5-0.2-0.2-0.3-0.1-1.8-1.3-0.5-0.5-0.2-1.3-0.4-0.9-0.1-0.5 0.1-0.3 0.4-0.6 0.1-0.3-0.3-0.6-1.7-2.5-0.5-0.4-1.4-2.2 3.4-3 0.5-1.1 0.1-1.5-0.4-1.3-0.6-0.7 0-0.3 0.4-0.4 0-0.6-0.7-1.5-0.6 0.9-0.4 0.2-0.4-0.6-0.4-0.9 0.3-0.3-0.7-1-0.2-1.4 0.1-1.4-0.1-1.3-0.4-1.2 0-0.7 0.9-0.3 0.2-0.3 0.2-0.6 0-0.8-0.3-0.5-0.3 0.9-0.3 0.5-0.3 0.2-0.6 0-0.1-0.2 0-0.4-0.2-0.4-0.3-0.2-0.1-0.2-0.2-0.2-0.2-0.3-0.2-0.5 0-0.7-0.2-0.4-0.5-0.3-0.1-0.2-0.2-0.4 0-0.1-1.5-1.9-1.3-2.7-0.7-4 0-0.9 1.2-0.4 1.1 1.5 0.9 0 0.2-1 0-0.9 0.1-0.5 0.1-0.2 0.6-0.4 0.1-0.2 0.1-0.9 0.4-1.9 0.1-0.9-0.2 0-0.7 1.6-0.2-0.7 0.1-0.5 0.3-0.5 0.1-0.7 0-1.9 0.4-1.3 1.4-1.6 0.4-2 0.3-0.5 0.4-0.3 0.4-0.5 0.6-1.3 0.7-0.8 0.2-0.2 0-0.6-0.3-0.5-0.4-0.3-0.5 0.1-0.3 0.5-0.3 1.3-0.3 0.5-1 0.2-0.1-1.4 0.6-1.9-0.4-2.6 0.3-2.6-0.3-1.3-0.3-0.6-1.2-1.6-1.1-2.6-0.9-1.4-0.3-0.8 0.1-0.5 1.2-1.1-0.1-0.4-2.1-2.3-0.8-0.7-0.4 0.2 0.1 0.3 0.8 0.8 0.3 0.4 0.1 0.5 0.1 0.5 0.1 0.5 0.3 0.4-0.3 0.4-0.6-1.4-1.2-1.8-1.2-1.3-2.2-4.1 0-0.6 1.3 0.7 1.4 3.1 0.7 0.2 0.5 0.3 0.4-0.1 0.3-0.3 0.3-0.5-0.5-0.6-0.7-1.4-0.4-0.3-0.3-0.1-0.4-0.3-0.3-0.5-0.1-0.5-0.4-0.8-0.8-0.3-1-0.3-0.7-0.4-0.9 0.2-0.6-0.7-0.9-2 0.5-0.5 0.3-0.6 0.3-0.7 0.1-0.7-0.1-1.3-0.2-0.7-0.1-0.6-0.5-0.2-0.4 0.7-0.5-1.1-0.8-1-0.8-1.5-0.7-1-0.4-1-0.5-0.7-0.1-0.6-0.4-0.9 0-0.6-0.3-1.4-0.6-1.1-0.5-1.4-0.2-0.9 1.4-0.2 5.4-0.4 3-0.7 1.3-0.1 1.1 0.4 0.9 0.8 1.8 2.9 0.6 0.6 3.5 3.1 3.3 4 1 0.8 1 0.7 1.5 0.2 1.7-0.1 4.6-0.8 1.2 0 0.9 0.5 0.4 0.8 0.2 0.9 0.2 1.9 0.4 0.8 1 0.4 3.3-0.6 9.2-2.9 4.1-0.5 0.9 0.1 0.9 0.2 0.8 0.7 0.5 0.8 0.3 0.9 0.2 0.9 0 1.4-0.3 2.2-0.2 0.9-2.4 5.6-0.2 1 0.1 0.9 0.6 0.7 0.8 0.4 2.9 0.9 1.3 0.7 0.8 0.6 0.8 0.7 0.7 0.9 0.4 1 0.2 1 0.1 1-0.3 2-0.4 1.9-0.2 0.9 0.2 0.9 0.5 0.8 0.9 0.6 0.2 0 2.8 0.4 1 0 0.9-0.1 1.1-0.3 0.2 0 0.9-0.6 4.4-3.7 1.8-1.1 1.3-0.3 1.1 0.1 6.6 2.1 1.1-0.1 1-0.4 1.1-1.2 3.1-4.8 1.7-2 12.3-9.7 6-6.1 1.3-1.1 1.2-0.8 5-1.8 1-0.6 0.8-0.9 0.5-1.3-0.3-1-0.7-0.8-4.7-2.6-0.9-0.7-0.8-0.8-0.3-1 0.5-1.1 1.3-1.4 1.9-1.5 5.6-3.1 7.7-3.4 1-0.8 1.1-1.1 1.1-1.7 0.6-1.3 0.3-1.1 0.1-2.1-0.1-1-0.2-1-1.1-3.1-0.1-1 0.2-0.9 0.6-0.9 0.8-0.6 1-0.5 2.8-0.1 5.6 0.8-0.4 4.5 0.1 3 0.3 0.9 0.5 0.7 0.5 0.4 1.6 1 0.9 0.7 0.9 0.9 0.8 1.5 2.3 7.4 1.1 2.5 0.4 1.2 1.3 6.7 5.5 13.3 0.5 0.6 0.6 0.7 0.8 0.7 0.9 0.6 1 0.4 0.9 0.3 1.6 0.3 6.7-0.1 9.4 0.8 1.9 0.4 1.1 0.4 1 0.5 1.2 1 0.6 1 0.2 1-0.2 0.8-0.6 2-0.3 4.8 0.1 1.1 0.3 1.2 0.9 1.8 0.9 0.8 1 0.6 1.9 0.7 1 0.1 1-0.1 5.1-1.4 0.9-0.2 1 0.1 5.1 1 0.9 0.2 0.8 0.5 0.7 0.7 0 0.2-1.2 6.9 0 1.9 2.2 15.6 0 0.9-0.2 1-0.3 0.9-0.4 1-0.5 0.9-1.3 1.7-0.5 0.9-0.4 0.9-0.1 0.9 0.6 7.8-0.3 2-1.8 6.7 0 0.9 0 1 0.3 1 0.5 0.9 11.3 16.9-4.6 1.8-6.8 4-1.5 0.5-1.3 0.1-2.7-1-1.2-0.2-1.2-0.1-1.8 0.3-1.4 0.4-2.7 1.1-0.8 0.3-0.7 0.1-2.7 0.1-1.5 0.3-1.2 0.5-1.1 0.7-1.7 1.7-1.2 1-8.5 4.7-11 9.9-1.4 1.1-2.4 1.3-1.4 0.4-1.2 0.1-1-0.3-0.9-0.5-0.8-0.7-0.7-1-4.4-9.1-0.8-1.3-2.5-2.1-0.8-0.3-1.1-0.2-0.9 0.3-4 2.3-1 0.4-0.9 0.3-4.6 0-1.4 0.2-1.2 0.3-2.1 0.9-1.3 0.4-0.9-0.1-0.5-0.2-0.7-0.5-0.6-0.8-0.5-0.9-1.3-3.8-0.7-1-0.9-0.8-1.3-0.6-1.1-0.1-1 0.1-1 0.4-0.8 0.6-0.7 0.8-0.4 0.7-0.3 0.5-0.2 0.8-0.1 0.9 0.1 1 0.4 1.9 0.7 2.7 0.1 1.4 0 0.5-0.3 1.2-3 5.5-1.2 3-0.6 0.9-1 0.9-1 0.5-1 0.3-4.2 0.6-1.4 0.4-1.1 0.6-0.9 0.7-3.3 3.4-0.6 0.9-0.1 0.9 0.2 0.8 0.7 0.8 0.9 0.4 3.2 1 0.2 0.1 0.4 0.3 0.5 0.8 0.4 0.9 0.3 1 0 1-0.5 4.7 0.1 0.9 0.8 3 0.1 0.9-0.3 3.8 0.1 0.9 0.2 1 0.5 0.9 0.6 0.7 0.5 0.3 3.3 1.8 1.1 1 2.7 3.6 0.9 0.8 1 0.5 1.2 0.2 1 0 1-0.1 0.9-0.3 0.9-0.5 0.8-0.6 0.5-0.9 0.3-0.9 1.1-4.9 2.7-7.3 1.2-2 0.5-0.6 0.4-0.4 0.8-0.4 0.9-0.1 4 0 1.5-0.2 1.2-0.6z"/>
+          <path d="M495 265.8l0.5 0.3 3.7 2.7 1.8 1.7 0.7 1 0.6 1.2 1.2 4.2 0.5 1.3 1.1 1.3 0.9 0.9 12.3 7.1 2 0.6 3.1 0.3 1 0.2 0.9 0.5 0.9 0.8 2.7 3.3 4.1 3.9 1.8 1.3 1 0.4 1.8 0.4 7.2 0.2 1.9 0.4 1.9 0.7 2.7 1.5 10.6 7.7 1 0.5 1.1 0.3 1 0.2 1 0 6.4-1.2 1.1 0.1 0.9 0.3 1 0.6 7.1 7 1.2 1.8 0.8 0.9 0.9 0.6 13.8 5.5 0.5 0.4 0.6 0.6 0.6 0.9 0.4 0.9 0.3 0.9 0.2 1.5 1 64.1 0.4 2.2 0.3 0.7 0.6 0.9 0.7 0.9 15.3 11.1 10.9 11 1.8 2.2 1.8 3 1.8 4.2 1 3.4 0.7 5.7-0.3 10.5-12.3 100.7-11.6 90.8-5.6 1.6-101.1 10.9-11.1-0.7-4.1-1-2.3-0.9-3.1-1.5-12-7.6-0.7-0.5-17-15.7-4.2-7-2.4-2.9-0.7-1.1-0.3-1.5 0-1.1 1.7-7.9 0.8-1.7 2.5-4.1 0.4-0.8 0.3-0.9 0-0.2 0.1-0.9-0.1-0.8-0.3-1-0.6-1.1-3.5-4-2.6-3.4-1.4-2.2-2.3-2.8-6.3-5.7-11.3-16.9-0.5-0.9-0.3-1 0-1 0-0.9 1.8-6.7 0.3-2-0.6-7.8 0.1-0.9 0.4-0.9 0.5-0.9 1.3-1.7 0.5-0.9 0.4-1 0.3-0.9 0.2-1 0-0.9-2.2-15.6 0-1.9 1.2-6.9 0-0.2-0.7-0.7-0.8-0.5-0.9-0.2-5.1-1-1-0.1-0.9 0.2-5.1 1.4-1 0.1-1-0.1-1.9-0.7-1-0.6-0.9-0.8-0.9-1.8-0.3-1.2-0.1-1.1 0.3-4.8 0.6-2 0.2-0.8-0.2-1-0.6-1-1.2-1-1-0.5-1.1-0.4-1.9-0.4-9.4-0.8-6.7 0.1-1.6-0.3-0.9-0.3-1-0.4-0.9-0.6-0.8-0.7-0.6-0.7-0.5-0.6-5.5-13.3-1.3-6.7-0.4-1.2-1.1-2.5-2.3-7.4-0.8-1.5-0.9-0.9-0.9-0.7-1.6-1-0.5-0.4-0.5-0.7-0.3-0.9-0.1-3 0.4-4.5-0.1-4.3 0.5-8.1 0.8-3.6 0.1-1.8 0-1.1-0.6-1.6-0.1-0.3 0-0.7 0.3-0.8 0.7-1.1 2-2.6 0.1-0.2 0.5-1.4 0.6-2.1-0.1-1.6 0.9-1.8 2.8-4.4 0.6-0.6 1.2-0.9 1-0.4 1-0.2 0.9 0.2 4.6 2.3 1.9 0.7 3.1 0.8 7.8 0.8 2.1 0 6.2-0.9 2 0.1 3.4 0.9 0.8 0 0.9-0.2 1-0.5 1.1-0.9 0.8-1.2 0.7-1.7 0.1-1.3-0.3-1.1-1.2-2-0.4-0.9-0.2-1 0.2-1.2 0.6-1.3 4.2-5.5 4.1-4.2 1.1-0.7 1-0.5 14.4-3.5 1.7-0.8 1.1-0.7 2.3-2.2 3.1-2 0.9-1 0.8-1.3 1.6-3.2 1.2-1.6 0.7-0.7 0.5-0.5 0.7-0.5 0.9-0.4 0.9-0.3 1-0.2 2 0 9.2 1.2 10.3-0.7 3.9 0.3 0.9-0.1 0.8-0.3 0.5-0.7 0.3-0.9 0.2-1 0.1-1.4 0-1.7-0.4-2.8-0.5-1.7-0.6-1.4-1.2-2.2-0.3-1.1 0.2-1.4 0.5-2.2-0.2-1.5-0.1-0.2-3.3-4.5-3.8-6.4-1.1-1.3-3.4-3.4-0.7-1-0.5-0.9-0.2-1 0-1 0.9-6.3 0-2.1-0.3-2.2 0.1-1.1 0.8-1.1 1-0.6 1-0.3 1.7-0.4 0.5-0.2 0.7-0.7 3.2-4.6 1.6-1.8 1.9-1.8 1.1-0.8 1.1-0.6 2.1-0.7 1-0.5 0.8-0.7 0.6-0.8 0.3-0.8 0.2-0.6 0-0.1 0-0.7-0.1-0.9-0.3-1-0.4-1.1-0.5-1-0.7-1-0.9-0.9-1.8-1.5-1.9-1.4-2.8-1.2-0.3-0.6-0.4-1.7-0.1-1.1 0.1-1 0.1-0.9 0.5-1.5 0.6-1.6 1.2-1.9 1.1-1.5 1.4-1.2 0.6-0.5 0.1 0 2.5-1 0.8 0.7 0.2 0.3 0.1 0.1 0.6 0.8 0.8 0.6 0.9 0.4 1 0.1 1.1-0.5 0.9-0.5 1.8-2.6z"/>
+          <path d="M370.1 406.2l-3.7-2.8-0.7-0.7-0.6-0.9-0.8-1.9-2.3-9-0.7-1.8-0.8-1.3-0.1-0.1-0.4-0.4-0.7-0.3-5.6-1.5-1-0.5-1-0.8-0.8-1.3-0.4-1.1-0.2-1.1 0.9-12.4-0.2-1.1-0.3-1.2-0.7-0.9-0.8-0.6-1.9-0.6-5.7-1.4-1.1-0.4 1.7-1.5 1.7-0.6 2.6-0.3 1.5-0.4 6.9-3.8 1.6-0.7 1.4-0.4 4.2-0.4 1-0.3 0.7-0.7 0.3-0.7-0.2-0.8-0.2-0.6-2-3.7-0.3-1.1-0.1-1 0.2-1.2 0.6-1 1.1-1.2 1-0.5 0.9-0.1 0.7 0.2 3.4 1.3 1.1 0.3 1 0 0.8-0.2 0.5-0.8 0.2-0.8 0-0.8-0.1-0.4-0.8-3.9 0-1 0-1 0.2-0.9 0.7-2.1 1-2 0.6-0.7 0.9-0.5 0.9 0 1 0.1 1.1-0.1 2-0.5 0.9-0.4 0.6-0.9 0.3-1 0.7-1.7 1.2-2.1 5.1-5.9 11.3-9.2 5.2-3.4 9.9-4.2 1.5-1 0.9-1.1 0.6-1.1 1.8-3.9 1.5-1.9 2.1-2.1 3.3-2.1 16.3-8.4 2.2-0.8 1-0.3 1 0 0.9 0.1 1 0.4 1 0.5 1.6 1.4 3.1 3.3 5.5 4.5 1.9 1.1 1 0.3 4.5 0.3 2.9 0.6 1 0 0.8-0.2 0.8-0.5 0.6-0.4 3.3-4.6 1.8-1.7 2.8 1.2 1.9 1.4 1.8 1.5 0.9 0.9 0.7 1 0.5 1 0.4 1.1 0.3 1 0.1 0.9 0 0.7 0 0.1-0.2 0.6-0.3 0.8-0.6 0.8-0.8 0.7-1 0.5-2.1 0.7-1.1 0.6-1.1 0.8-1.9 1.8-1.6 1.8-3.2 4.6-0.7 0.7-0.5 0.2-1.7 0.4-1 0.3-1 0.6-0.8 1.1-0.1 1.1 0.3 2.2 0 2.1-0.9 6.3 0 1 0.2 1 0.5 0.9 0.7 1 3.4 3.4 1.1 1.3 3.8 6.4 3.3 4.5 0.1 0.2 0.2 1.5-0.5 2.2-0.2 1.4 0.3 1.1 1.2 2.2 0.6 1.4 0.5 1.7 0.4 2.8 0 1.7-0.1 1.4-0.2 1-0.3 0.9-0.5 0.7-0.8 0.3-0.9 0.1-3.9-0.3-10.3 0.7-9.2-1.2-2 0-1 0.2-0.9 0.3-0.9 0.4-0.7 0.5-0.5 0.5-0.7 0.7-1.2 1.6-1.6 3.2-0.8 1.3-0.9 1-3.1 2-2.3 2.2-1.1 0.7-1.7 0.8-14.4 3.5-1 0.5-1.1 0.7-4.1 4.2-4.2 5.5-0.6 1.3-0.2 1.2 0.2 1 0.4 0.9 1.2 2 0.3 1.1-0.1 1.3-0.7 1.7-0.8 1.2-1.1 0.9-1 0.5-0.9 0.2-0.8 0-3.4-0.9-2-0.1-6.2 0.9-2.1 0-7.8-0.8-3.1-0.8-1.9-0.7-4.6-2.3-0.9-0.2-1 0.2-1 0.4-1.2 0.9-0.6 0.6-2.8 4.4-0.9 1.8z"/>
+          <path d="M303.1 203l5 2.1 2.5 0.6 1 0 22.9-5.3 3.1-0.4 1.8 0.1 1.4 0.2 10.5 3.4 1.5 0.3 1.1 0 1.1-0.2 5.3-1.3 4.6-0.3 1.1 0.1 14.8 3.4 2 0.8 0.9 0.6 1 0.9 5.2 6.3 1.3 1 1.5 1 2.1 0.8 1.6 0.2 1.4-0.1 1.3-0.3 1.2-0.5 3.5-1.9 1.2-0.6 1.3-0.2 1.5 0 0.9 0.5 0.4 0.4 0.1 0.4 0.2 3.7 0.1 0.6 0.3 1.1 0.6 1.5 1 1.1 1.5 1 1.2 0.3 1.1 0.1 4.3-0.4 1.5 0.1 1.2 0.4 4.6 2.4 1.7 0.6 1.1 0.1 1-0.2 1.7-0.8 5-3.3 1.2-0.5 1.5-0.1 1.2 0.4 1 0.8 0.7 1 7.3 13.2 3.6 9.6 1.5 2.1 1.1 1 1.1 0.9 1.5 0.7 1.2 0.4 13.3 2.1 1.5 0.5 1.9 1.1 1 0.7 7.2 6.5 1.1 1.3 0.6 1.4-2.5 1-0.1 0-0.6 0.5-1.4 1.2-1.1 1.5-1.2 1.9-0.6 1.6-0.5 1.5-0.1 0.9-0.1 1 0.1 1.1 0.4 1.7 0.3 0.6-1.8 1.7-3.3 4.6-0.6 0.4-0.8 0.5-0.8 0.2-1 0-2.9-0.6-4.5-0.3-1-0.3-1.9-1.1-5.5-4.5-3.1-3.3-1.6-1.4-1-0.5-1-0.4-0.9-0.1-1 0-1 0.3-2.2 0.8-16.3 8.4-3.3 2.1-2.1 2.1-1.5 1.9-1.8 3.9-0.6 1.1-0.9 1.1-1.5 1-9.9 4.2-5.2 3.4-11.3 9.2-5.1 5.9-1.2 2.1-0.7 1.7-0.3 1-0.6 0.9-0.9 0.4-2 0.5-1.1 0.1-1-0.1-0.9 0-0.9 0.5-0.6 0.7-1 2-0.7 2.1-0.2 0.9 0 1 0 1 0.8 3.9 0.1 0.4 0 0.8-0.2 0.8-0.5 0.8-0.8 0.2-1 0-1.1-0.3-3.4-1.3-0.7-0.2-0.9 0.1-1 0.5-1.1 1.2-0.6 1-0.2 1.2 0.1 1 0.3 1.1 2 3.7 0.2 0.6 0.2 0.8-0.3 0.7-0.7 0.7-1 0.3-4.2 0.4-1.4 0.4-1.6 0.7-6.9 3.8-1.5 0.4-2.6 0.3-1.7 0.6-1.7 1.5-3.7-1-12.1-1.9-7.4 0.3-1.2 0.3-1.5 0.5-1.2 0.7-1 0.9-3.1 4-0.9 0.8-0.8 0.6-0.8 0.4-0.6 0.3-0.8 0.2-0.9 0.2-1.9 0.2-5.1-0.1-2.2 0.3-10.7 3.8-1 0.2-1 0-1-0.1-0.9-0.3-0.8-0.4-0.5-0.4-0.7-0.7-0.6-0.9-0.5-1.1-0.2-1.3 0.4-12.7-0.8-4.8-1.3-5.3-0.2-1.2 0-1.4 2.4-16.2-0.1-1-0.4-1-0.9-0.8-1.1 0-2 0.4-1-0.1-0.9-0.3-0.9-0.8-0.4-1-0.1-1.2 0.6-1.4 1.5-2.9 0.2-0.6 0.4-1.7 0-1.1-0.1-1.2-0.2-1-0.8-2 0.7-0.5 0.7-1 0.8-1.6 2.5-7.8 1.3-2.6 2-2.7 5.3-4.6 0.8-0.9 0.7-1 0.4-1 0.1-1-0.2-1-0.9-1.1-1-0.9-5.2-2.8-1.7-1.1-0.6-0.7-0.7-0.9-0.5-0.9-4.7-19.1-0.4-1.1-0.6-1-2.5-2.5-5.1-4.2-2.6-1.3-1.3-0.9-1-1-0.2-0.2-0.9-1.1-1.6-0.9-2.4-0.9-13.9-3.3-1-0.4-0.7-0.5-0.8-1 4.7-5.2 1-0.7 1.1-0.7 16.3-7.8 7.5-2.1 16-9.1 16.4-6.8 0.9-0.1 2.7 0.7z"/>
+          <path d="M367.4 592.6l-2.1 7.1 0.1 1.2 0.3 1.4 1.1 1.1 0.5 0.8 0.2 1.1-0.3 1.1-1 1.4-0.9 0.9-5.1 3.6-1 0.9-0.6 1.2-0.4 1.3-0.2 3.2-0.7 2.3-4.3 9.5-1.2 0.6-1.5 0.2-4 0-0.9 0.1-0.8 0.4-0.4 0.4-0.5 0.6-1.2 2-2.7 7.3-1.1 4.9-0.3 0.9-0.5 0.9-0.8 0.6-0.9 0.5-0.9 0.3-1 0.1-1 0-1.2-0.2-1-0.5-0.9-0.8-2.7-3.6-1.1-1-3.3-1.8-0.5-0.3-0.6-0.7-0.5-0.9-0.2-1-0.1-0.9 0.3-3.8-0.1-0.9-0.8-3-0.1-0.9 0.5-4.7 0-1-0.3-1-0.4-0.9-0.5-0.8-0.4-0.3-0.2-0.1-3.2-1-0.9-0.4-0.7-0.8-0.2-0.8 0.1-0.9 0.6-0.9 3.3-3.4 0.9-0.7 1.1-0.6 1.4-0.4 4.2-0.6 1-0.3 1-0.5 1-0.9 0.6-0.9 1.2-3 3-5.5 0.3-1.2 0-0.5-0.1-1.4-0.7-2.7-0.4-1.9-0.1-1 0.1-0.9 0.2-0.8 0.3-0.5 0.4-0.7 0.7-0.8 0.8-0.6 1-0.4 1-0.1 1.1 0.1 1.3 0.6 0.9 0.8 0.7 1 1.3 3.8 0.5 0.9 0.6 0.8 0.7 0.5 0.5 0.2 0.9 0.1 1.3-0.4 2.1-0.9 1.2-0.3 1.4-0.2 4.6 0 0.9-0.3 1-0.4 4-2.3 0.9-0.3 1.1 0.2 0.8 0.3 2.5 2.1z"/>
+          </g>
+          <g class="ksa-pin" style="--i:0">
+            <use href="#pin" x="496" y="431" width="46" height="46"/>
+            <text class="ksa-pin__label" x="519" y="500" text-anchor="middle">Riyadh</text>
+          </g>
+          <g class="ksa-pin" style="--i:1">
+            <use href="#pin" x="618" y="197" width="44" height="44"/>
+            <text class="ksa-pin__label" x="640" y="260" text-anchor="middle">Khobar</text>
+          </g>
+          <g class="ksa-pin" style="--i:2">
+            <use href="#pin" x="236" y="354" width="44" height="44"/>
+            <text class="ksa-pin__label" x="258" y="417" text-anchor="middle">Madinah</text>
+          </g>
+        </svg>
+      </div>
+      <div class="branch-list stag">
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>Central Region, Riyadh</h3><p>King Fahd Road, Al Olaya District, Al Maarefah Street. P.O. Box 4198, 12311</p></div>
+        </div>
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>Eastern Region, Khobar</h3><p>North Khobar, Prince Nayef Road at Road 21. P.O. Box 4198, 12311</p></div>
+        </div>
+        <div class="branch-item">
+          <span class="branch-item__ico"><svg aria-hidden="true"><use href="#pin"/></svg></span>
+          <div><h3>Western Region, Madinah</h3><p>Sayyid Al-Shuhada Road, Al Dawoodiah Building. P.O. Box 4198, 12311</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <svg class="footer__chev" viewBox="0 0 1440 300" fill="none" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-40 300 L360 90 L640 250 L1080 40 L1480 300" stroke="rgba(63,203,122,.10)" stroke-width="56"/>
+  </svg>
+  <div class="wrap">
+    <div class="footer-main">
+      <div class="fcontact">
+        <h4>Contact Us</h4>
+        <div><span class="lbl">Email</span><a href="mailto:info@ba-audit.com"><bdi>info@ba-audit.com</bdi></a></div>
+        <div><span class="lbl">Phone</span>
+          <a href="tel:+966112933360"><bdi>+966 11 29 333 60</bdi></a>
+        </div>
+        <div><span class="lbl">Head Office</span>King Faisal Road, Al Wafa Tower, 3rd Floor (Office 24), Riyadh. P.O. Box 4198, 12311</div>
+      </div>
+
+      <div class="fmid">
+        <img class="logo-mark" src="../Sources/logo.png" alt="Arab Experts Group">
+        <p>A reference in professional consulting for corporate business services in Saudi Arabia.</p>
+        <div class="socials-row">
+          <a href="#contact" aria-label="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+          <a href="#contact" aria-label="X"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
+          <a href="mailto:info@ba-audit.com" aria-label="Email"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <nav class="flinks" aria-label="Links">
+          <a href="#why">Why Us</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#clients">Clients &amp; Partners</a>
+          <a href="#contact">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="iso-row">
+      <span class="lbl">ISO Certifications</span>
+      <span class="iso-item"><b>ISO 9001:2015</b><span>Quality Management System</span></span>
+      <span class="iso-item"><b>ISO 22301:2019</b><span>Business Continuity Management</span></span>
+      <span class="iso-item"><b>ISO/IEC 27001:2022</b><span>Information Security</span></span>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2023–2024 Arab Experts Group. All rights reserved.</span>
+      <span class="right">Commercial Registration 1010600009</span>
+    </div>
+  </div>
+</footer>
+</main>
+
+<script>
+(function(){
+  var btn = document.getElementById('gridbtn');
+  var menu = document.getElementById('menu');
+  btn.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  menu.addEventListener('click', function(e){
+    if (e.target.tagName === 'A') { menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  });
+
+  // Services mega menu: JS-driven with a short close delay, so a diagonal mouse path
+  // toward a far column (crossing navbar space that belongs to neither the trigger
+  // link nor the panel) doesn't instantly drop the menu — pure CSS :hover has no way
+  // to forgive that path since the trigger is far narrower than the panel.
+  var megaHost = document.querySelector('.menu-item');
+  if (megaHost) {
+    var megaPanel = megaHost.querySelector('.mega-panel');
+    var megaTrigger = megaHost.querySelector('a');
+    var megaHideTimer = null;
+    function megaShow(){ clearTimeout(megaHideTimer); megaPanel.classList.add('is-open'); megaTrigger.setAttribute('aria-expanded','true'); }
+    function megaScheduleHide(){
+      clearTimeout(megaHideTimer);
+      megaHideTimer = setTimeout(function(){
+        megaPanel.classList.remove('is-open');
+        megaTrigger.setAttribute('aria-expanded','false');
+      }, 400);
+    }
+    megaHost.addEventListener('mouseenter', megaShow);
+    megaHost.addEventListener('mouseleave', megaScheduleHide);
+    megaPanel.addEventListener('mouseenter', megaShow);
+    megaPanel.addEventListener('mouseleave', megaScheduleHide);
+    megaTrigger.addEventListener('focus', megaShow);
+    megaHost.addEventListener('focusout', function(e){
+      if (!megaHost.contains(e.relatedTarget)) megaScheduleHide();
+    });
+  }
+
+  document.querySelectorAll('.stag').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); });
+  });
+
+  var items = Array.prototype.slice.call(document.querySelectorAll('.rv'));
+  var scrubEls = Array.prototype.slice.call(document.querySelectorAll('.stag:not(.hero-stag) > *'));
+  if (!items.length && !scrubEls.length) return;
+  // Arm the hidden state only once this script is known to run, so content is never gated on JS.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js');
+
+  var ticking = false;
+  function reveal(){
+    ticking = false;
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = items.length - 1; i >= 0; i--) {
+      var el = items[i], r = el.getBoundingClientRect();
+      if (r.top < h * 0.78 && r.bottom > 0) { el.classList.add('in'); items.splice(i,1); }
+    }
+    // Scroll-scrubbed fade-up: progress is a direct function of scroll position, not a timer,
+    // so the motion is always visible no matter how fast someone scrolls through it.
+    var startY = h * 0.96, endY = h * 0.55;
+    for (var j = scrubEls.length - 1; j >= 0; j--) {
+      var sEl = scrubEls[j], sr = sEl.getBoundingClientRect();
+      if (sr.top >= startY) continue;
+      var rise = parseFloat(getComputedStyle(sEl.parentNode).getPropertyValue('--rise')) || 28;
+      var p = (startY - sr.top) / (startY - endY);
+      if (p > 1) p = 1; else if (p < 0) p = 0;
+      sEl.style.opacity = p;
+      sEl.style.transform = 'translateY(' + ((1 - p) * rise) + 'px)';
+      if (p >= 1) scrubEls.splice(j, 1);
+    }
+    if (!items.length && !scrubEls.length) { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); }
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(reveal); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', reveal);
+  reveal();
+})();
+
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+
+  var swooshPath = document.querySelector('.swoosh path');
+  if (swooshPath) {
+    var len = swooshPath.getTotalLength();
+    swooshPath.style.strokeDasharray = len;
+    swooshPath.style.strokeDashoffset = len;
+    var swooshObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) { swooshPath.style.strokeDashoffset = '0'; swooshObs.disconnect(); }
+      });
+    }, { threshold:.4 });
+    swooshObs.observe(swooshPath);
+  }
+
+  var counters = document.querySelectorAll('.bignum__val, .mini b');
+  counters.forEach(function(counter){
+    var target = parseInt(counter.textContent, 10);
+    if (isNaN(target)) return;
+    var suffix = counter.textContent.replace(/[0-9]/g, '');
+    var counterObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        counterObs.disconnect();
+        var start = null, duration = 1100;
+        function step(ts){
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          counter.textContent = Math.round(eased * target) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold:.5 });
+    counterObs.observe(counter);
+  });
+})();
+
+(function(){
+  // Parallax: #branches' own background (navy + pattern) drifts slower than the page scroll,
+  // and the footer's content lags well behind before catching up to rest — two layers moving
+  // at visibly different rates, not just a quick settle on entry.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var branches = document.getElementById('branches');
+  var branchesBg = document.querySelector('.branches-bg');
+  var footer = document.querySelector('.footer');
+  var footerInner = document.querySelector('.footer .wrap');
+  if (!branches || !branchesBg || !footer || !footerInner) return;
+
+  var ticking = false;
+  function clamp(v, lo, hi){ return v < lo ? lo : v > hi ? hi : v; }
+  function update(){
+    ticking = false;
+    var br = branches.getBoundingClientRect();
+    var bgShift = clamp(br.top * 0.22, -60, 60);
+    branchesBg.style.transform = 'translateY(' + bgShift + 'px)';
+
+    var fr = footer.getBoundingClientRect();
+    var lag = clamp(fr.top * 0.35, 0, 170);
+    footerInner.style.transform = 'translateY(' + lag + 'px)';
+  }
+  function onScroll(){ if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+
+</body>
+</html>
