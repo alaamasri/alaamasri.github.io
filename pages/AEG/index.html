@@ -200,6 +200,17 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
 }
 .mega-footer a:hover{color:var(--pop)}
 .mega-footer a svg{width:14px;height:14px}
+.mega-caret{width:12px;height:12px;margin-inline-start:4px;vertical-align:-1px;transition:transform .2s ease}
+.menu-item a[aria-expanded="true"] .mega-caret{transform:rotate(180deg)}
+.menu a.lang-switch{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.8125rem;
+  height:36px;padding-inline:20px;border-radius:20px;margin-inline-start:4px;
+  border:1px solid var(--teal);color:var(--teal);
+  transition:background-color .22s,color .22s,border-color .22s;
+}
+.menu a.lang-switch::after{display:none}
+.menu a.lang-switch:hover{background:var(--teal);color:#fff}
 @media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:940px){.mega-panel{display:none}}
 .grid-btn{
@@ -513,6 +524,11 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
   }
   .menu.open a{padding-block:13px;border-bottom:1px solid rgba(255,255,255,.12)}
   .menu.open a::after{display:none}
+  .menu.open a.lang-switch{
+    align-self:center;margin:14px 0 4px;padding-block:0;
+    border:1px solid var(--teal);color:var(--teal);
+  }
+  .menu.open a.lang-switch:hover{background:var(--teal);color:#fff}
     .hero > .wrap{padding-block:150px 110px}
   .footer-main{grid-template-columns:1fr;gap:44px;text-align:center}
   .fcontact{text-align:center}
@@ -571,7 +587,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
           <a href="#why">لماذا نحن</a>
           <a href="#about">من نحن</a>
           <span class="menu-item">
-            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">خدماتنا</a>
+            <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">خدماتنا<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <div class="mega-panel" id="mega-services">
              <div class="mega-panel__card">
               <div class="mega-grid">
@@ -672,6 +688,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
           </span>
           <a href="#clients">عملاؤنا</a>
           <a href="#contact">تواصل معنا</a>
+          <a class="lang-switch" href="en/index.html" lang="en" dir="ltr">English</a>
         </nav>
         <button class="grid-btn" id="gridbtn" aria-label="القائمة" aria-expanded="false" aria-controls="menu">
           <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
