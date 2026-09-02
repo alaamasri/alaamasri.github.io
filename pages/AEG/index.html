@@ -221,6 +221,31 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
 .grid-btn i{width:4px;height:4px;border-radius:50%;background:var(--teal);display:block}
 .grid-btn:hover i{background:var(--navy)}
 
+/* ---------- about mega menu (vertical category list + top-aligned detail pane) ---------- */
+.mega-panel--about{width:min(680px,calc(100vw - 48px))}
+.mega-panel__card--flush{padding:0}
+.svc-demo__panel{display:grid;grid-template-columns:260px 1fr}
+.svc-demo__list{display:flex;flex-direction:column;background:var(--tint);border-inline-end:1px solid var(--line);max-height:calc(100vh - 160px);overflow-y:auto}
+.svc-demo__item{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:start;
+  padding:15px 22px;background:none;cursor:pointer;font:inherit;
+  font-family:Tajawal,system-ui,sans-serif;font-weight:700;font-size:.875rem;color:var(--navy);
+  border:0;border-bottom:1px solid var(--line);
+  transition:background-color .2s,color .2s;
+}
+.svc-demo__item:last-child{border-bottom:0}
+.svc-demo__item:hover,.svc-demo__item:focus-visible{background:#fff;color:var(--teal)}
+.svc-demo__item.is-active{background:#fff;color:var(--teal)}
+.svc-demo__num{flex:none;width:22px;font-size:.6875rem;color:var(--teal);font-variant-numeric:tabular-nums}
+.svc-demo__content{position:relative;padding:30px 32px;display:flex;flex-direction:column;justify-content:flex-start}
+.svc-demo__pane{display:none}
+.svc-demo__pane.is-active{display:block;animation:svcDemoFade .3s ease}
+.svc-demo__pane h4{font-size:1.125rem;font-weight:800;color:var(--navy);margin-bottom:16px}
+.svc-demo__pane ul{display:grid;gap:11px}
+.svc-demo__pane li{position:relative;padding-inline-start:18px;font-size:.875rem;color:var(--muted);line-height:1.5}
+.svc-demo__pane li::before{content:"";position:absolute;inset-inline-start:0;top:.6em;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+@keyframes svcDemoFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
 /* ---------- hero ---------- */
 .hero::before{
   --pat-o:0;--pat-s:760px;z-index:1;
@@ -282,7 +307,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
 .mini b{
   display:flex;align-items:center;font-family:Tajawal,system-ui,sans-serif;font-weight:700;
   font-size:1.75rem;color:var(--navy);padding-inline-end:20px;border-inline-end:1px solid var(--line);
-  font-variant-numeric:tabular-nums;
+  font-variant-numeric:tabular-nums;min-width:63px;
 }
 .mini span{display:flex;align-items:center;color:var(--muted);font-size:.9375rem;line-height:1.6}
 .about .col{display:flex;flex-direction:column;gap:20px}
@@ -585,7 +610,107 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
         <a class="brand" href="#top" aria-label="Arab Experts Group — home"><img class="logo-mark" src="Sources/logo.png" alt="مجموعة الخبراء العرب"></a>
         <nav class="menu" id="menu" aria-label="الرئيسية">
           <a href="#why">لماذا نحن</a>
-          <a href="#about">من نحن</a>
+          <span class="menu-item">
+            <a href="#about" aria-haspopup="true" aria-expanded="false" aria-controls="mega-about">من نحن<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <div class="mega-panel mega-panel--about" id="mega-about">
+             <div class="mega-panel__card mega-panel__card--flush">
+              <div class="svc-demo__panel">
+                <div class="svc-demo__list" role="tablist" aria-orientation="vertical">
+                  <button type="button" class="svc-demo__item is-active" role="tab" aria-selected="true" aria-controls="demo-10" id="demo-10-tab" data-target="demo-10"><span class="svc-demo__num">10</span><span>خدمات قطاع الأعمال</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-03" id="demo-03-tab" data-target="demo-03"><span class="svc-demo__num">03</span><span>التدقيق والمراجعة</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-04" id="demo-04-tab" data-target="demo-04"><span class="svc-demo__num">04</span><span>الاستشارات المالية</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-09" id="demo-09-tab" data-target="demo-09"><span class="svc-demo__num">09</span><span>تأهيل وتصنيف المقاولين</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-01" id="demo-01-tab" data-target="demo-01"><span class="svc-demo__num">01</span><span>الزكاة والضريبة والقيمة المضافة</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-02" id="demo-02-tab" data-target="demo-02"><span class="svc-demo__num">02</span><span>الدعم القضائي</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-06" id="demo-06-tab" data-target="demo-06"><span class="svc-demo__num">06</span><span>دراسات الجدوى الاقتصادية</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-07" id="demo-07-tab" data-target="demo-07"><span class="svc-demo__num">07</span><span>إعادة الهيكلة الإدارية</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-08" id="demo-08-tab" data-target="demo-08"><span class="svc-demo__num">08</span><span>الهوية التجارية</span></button>
+                  <button type="button" class="svc-demo__item" role="tab" aria-selected="false" aria-controls="demo-05" id="demo-05-tab" data-target="demo-05"><span class="svc-demo__num">05</span><span>الاستشارات الإدارية</span></button>
+                </div>
+                <div class="svc-demo__content">
+                  <div class="svc-demo__pane is-active" id="demo-10" role="tabpanel" aria-labelledby="demo-10-tab">
+                    <h4>خدمات قطاع الأعمال</h4>
+                    <ul>
+                      <li>تأسيس وتعديل وتصفية الشركات</li>
+                      <li>إعادة الهيكلة والحوكمة</li>
+                      <li>السياسات والإجراءات للاستثمار الأجنبي</li>
+                      <li>تجهيز الملفات القانونية</li>
+                      <li>المنشآت الصناعية والمهنية</li>
+                      <li>الرخص والعلامات التجارية</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-03" role="tabpanel" aria-labelledby="demo-03-tab">
+                    <h4>التدقيق والمراجعة</h4>
+                    <ul>
+                      <li>البيع على الخارطة (وافي)</li>
+                      <li>التدقيق والتقارير المالية</li>
+                      <li>الرقابة الداخلية</li>
+                      <li>اختبار انخفاض قيمة الأصول</li>
+                      <li>القيمة العادلة وتخصيص سعر الشراء</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-04" role="tabpanel" aria-labelledby="demo-04-tab">
+                    <h4>الاستشارات المالية</h4>
+                    <ul>
+                      <li>استراتيجية الأعمال والعمليات</li>
+                      <li>استشارات مالية</li>
+                      <li>الحوكمة وإدارة المخاطر</li>
+                      <li>عمليات الدمج والاستحواذ</li>
+                      <li>موارد بشرية</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-09" role="tabpanel" aria-labelledby="demo-09-tab">
+                    <h4>تأهيل وتصنيف المقاولين</h4>
+                    <ul>
+                      <li>تصنيف وتأهيل المنشآت</li>
+                      <li>استشارات قانونية ومالية وفنية</li>
+                      <li>إعداد ومتابعة ملف التصنيف</li>
+                      <li>التنسيق للزيارات المكتبية والميدانية</li>
+                      <li>التأهيل لشهادات الآيزو</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-01" role="tabpanel" aria-labelledby="demo-01-tab">
+                    <h4>الزكاة والضريبة والقيمة المضافة</h4>
+                    <ul>
+                      <li>قانون الامتثال الضريبي</li>
+                      <li>تحليل ودراسات ضريبية وزكوية</li>
+                      <li>استشارات ضريبية وزكوية</li>
+                      <li>الالتزام الزكوي والضريبي</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-02" role="tabpanel" aria-labelledby="demo-02-tab">
+                    <h4>الدعم القضائي</h4>
+                    <ul>
+                      <li>قضايا المنازعات</li>
+                      <li>قضايا الإفلاس</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-06" role="tabpanel" aria-labelledby="demo-06-tab">
+                    <h4>دراسات الجدوى الاقتصادية</h4>
+                    <ul>
+                      <li>تحليل الفرص الاستثمارية</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-07" role="tabpanel" aria-labelledby="demo-07-tab">
+                    <h4>إعادة الهيكلة الإدارية</h4>
+                    <ul>
+                      <li>تقييمات مهنية مستقلة</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-08" role="tabpanel" aria-labelledby="demo-08-tab">
+                    <h4>الهوية التجارية</h4>
+                    <ul>
+                      <li>هوية وصورة المؤسسة</li>
+                    </ul>
+                  </div>
+                  <div class="svc-demo__pane" id="demo-05" role="tabpanel" aria-labelledby="demo-05-tab">
+                    <h4>الاستشارات الإدارية</h4>
+                  </div>
+                </div>
+              </div>
+             </div>
+            </div>
+          </span>
           <span class="menu-item">
             <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="mega-services">خدماتنا<svg class="mega-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             <div class="mega-panel" id="mega-services">
@@ -774,6 +899,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
     </div>
   </div>
 </section>
+
 <section class="services rv" id="services">
   <div class="wrap">
     <div class="sec-head sec-head--split">
@@ -1029,8 +1155,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
   // toward a far column (crossing navbar space that belongs to neither the trigger
   // link nor the panel) doesn't instantly drop the menu — pure CSS :hover has no way
   // to forgive that path since the trigger is far narrower than the panel.
-  var megaHost = document.querySelector('.menu-item');
-  if (megaHost) {
+  document.querySelectorAll('.menu-item').forEach(function(megaHost){
     var megaPanel = megaHost.querySelector('.mega-panel');
     var megaTrigger = megaHost.querySelector('a');
     var megaHideTimer = null;
@@ -1050,7 +1175,7 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
     megaHost.addEventListener('focusout', function(e){
       if (!megaHost.contains(e.relatedTarget)) megaScheduleHide();
     });
-  }
+  });
 
   document.querySelectorAll('.stag').forEach(function(g){
     Array.prototype.forEach.call(g.children, function(c, i){ c.style.setProperty('--i', i); });
@@ -1091,6 +1216,26 @@ span.logo-mark{background:var(--logo) left center/contain no-repeat}
   window.addEventListener('resize', onScroll);
   window.addEventListener('load', reveal);
   reveal();
+})();
+
+(function(){
+  var demo = document.querySelector('.svc-demo__panel');
+  if (!demo) return;
+  var tabs = Array.prototype.slice.call(demo.querySelectorAll('.svc-demo__item'));
+  var panes = Array.prototype.slice.call(demo.querySelectorAll('.svc-demo__pane'));
+  function activate(target){
+    tabs.forEach(function(t){
+      var on = t.dataset.target === target;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panes.forEach(function(p){ p.classList.toggle('is-active', p.id === target); });
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('mouseenter', function(){ activate(t.dataset.target); });
+    t.addEventListener('focus', function(){ activate(t.dataset.target); });
+    t.addEventListener('click', function(e){ e.preventDefault(); activate(t.dataset.target); });
+  });
 })();
 
 (function(){
