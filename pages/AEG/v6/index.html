@@ -174,7 +174,10 @@ img{max-width:100%;display:block}
    each spaced enough to read as its own beat rather than arriving together. */
 .hero-stage.d2[data-armed],
 .hero-stage.d3[data-armed],
-.hero-stage.d4[data-armed]{transform:none;}
+.hero-stage.d4[data-armed]{transform:translateY(10px)}
+.is-ready .hero-stage.d2[data-armed],
+.is-ready .hero-stage.d3[data-armed],
+.is-ready .hero-stage.d4[data-armed]{transform:none}
 .is-ready .hero-stage.d1{transition-delay:.06s;}
 .is-ready .hero-stage.d2{transition-delay:.4s;transition-duration:4s;}
 .is-ready .hero-stage.d3{transition-delay:.4s;transition-duration:4s;}
@@ -339,7 +342,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 .f-bottom-nav a{color:rgba(255,255,255,.75);transition:color .2s}
 .f-bottom-nav a:hover{color:var(--gold-600)}
 .f-copyright{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.8125rem;color:rgba(255,255,255,.55);position:relative;z-index:1}
-.f-mark{bottom:-10%;inset-inline-end:-6%;height:100%;background-color:var(--gold-500);opacity:.14;transform:translate3d(0,var(--py,0px),0)}
+.f-mark{bottom:-10%;inset-inline-end:-6%;height:100%;background-color:var(--gold-500);opacity:.075;transform:translate3d(0,var(--py,0px),0)}
 
 /* ---------- scroll reveal ----------
    Three sequenced gestures rather than one blanket fade repeated per section:
@@ -592,7 +595,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 
 <section class="services" id="services">
   <div class="services-pattern" aria-hidden="true" data-par="-0.07"></div>
-  <div class="services-glaze" aria-hidden="true" data-par="-0.04"></div>
+  <div class="services-glaze" aria-hidden="true" data-par="-0.1"></div>
   <div class="wrap">
     <div class="services-head reveal">
       <div>
@@ -672,8 +675,8 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 </section>
 
 <section class="cta" id="contact">
-  <div class="cta-pattern" aria-hidden="true" data-par="-0.07"></div>
-  <div class="cta-glaze" aria-hidden="true" data-par="-0.04"></div>
+  <div class="cta-pattern" aria-hidden="true" data-par="-.08"></div>
+  <div class="cta-glaze" aria-hidden="true" data-par="-.08"></div>
   <div class="mark cta-mark" aria-hidden="true" data-par="0.14"></div>
   <div class="wrap cta-grid">
     <div class="cta-copy reveal">
@@ -683,7 +686,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
       <a class="btn btn-gold" href="mailto:info@ba-audit.com">اطلب عرض سعر<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
     </div>
     <ul class="cta-channels reveal">
-      <li>
+      <li >
         <a href="tel:+966112933360">
           <span class="ch-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg></span>
           <span class="ch-body"><span class="ch-label">الهاتف</span><span class="ch-value" dir="ltr">+966 11 29 333 60</span></span>
