@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مجموعة الخبراء العرب</title>
+<meta name="description" content="مجموعة الخبراء العرب للاستشارات المهنية: الزكاة والضرائب، التدقيق والمراجعة، والاستشارات المالية في المملكة العربية السعودية.">
+<meta name="theme-color" content="#0A2E20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=El+Messiri:wght@500;600;700&display=swap">
+<style>
+/* ==========================================================================
+   v6 — bolder amplification of v5. Same palette, same faces, same motifs
+   (icon.svg, pattern.png, bg2.jpg), same copy. The move: the brand's deep
+   green leads instead of hiding, gold becomes a full field rather than a
+   4px bar, and the five services stop being equal squares.
+   ========================================================================== */
+:root{
+  --nav-h:104px;
+  --green-900:#134B36;
+  --green-950:#0F3C2B;
+  --green-975:#0B2E20;
+  --green-700:#1B6445;
+  --gold-500:#EFD8AC;
+  --gold-600:#B4872F;
+  --gold-700:#DCBA7A;
+  --cream:#F2F2F2;
+  --ink:#2B2B28;
+  --muted:#6B6A63;
+  --white:#FFFFFF;
+  --font-head:'Tajawal',system-ui,sans-serif;
+  --font-body:'Tajawal',system-ui,sans-serif;
+  --font-display:'El Messiri','Tajawal',system-ui,sans-serif;
+  --pat:url("Sources/pattern.png");
+  --icon:url("Sources/icon.svg");
+  --wrap:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scrollbar-width:thin;scrollbar-color:var(--gold-600) transparent}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold-600);border-radius:20px;border:2.5px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-500);background-clip:padding-box}
+::selection{background:var(--gold-500);color:var(--ink)}
+/* pale gold vanishes on cream, so the focus ring flips per surface */
+:root{--focus:var(--green-900)}
+.services,.cta,.footer{--focus:var(--gold-500)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.85;caret-color:var(--gold-500);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);color:var(--green-900);line-height:1.24;font-weight:700}
+p{margin:0;color:var(--muted)}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.rule{display:block;width:64px;height:3px;background:var(--gold-600);border-radius:2px;margin-bottom:26px}
+.services .rule{background:var(--gold-600)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:.875rem;padding:16px 30px;border-radius:4px;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:15px;height:15px;flex:none}
+/* gold fills carry dark neutral text, green fills carry white — never gold-on-green or green-on-gold */
+.btn-gold{background:var(--gold-600);color:var(--white)}
+.btn-gold:hover{background:var(--white);color:var(--gold-600)}
+.btn-deep{background:var(--green-950);color:#fff}
+.btn-deep:hover{background:var(--green-700);color:#fff}
+.btn-outline-gold{border:1.5px solid var(--gold-600);color:var(--gold-600)}
+.btn-outline-gold:hover{background:var(--gold-600);color:var(--white);border-color:var(--gold-600)}
+.btn-quote{background:transparent;color:var(--gold-600);border:1.5px solid var(--gold-600);border-radius:4px;padding:11.5px 24px;font-family:var(--font-head);font-weight:800;font-size:.875rem;
+  transition:background-color .25s,color .25s,border-color .25s,padding .3s ease,font-size .3s ease}
+.btn-quote:hover{background:var(--gold-600);color:var(--white);border-color:var(--gold-600)}
+
+/* ---------- shared mark (icon.svg recoloured by mask, exact colour) ---------- */
+.mark{position:absolute;aspect-ratio:1000/2037;width:auto;pointer-events:none;z-index:0;
+  -webkit-mask:var(--icon) no-repeat center/contain;mask:var(--icon) no-repeat center/contain}
+
+/* ---------- nav ---------- */
+/* negative margin pulls the hero up underneath the nav so the transparent bar still
+   reads as sitting on the hero's own background, even though nav now lives outside
+   .hero (required so position:sticky isn't bounded by the hero's 100vh box) */
+.navwrap{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;
+  margin-bottom:calc(-1 * var(--nav-h));
+  transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease}
+.navwrap.is-scrolled{background:var(--white);border-color:rgba(19,75,54,.1);box-shadow:0 12px 28px -20px rgba(15,60,43,.35)}
+.navbar{display:flex;align-items:center;gap:40px;height:104px;transition:height .3s ease}
+.navwrap.is-scrolled .navbar{height:72px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{width:200px;height:auto;transition:width .3s ease}
+.navwrap.is-scrolled .brand img{width:140px}
+.navwrap.is-scrolled .btn-quote{padding:9px 20px;font-size:.8125rem}
+.menu{display:flex;align-items:center;gap:30px;margin-inline-start:30px;margin-inline-end:auto}
+.menu a{font-family:var(--font-head);font-weight:600;font-size:.9375rem;color:rgba(19,75,54,.85);display:flex;align-items:center;gap:5px;position:relative;padding-block:6px;transition:color .2s}
+.menu a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--gold-600);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease)}
+.menu a:hover{color:var(--green-950)}
+.menu a:hover::after{transform:scaleX(1)}
+.menu a svg{width:9px;height:9px}
+.lang-switch{font-weight:600}
+.lang-switch:hover{color:var(--green-950)}
+
+/* ---------- services mega menu (desktop only; hover/focus reveal, click still navigates) ---------- */
+.menu-item{position:relative}
+.mega-caret{width:10px;height:10px;margin-inline-start:2px;transition:transform .25s var(--ease)}
+.menu-item:hover .mega-caret,.menu-item:focus-within .mega-caret{transform:rotate(180deg)}
+.mega-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);
+  width:min(1040px,calc(100vw - 48px));padding-top:18px;
+  opacity:0;visibility:hidden;pointer-events:none;z-index:60;
+  transition:opacity .22s ease,visibility .22s,transform .22s ease}
+.menu-item:hover .mega-panel,.menu-item:focus-within .mega-panel{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.mega-panel__card{background:var(--white);border:1px solid rgba(19,75,54,.1);border-radius:16px;
+  box-shadow:0 24px 54px -20px rgba(15,60,43,.35);padding:30px 30px 24px}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 22px}
+.mega-col__num{display:inline-block;font-family:var(--font-head);font-weight:800;font-size:.6875rem;
+  color:var(--gold-600);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.mega-col h4{font-family:var(--font-head);font-size:.875rem;font-weight:700;color:var(--green-900);line-height:1.4;margin-bottom:10px}
+.mega-col ul{display:grid;gap:8px}
+.mega-col li{position:relative;padding-inline-start:14px;font-size:.75rem;color:var(--muted);line-height:1.5}
+.mega-col li::before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:4px;height:4px;border-radius:50%;background:var(--gold-600)}
+.mega-footer{margin-top:24px;padding-top:18px;border-top:1px solid rgba(19,75,54,.12);
+  display:flex;align-items:center;justify-content:flex-end}
+.mega-footer a{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-head);font-weight:800;font-size:.8125rem;color:var(--gold-600);transition:color .2s}
+.mega-footer a:hover{color:var(--green-900)}
+.mega-footer a svg{width:14px;height:14px}
+@media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.mega-panel{display:none}.mega-caret{display:none}}
+.navtoggle{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--green-900);margin-inline-start:auto}
+.navtoggle svg{width:26px;height:26px}
+.navtoggle .ico-x{display:none}
+.navtoggle[aria-expanded="true"] .ico-x{display:block}
+.navtoggle[aria-expanded="true"] .ico-bars{display:none}
+
+/* ---------- hero ---------- */
+.hero{background:var(--white);position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;isolation:isolate}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+/* Depth: the hero's three brand materials — lattice, glaze, mark — finally read as a
+   stack rather than three flat pastes. Layers are oversized on the block axis so the
+   drift never exposes an edge; --py is written by the scroll loop. */
+.hero-pattern{position:absolute;inset:-26% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 45%,transparent 85%);
+  -webkit-mask-size:520px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 45%,transparent 85%);
+  mask-size:520px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.09}
+.hero-glaze{position:absolute;inset:-26% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background:url("Sources/bg2.jpg") center/cover;mix-blend-mode:multiply;opacity:.42;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 28% 45%,#000,transparent 78%);
+          mask-image:radial-gradient(ellipse 80% 80% at 28% 45%,#000,transparent 78%)}
+.hero-mark{top:50%;inset-inline-end:-13%;transform:translateY(-50%) translate3d(0,var(--py,0px),0);height:155%;background-color:var(--gold-600);opacity:.13}
+/* the copy rides forward too — content parallax is what stops a hero feeling like wallpaper */
+.hero-copy{transform:translate3d(0,var(--py,0px),0)}
+.hero-grid{flex:1;display:grid;align-content:center;position:relative;z-index:2;padding-block:calc(100px + var(--nav-h)) 96px}
+.hero-copy h1{color:var(--green-900);font-size:clamp(2rem,4.2vw,4rem);line-height:1.16;letter-spacing:-.02em;max-width:60%;font-weight:700}
+.hero-copy h1 em{font-style:normal;color:var(--gold-600)}
+/* solid colour, not opacity — .is-ready .hero-stage owns opacity for the entrance */
+.hero-lede{margin-top:30px;max-width:52ch;font-size:clamp(1.0625rem,1.5vw,1.25rem);color:var(--muted);line-height:1.85}
+.hero-btns{display:flex;gap:14px;margin-top:42px;flex-wrap:wrap}
+.iso-row{display:flex;gap:clamp(24px,4vw,54px);margin-top:56px;padding-top:30px;flex-wrap:wrap;border-top:1px solid rgba(19,75,54,.16)}
+.iso-badge{display:flex;align-items:center;gap:13px;font-family:var(--font-head);font-weight:800;font-size:.875rem;color:var(--green-900)}
+.iso-badge .badge-ico{display:inline-block;width:42px;height:42px;flex:none;
+  -webkit-mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+          mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+  background-color:var(--gold-600)}
+
+/* hero entrance — the one authored moment */
+.hero-stage[data-armed]{opacity:0;transform:translateY(60px)}
+.is-ready .hero-stage{opacity:1;transform:none;transition:opacity .5s var(--ease),transform 2s var(--ease)}
+/* only the title travels — a slow fade up. Brief, button and iso-row just fade,
+   each spaced enough to read as its own beat rather than arriving together. */
+.hero-stage.d2[data-armed],
+.hero-stage.d3[data-armed],
+.hero-stage.d4[data-armed]{transform:none;}
+.is-ready .hero-stage.d1{transition-delay:.06s;}
+.is-ready .hero-stage.d2{transition-delay:.4s;transition-duration:4s;}
+.is-ready .hero-stage.d3{transition-delay:.4s;transition-duration:4s;}
+.is-ready .hero-stage.d4{transition-delay:.4s;transition-duration:4s;}
+
+.hero-mark{transition:opacity 1.4s var(--ease)}
+body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
+
+/* ---------- about ---------- */
+/* z-index + upward shadow makes the about plane read as sliding OVER the hero, which
+   is what gives the hero's parallax something to be measured against */
+.about{background:var(--cream);padding-block:clamp(88px,11vw,140px);position:relative;z-index:1;
+  overflow:hidden;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,84px);align-items:center;position:relative;z-index:1}
+.about h2{font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.about p{margin-top:26px;max-width:54ch;font-size:clamp(1rem,1.3vw,1.1875rem);color:var(--ink);opacity:.78}
+.about .btn{margin-top:38px}
+.about-logo{position:relative;display:grid;place-items:center;padding:clamp(24px,4vw,48px)}
+/* pattern medallion seats the logo instead of letting it float on bare cream */
+.about-logo::before{content:"";position:absolute;top:50%;inset-inline-start:50%;transform:translate(50%,-50%) translate3d(0,var(--pyb,0px),0);
+  width:min(470px,100%);aspect-ratio:1;z-index:0;pointer-events:none;
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),radial-gradient(circle at 50% 50%,#000 34%,transparent 70%);
+  -webkit-mask-size:300px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),radial-gradient(circle at 50% 50%,#000 34%,transparent 70%);
+  mask-size:300px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.2}
+.about-logo img{position:relative;z-index:1;width:min(320px,78%);height:auto;transform:translate3d(0,var(--py,0px),0)}
+
+/* ---------- services ---------- */
+.services{background:var(--green-900);color:#fff;padding-block:clamp(88px,11vw,132px);position:relative;overflow:hidden}
+.services-pattern{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-500);
+  -webkit-mask-image:var(--pat),linear-gradient(to bottom,#000,transparent 70%);
+  -webkit-mask-size:460px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to bottom,#000,transparent 70%);
+  mask-size:460px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.03}
+.services-glaze,.cta-glaze{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background:url("Sources/ultra_faded_triangles.webp") center/cover;mix-blend-mode:color-burn;opacity:1;
+  -webkit-mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.65) 45%,transparent 85%);
+          mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.65) 45%,transparent 85%)}
+.services .wrap{position:relative;z-index:1}
+.services-head{display:grid;grid-template-columns:1fr .85fr;gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(48px,6vw,76px)}
+.services h2{color:#fff;font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.services-head p{color:rgba(255,255,255,.68);font-size:clamp(.9875rem,1.2vw,1.0625rem);max-width:58ch}
+.services-head p + p{margin-top:16px}
+.slist{border-top:1px solid rgba(255,255,255,.24)}
+.srow{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,3vw,40px);align-items:center;
+  padding-block:clamp(26px,3.2vw,35px);border-bottom:1px solid rgba(255,255,255,.24);
+  position:relative;isolation:isolate;color:#fff}
+.srow:last-child{border-bottom:0}
+.srow::before{content:"";position:absolute;inset-inline:calc(-1 * clamp(20px,4vw,48px));inset-block:0;background:var(--white);
+  border-radius:65px;opacity:0;transition:opacity .45s var(--ease);z-index:-1}
+.srow:hover::before,.srow:focus-visible::before{opacity:1}
+.srow > img{width:clamp(34px,4vw,46px);height:clamp(34px,4vw,46px);flex:none;object-fit:contain;
+  filter:brightness(0) invert(1);transition:filter .35s}
+.srow:hover > img,.srow:focus-visible > img{filter:none}
+.srow h3{color:#fff;font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.01em;transition:color .35s}
+.srow .go{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);
+  transition:border-color .35s,background-color .35s,transform .45s var(--ease)}
+.srow .go svg{width:16px;height:16px;color:#fff;transition:color .35s}
+.srow:hover h3,.srow:focus-visible h3{color:var(--gold-600)}
+.srow:hover .go,.srow:focus-visible .go{border-color:var(--gold-600);background:var(--gold-600);transform:translateX(6px)}
+.srow:hover .go svg,.srow:focus-visible .go svg{color:#fff}
+
+/* ---------- why us ---------- */
+.why{background:var(--cream);padding-block:clamp(88px,11vw,132px)}
+.why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.why h2{font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.why-copy p{margin-top:24px;max-width:46ch;font-size:clamp(1rem,1.25vw,1.125rem);color:var(--ink);opacity:.76}
+.accordion{display:flex;flex-direction:column}
+.acc-row{border-bottom:1px solid rgba(19,75,54,.16)}
+.acc-row:first-child{border-top:1px solid rgba(19,75,54,.16)}
+.acc-item{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;text-align:start;
+  background:none;border:0;padding-block:24px;cursor:pointer;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(1.0625rem,1.7vw,1.375rem);color:var(--green-900);
+  transition:color .25s}
+.acc-item:hover{color:var(--gold-600)}
+/* border goes gold on hover regardless of open state; the icon itself only turns
+   gold when the row is actually open — hover alone leaves it as-is */
+.acc-item:hover i{border-color:var(--gold-600)}
+.acc-item i{font-style:normal;width:34px;height:34px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:1.3rem;line-height:35px;flex:none;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.acc-item:hover i{transform:scale(1.1)}
+.acc-row.is-open .acc-item{color:var(--green-900)}
+.acc-row.is-open .acc-item i{background:transparent;border-color:var(--gold-600);color:var(--gold-600)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.acc-row.is-open .acc-panel{grid-template-rows:1fr}
+.acc-panel-inner{overflow:hidden}
+.acc-panel p{margin:0;padding-bottom:24px;max-width:56ch;font-size:1rem;line-height:1.85;color:var(--ink);opacity:.72}
+
+/* ---------- cta — gold at full field ---------- */
+.cta{background:var(--green-950);padding-block:clamp(88px,12vw,150px);position:relative;overflow:hidden}
+.cta-pattern{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.45) 50%,transparent 88%);
+  -webkit-mask-size:520px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.45) 50%,transparent 88%);
+  mask-size:520px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.07}
+.cta-mark{top:50%;inset-inline-start:-14%;transform:translateY(-50%) translate3d(0,var(--py,0px),0);height:165%;background-color:var(--gold-500);opacity:.075}
+.cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,88px);align-items:center}
+.cta .rule{background:var(--gold-600)}
+.cta h2{color:#fff;font-size:clamp(2.125rem,4.8vw,3.75rem);letter-spacing:-.02em}
+.cta p{margin-top:26px;max-width:46ch;color:rgba(255,255,255,.74);font-size:clamp(1rem,1.3vw,1.125rem)}
+.cta-copy .btn{margin-top:38px}
+.cta-channels{display:flex;flex-direction:column;border-top:1px solid rgba(180,135,47,.26)}
+.cta-channels li{border-bottom:1px solid rgba(180,135,47,.26)}
+.cta-channels a,.cta-channels .ch-static{display:flex;align-items:center;gap:20px;padding-block:clamp(20px,2.4vw,28px)}
+.ch-ico{width:54px;height:54px;border-radius:50%;border:1px solid rgba(180,135,47,.32);display:grid;place-items:center;flex:none;
+  transition:background-color .3s var(--ease),border-color .3s var(--ease),transform .4s var(--ease)}
+.ch-ico svg{width:21px;height:21px;color:#fff;transition:color .3s}
+.cta-channels a:hover .ch-ico{background:var(--white);border-color:var(--gold-600);transform:scale(1.06)}
+.cta-channels a:hover .ch-ico svg{color:var(--gold-600)}
+/* align-items keeps dir="ltr" values flush to the RTL start edge */
+.ch-body{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.ch-label{font-family:var(--font-head);font-size:.8125rem;font-weight:700;color:var(--gold-600)}
+.ch-value{font-family:var(--font-head);font-weight:500;font-size:clamp(1rem,1.35vw,1.125rem);color:#fff;line-height:1.6}
+.ch-static .ch-value{color:rgba(255,255,255,.8);font-size:1rem}
+.cta-channels address{font-style:normal;margin:0}
+
+/* ---------- clients ---------- */
+.clients{background:var(--cream);padding-block:clamp(80px,10vw,124px);text-align:center}
+.clients .rule{margin-inline:auto}
+.clients h2{font-size:clamp(1.75rem,3.4vw,2.625rem);letter-spacing:-.015em}
+.clients > .wrap > p{margin:20px auto 0;max-width:56ch;font-size:1.0625rem;color:var(--ink);opacity:.72}
+.client-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(24px,3vw,44px);margin-top:56px;align-items:center}
+.client-grid img{max-height:60px;width:auto;margin-inline:auto}
+
+/* ---------- footer ---------- */
+.footer{background:var(--green-950);color:rgba(255,255,255,.8);padding-top:clamp(64px,8vw,92px);position:relative;overflow:hidden;font-size:.875rem}
+.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:clamp(32px,4vw,48px);position:relative;z-index:1}
+.f-about{display:flex;flex-direction:column;gap:16px}
+.f-about .f-brand img{width:170px;filter:brightness(0) invert(1)}
+.f-about p{color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.85;max-width:44ch}
+.footer h3{color:#fff;font-family:var(--font-head);font-size:.9375rem;font-weight:800;margin:0 0 20px;padding-bottom:10px;border-bottom:2px solid var(--gold-600);display:inline-block}
+.f-subscribe form{display:flex;flex-direction:column;gap:10px}
+.f-subscribe input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:13px 14px;color:#fff;font-family:inherit;font-size:.875rem}
+.f-subscribe input::placeholder{color:rgba(255,255,255,.62)}
+.f-subscribe button{background:var(--gold-600);border:0;border-radius:3px;padding:13px;color:var(--white);font-family:var(--font-head);font-weight:800;font-size:.875rem;cursor:pointer;transition:background-color .25s,color .25s}
+.f-subscribe button:hover{background:var(--gold-700);color:var(--white)}
+.f-subscribe .f-note{margin-top:10px;font-size:.8125rem;color:rgba(255,255,255,.6);min-height:1.3em}
+.f-socials{display:flex;gap:10px;margin-top:20px}
+.f-socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background-color .25s,color .25s}
+.f-socials a:hover{background:var(--white);color:var(--gold-600)}
+.f-socials svg{width:15px;height:15px}
+.f-links ul,.f-contact ul{display:flex;flex-direction:column;gap:13px}
+.f-links a,.f-contact a,.f-contact address{display:flex;gap:9px;color:rgba(255,255,255,.7);font-size:.875rem;font-style:normal;align-items:flex-start;transition:color .2s}
+.f-links a:hover,.f-contact a:hover{color:var(--gold-600)}
+.f-links svg,.f-contact svg{width:15px;height:15px;flex:none;margin-top:5px;color:var(--gold-500)}
+.f-iso-row{display:flex;gap:clamp(24px,4vw,46px);padding-block:38px;margin-top:52px;border-top:1px solid rgba(255,255,255,.14);position:relative;z-index:1;flex-wrap:wrap}
+.f-iso-badge{display:flex;align-items:center;gap:15px}
+.f-iso-badge .badge-ico{display:inline-block;width:50px;height:50px;flex:none;
+  -webkit-mask:url("Sources/iso-badge.svg") no-repeat center/contain;
+          mask:url("Sources/iso-badge.svg") no-repeat center/contain;
+  background-color:var(--gold-500)}
+.f-iso-badge span{font-family:var(--font-head);font-weight:800;font-size:.875rem;color:#fff;line-height:1.5}
+.f-bottom-nav{display:flex;gap:28px;flex-wrap:wrap;padding-block:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.875rem;position:relative;z-index:1}
+.f-bottom-nav a{color:rgba(255,255,255,.75);transition:color .2s}
+.f-bottom-nav a:hover{color:var(--gold-600)}
+.f-copyright{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.8125rem;color:rgba(255,255,255,.55);position:relative;z-index:1}
+.f-mark{bottom:-10%;inset-inline-end:-6%;height:100%;background-color:var(--gold-500);opacity:.14;transform:translate3d(0,var(--py,0px),0)}
+
+/* ---------- scroll reveal ----------
+   Three sequenced gestures rather than one blanket fade repeated per section:
+   the block settles, the gold rule is struck, then the heading sets itself
+   right-to-left. Precision, not exuberance. */
+.reveal[data-armed]{opacity:0;transform:translateY(30px)}
+.reveal.is-in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+
+/* service rows arrive from the RTL start edge — a list being dealt, not just faded */
+/* :not(.is-in) keeps this mutually exclusive with .reveal.is-in — without it this
+   selector outranks the revealed state and the rows stay parked off-axis */
+.srow.reveal[data-armed]:not(.is-in){transform:translate3d(38px,0,0)}
+
+/* contact us and about title + brief fade in while sliding in from the right */
+.cta-copy.reveal[data-armed]:not(.is-in),
+.about-copy.reveal[data-armed]:not(.is-in){transform:translate3d(38px,0,0)}
+
+/* the ruled line — the page's repeated measurement gesture */
+.rule{transform-origin:right}
+.clients .rule{transform-origin:center}
+.reveal[data-armed] .rule{transform:scaleX(0)}
+.reveal.is-in .rule{transform:scaleX(1);transition:transform .7s var(--ease) .14s}
+
+/* titles fade in up with their block — same slow, plain treatment as the hero text */
+.services-head.reveal.is-in,.about-copy.reveal.is-in{transition-duration:1.4s}
+
+/* real lists cascade; total delay stays capped */
+.srow:nth-child(2).is-in{transition-delay:.07s}
+.srow:nth-child(3).is-in{transition-delay:.14s}
+.srow:nth-child(4).is-in{transition-delay:.21s}
+.srow:nth-child(5).is-in{transition-delay:.28s}
+
+/* accordion titles reveal one by one, same fade-in-up as everything else */
+.acc-row:nth-child(2).is-in{transition-delay:.07s}
+.acc-row:nth-child(3).is-in{transition-delay:.14s}
+.acc-row:nth-child(4).is-in{transition-delay:.21s}
+.acc-row:nth-child(5).is-in{transition-delay:.28s}
+.acc-row:nth-child(6).is-in{transition-delay:.35s}
+.client-grid[data-armed] img{opacity:0;transform:translateY(12px)}
+.client-grid.is-in img{opacity:1;transform:none;transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.client-grid.is-in img:nth-child(2){transition-delay:.05s}
+.client-grid.is-in img:nth-child(3){transition-delay:.1s}
+.client-grid.is-in img:nth-child(4){transition-delay:.15s}
+.client-grid.is-in img:nth-child(5){transition-delay:.2s}
+.client-grid.is-in img:nth-child(n+6){transition-delay:.25s}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .services-head{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .about-grid,.cta-grid{grid-template-columns:1fr}
+  .about-logo{padding:8px 0 0}
+  .about-logo img{width:min(260px,60%)}
+  .about-logo::before{width:min(380px,86%)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  :root{--nav-h:84px}
+  .menu{position:absolute;inset-inline:0;top:100%;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--white);border-top:1px solid rgba(19,75,54,.12);box-shadow:0 18px 40px -24px rgba(15,60,43,.45);
+    padding:8px clamp(20px,4vw,48px) 20px;margin:0;display:none}
+  .menu.is-open{display:flex}
+  .menu a{padding-block:15px;font-size:1.0625rem;border-bottom:1px solid rgba(19,75,54,.1)}
+  .menu a::after{display:none}
+  .navtoggle{display:block}
+  .navbar{height:84px;gap:16px}
+  .navbar .btn-quote{display:none}
+  .hero-mark{inset-inline-end:-38%;opacity:.07}
+  .cta-mark{inset-inline-start:-40%;inset-inline-end:auto;opacity:.05}
+  .client-grid{grid-template-columns:repeat(3,1fr)}
+  .srow{grid-template-columns:auto 1fr;gap:18px}
+  .srow .go{display:none}
+}
+@media (max-width:600px){
+  .brand img{width:140px}
+  .footer-grid{grid-template-columns:1fr}
+  .iso-row{flex-direction:column;align-items:flex-start;gap:18px;margin-top:44px}
+  .client-grid{grid-template-columns:repeat(2,1fr)}
+  .f-iso-row{flex-direction:column;gap:22px}
+  .hero-copy h1{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .hero-stage,.reveal[data-armed]{opacity:1!important;transform:none!important}
+  /* keep the depth stack and the reveal gestures, drop the movement */
+  [data-par],[data-par-b]{--py:0px!important;--pyb:0px!important}
+  .reveal[data-armed] .rule{transform:none!important}
+  .client-grid[data-armed] img{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+  <div class="navwrap">
+    <div class="wrap navbar">
+      <a class="brand" href="#top"><img src="Sources/logo-rtl.webp" alt="مجموعة الخبراء العرب"></a>
+      <button class="navtoggle" type="button" id="navToggle" aria-expanded="false" aria-controls="primaryMenu" aria-label="القائمة">
+        <svg class="ico-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+      <nav class="menu" id="primaryMenu">
+        <a href="#top">الرئيسية</a>
+        <a href="#why">لماذا نحن</a>
+        <a href="#about">من نحن</a>
+        <span class="menu-item">
+          <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">خدماتنا<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega-panel" id="megaServices">
+            <div class="mega-panel__card">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <span class="mega-col__num">01</span>
+                  <h4>خدمات قطاع الأعمال</h4>
+                  <ul>
+                    <li>تأسيس وتعديل وتصفية الشركات</li>
+                    <li>إعادة الهيكلة والحوكمة</li>
+                    <li>السياسات والإجراءات للاستثمار الأجنبي</li>
+                    <li>تجهيز الملفات القانونية</li>
+                    <li>المنشآت الصناعية والمهنية</li>
+                    <li>الرخص والعلامات التجارية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">02</span>
+                  <h4>التدقيق والمراجعة</h4>
+                  <ul>
+                    <li>البيع على الخارطة (وافي)</li>
+                    <li>التدقيق والتقارير المالية</li>
+                    <li>الرقابة الداخلية</li>
+                    <li>اختبار انخفاض قيمة الأصول</li>
+                    <li>القيمة العادلة وتخصيص سعر الشراء</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">03</span>
+                  <h4>الاستشارات المالية</h4>
+                  <ul>
+                    <li>استراتيجية الأعمال والعمليات</li>
+                    <li>استشارات مالية</li>
+                    <li>الحوكمة وإدارة المخاطر</li>
+                    <li>عمليات الدمج والاستحواذ</li>
+                    <li>موارد بشرية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">04</span>
+                  <h4>تأهيل وتصنيف المقاولين</h4>
+                  <ul>
+                    <li>تصنيف وتأهيل المنشآت</li>
+                    <li>استشارات قانونية ومالية وفنية</li>
+                    <li>إعداد ومتابعة ملف التصنيف</li>
+                    <li>التنسيق للزيارات المكتبية والميدانية</li>
+                    <li>التأهيل لشهادات الآيزو</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">05</span>
+                  <h4>الزكاة والضريبة والقيمة المضافة</h4>
+                  <ul>
+                    <li>قانون الامتثال الضريبي</li>
+                    <li>تحليل ودراسات ضريبية وزكوية</li>
+                    <li>استشارات ضريبية وزكوية</li>
+                    <li>الالتزام الزكوي والضريبي</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">06</span>
+                  <h4>الدعم القضائي</h4>
+                  <ul>
+                    <li>قضايا المنازعات</li>
+                    <li>قضايا الإفلاس</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">07</span>
+                  <h4>دراسات الجدوى الاقتصادية</h4>
+                  <ul>
+                    <li>تحليل الفرص الاستثمارية</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">08</span>
+                  <h4>إعادة الهيكلة الإدارية</h4>
+                  <ul>
+                    <li>تقييمات مهنية مستقلة</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">09</span>
+                  <h4>الهوية التجارية</h4>
+                  <ul>
+                    <li>هوية وصورة المؤسسة</li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">10</span>
+                  <h4>الاستشارات الإدارية</h4>
+                </div>
+              </div>
+              <div class="mega-footer">
+                <a href="#services">عرض قسم الخدمات<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </span>
+        <a href="#clients">عملاؤنا</a>
+        <a href="#contact">تواصل معنا</a>
+        <a class="lang-switch" href="../en/index.html">English</a>
+      </nav>
+      <a class="btn-quote" href="#contact">اطلب عرض سعر</a>
+    </div>
+  </div>
+
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-pattern" data-par="-0.20"></div>
+    <div class="hero-glaze" data-par="-0.09"></div>
+    <div class="mark hero-mark" data-par="-0.24"></div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy" data-par="-0.25">
+      <h1 class="hero-stage d1">التميّز هو <em>طريقنا إلى الأمام.</em></h1>
+      <p class="hero-lede hero-stage d2">نحن مرجع في قطاع الاستشارات المهنية لخدمات قطاع أعمال الشركات المرموقة بالأسواق المحلية والأجنبية والعملاء من جميع أنحاء العالم.</p>
+      <div class="hero-btns hero-stage d3">
+        <a class="btn btn-deep" href="#contact">استشارة مجانية<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+        <a class="btn btn-outline-gold" href="#services">خدماتنا<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg></a>
+      </div>
+      <div class="iso-row hero-stage d4">
+        <span class="iso-badge"><span class="badge-ico" aria-hidden="true"></span>ISO 9001:2015</span>
+        <span class="iso-badge"><span class="badge-ico" aria-hidden="true"></span>ISO 22301:2019</span>
+        <span class="iso-badge"><span class="badge-ico" aria-hidden="true"></span>ISO/IEC 27001:2022</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="rule"></span>
+      <h2>نحن مرجع في الاستشارات المهنية.</h2>
+      <p>تأسست مجموعة الخبراء العرب للاستشارات المهنية بالمملكة العربية السعودية، وتضم مجموعة من التراخيص المهنية المعتمدة من الجهات الحكومية ذات العلاقة. وتضم مهنيين على مستوى عالٍ من القدرات والمؤهلات العلمية والعملية ويتحلون بالنزاهة والاستقلالية في تقديم خدماتهم بجودة عالية.</p>
+      <a class="btn btn-outline-gold" href="#why">المزيد عنا<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+    </div>
+    <div class="about-logo reveal" data-par="0.06" data-par-b="-0.05">
+      <img src="Sources/logo-vertical.png" alt="مجموعة الخبراء العرب للاستشارات المالية">
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-pattern" aria-hidden="true" data-par="-0.07"></div>
+  <div class="services-glaze" aria-hidden="true" data-par="-0.04"></div>
+  <div class="wrap">
+    <div class="services-head reveal">
+      <div>
+        <span class="rule"></span>
+        <h2>خدماتنا</h2>
+      </div>
+      <div>
+        <p>تقدّم مجموعة الخبراء العرب مجموعة متكاملة من الخدمات الاستشارية في مجالي الضرائب والمحاسبة، من خلال فريق متخصص يتمتع بخبرة واسعة في السوق السعودي. نعتمد أدوات وتقنيات متقدمة لضمان حلول دقيقة وفعالة.</p>
+        <p>التزامنا بتطوير الخبرات وتعزيز الجودة رسّخ مكانتنا كأحد مزوّدي الاستشارات الضريبية والمحاسبية الرائدة في المملكة.</p>
+      </div>
+    </div>
+
+    <div class="slist">
+      <a class="srow reveal" href="#contact">
+        <img src="Sources/services/tax.svg" alt="" aria-hidden="true">
+        <h3>الزكاة والضريبة والقيمة المضافة</h3>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+      </a>
+      <a class="srow reveal" href="#contact">
+        <img src="Sources/services/money-consult.svg" alt="" aria-hidden="true">
+        <h3>الاستشارات المالية</h3>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+      </a>
+      <a class="srow reveal" href="#contact">
+        <img src="Sources/services/audit.svg" alt="" aria-hidden="true">
+        <h3>التدقيق والمراجعة</h3>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+      </a>
+      <a class="srow reveal" href="#contact">
+        <img src="Sources/services/law-support.svg" alt="" aria-hidden="true">
+        <h3>الدعم القضائي</h3>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+      </a>
+      <a class="srow reveal" href="#contact">
+        <img src="Sources/services/jadwa.svg" alt="" aria-hidden="true">
+        <h3>دراسات الجدوى الاقتصادية</h3>
+        <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap why-grid">
+    <div class="why-copy reveal">
+      <span class="rule"></span>
+      <h2>لماذا تختار مجموعة الخبراء العرب</h2>
+      <p>نلتزم في مجموعة الخبراء العرب ببناء شراكات قوية ومستدامة مع عملائنا، قائمة على الثقة المتبادلة والاحترافية العالية، من خلال تقديم حلول فعالة مبنية على أفضل الممارسات وأعلى معايير الجودة في مجال الاستشارات الضريبية والمالية.</p>
+    </div>
+    <div class="accordion">
+      <div class="acc-row reveal is-open">
+        <button type="button" class="acc-item" aria-expanded="true" aria-controls="acc-panel-1" id="acc-btn-1">النزاهة والاستقلالية<i>&minus;</i></button>
+        <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1"><div class="acc-panel-inner"><p>في الرأي بمهنية عالية واحترام التزاماتنا.</p></div></div>
+      </div>
+      <div class="acc-row reveal">
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">التميز في الخدمة<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2"><div class="acc-panel-inner"><p>فنحن مهووسون بتجربة العميل، وقوة العلاقة الناتجة من التجربة هي مفتاح نجاحنا دائماً.</p></div></div>
+      </div>
+      <div class="acc-row reveal">
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">سهولة الوصول<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3"><div class="acc-panel-inner"><p>نضع ثقة عملائنا نصب أعيننا في المقام الأول، ويظهر ذلك جلياً من خلال سهولة الوصول إلينا.</p></div></div>
+      </div>
+      <div class="acc-row reveal">
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-4" id="acc-btn-4">النظرة الثاقبة<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-4" role="region" aria-labelledby="acc-btn-4"><div class="acc-panel-inner"><p>دائماً ننجح في تحويل المعرفة إلى بصيرة والفكرة إلى قرار، وهذا سر من أسرار نجاحنا الذي يدفع بنا دائماً لثقة عملائنا.</p></div></div>
+      </div>
+      <div class="acc-row reveal">
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-5" id="acc-btn-5">فريق مؤهل وذو خبرة<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-5" role="region" aria-labelledby="acc-btn-5"><div class="acc-panel-inner"><p>يضم فريقنا مهنيين على مستوى عالٍ من القدرات والمؤهلات، بخبرة تراكمية لكبار المستشارين تتجاوز 20 عاماً.</p></div></div>
+      </div>
+      <div class="acc-row reveal">
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-6" id="acc-btn-6">شهادات آيزو معتمدة<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-6" role="region" aria-labelledby="acc-btn-6"><div class="acc-panel-inner"><p>حاصلون على شهادات الآيزو العالمية: ISO 9001:2015، ISO 22301:2019، وISO/IEC 27001:2022.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="cta-pattern" aria-hidden="true" data-par="-0.07"></div>
+  <div class="cta-glaze" aria-hidden="true" data-par="-0.04"></div>
+  <div class="mark cta-mark" aria-hidden="true" data-par="0.14"></div>
+  <div class="wrap cta-grid">
+    <div class="cta-copy reveal">
+      <span class="rule"></span>
+      <h2>تواصل معنا</h2>
+      <p>إذا كنتم ترغبون بالتعرف على خدماتنا والحصول على عرض سعر يلبي احتياجات أعمالكم، فلا تترددوا بالتواصل معنا وتعبئة النموذج، وسيكون من دواعي سرورنا دعم منشأتكم أو شركتكم.</p>
+      <a class="btn btn-gold" href="mailto:info@ba-audit.com">اطلب عرض سعر<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+    </div>
+    <ul class="cta-channels reveal">
+      <li>
+        <a href="tel:+966112933360">
+          <span class="ch-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg></span>
+          <span class="ch-body"><span class="ch-label">الهاتف</span><span class="ch-value" dir="ltr">+966 11 29 333 60</span></span>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:info@ba-audit.com">
+          <span class="ch-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg></span>
+          <span class="ch-body"><span class="ch-label">البريد الإلكتروني</span><span class="ch-value" dir="ltr">info@ba-audit.com</span></span>
+        </a>
+      </li>
+      <li>
+        <div class="ch-static">
+          <span class="ch-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.5 7-12A7 7 0 105 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <span class="ch-body"><span class="ch-label">العنوان</span><address class="ch-value">طريق الملك فيصل، برج الوفاء، الدور الثالث (مكتب 24)، الرياض. ص.ب 4198، 12311</address></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="clients" id="clients">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="rule"></span>
+      <h2>عملاؤنا وشركاء النجاح</h2>
+      <p>نؤمن بالعلاقات طويلة الأمد التي تعكس نجاحنا وتمثل أهدافنا، فالثقة بيننا وبين عملائنا هي شغفنا الدائم.</p>
+    </div>
+    <div class="client-grid reveal">
+      <img src="../Sources/clients/partner-03.png" alt="وزارة الثقافة">
+      <img src="../Sources/clients/partner-04.png" alt="وزارة الصحة">
+      <img src="../Sources/clients/partner-05.png" alt="وزارة الدفاع">
+      <img src="../Sources/clients/partner-01.png" alt="الجري للنقليات">
+      <img src="../Sources/clients/partner-02.png" alt="الدريس">
+      <img src="../Sources/clients/partner-06.png" alt="دار الهندسة">
+      <img src="../Sources/clients/partner-07.png" alt="آل سعيدان للعقارات">
+      <img src="../Sources/clients/partner-08.png" alt="رابغ للصناعات المعدنية">
+      <img src="../Sources/clients/partner-09.png" alt="ذاخر للتطوير">
+      <img src="../Sources/clients/partner-11.png" alt="مجموعة وافر">
+      <img src="../Sources/clients/partner-12.png" alt="المجال العربي القابضة">
+      <img src="../Sources/clients/partner-13.png" alt="بالبيد للسيارات">
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="mark f-mark" aria-hidden="true" data-par="0.14"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <div class="f-brand"><img src="Sources/logo-rtl.webp" alt="مجموعة الخبراء العرب"></div>
+        <p>مرجع في الاستشارات المهنية لخدمات قطاع أعمال الشركات في المملكة العربية السعودية.</p>
+      </div>
+      <div class="f-subscribe">
+        <h3>اشترك الآن</h3>
+        <form id="subscribeForm">
+          <input type="email" id="subscribeEmail" placeholder="بريدك الإلكتروني" dir="ltr" required>
+          <button type="submit">اشتراك</button>
+        </form>
+        <p class="f-note" id="subscribeNote" role="status" aria-live="polite"></p>
+        <div class="f-socials">
+          <a href="#" aria-label="Facebook" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V6c0-1 .5-2 2-2h2V1h-3c-3 0-4 2-4 5v3H7v4h3v9z"/></svg></a>
+          <a href="#" aria-label="X" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+          <a href="#" aria-label="Instagram" title="قريباً"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="f-links">
+        <h3>روابط حكومية مهمة</h3>
+        <ul>
+          <li><a href="https://mc.gov.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>وزارة التجارة</a></li>
+          <li><a href="https://zatca.gov.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>هيئة الزكاة والضريبة والجمارك</a></li>
+          <li><a href="https://socpa.org.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>الهيئة السعودية للمحاسبين القانونيين</a></li>
+          <li><a href="https://cma.org.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>هيئة السوق المالية</a></li>
+        </ul>
+      </div>
+      <div class="f-contact">
+        <h3>تواصل معنا</h3>
+        <ul>
+          <li><address><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.5 7-12A7 7 0 105 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>طريق الملك فيصل، برج الوفاء، الدور الثالث (مكتب 24)، الرياض. ص.ب 4198، 12311</address></li>
+          <li><a href="mailto:info@ba-audit.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg>info@ba-audit.com</a></li>
+          <li><a href="tel:+966112933360"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>+966 11 29 333 60</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-iso-row">
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO 9001<br>2015</span></div>
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO 22301<br>2019</span></div>
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO/IEC 27001<br>2022</span></div>
+    </div>
+
+    <nav class="f-bottom-nav">
+      <a href="#top">الرئيسية</a><a href="#about">من نحن</a><a href="#why">لماذا نحن</a><a href="#clients">شركاؤنا</a><a href="#services">خدماتنا</a><a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <div class="f-copyright">
+      <span>مجموعة الخبراء العرب. جميع الحقوق محفوظة &copy; 2023&ndash;2024 &mdash; سجل تجاري 1010600009</span>
+      <a href="#">سياسة الخصوصية</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var staged = document.querySelectorAll('.hero-stage, .hero-mark');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  staged.forEach(function(el){ el.setAttribute('data-armed',''); });
+  requestAnimationFrame(function(){ document.body.classList.add('is-ready'); });
+  setTimeout(function(){ document.body.classList.add('is-ready'); }, 1600);
+}
+
+var navwrap = document.querySelector('.navwrap');
+var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+var parLayers = reduceMotion.matches ? [] : [].slice.call(document.querySelectorAll('[data-par],[data-par-b]'));
+
+function setScrolled(){
+  if (navwrap) navwrap.classList.toggle('is-scrolled', window.scrollY > 8);
+}
+
+/* Layers ease toward their scroll target rather than snapping to it — raw scroll
+   binding reads steppy on trackpads and momentum wheels. 0.18 is tight enough to
+   stay precise (this is an audit firm, not a floaty showreel) while killing jitter.
+   Only layers near the viewport are touched; the rest of the page costs nothing. */
+var EASE_FACTOR = 0.18;
+
+function setParallax(instant){
+  var vh = window.innerHeight;
+  var moving = false;
+  for (var i = 0; i < parLayers.length; i++) {
+    var el = parLayers[i];
+    var r = el.getBoundingClientRect();
+    if (r.bottom < -160 || r.top > vh + 160) continue;
+    var travel = r.top + r.height / 2 - vh / 2;
+    var a = el.getAttribute('data-par');
+    var b = el.getAttribute('data-par-b');
+    if (a) {
+      var ta = travel * parseFloat(a);
+      var ca = (instant || el._py == null) ? ta : el._py + (ta - el._py) * EASE_FACTOR;
+      if (Math.abs(ta - ca) > 0.2) moving = true;
+      el._py = ca;
+      el.style.setProperty('--py', ca.toFixed(1) + 'px');
+    }
+    if (b) {
+      var tb = travel * parseFloat(b);
+      var cb = (instant || el._pyb == null) ? tb : el._pyb + (tb - el._pyb) * EASE_FACTOR;
+      if (Math.abs(tb - cb) > 0.2) moving = true;
+      el._pyb = cb;
+      el.style.setProperty('--pyb', cb.toFixed(1) + 'px');
+    }
+  }
+  return moving;
+}
+
+/* The rAF loop idles out a few frames after everything settles, so a parked page
+   isn't burning a frame callback forever. */
+var rafId = null, idleFrames = 0;
+function loop(){
+  var moving = setParallax(false);
+  idleFrames = moving ? 0 : idleFrames + 1;
+  if (idleFrames > 8) { rafId = null; return; }
+  rafId = requestAnimationFrame(loop);
+}
+function kick(){
+  idleFrames = 0;
+  if (rafId === null) rafId = requestAnimationFrame(loop);
+}
+
+var motionOn = !reduceMotion.matches;
+function onScroll(){ setScrolled(); if (motionOn) kick(); }
+setScrolled();
+if (motionOn) { setParallax(true); }
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', function(){
+  setScrolled();
+  if (motionOn) { setParallax(true); }
+}, { passive: true });
+
+var navToggle = document.getElementById('navToggle');
+var primaryMenu = document.getElementById('primaryMenu');
+if (navToggle && primaryMenu) {
+  navToggle.addEventListener('click', function(){
+    var open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    primaryMenu.classList.toggle('is-open', !open);
+  });
+  primaryMenu.addEventListener('click', function(e){
+    if (e.target.closest('a')) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryMenu.classList.remove('is-open');
+    }
+  });
+}
+
+var subscribeForm = document.getElementById('subscribeForm');
+if (subscribeForm) {
+  subscribeForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var input = document.getElementById('subscribeEmail');
+    var note = document.getElementById('subscribeNote');
+    if (!input.checkValidity()) {
+      note.textContent = 'يرجى إدخال بريد إلكتروني صحيح.';
+      note.style.color = '#E8B9B9';
+      return;
+    }
+    note.textContent = 'شكراً لاشتراكك، سنوافيك بآخر مستجداتنا.';
+    note.style.color = 'rgba(255,255,255,.85)';
+    subscribeForm.reset();
+  });
+}
+
+document.querySelectorAll('.acc-item').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var row = btn.closest('.acc-row');
+    var open = row.classList.contains('is-open');
+    document.querySelectorAll('.acc-row').forEach(function(r){
+      r.classList.remove('is-open');
+      var b = r.querySelector('.acc-item');
+      b.setAttribute('aria-expanded', 'false');
+      b.querySelector('i').textContent = '+';
+    });
+    if (!open){
+      row.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.querySelector('i').textContent = '−';
+    }
+  });
+});
+
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var targets = document.querySelectorAll('.reveal');
+  targets.forEach(function(el){ el.setAttribute('data-armed',''); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+    });
+  }, {rootMargin: '0px 0px -12% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+}
+</script>
+</body>
+</html>
