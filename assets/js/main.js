@@ -14,6 +14,7 @@
     ['https://sukaina.skin', 'Sukaina Skin', 'Skincare storefront build with a product-led landing experience.', ['Shopify', 'Beauty']],
     ['https://bft-uae.com/', 'BFT', 'Bright Future Trading — a UAE supplier of food and veterinary raw materials across the Levant and GCC.', ['Web', 'Trading']],
     ['https://global.numeira.com/', 'Numeira', 'Shopify storefront for a Dead Sea minerals brand — bath salts, magnesium flakes and mud-based skincare shipped worldwide.', ['Shopify', 'Beauty']],
+    ['https://temole.com/', 'Temole', 'WordPress brand site for a premium baked-snack label — a full catalog of chips, puffs and crunchy snacks, plus news and events.', ['WordPress', 'Snacks']],
   ];
 
   function setupParticles() {
