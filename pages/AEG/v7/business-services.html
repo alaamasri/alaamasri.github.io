@@ -504,6 +504,28 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 /* the first section after the page header slides over it with the same soft shadow as the
    home and About pages, so the header's parallax has an edge to be measured against */
 .page-hero + section{position:relative;z-index:1;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
+/* ---------- detail sections ---------- */
+.dl-head{max-width:62ch}
+.dl-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,7vw,104px);margin-top:56px}
+.dl-col{border-top:1px solid rgba(19,75,54,.18);padding-top:28px}
+.dl-col h3,.dl-item h3{font-size:1.375rem;color:var(--green-900);margin-bottom:16px}
+.dl-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.dl-list li{position:relative;padding-inline-start:20px;font-size:1rem;line-height:1.8;color:var(--ink);opacity:.82}
+.dl-list li::before{content:"";position:absolute;inset-inline-start:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--gold-600)}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,7vw,104px);margin-top:56px}
+.dl-item{padding-block:28px 34px}
+.dl-rule{display:block;width:36px;height:3px;background:var(--gold-600);border-radius:2px;margin-bottom:20px}
+.dl-item h3{margin-bottom:10px}
+.dl-item p{margin:0;font-size:1rem;line-height:1.85;color:var(--ink);opacity:.78;max-width:46ch}
+@media (max-width:900px){.dl-cols,.dl-grid{grid-template-columns:1fr}.dl-col+.dl-col{margin-top:36px}}
+/* concentric rings behind the scope accordion (same treatment as the About methodology).
+   overflow:clip, not hidden, so the pinned heading can still stick. */
+#scope{position:relative;overflow:clip}
+#scope .wrap{position:relative;z-index:1}
+.rings{--d:min(72vw,900px);position:absolute;right:8%;top:30%;width:0;height:0;z-index:0;pointer-events:none;transform:translate3d(0,var(--py,0px),0)}
+.rings i{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(239,216,172,.8)}
+.rings i:first-child{width:var(--d);height:var(--d)}
+.rings i:last-child{width:calc(var(--d) + 210px);height:calc(var(--d) + 210px);border-color:rgba(239,216,172,.5)}
 </style>
 </head>
 <body>
@@ -533,52 +555,37 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
                     <li><a href="audit.html#agreed-upon-procedures">الإجراءات المتفق عليها والتقارير الخاصة</a></li>
                     <li><a href="audit.html#internal-audit">التدقيق الداخلي وإدارة المخاطر</a></li>
                     <li><a href="audit.html#due-diligence">الفحص النافي للجهالة والصفقات</a></li>
-                    <li><a href="audit.html#impairment">اختبار انخفاض قيمة الأصول</a></li>
-                    <li><a href="audit.html#fair-value">القيمة العادلة وتخصيص سعر الشراء</a></li>
                   </ul>
                 </div>
                 <div class="mega-col">
                   <span class="mega-col__num">02</span>
                   <h4><a href="zakat-tax.html">الزكاة والخدمات الضريبية</a></h4>
                   <ul>
-                    <li><a href="zakat-tax.html#tax-compliance">قانون الامتثال الضريبي</a></li>
-                    <li><a href="zakat-tax.html#tax-studies">تحليل ودراسات ضريبية وزكوية</a></li>
-                    <li><a href="zakat-tax.html#tax-advisory">استشارات ضريبية وزكوية</a></li>
-                    <li><a href="zakat-tax.html#zakat-tax-filing">الالتزام الزكوي والضريبي</a></li>
+                    <li><a href="zakat-tax.html#compliance-review">الامتثال والمراجعة</a></li>
+                    <li><a href="zakat-tax.html#consulting-support">الاستشارات والدعم</a></li>
                   </ul>
                 </div>
                 <div class="mega-col">
                   <span class="mega-col__num">03</span>
                   <h4><a href="business-services.html">خدمات قطاع الأعمال</a></h4>
                   <ul>
-                    <li><a href="business-services.html#company-formation">تأسيس وتعديل وتصفية الشركات</a></li>
-                    <li><a href="business-services.html#restructuring-governance">إعادة الهيكلة والحوكمة</a></li>
-                    <li><a href="business-services.html#foreign-investment">السياسات والإجراءات للاستثمار الأجنبي</a></li>
-                    <li><a href="business-services.html#legal-files">تجهيز الملفات القانونية</a></li>
-                    <li><a href="business-services.html#industrial-professional">المنشآت الصناعية والمهنية</a></li>
-                    <li><a href="business-services.html#licenses-trademarks">الرخص والعلامات التجارية</a></li>
-                    <li><a href="business-services.html#feasibility">دراسات الجدوى الاقتصادية وتحليل الفرص الاستثمارية</a></li>
-                    <li><a href="business-services.html#fixed-assets">جرد الموجودات الثابتة</a></li>
+                    <li><a href="business-services.html#feasibility">دراسات الجدوى والنماذج المالية</a></li>
+                    <li><a href="business-services.html#fixed-assets">جرد وتقييم الموجودات الثابتة</a></li>
                   </ul>
                 </div>
                 <div class="mega-col">
                   <span class="mega-col__num">04</span>
                   <h4><a href="financial-consulting.html">الاستشارات المالية</a></h4>
                   <ul>
-                    <li><a href="financial-consulting.html#strategy-operations">استراتيجية الأعمال والعمليات</a></li>
-                    <li><a href="financial-consulting.html#financial-advisory">استشارات مالية</a></li>
-                    <li><a href="financial-consulting.html#accounting-reporting">المحاسبة وإعداد التقارير المالية</a></li>
-                    <li><a href="financial-consulting.html#governance-risk">الحوكمة وإدارة المخاطر</a></li>
-                    <li><a href="financial-consulting.html#mergers-acquisitions">عمليات الدمج والاستحواذ</a></li>
+                    <li><a href="financial-consulting.html#performance-financing">الأداء والتمويل</a></li>
+                    <li><a href="financial-consulting.html#control-development">الرقابة والتطوير</a></li>
+                    <li><a href="financial-consulting.html#accounting-reporting">المحاسبة والتقارير المالية</a></li>
+                    <li><a href="financial-consulting.html#governance-policies">الحوكمة والسياسات والإجراءات</a></li>
                   </ul>
                 </div>
                 <div class="mega-col">
                   <span class="mega-col__num">05</span>
                   <h4><a href="judicial-support.html">الدعم القضائي</a></h4>
-                  <ul>
-                    <li><a href="judicial-support.html#disputes">قضايا المنازعات</a></li>
-                    <li><a href="judicial-support.html#bankruptcy">قضايا الإفلاس</a></li>
-                  </ul>
                 </div>
               </div>
             </div>
@@ -600,7 +607,35 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
   <div class="wrap">
     <span class="rule"></span>
     <h1 class="hero-stage d1">خدمات قطاع الأعمال</h1>
-    <p class="lede hero-stage d2">من تأسيس الشركات والحوكمة والتراخيص إلى دراسات الجدوى الاقتصادية وجرد الموجودات الثابتة.</p>
+    <p class="lede hero-stage d2">دراسات الجدوى والنماذج المالية، وجرد وتقييم الموجودات الثابتة.</p>
+  </div>
+</section>
+
+<section class="why" id="scope">
+  <div class="rings" aria-hidden="true" data-par="-0.06"><i></i><i></i></div>
+  <div class="wrap why-grid">
+    <div class="why-copy reveal">
+      <span class="rule"></span>
+      <h2>نطاق خدماتنا</h2>
+    </div>
+    <div class="accordion">
+      <div class="acc-flat reveal" id="feasibility"><span>دراسات الجدوى والنماذج المالية</span></div>
+      <div class="acc-flat reveal" id="fixed-assets"><span>جرد وتقييم الموجودات الثابتة</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg-white" id="fixed-assets-scope">
+  <div class="wrap">
+    <div class="dl-head reveal">
+      <span class="rule"></span>
+      <h2>جرد وتقييم الموجودات الثابتة</h2>
+      <p class="pg-intro">من السجل المحاسبي إلى الأصل الفعلي: بيانات منضبطة وقابلة للتتبع.</p>
+    </div>
+    <div class="dl-cols">
+      <div class="dl-col reveal"><h3>التقييم والترميز والربط</h3><ul class="dl-list"><li>تقييم الموجودات ضمن نطاق المشروع المتفق عليه</li><li>تصميم هيكل ترميز باستخدام الباركود أو رموز الاستجابة السريعة</li><li>تهيئة البيانات للرفع إلى أنظمة تخطيط الموارد وربط الأصل بالموقع والفئة ومركز التكلفة</li></ul></div>
+      <div class="dl-col reveal"><h3>الجرد والمطابقة</h3><ul class="dl-list"><li>حصر الأصول في المواقع والفروع وتوثيق بياناتها الأساسية</li><li>ربط نتائج الجرد بسجل الأصول وتحديد الفروقات والأصول غير المحددة</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -622,32 +657,21 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
   </div>
 </section>
 
-<section class="why" id="scope">
-  <div class="wrap why-grid">
-    <div class="why-copy reveal">
+<section class="pg pg-white" id="feasibility-outputs">
+  <div class="wrap">
+    <div class="dl-head reveal">
       <span class="rule"></span>
-      <h2>نطاق خدماتنا</h2>
-      <p>نطاق عمل واضح لكل خدمة، يُحدَّد منذ بداية المهمة.</p>
+      <h2>مخرجات تدعم القرار</h2>
+      <p class="pg-intro">ربط السوق والتشغيل والتمويل بنموذج مالي قابل للاختبار.</p>
     </div>
-    <div class="accordion">
-      <div class="acc-flat reveal" id="company-formation"><span>تأسيس وتعديل وتصفية الشركات</span></div>
-      <div class="acc-flat reveal" id="restructuring-governance"><span>إعادة الهيكلة والحوكمة</span></div>
-      <div class="acc-flat reveal" id="foreign-investment"><span>السياسات والإجراءات للاستثمار الأجنبي</span></div>
-      <div class="acc-flat reveal" id="legal-files"><span>تجهيز الملفات القانونية</span></div>
-      <div class="acc-flat reveal" id="industrial-professional"><span>المنشآت الصناعية والمهنية</span></div>
-      <div class="acc-flat reveal" id="licenses-trademarks"><span>الرخص والعلامات التجارية</span></div>
-      <div class="acc-row reveal is-open" id="feasibility">
-        <button type="button" class="acc-item" aria-expanded="true" aria-controls="acc-panel-1" id="acc-btn-1">دراسات الجدوى الاقتصادية وتحليل الفرص الاستثمارية<i>&minus;</i></button>
-        <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1"><div class="acc-panel-inner"><p>ربط السوق والتشغيل والتمويل بنموذج مالي قابل للاختبار، بمخرجات تشمل قائمة الدخل والميزانية والتدفقات المتوقعة، ونقطة التعادل ومؤشرات الربحية، والعائد وفترة الاسترداد، وتحليل الحساسية والسيناريوهات.</p></div></div>
-      </div>
-      <div class="acc-row reveal" id="fixed-assets">
-        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">جرد الموجودات الثابتة<i>+</i></button>
-        <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2"><div class="acc-panel-inner"><p>حصر الأصول في المواقع والفروع وتوثيق بياناتها الأساسية، وربط نتائج الجرد بسجل الأصول وتحديد الفروقات، وتصميم هيكل ترميز بالباركود أو رموز الاستجابة السريعة، وتهيئة البيانات للرفع إلى أنظمة تخطيط الموارد.</p></div></div>
-      </div>
+    <div class="dl-grid">
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>قائمة الدخل والميزانية والتدفقات المتوقعة</h3></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>نقطة التعادل ومؤشرات الربحية</h3></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>العائد وفترة الاسترداد</h3></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>تحليل الحساسية والسيناريوهات والمخاطر</h3></div>
     </div>
   </div>
 </section>
-
 
 <footer class="footer">
   <div class="mark f-mark" aria-hidden="true" data-par="0.14"></div>
