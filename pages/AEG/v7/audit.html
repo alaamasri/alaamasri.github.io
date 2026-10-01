@@ -504,6 +504,20 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 /* the first section after the page header slides over it with the same soft shadow as the
    home and About pages, so the header's parallax has an edge to be measured against */
 .page-hero + section{position:relative;z-index:1;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
+/* ---------- audit: detail sections (internal audit, due diligence) ---------- */
+.dl-head{max-width:62ch}
+.dl-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,7vw,104px);margin-top:56px}
+.dl-col{border-top:1px solid rgba(19,75,54,.18);padding-top:28px}
+.dl-col h3,.dl-item h3{font-size:1.375rem;color:var(--green-900);margin-bottom:16px}
+.dl-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.dl-list li{position:relative;padding-inline-start:20px;font-size:1rem;line-height:1.8;color:var(--ink);opacity:.82}
+.dl-list li::before{content:"";position:absolute;inset-inline-start:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--gold-600)}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,7vw,104px);margin-top:56px}
+.dl-item{padding-block:28px 34px}
+.dl-rule{display:block;width:36px;height:3px;background:var(--gold-600);border-radius:2px;margin-bottom:20px}
+.dl-item h3{margin-bottom:10px}
+.dl-item p{margin:0;font-size:1rem;line-height:1.85;color:var(--ink);opacity:.78;max-width:46ch}
+@media (max-width:900px){.dl-cols,.dl-grid{grid-template-columns:1fr}.dl-col+.dl-col{margin-top:36px}}
 </style>
 </head>
 <body>
@@ -531,7 +545,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
                     <li><a href="audit.html#financial-statements">تدقيق القوائم المالية والتقارير</a></li>
                     <li><a href="audit.html#limited-reviews">المراجعات المحدودة للقوائم المرحلية</a></li>
                     <li><a href="audit.html#agreed-upon-procedures">الإجراءات المتفق عليها والتقارير الخاصة</a></li>
-                    <li><a href="audit.html#internal-audit">التدقيق الداخلي وتقييم الرقابة</a></li>
+                    <li><a href="audit.html#internal-audit">التدقيق الداخلي وإدارة المخاطر</a></li>
                     <li><a href="audit.html#due-diligence">الفحص النافي للجهالة والصفقات</a></li>
                     <li><a href="audit.html#impairment">اختبار انخفاض قيمة الأصول</a></li>
                     <li><a href="audit.html#fair-value">القيمة العادلة وتخصيص سعر الشراء</a></li>
@@ -600,7 +614,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
   <div class="wrap">
     <span class="rule"></span>
     <h1 class="hero-stage d1">التدقيق والمراجعة</h1>
-    <p class="lede hero-stage d2">موثوقية التقارير المالية تبدأ بفهم دقيق للنشاط والمخاطر. رأي مهني مستقل، يستند إلى أدلة موثقة ومنهجية منضبطة.</p>
+    <p class="lede hero-stage d2">موثوقية التقارير المالية تبدأ بفهم دقيق للنشاط والمخاطر.</p>
   </div>
 </section>
 
@@ -610,31 +624,55 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
     <div class="why-copy reveal">
       <span class="rule"></span>
       <h2>نطاق خدماتنا</h2>
-      <p>نطاق عمل واضح لكل خدمة، يُحدَّد منذ بداية المهمة.</p>
+      <p>تدقيق القوائم المالية، المراجعات المحدودة، الإجراءات المتفق عليها والتقارير الخاصة.</p>
     </div>
     <div class="accordion">
       <div class="acc-row reveal is-open" id="financial-statements">
         <button type="button" class="acc-item" aria-expanded="true" aria-controls="acc-panel-1" id="acc-btn-1">تدقيق القوائم المالية والتقارير<i>&minus;</i></button>
         <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-btn-1"><div class="acc-panel-inner"><p>تدقيق القوائم المالية السنوية، ومراجعة العرض والإفصاحات والسياسات المحاسبية، ومراجعة عناصر الرقابة المرتبطة بالتقارير المالية، مع تواصل منظم مع الإدارة ولجان المراجعة.</p></div></div>
       </div>
-      <div class="acc-row reveal" id="limited-reviews">
-        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">المراجعات المحدودة للقوائم المرحلية<i>+</i></button>
-        <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2"><div class="acc-panel-inner"><p>مراجعات محدودة للقوائم المرحلية، تدعم موثوقية المعلومات المالية خلال العام.</p></div></div>
-      </div>
-      <div class="acc-row reveal" id="agreed-upon-procedures">
-        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">الإجراءات المتفق عليها والتقارير الخاصة<i>+</i></button>
-        <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3"><div class="acc-panel-inner"><p>إجراءات متفق عليها وتقارير خاصة، بنطاق واضح يُحدَّد مع العميل منذ البداية.</p></div></div>
-      </div>
+      <div class="acc-flat reveal" id="limited-reviews"><span>المراجعات المحدودة للقوائم المرحلية</span></div>
+      <div class="acc-flat reveal" id="agreed-upon-procedures"><span>الإجراءات المتفق عليها والتقارير الخاصة</span></div>
       <div class="acc-row reveal" id="internal-audit">
-        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-4" id="acc-btn-4">التدقيق الداخلي وتقييم الرقابة<i>+</i></button>
-        <div class="acc-panel" id="acc-panel-4" role="region" aria-labelledby="acc-btn-4"><div class="acc-panel-inner"><p>التعهيد الكامل أو المشترك لوظيفة التدقيق الداخلي، بخطة سنوية مبنية على المخاطر، واختبار لتصميم الضوابط وفاعليتها، وتقارير للإدارة ولجان المراجعة، ومتابعة دورية حتى إغلاق الملاحظات.</p></div></div>
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">التدقيق الداخلي وإدارة المخاطر<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-btn-2"><div class="acc-panel-inner"><p>التعهيد الكامل أو المشترك لوظيفة التدقيق الداخلي، بخطة سنوية مبنية على المخاطر، واختبار لتصميم الضوابط وفاعليتها، وتقارير للإدارة ولجان المراجعة، ومتابعة دورية حتى إغلاق الملاحظات.</p></div></div>
       </div>
       <div class="acc-row reveal" id="due-diligence">
-        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-5" id="acc-btn-5">الفحص النافي للجهالة والصفقات<i>+</i></button>
-        <div class="acc-panel" id="acc-panel-5" role="region" aria-labelledby="acc-btn-5"><div class="acc-panel-inner"><p>فحص مالي وزكوي وضريبي وتحليلات للصفقة، وينتهي بتقرير تنفيذي يركز على المسائل الجوهرية وما قد يغيّر قرار الصفقة أو قيمتها أو شروطها.</p></div></div>
+        <button type="button" class="acc-item" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">الفحص النافي للجهالة والصفقات<i>+</i></button>
+        <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-btn-3"><div class="acc-panel-inner"><p>فحص مالي وزكوي وضريبي وتحليلات للصفقة، وينتهي بتقرير تنفيذي يركز على المسائل الجوهرية وما قد يغيّر قرار الصفقة أو قيمتها أو شروطها.</p></div></div>
       </div>
       <div class="acc-flat reveal" id="impairment"><span>اختبار انخفاض قيمة الأصول</span></div>
       <div class="acc-flat reveal" id="fair-value"><span>القيمة العادلة وتخصيص سعر الشراء</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg-white" id="internal-audit-scope">
+  <div class="wrap">
+    <div class="dl-head reveal">
+      <span class="rule"></span>
+      <h2>التدقيق الداخلي وإدارة المخاطر</h2>
+      <p class="pg-intro">تقييم الرقابة الداخلية، خطط التدقيق المبنية على المخاطر ودعم لجان المراجعة. رقابة أكثر فاعلية. أولويات أوضح. متابعة حتى الإغلاق.</p>
+    </div>
+    <div class="dl-cols">
+      <div class="dl-col reveal"><h3>التقييم والتخطيط</h3><ul class="dl-list"><li>التعهيد الكامل أو المشترك لوظيفة التدقيق الداخلي</li><li>إعداد الخطة السنوية المبنية على المخاطر</li><li>مراجعة العمليات المالية والتشغيلية والإدارية</li><li>تقييم فصل الصلاحيات والضوابط الرئيسية</li><li>مراجعة الالتزام بالسياسات والإجراءات</li></ul></div>
+      <div class="dl-col reveal"><h3>التنفيذ والمتابعة</h3><ul class="dl-list"><li>تقييم مخاطر الاحتيال والالتزام</li><li>اختبار تصميم الضوابط وفاعليتها</li><li>تقارير للإدارة ولجان المراجعة</li><li>خطط معالجة بمسؤوليات ومواعيد تنفيذ</li><li>متابعة دورية لإغلاق الملاحظات</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg-cream" id="due-diligence-scope">
+  <div class="wrap">
+    <div class="dl-head reveal">
+      <span class="rule"></span>
+      <h2>الفحص النافي للجهالة والصفقات</h2>
+      <p class="pg-intro">تحليل جودة الأرباح والمخاطر المالية والضريبية لدعم قرارات الاستثمار والاستحواذ. تحويل بيانات ما قبل الصفقة إلى فهم واضح للقيمة والمخاطر.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>الفحص المالي</h3><p>تحليل الإيرادات والهوامش وجودة الأرباح، ورأس المال العامل والتدفقات النقدية والديون.</p></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>المراجعة الزكوية والضريبية</h3><p>فحص الالتزامات والمخاطر التي قد تؤثر في قرار الاستثمار أو شروط الصفقة.</p></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>تحليلات الصفقة</h3><p>قراءة الاتجاهات والمؤشرات والتغيرات غير الاعتيادية وربطها بفرضيات الصفقة.</p></div>
+      <div class="dl-item reveal"><span class="dl-rule" aria-hidden="true"></span><h3>دعم القرار</h3><p>تقرير تنفيذي يركز على المسائل الجوهرية والأسئلة المفتوحة وآثارها المحتملة.</p></div>
     </div>
   </div>
 </section>
@@ -662,7 +700,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
     <div class="tl-head reveal">
       <span class="rule"></span>
       <h2>منهجية التنفيذ</h2>
-      <p class="exec-note">نضيف قيمة بملاحظات عملية منضبطة، مع الحفاظ على استقلالية الرأي وجودة التدقيق.</p>
+      <p class="exec-note">رأي مهني مستقل، يستند إلى أدلة موثقة ومنهجية منضبطة.</p>
     </div>
     <ol class="timeline">
       <li class="tl-item"><span class="tl-node" aria-hidden="true">١</span><div class="tl-body"><h3>فهم النشاط والبيئة التنظيمية</h3></div></li>
