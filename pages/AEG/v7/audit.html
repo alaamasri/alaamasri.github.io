@@ -501,6 +501,9 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 .rings i{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(239,216,172,.8)}
 .rings i:first-child{width:var(--d);height:var(--d)}
 .rings i:last-child{width:calc(var(--d) + 210px);height:calc(var(--d) + 210px);border-color:rgba(239,216,172,.5)}
+/* the first section after the page header slides over it with the same soft shadow as the
+   home and About pages, so the header's parallax has an edge to be measured against */
+.page-hero + section{position:relative;z-index:1;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
 </style>
 </head>
 <body>

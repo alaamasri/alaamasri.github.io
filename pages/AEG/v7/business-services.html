@@ -501,6 +501,9 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
    (and focus is still on the clicked link); it reopens on the next hover */
 .menu .menu-item.is-closed .mega-panel{opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(6px)}
 .menu .menu-item.is-closed .mega-caret{transform:none}
+/* the first section after the page header slides over it with the same soft shadow as the
+   home and About pages, so the header's parallax has an edge to be measured against */
+.page-hero + section{position:relative;z-index:1;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
 </style>
 </head>
 <body>
