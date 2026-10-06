@@ -492,6 +492,8 @@ section,footer{overflow-x:clip}
 @media (max-width:900px){.f-bottom-nav{display:none}}
 /* mobile drop-down: no rule under the last item */
 @media (max-width:900px){.menu > a:last-child{border-bottom:0}}
+/* mobile header: logo sits 3px higher, in both the normal and the sticky (scrolled) state */
+@media (max-width:900px){.brand{position:relative;top:-3px}}
 /* ==================== English (LTR) ==================== */
 /* headings: Lato, served from our own /../Sources/fonts (no Google request for it) */
 @font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url("../Sources/fonts/lato-latin-400-normal.woff2") format("woff2")}
