@@ -585,6 +585,8 @@ section,footer{overflow-x:clip}
 }
 /* footer link row is dropped on mobile (the header menu covers it) */
 @media (max-width:900px){.f-bottom-nav{display:none}}
+/* mobile drop-down: no rule under the last item */
+@media (max-width:900px){.menu > a:last-child{border-bottom:0}}
 /* ==================== English (LTR) ==================== */
 /* headings: Lato, served from our own /../Sources/fonts (no Google request for it) */
 @font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url("../Sources/fonts/lato-latin-400-normal.woff2") format("woff2")}

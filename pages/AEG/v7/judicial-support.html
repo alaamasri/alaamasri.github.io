@@ -562,6 +562,8 @@ section,footer{overflow-x:clip}
 }
 /* footer link row is dropped on mobile (the header menu covers it) */
 @media (max-width:900px){.f-bottom-nav{display:none}}
+/* mobile drop-down: no rule under the last item */
+@media (max-width:900px){.menu > a:last-child{border-bottom:0}}
 </style>
 </head>
 <body>
