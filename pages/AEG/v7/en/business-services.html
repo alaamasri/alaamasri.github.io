@@ -574,6 +574,8 @@ section,footer{overflow-x:clip}
   .navwrap.is-scrolled .brand img{width:130px}
   .btn-quote{padding-inline:14px;font-size:.8125rem}
 }
+/* footer link row is dropped on mobile (the header menu covers it) */
+@media (max-width:900px){.f-bottom-nav{display:none}}
 /* ==================== English (LTR) ==================== */
 /* headings: Lato, served from our own /../Sources/fonts (no Google request for it) */
 @font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url("../Sources/fonts/lato-latin-400-normal.woff2") format("woff2")}
