@@ -105,7 +105,7 @@ img{max-width:100%;display:block}
 .mega-caret{width:10px;height:10px;margin-inline-start:2px;transition:transform .25s var(--ease)}
 .menu-item:hover .mega-caret,.menu-item:focus-within .mega-caret{transform:rotate(180deg)}
 .mega-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);
-  width:min(1040px,calc(100vw - 48px));padding-top:18px;
+  width:min(1040px,calc(100vw - 48px));padding-top:8px;
   opacity:0;visibility:hidden;pointer-events:none;z-index:60;
   transition:opacity .22s ease,visibility .22s,transform .22s ease}
 .menu-item:hover .mega-panel,.menu-item:focus-within .mega-panel{
@@ -250,7 +250,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
 .acc-row{border-bottom:1px solid rgba(19,75,54,.16)}
 .acc-row:first-child{border-top:1px solid rgba(19,75,54,.16)}
 .acc-item{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;text-align:start;
-  background:none;border:0;padding-block:24px;cursor:pointer;
+  background:none;border:0;padding:24px 0;cursor:pointer;
   font-family:var(--font-display);font-weight:700;font-size:clamp(1.0625rem,1.7vw,1.375rem);color:var(--green-900);
   transition:color .25s}
 .acc-item:hover{color:var(--gold-600)}
@@ -436,6 +436,58 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
    (and focus is still on the clicked link); it reopens on the next hover */
 .menu .menu-item.is-closed .mega-panel{opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(6px)}
 .menu .menu-item.is-closed .mega-caret{transform:none}
+/* ---------- mobile refinements ---------- */
+/* slide / fade-in gestures start a few px outside the viewport; clip (not hidden) so that never
+   creates horizontal scroll on small screens and sticky headings keep working */
+html,body{overflow-x:clip}
+section,footer{overflow-x:clip}
+@media (max-width:600px){.rule{width:35px}}
+/* services sub-menu inside the mobile drop-down: tap "Services" to expand / collapse */
+@media (max-width:900px){
+  .menu{max-height:calc(100vh - 84px);max-height:calc(100svh - 84px);overflow-y:auto;overscroll-behavior:contain}
+  .menu .menu-item{display:block}
+  .menu .menu-item > a{justify-content:space-between}
+  .menu .mega-caret{display:block;width:14px;height:14px;margin:0;transition:transform .3s var(--ease)}
+  .menu .menu-item .mega-caret{transform:none}
+  .menu .menu-item.is-expanded .mega-caret{transform:rotate(180deg)}
+  .menu .menu-item .mega-panel,.menu .menu-item.is-closed .mega-panel{
+    display:grid;grid-template-rows:0fr;position:static;left:auto;top:auto;width:auto;padding:0;
+    transform:none;opacity:1;pointer-events:auto;visibility:hidden;
+    transition:grid-template-rows .4s var(--ease),visibility 0s .4s}
+  .menu .menu-item.is-expanded .mega-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .4s var(--ease),visibility 0s}
+  .mega-panel__card{min-height:0;overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+  .mega-grid{grid-template-columns:1fr;gap:0;padding-bottom:6px}
+  .mega-col{padding:14px 0 12px;border-bottom:1px solid rgba(19,75,54,.08)}
+  .mega-col:last-child{border-bottom:0}
+  .mega-col__num{margin:0 0 0 10px}
+  .mega-col h4{display:inline;margin:0;font-size:1rem}
+  .menu .mega-col a{border-bottom:0}
+  .mega-col ul{margin-top:8px;gap:0;padding-inline-start:30px}
+  .mega-col li{font-size:.9375rem;padding-block:6px;padding-inline-start:14px}
+  .mega-col li::before{top:calc(6px + .62em)}
+  .menu .mega-col li a{display:inline}
+}
+/* first (about) section: when it stacks, the logo comes before the text */
+@media (max-width:1080px){
+  .about-grid .about-logo{order:-1;padding:0 0 8px}
+}
+/* ---------- desktop nav: never wrap, fit the mid widths, sub-menu anchored to the viewport ---------- */
+.menu a,.btn-quote,.lang-switch{white-space:nowrap}
+.menu .mega-col a{white-space:normal}
+@media (min-width:901px){
+  /* the panel is centred on the whole header (not on the link) so it can never run off-screen */
+  .menu-item{position:static}
+  .mega-panel{width:min(1040px,calc(100% - 48px))}
+  .menu-item > a::before{content:"";position:absolute;inset-inline:-14px;top:100%;height:70px}
+}
+@media (min-width:901px) and (max-width:1139px){
+  .navbar{gap:18px}
+  .menu{gap:16px;margin-inline-start:6px}
+  .menu a{font-size:.875rem}
+  .brand img{width:150px}
+  .navwrap.is-scrolled .brand img{width:130px}
+  .btn-quote{padding-inline:14px;font-size:.8125rem}
+}
 </style>
 </head>
 <body>
@@ -503,7 +555,7 @@ body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
         </span>
         <a href="#clients">عملاؤنا</a>
         <a href="#contact">تواصل معنا</a>
-        <a class="lang-switch" href="../en/index.html">English</a>
+        <a class="lang-switch" href="en/index.html" lang="en" hreflang="en">English</a>
       </nav>
       <a class="btn-quote" href="#contact">اطلب عرض سعر</a>
     </div>
@@ -893,6 +945,30 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
     if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
   });
   item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
+})();
+</script>
+<script>
+/* mobile: the services sub-menu is an expandable row inside the drop-down */
+(function(){
+  var item = document.querySelector('.menu-item');
+  var link = item && item.querySelector(':scope > a');
+  var menu = document.getElementById('primaryMenu');
+  var toggle = document.getElementById('navToggle');
+  if (!item || !link) return;
+  var mq = window.matchMedia('(max-width:900px)');
+  function set(on){
+    item.classList.toggle('is-expanded', on);
+    link.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  link.addEventListener('click', function(e){
+    if (!mq.matches) return;
+    e.preventDefault();
+    e.stopPropagation();
+    set(!item.classList.contains('is-expanded'));
+  });
+  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+  if (toggle) toggle.addEventListener('click', function(){ set(false); });
+  window.addEventListener('resize', function(){ if (!mq.matches) set(false); }, { passive: true });
 })();
 </script>
 </body>
