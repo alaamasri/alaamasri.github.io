@@ -76,6 +76,21 @@
     addEventListener('load', () => { measure(); paint(); });
   }
 
+  // The faint N behind the numbers section drifts a little slower than the page (subtle parallax)
+  const markN = document.querySelector('.numbers .section-mark');
+  if (markN && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const RANGE = 140; // total px of drift across the pass through the viewport
+    let ticking = false;
+    const drift = () => {
+      ticking = false;
+      const r = markN.parentElement.getBoundingClientRect();
+      const p = (r.top + r.height / 2 - innerHeight / 2) / (innerHeight / 2 + r.height / 2); // -1..1 while visible
+      markN.style.setProperty('--py', `${(-Math.max(-1, Math.min(1, p)) * RANGE / 2).toFixed(1)}px`); // lags behind the scroll
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
+    drift();
+  }
+
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {

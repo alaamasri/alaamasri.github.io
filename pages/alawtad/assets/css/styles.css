@@ -650,6 +650,8 @@ body.nav-locked { overflow: hidden; }
 }
 .mark-left { left: 0; transform: translateX(-28%); }
 .mark-right { right: 0; transform: translateX(28%); }
+/* The N behind "Regional know-how" drifts slightly on scroll; main.js sets --py */
+.numbers .section-mark { translate: 0 calc(-50% + var(--py, 0px)); }
 .numbers .section-mark, #contact .section-mark { fill: #fff; opacity: .045; }
 /* Contact: centre the letter on the text block, above the full-width map */
 #contact .section-mark { top: 0; height: calc(100% - clamp(380px, 48vw, 560px)); translate: none; }
