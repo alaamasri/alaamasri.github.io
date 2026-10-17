@@ -1,21 +1,15 @@
 (() => {
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const projects = [
-    ['https://www.inkmartini.com/', 'Ink Martini', 'Shopify storefront for an activewear and fashion label built on blending art with fitness, with a video-led landing page.', ['Shopify', 'Activewear']],
-    ['https://mintmena.com/', 'Mintmena', 'WordPress site for an independent advertising consultancy. Production, cost control and creative services.', ['WordPress', 'Consultancy']],
-    ['https://diligentip.com/', 'Diligent IP', 'Corporate site for an IP consultancy. Structured content and clear service pages.', ['Web', 'Corporate']],
-    ['https://crossarabia.com/', 'Cross Arabia', '360° solutions for healthy-food brands, from first talks through product launch.', ['Web', 'F&B Brands']],
-    ['https://www.jabaholdings.com/', 'JABA Holdings', 'Madrid-based Spanish real-estate investment company (SOCIMI/REIT), built bilingual on Umbraco.', ['Umbraco', 'Real Estate']],
-    ['https://crossjo.com/', 'Cross Jordan', 'FMCG distribution in Jordan, representing international functional-food and healthy-snack brands.', ['Web', 'FMCG']],
-    ['https://dough-works.com/', 'Dough Works', "Custom-coded Shopify subscription portal for a bakery's B2B parent company. Weekly pre-orders, account dashboards and Sunday delivery.", ['Shopify', 'Subscription']],
-    ['https://xbyform.com/', 'X by Form', 'Second storefront for the Form label, sharing components with the main store.', ['Shopify', 'Apparel']],
-    ['https://sukaina.skin', 'Sukaina Skin', 'Skincare storefront build with a product-led landing experience.', ['Shopify', 'Beauty']],
-    ['https://bft-uae.com/', 'BFT', 'Bright Future Trading, a UAE supplier of food and veterinary raw materials across the Levant and GCC.', ['Web', 'Trading']],
-    ['https://global.numeira.com/', 'Numeira', 'Shopify storefront for a Dead Sea minerals brand. Bath salts, magnesium flakes and mud-based skincare shipped worldwide.', ['Shopify', 'Beauty']],
-    ['https://temole.com/', 'Temole', "Shopify version of the brand's WordPress site. A full catalog of premium baked chips, puffs and crunchy snacks.", ['Shopify', 'Snacks']],
-    ['https://www.formwear.com/collections/all', 'Form Wear', 'Shop section and product templates for a bespoke corporate-uniform label (est. 1989) serving hotels and restaurants.', ['Shopify', 'Hospitality']],
-  ];
+  // Single source of truth: the project cards in index.html. The desktop panel reads
+  // the same title, description, link and tags, so reordering or editing a project
+  // only ever happens in one place.
+  const projects = Array.from(document.querySelectorAll('[data-wimg] .wcard-info')).map(a => [
+    a.getAttribute('href'),
+    a.querySelector('.wpin-title').textContent,
+    a.querySelector('.wpin-body').textContent,
+    Array.from(a.querySelectorAll('.tag')).map(t => t.textContent),
+  ]);
 
   function setupParticles() {
     const cv = document.querySelector('[data-particles]');
