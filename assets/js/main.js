@@ -158,7 +158,7 @@
 
     const render = (i) => {
       const p = projects[i];
-      linkEl.href = p[0];
+      if (p[0]) linkEl.setAttribute('href', p[0]); else linkEl.removeAttribute('href');
       numEl.textContent = String(i + 1).padStart(2, '0');
       numEl2.textContent = String(i + 1).padStart(2, '0');
       titleEl.textContent = p[1];
@@ -218,7 +218,7 @@
     };
     requestAnimationFrame(tick);
 
-    const hoverSelector = 'a, button, .svc-card, .wcard-info';
+    const hoverSelector = 'a[href], button, .svc-card';
     document.addEventListener('mouseover', (e) => {
       if (e.target.closest(hoverSelector)) ball.classList.add('is-hover');
     });
