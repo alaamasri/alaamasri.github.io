@@ -632,13 +632,21 @@ h1,h2,h3,h4{line-height:1.18;letter-spacing:-.012em}
   .sub-panel{left:auto;inset-inline-start:0;width:max-content;min-width:220px;transform:translateY(6px)}
   .menu-item--sub:hover .sub-panel,.menu-item--sub:focus-within .sub-panel{transform:translateY(0)}
   .menu .menu-item--sub.is-closed .sub-panel{transform:translateY(6px)}
-  .sub-panel .mega-panel__card{padding:14px 20px}
-  .sub-panel .mega-col ul{gap:6px}
+  .sub-panel .mega-panel__card{padding-block:15px;padding-inline:20px 50px;border-radius:16px;margin-inline-start:-20px}
+  .sub-panel .mega-col ul{gap:0}
   .sub-panel .mega-col li{font-size:.9375rem}
+  .menu .sub-panel .mega-col a{padding-block:5px}
+  .sub-panel .mega-col li::before{top:calc(5px + .55em)}
 }
 @media (max-width:900px){
   .sub-panel .mega-col ul{padding-inline-start:10px}
+  .sub-panel .mega-col li{padding-block:0}
+  .menu .sub-panel .mega-col a{padding-block:11px}
+  .sub-panel .mega-col li::before{top:calc(11px + .62em)}
 }
+/* the whole row is the link, not just the words; the page you are on reads in the hover gold */
+.menu .sub-panel .mega-col a{display:block}
+.menu .sub-panel .mega-col a[aria-current="page"]{color:var(--gold-600)}
 </style>
 </head>
 <body>
