@@ -814,6 +814,8 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 /* Phones/tablets: the tall stacked text block made the A fill the whole background; keep it a moderate letter
    at the bottom right, just above the map, cropped by the right edge. */
 @media (max-width: 1023px) {
+  /* Home "Why choose us" V: about 60% of the screen width visible (72% of it shows after the 28% edge crop). */
+  #about .section-mark { width: calc(60vw / .72); height: auto; }
   .a-close .section-mark { top: auto; bottom: 0; translate: none; } /* About quote card: A sits on the bottom edge */
   #contact .section-mark { top: auto; bottom: clamp(380px, 48vw, 560px); left: auto; right: 0; height: min(62%, 380px); transform: translateX(32%); }
 }
