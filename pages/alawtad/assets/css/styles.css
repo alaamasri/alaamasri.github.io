@@ -184,7 +184,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .mobile-nav {
   position: fixed; inset: var(--header-h) 0 0 0; z-index: 49;
-  background: rgb(255 255 255 / .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  background: rgb(255 255 255 / .85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   padding: 16px var(--gutter) 32px; overflow-y: auto;
   opacity: 0; visibility: hidden; transform: translateY(-8px);
   transition: opacity .25s var(--ease), transform .3s var(--ease), visibility .25s;
@@ -203,7 +203,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 body.nav-locked { overflow: hidden; }
 /* Mobile menu open: the header turns into the same frosted white as the menu panel, with the plum logo. */
-body.nav-locked .site-header.on-dark::before { opacity: 1; inset: 0; -webkit-mask-image: none; mask-image: none; background: rgb(255 255 255 / .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+body.nav-locked .site-header.on-dark::before { opacity: 1; inset: 0; -webkit-mask-image: none; mask-image: none; background: rgb(255 255 255 / .85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 body.nav-locked .site-header.on-dark .logo-light { display: block; }
 body.nav-locked .site-header.on-dark .logo-dark { display: none; }
 body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-color: var(--plum); color: #1e1720; }
