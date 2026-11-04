@@ -190,12 +190,12 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: opacity .25s var(--ease), transform .3s var(--ease), visibility .25s;
 }
 .mobile-nav.is-open { opacity: 1; visibility: visible; transform: none; }
-.mobile-nav > a, .mobile-nav summary { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; font-size: 22px; font-weight: 600; border-bottom: 1px solid var(--line); cursor: pointer; list-style: none; }
+.mobile-nav > a, .mobile-nav summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 20px; font-weight: 600; border-bottom: 1px solid var(--line); cursor: pointer; list-style: none; }
 .mobile-nav summary::-webkit-details-marker { display: none; }
 .mobile-nav details[open] summary i { transform: rotate(180deg); }
 .mobile-nav details a { display: block; padding: 10px 0 10px 4px; color: var(--ink-2); font-size: 17px; }
 .mobile-nav details ul { padding: 8px 0 12px; border-bottom: 1px solid var(--line); }
-.mobile-nav .btn { margin-top: 44px; width: 100%; justify-content: center; }
+.mobile-nav .btn { width: fit-content; padding: 16px 30px; margin: 40px auto 10px; justify-content: center; }
 
 @media (max-width: 1023px) {
   .nav, .header-cta { display: none; }
