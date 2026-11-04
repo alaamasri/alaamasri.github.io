@@ -575,10 +575,9 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 /* Product pages: the category photo fills the hero; a plum shade from the left carries the type. */
 .p-hero { position: relative; isolation: isolate; overflow: clip; margin-top: calc(-1 * var(--header-h) - 1px); min-height: clamp(460px, 64svh, 640px); display: grid; align-items: end; background: #2e0f2e; }
 .p-hero-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
-.p-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgb(46 15 46 / .55), rgb(46 15 46 / .2) 90px, transparent 150px), /* keeps the clear header readable over bright photos */
-    linear-gradient(90deg, rgb(46 15 46 / .94), rgb(66 20 65 / 0%) 54%, rgb(66 20 65 / .25) 66%, transparent 86%); }
+.p-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: #00000050; } /* desktop: an even ~31% black over the photo; phones get the bottom-up plum shade below */
+.p-hero .crumbs, .p-hero .crumbs a, .p-hero .lead { color: #fff; }
+.p-cta-sec { background: var(--surface); } /* white like the carousel section above it */
 :is(.p-hero, .a-hero) .crumbs { margin-bottom: clamp(28px, 4vw, 48px); }
 :is(.p-hero, .a-hero) .crumbs span { color: var(--ink); }
 :is(.p-hero, .a-hero) h1 { font-size: clamp(2.8rem, 7vw, 4rem); text-wrap: balance; }
@@ -615,7 +614,7 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 
 .related { background: var(--surface); border-top: 1px solid var(--line); }
 
-/* Product pages: "Other applications" photo carousel with arrows and a progress line. */
+/* Product pages: "Other applications" photo carousel with arrows. */
 .related-x { background: var(--surface); border-top: 1px solid var(--line); }
 .rx-nav { display: flex; align-items: center; gap: 10px; }
 .rx-btn { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: 18px; cursor: pointer; transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), opacity .25s; }
@@ -634,8 +633,6 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 .rx-go { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--plum); font-size: 18px; transition: rotate .5s var(--ease), background-color .3s var(--ease), color .3s var(--ease); }
 .rx-card:hover img, .rx-card:focus-visible img { scale: 1.09; }
 .rx-card:hover .rx-go, .rx-card:focus-visible .rx-go { rotate: 45deg; background: var(--plum); color: #fff; }
-.rx-progress { position: relative; height: 2px; margin-top: 28px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.rx-progress span { position: absolute; inset: 0; background: var(--plum); transform-origin: left; transform: scaleX(var(--p, .3)); transition: transform .3s var(--ease); }
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .rx-card { animation: rx-in linear both; animation-timeline: view(inline); animation-range: entry 0% entry 70%; }

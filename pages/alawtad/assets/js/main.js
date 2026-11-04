@@ -248,15 +248,12 @@
     }
   }
 
-  // "Other applications" carousel: arrows step one card, progress line follows the scroll
+  // "Other applications" carousel: arrows step one card and switch off at either end
   document.querySelectorAll('[data-carousel]').forEach((root) => {
     const track = root.querySelector('.rx-track');
-    const bar = root.querySelector('.rx-progress span');
     const [prev, next] = root.querySelectorAll('.rx-btn');
     const update = () => {
       const max = track.scrollWidth - track.clientWidth;
-      const seen = (track.scrollLeft + track.clientWidth) / track.scrollWidth;
-      bar.style.setProperty('--p', Math.min(1, seen).toFixed(3));
       prev.disabled = track.scrollLeft <= 2;
       next.disabled = track.scrollLeft >= max - 2;
     };
