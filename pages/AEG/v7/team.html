@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>فريق العمل | مجموعة الخبراء العرب</title>
+<meta name="description" content="فريق متنوع يجمع بين الخبرة المهنية والتجربة العملية.">
+<meta name="theme-color" content="#0A2E20">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=El+Messiri:wght@500;600;700&display=swap">
+<style>
+/* ==========================================================================
+   v6 — bolder amplification of v5. Same palette, same faces, same motifs
+   (icon.svg, pattern.png, bg2.jpg), same copy. The move: the brand's deep
+   green leads instead of hiding, gold becomes a full field rather than a
+   4px bar, and the five services stop being equal squares.
+   ========================================================================== */
+:root{
+  --nav-h:104px;
+  --green-900:#134B36;
+  --green-950:#0F3C2B;
+  --green-975:#0B2E20;
+  --green-700:#1B6445;
+  --gold-500:#EFD8AC;
+  --gold-600:#B4872F;
+  --gold-700:#DCBA7A;
+  --cream:#F2F2F2;
+  --ink:#2B2B28;
+  --muted:#6B6A63;
+  --white:#FFFFFF;
+  --font-head:'Tajawal',system-ui,sans-serif;
+  --font-body:'Tajawal',system-ui,sans-serif;
+  --font-display:'El Messiri','Tajawal',system-ui,sans-serif;
+  --pat:url("Sources/pattern.png");
+  --icon:url("Sources/icon.svg");
+  --wrap:1320px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scrollbar-width:thin;scrollbar-color:var(--gold-600) transparent}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--gold-600);border-radius:20px;border:2.5px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-500);background-clip:padding-box}
+::selection{background:var(--gold-500);color:var(--ink)}
+/* pale gold vanishes on cream, so the focus ring flips per surface */
+:root{--focus:var(--green-900)}
+.services,.cta,.footer{--focus:var(--gold-500)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.85;caret-color:var(--gold-500);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);color:var(--green-900);line-height:1.24;font-weight:700}
+p{margin:0;color:var(--muted)}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+img{max-width:100%;display:block}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.rule{display:block;width:64px;height:3px;background:var(--gold-600);border-radius:2px;margin-bottom:26px}
+.services .rule{background:var(--gold-600)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:.875rem;padding:16px 30px;border-radius:4px;transition:background-color .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:15px;height:15px;flex:none}
+/* gold fills carry dark neutral text, green fills carry white — never gold-on-green or green-on-gold */
+.btn-gold{background:var(--gold-600);color:var(--white)}
+.btn-gold:hover{background:var(--white);color:var(--gold-600)}
+.btn-deep{background:var(--green-950);color:#fff}
+.btn-deep:hover{background:var(--green-700);color:#fff}
+.btn-outline-gold{border:1.5px solid var(--gold-600);color:var(--gold-600)}
+.btn-outline-gold:hover{background:var(--gold-600);color:var(--white);border-color:var(--gold-600)}
+.btn-quote{background:transparent;color:var(--gold-600);border:1.5px solid var(--gold-600);border-radius:4px;padding:11.5px 24px;font-family:var(--font-head);font-weight:800;font-size:.875rem;
+  transition:background-color .25s,color .25s,border-color .25s,padding .3s ease,font-size .3s ease}
+.btn-quote:hover{background:var(--gold-600);color:var(--white);border-color:var(--gold-600)}
+
+/* ---------- shared mark (icon.svg recoloured by mask, exact colour) ---------- */
+.mark{position:absolute;aspect-ratio:1000/2037;width:auto;pointer-events:none;z-index:0;
+  -webkit-mask:var(--icon) no-repeat center/contain;mask:var(--icon) no-repeat center/contain}
+
+/* ---------- nav ---------- */
+/* negative margin pulls the hero up underneath the nav so the transparent bar still
+   reads as sitting on the hero's own background, even though nav now lives outside
+   .hero (required so position:sticky isn't bounded by the hero's 100vh box) */
+.navwrap{position:sticky;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;
+  margin-bottom:calc(-1 * var(--nav-h));
+  transition:background-color .3s ease,border-color .3s ease,box-shadow .3s ease}
+.navwrap.is-scrolled{background:var(--white);border-color:rgba(19,75,54,.1);box-shadow:0 12px 28px -20px rgba(15,60,43,.35)}
+.navbar{display:flex;align-items:center;gap:40px;height:104px;transition:height .3s ease}
+.navwrap.is-scrolled .navbar{height:72px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{width:200px;height:auto;transition:width .3s ease}
+.navwrap.is-scrolled .brand img{width:140px}
+.navwrap.is-scrolled .btn-quote{padding:9px 20px;font-size:.8125rem}
+.menu{display:flex;align-items:center;gap:30px;margin-inline-start:30px;margin-inline-end:auto}
+.menu a{font-family:var(--font-head);font-weight:600;font-size:.9375rem;color:rgba(19,75,54,.85);display:flex;align-items:center;gap:5px;position:relative;padding-block:6px;transition:color .2s}
+.menu a::after{content:"";position:absolute;inset-inline-start:0;bottom:0;height:2px;width:100%;background:var(--gold-600);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease)}
+.menu a:hover{color:var(--green-950)}
+.menu a:hover::after{transform:scaleX(1)}
+.menu a svg{width:9px;height:9px}
+.lang-switch{font-weight:600}
+.lang-switch:hover{color:var(--green-950)}
+
+/* ---------- services mega menu (desktop only; hover/focus reveal, click still navigates) ---------- */
+.menu-item{position:relative}
+.mega-caret{width:10px;height:10px;margin-inline-start:2px;transition:transform .25s var(--ease)}
+.menu-item:hover .mega-caret,.menu-item:focus-within .mega-caret{transform:rotate(180deg)}
+.mega-panel{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);
+  width:min(1040px,calc(100vw - 48px));padding-top:8px;
+  opacity:0;visibility:hidden;pointer-events:none;z-index:60;
+  transition:opacity .22s ease,visibility .22s,transform .22s ease}
+.menu-item:hover .mega-panel,.menu-item:focus-within .mega-panel{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.mega-panel__card{background:var(--white);border:1px solid rgba(19,75,54,.1);border-radius:16px;
+  box-shadow:0 24px 54px -20px rgba(15,60,43,.35);padding:30px 30px 24px}
+.mega-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:26px 22px}
+.mega-col__num{display:inline-block;font-family:var(--font-head);font-weight:800;font-size:.6875rem;
+  color:var(--gold-600);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.mega-col h4{font-family:var(--font-head);font-size:.875rem;font-weight:700;color:var(--green-900);line-height:1.4;margin-bottom:10px}
+.mega-col ul{display:grid;gap:8px}
+.mega-col li{position:relative;padding-inline-start:14px;font-size:.75rem;color:var(--muted);line-height:1.5}
+.mega-col li::before{content:"";position:absolute;inset-inline-start:0;top:.55em;width:4px;height:4px;border-radius:50%;background:var(--gold-600)}
+@media (max-width:1180px){.mega-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.mega-panel{display:none}.mega-caret{display:none}}
+.navtoggle{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--green-900);margin-inline-start:auto}
+.navtoggle svg{width:26px;height:26px}
+.navtoggle .ico-x{display:none}
+.navtoggle[aria-expanded="true"] .ico-x{display:block}
+.navtoggle[aria-expanded="true"] .ico-bars{display:none}
+
+/* ---------- hero ---------- */
+.hero{background:var(--white);position:relative;height:100vh;height:100svh;display:flex;flex-direction:column;isolation:isolate}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+/* Depth: the hero's three brand materials — lattice, glaze, mark — finally read as a
+   stack rather than three flat pastes. Layers are oversized on the block axis so the
+   drift never exposes an edge; --py is written by the scroll loop. */
+.hero-pattern{position:absolute;inset:-26% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 45%,transparent 85%);
+  -webkit-mask-size:520px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to left,#000 0%,rgba(0,0,0,.5) 45%,transparent 85%);
+  mask-size:520px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.09}
+.hero-glaze{position:absolute;inset:-26% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background:url("Sources/bg2.jpg") center/cover;mix-blend-mode:multiply;opacity:.42;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 28% 45%,#000,transparent 78%);
+          mask-image:radial-gradient(ellipse 80% 80% at 28% 45%,#000,transparent 78%)}
+.hero-mark{top:50%;inset-inline-end:-13%;transform:translateY(-50%) translate3d(0,var(--py,0px),0);height:155%;background-color:var(--gold-600);opacity:.13}
+/* the copy rides forward too — content parallax is what stops a hero feeling like wallpaper */
+.hero-copy{transform:translate3d(0,var(--py,0px),0)}
+.hero-grid{flex:1;display:grid;align-content:center;position:relative;z-index:2;padding-block:calc(100px + var(--nav-h)) 96px}
+.hero-copy h1{color:var(--green-900);font-size:clamp(2rem,4.2vw,4rem);line-height:1.16;letter-spacing:-.02em;max-width:60%;font-weight:700}
+.hero-copy h1 em{font-style:normal;color:var(--gold-600)}
+/* solid colour, not opacity — .is-ready .hero-stage owns opacity for the entrance */
+.hero-lede{margin-top:30px;max-width:52ch;font-size:clamp(1.0625rem,1.5vw,1.25rem);color:var(--muted);line-height:1.85}
+.hero-btns{display:flex;gap:14px;margin-top:42px;flex-wrap:wrap}
+.iso-row{display:flex;gap:clamp(24px,4vw,54px);margin-top:56px;padding-top:30px;flex-wrap:wrap;border-top:1px solid rgba(19,75,54,.16)}
+.iso-badge{display:flex;align-items:center;gap:13px;font-family:var(--font-head);font-weight:800;font-size:.875rem;color:var(--green-900)}
+.iso-badge .badge-ico{display:inline-block;width:42px;height:42px;flex:none;
+  -webkit-mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+          mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+  background-color:var(--gold-600)}
+
+/* hero entrance — the one authored moment */
+.hero-stage[data-armed]{opacity:0;transform:translateY(60px)}
+.is-ready .hero-stage{opacity:1;transform:none;transition:opacity .5s var(--ease),transform 2s var(--ease)}
+/* only the title travels — a slow fade up. Brief, button and iso-row just fade,
+   each spaced enough to read as its own beat rather than arriving together. */
+.hero-stage.d2[data-armed],
+.hero-stage.d3[data-armed],
+.hero-stage.d4[data-armed]{transform:translateY(10px)}
+.is-ready .hero-stage.d2[data-armed],
+.is-ready .hero-stage.d3[data-armed],
+.is-ready .hero-stage.d4[data-armed]{transform:none}
+.is-ready .hero-stage.d1{transition-delay:.06s;}
+.is-ready .hero-stage.d2{transition-delay:.4s;transition-duration:4s;}
+.is-ready .hero-stage.d3{transition-delay:.4s;transition-duration:4s;}
+.is-ready .hero-stage.d4{transition-delay:.4s;transition-duration:4s;}
+
+.hero-mark{transition:opacity 1.4s var(--ease)}
+body:not(.is-ready) .hero-mark[data-armed]{opacity:0}
+
+/* ---------- about ---------- */
+/* z-index + upward shadow makes the about plane read as sliding OVER the hero, which
+   is what gives the hero's parallax something to be measured against */
+.about{background:var(--cream);padding-block:clamp(88px,11vw,140px);position:relative;z-index:1;
+  overflow:hidden;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,6vw,84px);align-items:center;position:relative;z-index:1}
+.about h2{font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.about p{margin-top:26px;max-width:54ch;font-size:clamp(1rem,1.3vw,1.1875rem);color:var(--ink);opacity:.78}
+.about .btn{margin-top:38px}
+.about-logo{position:relative;display:grid;place-items:center;padding:clamp(24px,4vw,48px)}
+/* pattern medallion seats the logo instead of letting it float on bare cream */
+.about-logo::before{content:"";position:absolute;top:50%;inset-inline-start:50%;transform:translate(50%,-50%) translate3d(0,var(--pyb,0px),0);
+  width:min(470px,100%);aspect-ratio:1;z-index:0;pointer-events:none;
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),radial-gradient(circle at 50% 50%,#000 34%,transparent 70%);
+  -webkit-mask-size:300px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),radial-gradient(circle at 50% 50%,#000 34%,transparent 70%);
+  mask-size:300px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.2}
+.about-logo img{position:relative;z-index:1;width:min(320px,78%);height:auto;transform:translate3d(0,var(--py,0px),0)}
+
+/* ---------- services ---------- */
+.services{background:var(--green-900);color:#fff;padding-block:clamp(88px,11vw,132px);position:relative;overflow:hidden}
+.services-pattern{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-500);
+  -webkit-mask-image:var(--pat),linear-gradient(to bottom,#000,transparent 70%);
+  -webkit-mask-size:460px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to bottom,#000,transparent 70%);
+  mask-size:460px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.03}
+.services-glaze,.cta-glaze{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background:url("Sources/ultra_faded_triangles.webp") center/cover;mix-blend-mode:color-burn;opacity:1;
+  -webkit-mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.65) 45%,transparent 85%);
+          mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.65) 45%,transparent 85%)}
+.services .wrap{position:relative;z-index:1}
+.services-head{display:grid;grid-template-columns:1fr .85fr;gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(48px,6vw,76px)}
+.services h2{color:#fff;font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.services-head p{color:rgba(255,255,255,.68);font-size:clamp(.9875rem,1.2vw,1.0625rem);max-width:58ch}
+.services-head p + p{margin-top:16px}
+.slist{border-top:1px solid rgba(255,255,255,.24)}
+.srow{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,3vw,40px);align-items:center;
+  padding-block:clamp(26px,3.2vw,35px);border-bottom:1px solid rgba(255,255,255,.24);
+  position:relative;isolation:isolate;color:#fff}
+.srow:last-child{border-bottom:0}
+.srow::before{content:"";position:absolute;inset-inline:calc(-1 * clamp(20px,4vw,48px));inset-block:0;background:var(--white);
+  border-radius:65px;opacity:0;transition:opacity .45s var(--ease);z-index:-1}
+.srow:hover::before,.srow:focus-visible::before{opacity:1}
+.srow > img{width:clamp(34px,4vw,46px);height:clamp(34px,4vw,46px);flex:none;object-fit:contain;
+  filter:brightness(0) invert(1);transition:filter .35s}
+.srow:hover > img,.srow:focus-visible > img{filter:none}
+.srow h3{color:#fff;font-size:clamp(1.375rem,3vw,2rem);font-weight:700;letter-spacing:-.01em;transition:color .35s}
+.srow .go{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,255,255,.28);
+  transition:border-color .35s,background-color .35s,transform .45s var(--ease)}
+.srow .go svg{width:16px;height:16px;color:#fff;transition:color .35s}
+.srow:hover h3,.srow:focus-visible h3{color:var(--gold-600)}
+.srow:hover .go,.srow:focus-visible .go{border-color:var(--gold-600);background:var(--gold-600);transform:translateX(6px)}
+.srow:hover .go svg,.srow:focus-visible .go svg{color:#fff}
+
+/* ---------- why us ---------- */
+.why{background:var(--cream);padding-block:clamp(88px,11vw,132px)}
+.why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.why h2{font-size:clamp(2rem,4.2vw,3.25rem);letter-spacing:-.015em}
+.why-copy p{margin-top:24px;max-width:46ch;font-size:clamp(1rem,1.25vw,1.125rem);color:var(--ink);opacity:.76}
+.accordion{display:flex;flex-direction:column}
+.acc-row{border-bottom:1px solid rgba(19,75,54,.16)}
+.acc-row:first-child{border-top:1px solid rgba(19,75,54,.16)}
+.acc-item{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;text-align:start;
+  background:none;border:0;padding:24px 0;cursor:pointer;
+  font-family:var(--font-display);font-weight:700;font-size:clamp(1.0625rem,1.7vw,1.375rem);color:var(--green-900);
+  transition:color .25s}
+.acc-item:hover{color:var(--gold-600)}
+/* border goes gold on hover regardless of open state; the icon itself only turns
+   gold when the row is actually open — hover alone leaves it as-is */
+.acc-item:hover i{border-color:var(--gold-600)}
+.acc-item i{font-style:normal;width:34px;height:34px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;font-size:1.3rem;line-height:35px;flex:none;transition:background-color .25s,color .25s,border-color .25s,transform .3s var(--ease)}
+.acc-item:hover i{transform:scale(1.1)}
+.acc-row.is-open .acc-item{color:var(--green-900)}
+.acc-row.is-open .acc-item i{background:transparent;border-color:var(--gold-600);color:var(--gold-600)}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.acc-row.is-open .acc-panel{grid-template-rows:1fr}
+.acc-panel-inner{overflow:hidden}
+.acc-panel p{margin:0;padding-bottom:24px;max-width:56ch;font-size:1rem;line-height:1.85;color:var(--ink);opacity:.72}
+
+/* ---------- cta — gold at full field ---------- */
+.cta{background:var(--green-950);padding-block:clamp(88px,12vw,150px);position:relative;overflow:hidden}
+.cta-pattern{position:absolute;inset:-12% 0;z-index:0;pointer-events:none;
+  transform:translate3d(0,var(--py,0px),0);
+  background-color:var(--gold-600);
+  -webkit-mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.45) 50%,transparent 88%);
+  -webkit-mask-size:520px auto,100% 100%;-webkit-mask-repeat:repeat,no-repeat;-webkit-mask-composite:source-in;
+  mask-image:var(--pat),linear-gradient(to right,#000 0%,rgba(0,0,0,.45) 50%,transparent 88%);
+  mask-size:520px auto,100% 100%;mask-repeat:repeat,no-repeat;mask-composite:intersect;
+  opacity:.07}
+.cta-mark{top:50%;inset-inline-start:-14%;transform:translateY(-50%) translate3d(0,var(--py,0px),0);height:165%;background-color:var(--gold-500);opacity:.075}
+.cta-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,88px);align-items:center}
+.cta .rule{background:var(--gold-600)}
+.cta h2{color:#fff;font-size:clamp(2.125rem,4.8vw,3.75rem);letter-spacing:-.02em}
+.cta p{margin-top:26px;max-width:46ch;color:rgba(255,255,255,.74);font-size:clamp(1rem,1.3vw,1.125rem)}
+.cta-copy .btn{margin-top:38px}
+.cta-channels{display:flex;flex-direction:column;border-top:1px solid rgba(180,135,47,.26)}
+.cta-channels li{border-bottom:1px solid rgba(180,135,47,.26)}
+.cta-channels a,.cta-channels .ch-static{display:flex;align-items:center;gap:20px;padding-block:clamp(20px,2.4vw,28px)}
+.ch-ico{width:54px;height:54px;border-radius:50%;border:1px solid rgba(180,135,47,.32);display:grid;place-items:center;flex:none;
+  transition:background-color .3s var(--ease),border-color .3s var(--ease),transform .4s var(--ease)}
+.ch-ico svg{width:21px;height:21px;color:#fff;transition:color .3s}
+.cta-channels a:hover .ch-ico{background:var(--white);border-color:var(--gold-600);transform:scale(1.06)}
+.cta-channels a:hover .ch-ico svg{color:var(--gold-600)}
+/* align-items keeps dir="ltr" values flush to the RTL start edge */
+.ch-body{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.ch-label{font-family:var(--font-head);font-size:.8125rem;font-weight:700;color:var(--gold-600)}
+.ch-value{font-family:var(--font-head);font-weight:500;font-size:clamp(1rem,1.35vw,1.125rem);color:#fff;line-height:1.6}
+.ch-static .ch-value{color:rgba(255,255,255,.8);font-size:1rem}
+.cta-channels address{font-style:normal;margin:0}
+
+/* ---------- clients ---------- */
+.clients{background:var(--cream);padding-block:clamp(80px,10vw,124px);text-align:center}
+.clients .rule{margin-inline:auto}
+.clients h2{font-size:clamp(1.75rem,3.4vw,2.625rem);letter-spacing:-.015em}
+.clients > .wrap > p{margin:20px auto 0;max-width:56ch;font-size:1.0625rem;color:var(--ink);opacity:.72}
+.client-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(24px,3vw,44px);margin-top:56px;align-items:center}
+.client-grid img{max-height:60px;width:auto;margin-inline:auto}
+
+/* ---------- footer ---------- */
+.footer{background:var(--green-950);color:rgba(255,255,255,.8);padding-top:clamp(64px,8vw,92px);position:relative;overflow:hidden;font-size:.875rem}
+.footer-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr;gap:clamp(32px,4vw,48px);position:relative;z-index:1}
+.f-about{display:flex;flex-direction:column;gap:16px}
+.f-about .f-brand img{width:170px;filter:brightness(0) invert(1)}
+.f-about p{color:rgba(255,255,255,.6);font-size:.875rem;line-height:1.85;max-width:44ch}
+.footer h3{color:#fff;font-family:var(--font-head);font-size:.9375rem;font-weight:800;margin:0 0 20px;padding-bottom:10px;border-bottom:2px solid var(--gold-600);display:inline-block}
+.f-subscribe form{display:flex;flex-direction:column;gap:10px}
+.f-subscribe input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:3px;padding:13px 14px;color:#fff;font-family:inherit;font-size:.875rem}
+.f-subscribe input::placeholder{color:rgba(255,255,255,.62)}
+.f-subscribe button{background:var(--gold-600);border:0;border-radius:3px;padding:13px;color:var(--white);font-family:var(--font-head);font-weight:800;font-size:.875rem;cursor:pointer;transition:background-color .25s,color .25s}
+.f-subscribe button:hover{background:var(--gold-700);color:var(--white)}
+.f-subscribe .f-note{margin-top:10px;font-size:.8125rem;color:rgba(255,255,255,.6);min-height:1.3em}
+.f-socials{display:flex;gap:10px;margin-top:20px}
+.f-socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background-color .25s,color .25s}
+.f-socials a:hover{background:var(--white);color:var(--gold-600)}
+.f-socials svg{width:15px;height:15px}
+.f-links ul,.f-contact ul{display:flex;flex-direction:column;gap:13px}
+.f-links a,.f-contact a,.f-contact address{display:flex;gap:9px;color:rgba(255,255,255,.7);font-size:.875rem;font-style:normal;align-items:flex-start;transition:color .2s}
+.f-links a:hover,.f-contact a:hover{color:var(--gold-600)}
+.f-links svg,.f-contact svg{width:15px;height:15px;flex:none;margin-top:5px;color:var(--gold-500)}
+.f-iso-row{display:flex;gap:clamp(24px,4vw,46px);padding-block:38px;margin-top:52px;border-top:1px solid rgba(255,255,255,.14);position:relative;z-index:1;flex-wrap:wrap}
+.f-iso-badge{display:flex;align-items:center;gap:15px}
+.f-iso-badge .badge-ico{display:inline-block;width:50px;height:50px;flex:none;
+  -webkit-mask:url("Sources/iso-badge.svg") no-repeat center/contain;
+          mask:url("Sources/iso-badge.svg") no-repeat center/contain;
+  background-color:var(--gold-500)}
+.f-iso-badge span{font-family:var(--font-head);font-weight:800;font-size:.875rem;color:#fff;line-height:1.5}
+.f-bottom-nav{display:flex;gap:28px;flex-wrap:wrap;padding-block:22px;border-top:1px solid rgba(255,255,255,.14);font-size:.875rem;position:relative;z-index:1}
+.f-bottom-nav a{color:rgba(255,255,255,.75);transition:color .2s}
+.f-bottom-nav a:hover{color:var(--gold-600)}
+.f-copyright{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:20px;border-top:1px solid rgba(255,255,255,.14);font-size:.8125rem;color:rgba(255,255,255,.55);position:relative;z-index:1}
+.f-mark{bottom:-10%;inset-inline-end:-6%;height:100%;background-color:var(--gold-500);opacity:.075;transform:translate3d(0,var(--py,0px),0)}
+
+/* ---------- scroll reveal ----------
+   Three sequenced gestures rather than one blanket fade repeated per section:
+   the block settles, the gold rule is struck, then the heading sets itself
+   right-to-left. Precision, not exuberance. */
+.reveal[data-armed]{opacity:0;transform:translateY(30px)}
+.reveal.is-in{opacity:1;transform:none;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+
+/* service rows arrive from the RTL start edge — a list being dealt, not just faded */
+/* :not(.is-in) keeps this mutually exclusive with .reveal.is-in — without it this
+   selector outranks the revealed state and the rows stay parked off-axis */
+.srow.reveal[data-armed]:not(.is-in){transform:translate3d(38px,0,0)}
+
+/* contact us and about title + brief fade in while sliding in from the right */
+.cta-copy.reveal[data-armed]:not(.is-in),
+.about-copy.reveal[data-armed]:not(.is-in){transform:translate3d(38px,0,0)}
+
+/* the ruled line — the page's repeated measurement gesture */
+.rule{transform-origin:right}
+.clients .rule{transform-origin:center}
+.reveal[data-armed] .rule{transform:scaleX(0)}
+.reveal.is-in .rule{transform:scaleX(1);transition:transform .7s var(--ease) .14s}
+
+/* titles fade in up with their block — same slow, plain treatment as the hero text */
+.services-head.reveal.is-in,.about-copy.reveal.is-in{transition-duration:1.4s}
+
+/* real lists cascade; total delay stays capped */
+.srow:nth-child(2).is-in{transition-delay:.07s}
+.srow:nth-child(3).is-in{transition-delay:.14s}
+.srow:nth-child(4).is-in{transition-delay:.21s}
+.srow:nth-child(5).is-in{transition-delay:.28s}
+
+/* accordion titles reveal one by one, same fade-in-up as everything else */
+.acc-row:nth-child(2).is-in{transition-delay:.07s}
+.acc-row:nth-child(3).is-in{transition-delay:.14s}
+.acc-row:nth-child(4).is-in{transition-delay:.21s}
+.acc-row:nth-child(5).is-in{transition-delay:.28s}
+.acc-row:nth-child(6).is-in{transition-delay:.35s}
+.client-grid[data-armed] img{opacity:0;transform:translateY(12px)}
+.client-grid.is-in img{opacity:1;transform:none;transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.client-grid.is-in img:nth-child(2){transition-delay:.05s}
+.client-grid.is-in img:nth-child(3){transition-delay:.1s}
+.client-grid.is-in img:nth-child(4){transition-delay:.15s}
+.client-grid.is-in img:nth-child(5){transition-delay:.2s}
+.client-grid.is-in img:nth-child(n+6){transition-delay:.25s}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .services-head{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .about-grid,.cta-grid{grid-template-columns:1fr}
+  .about-logo{padding:8px 0 0}
+  .about-logo img{width:min(260px,60%)}
+  .about-logo::before{width:min(380px,86%)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  :root{--nav-h:84px}
+  .menu{position:absolute;inset-inline:0;top:100%;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--white);border-top:1px solid rgba(19,75,54,.12);box-shadow:0 18px 40px -24px rgba(15,60,43,.45);
+    padding:8px clamp(20px,4vw,48px) 20px;margin:0;display:none}
+  .menu.is-open{display:flex}
+  .menu a{padding-block:15px;font-size:1.0625rem;border-bottom:1px solid rgba(19,75,54,.1)}
+  .menu a::after{display:none}
+  .navtoggle{display:block}
+  .navbar{height:84px;gap:16px}
+  .navbar .btn-quote{display:none}
+  .hero-mark{inset-inline-end:-38%;opacity:.07}
+  .cta-mark{inset-inline-start:-40%;inset-inline-end:auto;opacity:.05}
+  .client-grid{grid-template-columns:repeat(3,1fr)}
+  .srow{grid-template-columns:auto 1fr;gap:18px}
+  .srow .go{display:none}
+}
+@media (max-width:600px){
+  .brand img{width:140px}
+  .footer-grid{grid-template-columns:1fr}
+  .iso-row{flex-direction:column;align-items:flex-start;gap:18px;margin-top:44px}
+  .client-grid{grid-template-columns:repeat(2,1fr)}
+  .f-iso-row{flex-direction:column;gap:22px}
+  .hero-copy h1{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .hero-stage,.reveal[data-armed]{opacity:1!important;transform:none!important}
+  /* keep the depth stack and the reveal gestures, drop the movement */
+  [data-par],[data-par-b]{--py:0px!important;--pyb:0px!important}
+  .reveal[data-armed] .rule{transform:none!important}
+  .client-grid[data-armed] img{opacity:1!important;transform:none!important}
+}
+
+/* ---------- about page ---------- */
+.page-hero{position:relative;background:var(--white);isolation:isolate;padding:calc(var(--nav-h) + clamp(56px,8vw,104px)) 0 clamp(72px,9vw,120px)}
+.page-hero .wrap{position:relative;z-index:2}
+.page-hero h1{font-size:clamp(2.1rem,4.6vw,3.6rem);line-height:1.2;letter-spacing:-.02em;max-width:20ch}
+.page-hero h1 em{font-style:normal;color:var(--gold-600)}
+.page-hero .lede{margin-top:24px;max-width:54ch;font-size:clamp(1.0625rem,1.5vw,1.25rem);color:var(--muted);line-height:1.85}
+.pg{padding-block:clamp(72px,9vw,120px)}
+.pg-white{background:var(--white)}
+.pg-cream{background:var(--cream)}
+.pg h2{font-size:clamp(1.9rem,3.8vw,3rem);letter-spacing:-.015em}
+.pg-intro{margin-top:20px;max-width:56ch;font-size:clamp(1rem,1.3vw,1.125rem);color:var(--ink);opacity:.76}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,104px)}
+.vm p{margin-top:24px;max-width:44ch;font-size:clamp(1.0625rem,1.5vw,1.25rem);color:rgba(255,255,255,.78);line-height:1.9}
+.cert-row{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.cert{display:flex;align-items:center;gap:18px}
+.cert .badge-ico{display:inline-block;width:58px;height:58px;flex:none;
+  -webkit-mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+          mask:url("Sources/certificate-1.svg") no-repeat center/contain;
+  background-color:var(--gold-600)}
+.cert b{display:block;font-family:var(--font-head);font-weight:800;color:var(--green-900);font-size:1.0625rem}
+.cert span{color:var(--muted);font-size:.9375rem}
+@media (max-width:900px){.vm-grid{grid-template-columns:1fr}.cert-row{grid-template-columns:1fr}}
+
+/* mega-menu links: plain text links, not main-nav items */
+.mega-col a{display:inline;padding:0;font:inherit;color:inherit}
+.mega-col a::after{display:none}
+.mega-col a:hover{color:var(--gold-600)}
+/* ---------- methodology timeline ---------- */
+.tl-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(40px,7vw,104px);align-items:start}
+.tl-head{position:sticky;top:132px}
+.timeline{--tl:0;position:relative;list-style:none;margin:0;padding:0}
+.timeline::before,.timeline::after{content:"";position:absolute;z-index:0;inset-inline-start:27px;top:28px;width:2px;border-radius:2px}
+.timeline::before{height:var(--tl-span,calc(100% - 56px));background:rgba(19,75,54,.05)}
+.timeline::after{height:calc(var(--tl-span,calc(100% - 56px)) * var(--tl));background:var(--gold-500)}
+.tl-item{position:relative;z-index:1;display:grid;grid-template-columns:56px 1fr;gap:clamp(20px,3vw,36px);padding-bottom:clamp(40px,5.5vw,64px)}
+.tl-item:last-child{padding-bottom:0}
+/* the step title and brief slide in from the left at the same moment the node turns gold
+   (same trigger: the spine reaching it). .is-seen is set once and never removed, so the
+   text doesn't slide back out if the reader scrolls up. Armed only when JS is running. */
+.timeline.is-armed .tl-item:not(.is-seen) .tl-body h3,
+.timeline.is-armed .tl-item:not(.is-seen) .tl-body p{opacity:0;transform:translate3d(-48px,0,0)}
+.tl-node{position:relative;z-index:1;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  background:var(--white);border:2px solid rgba(19,75,54,.22);font-family:var(--font-display);font-size:1.5rem;line-height:1;color:var(--green-900);
+  transition:background-color .8s cubic-bezier(.4,0,.2,1),border-color .8s cubic-bezier(.4,0,.2,1),color .8s cubic-bezier(.4,0,.2,1),box-shadow .8s cubic-bezier(.4,0,.2,1)}
+.tl-item.is-lit .tl-node{background:var(--white);border-color:var(--gold-500);color:var(--gold-600);box-shadow:0 12px 24px -12px rgba(180,135,47,.75)}
+.tl-body{padding-top:0}
+.tl-body h3{font-size:clamp(1.375rem,2.2vw,1.75rem);display:flex;align-items:center;min-height:56px;margin-bottom:4px;transition:color .9s cubic-bezier(.4,0,.2,1),opacity .9s var(--ease),transform .9s var(--ease)}
+.tl-item.is-lit .tl-body h3{color:var(--gold-600)}
+.tl-body p{font-size:1rem;line-height:1.9;max-width:46ch;transition:opacity .9s var(--ease) .1s,transform .9s var(--ease) .1s}
+@media (max-width:900px){.tl-layout{grid-template-columns:1fr}.tl-head{position:static}}
+/* ---------- sectors: numbered column cards ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(36px,5vw,64px) clamp(28px,4vw,56px);margin-top:56px}
+.step{border-top:1px solid rgba(19,75,54,.18);padding-top:24px}
+.step b{display:block;font-family:var(--font-display);font-size:2.5rem;line-height:1;color:var(--gold-600);margin-bottom:16px}
+.step h3{font-size:1.3125rem;margin-bottom:8px}
+.step p{font-size:.9688rem;line-height:1.8}
+.step.is-in:nth-child(3n+2){transition-delay:.08s}
+.step.is-in:nth-child(3n){transition-delay:.16s}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.steps{grid-template-columns:1fr}}
+/* ---------- branches (map) ---------- */
+.services .pg-intro{color:rgba(255,255,255,.74);opacity:1}
+.branches .services-glaze{
+  -webkit-mask-image:linear-gradient(to right,#0000001a 0%,rgba(0,0,0,.65) 65%,transparent 95%);
+          mask-image:linear-gradient(to right,#0000001a 0%,rgba(0,0,0,.65) 65%,transparent 95%)}
+.branches-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center;margin-top:56px}
+.branch-map svg.ksa{display:block;width:100%;max-width:620px;height:auto;overflow:visible;margin-inline:auto}
+.ksa-shape path{fill:rgba(255,255,255,.09);stroke:rgba(255,255,255,.1);stroke-width:1;stroke-linejoin:round}
+.ksa-pin{color:var(--gold-600);transform-box:fill-box;transform-origin:bottom center;
+  transition:opacity .5s var(--ease),transform .55s var(--ease);transition-delay:calc(var(--i,0) * 160ms + 250ms)}
+.branch-map[data-armed]:not(.is-in) .ksa-pin{opacity:0;transform:translateY(-16px) scale(.6)}
+.ksa-pin__label{font-family:var(--font-head);font-weight:700;font-size:19px;fill:#fff}
+.branch-list{display:grid}
+.branch-item{display:flex;gap:18px;align-items:flex-start;padding-block:26px;border-top:1px solid rgba(255,255,255,.14)}
+.branch-item:first-child{border-top:0;padding-top:4px}
+.branch-item__ico{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(239,216,172,.14);color:var(--gold-500)}
+.branch-item__ico svg{width:21px;height:21px}
+.branch-item h3{font-size:1.25rem;color:#fff;margin-bottom:6px}
+.branch-item p{font-size:.9688rem;color:rgba(255,255,255,.7);line-height:1.7;margin:0}
+@media (max-width:900px){.branches-wrap{grid-template-columns:1fr}}
+/* after a click inside the mega menu the panel closes even though the pointer is still over it
+   (and focus is still on the clicked link); it reopens on the next hover */
+.menu .menu-item.is-closed .mega-panel{opacity:0;visibility:hidden;pointer-events:none;transform:translateX(-50%) translateY(6px)}
+.menu .menu-item.is-closed .mega-caret{transform:none}
+/* faded logo mark behind the sectors cards */
+#sectors{position:relative;overflow:hidden}
+#sectors .wrap{position:relative;z-index:1}
+.sectors-mark{top:50%;inset-inline-end:-10%;transform:translateY(-50%) translate3d(0,var(--py,0px),0);height:150%;background-color:var(--green-900);opacity:.055}
+/* concentric rings behind the methodology, centred toward the right and cropped by the section edge.
+   overflow:clip (not hidden) so the pinned heading beside the timeline can still stick. */
+#method{position:relative;overflow:clip}
+#method .wrap{position:relative;z-index:1}
+.rings{--d:min(72vw,900px);position:absolute;right:25%;top:30%;width:0;height:0;z-index:0;pointer-events:none;transform:translate3d(0,var(--py,0px),0)}
+.rings i{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(19,75,54,.1)}
+.rings i:first-child{width:var(--d);height:var(--d)}
+.rings i:last-child{width:calc(var(--d) + 210px);height:calc(var(--d) + 210px);border-color:rgba(19,75,54,.07)}
+/* ---------- mobile refinements ---------- */
+/* slide / fade-in gestures start a few px outside the viewport; clip (not hidden) so that never
+   creates horizontal scroll on small screens and sticky headings keep working */
+html,body{overflow-x:clip}
+section,footer{overflow-x:clip}
+@media (max-width:600px){.rule{width:35px}}
+/* services sub-menu inside the mobile drop-down: tap "Services" to expand / collapse */
+@media (max-width:900px){
+  .menu{max-height:calc(100vh - 84px);max-height:calc(100svh - 84px);overflow-y:auto;overscroll-behavior:contain}
+  .menu .menu-item{display:block}
+  .menu .menu-item > a{justify-content:space-between}
+  .menu .mega-caret{display:block;width:14px;height:14px;margin:0;transition:transform .3s var(--ease)}
+  .menu .menu-item .mega-caret{transform:none}
+  .menu .menu-item.is-expanded .mega-caret{transform:rotate(180deg)}
+  .menu .menu-item .mega-panel,.menu .menu-item.is-closed .mega-panel{
+    display:grid;grid-template-rows:0fr;position:static;left:auto;top:auto;width:auto;padding:0;
+    transform:none;opacity:1;pointer-events:auto;visibility:hidden;
+    transition:grid-template-rows .4s var(--ease),visibility 0s .4s}
+  .menu .menu-item.is-expanded .mega-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .4s var(--ease),visibility 0s}
+  .mega-panel__card{min-height:0;overflow:hidden;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+  .mega-grid{grid-template-columns:1fr;gap:0;padding-bottom:6px}
+  .mega-col{padding:14px 0 12px;border-bottom:1px solid rgba(19,75,54,.08)}
+  .mega-col:last-child{border-bottom:0}
+  .mega-col__num{margin:0 0 0 10px}
+  .mega-col h4{display:inline;margin:0;font-size:1rem}
+  .menu .mega-col a{border-bottom:0}
+  .mega-col ul{margin-top:8px;gap:0;padding-inline-start:30px}
+  .mega-col li{font-size:.9375rem;padding-block:6px;padding-inline-start:14px}
+  .mega-col li::before{top:calc(6px + .62em)}
+  .menu .mega-col li a{display:inline}
+}
+/* sectors on phones: number on the right, title and line to its left */
+@media (max-width:600px){
+  .step{display:grid;grid-template-columns:auto 1fr;column-gap:22px;align-items:start}
+  .step b{grid-row:1 / span 2;margin:0;min-width:1.1ch;padding-top:2px}
+  .step h3{grid-column:2;margin:0 0 8px}
+  .step p{grid-column:2;margin:0}
+}
+/* first (about) section: when it stacks, the logo comes before the text */
+@media (max-width:1080px){
+  .about-grid .about-logo{order:-1;padding:0 0 8px}
+}
+/* ---------- desktop nav: never wrap, fit the mid widths, sub-menu anchored to the viewport ---------- */
+.menu a,.btn-quote,.lang-switch{white-space:nowrap}
+.menu .mega-col a{white-space:normal}
+@media (min-width:901px){
+  /* the panel is centred on the whole header (not on the link) so it can never run off-screen */
+  .menu-item{position:static}
+  .mega-panel{width:min(1040px,calc(100% - 48px))}
+  .menu-item > a::before{content:"";position:absolute;inset-inline:-14px;top:100%;height:70px}
+}
+@media (min-width:901px) and (max-width:1139px){
+  .navbar{gap:18px}
+  .menu{gap:16px;margin-inline-start:6px}
+  .menu a{font-size:.875rem}
+  .brand img{width:150px}
+  .navwrap.is-scrolled .brand img{width:130px}
+  .btn-quote{padding-inline:14px;font-size:.8125rem}
+}
+/* footer link row is dropped on mobile (the header menu covers it) */
+@media (max-width:900px){.f-bottom-nav{display:none}}
+/* mobile drop-down: no rule under the last item */
+@media (max-width:900px){.menu > a:last-child{border-bottom:0}}
+/* mobile header: logo sits 3px higher, in both the normal and the sticky (scrolled) state */
+@media (max-width:900px){.brand{position:relative;top:-3px}}
+/* ---------- About Us sub-menu: the services panel's style, one column, sized to its links,
+   anchored to the start edge of its own link (right in Arabic, left in English) ---------- */
+@media (min-width:901px){
+  .menu-item.menu-item--sub{position:relative}
+  .sub-panel{left:auto;inset-inline-start:0;width:max-content;min-width:220px;transform:translateY(6px)}
+  .menu-item--sub:hover .sub-panel,.menu-item--sub:focus-within .sub-panel{transform:translateY(0)}
+  .menu .menu-item--sub.is-closed .sub-panel{transform:translateY(6px)}
+  .sub-panel .mega-panel__card{padding:14px 20px}
+  .sub-panel .mega-col ul{gap:6px}
+  .sub-panel .mega-col li{font-size:.9375rem}
+}
+@media (max-width:900px){
+  .sub-panel .mega-col ul{padding-inline-start:10px}
+}
+/* ==========================================================================
+   Team page — no portraits by design. People are carried by type, number
+   and credentials; the same rule / gold-numeral / green-band language as
+   the About page.
+   ========================================================================== */
+/* the first section after the page header slides over it with the same soft shadow as the
+   service and Clients pages, so the header's parallax has an edge to be measured against */
+.page-hero + section{position:relative;z-index:1;box-shadow:0 -5px 44px -22px rgba(15,60,43,.30)}
+/* clip the decorative marks per section (as About does); clip, not hidden, so the headings can stick */
+#leadership,#directors{position:relative;overflow:clip}
+#team{position:relative;overflow:hidden}
+#team .wrap{position:relative;z-index:1}
+.team-split{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(40px,7vw,104px);align-items:start;position:relative;z-index:1}
+.team-split__head{position:sticky;top:calc(var(--nav-h) + 32px)}
+.team-split__head h2{max-width:14ch}
+.profiles{display:grid;gap:clamp(44px,5.5vw,72px)}
+.profile{display:grid;grid-template-columns:auto 1fr;column-gap:clamp(20px,3vw,44px);border-top:1px solid rgba(19,75,54,.18);padding-top:clamp(26px,3vw,38px)}
+.profile__num{font-family:var(--font-display);font-size:clamp(2.75rem,4.4vw,3.75rem);line-height:1;color:var(--gold-600);min-width:2ch}
+.profile__role{display:block;font-family:var(--font-head);font-weight:700;color:var(--gold-600);font-size:.9375rem;margin-bottom:6px}
+.profile h3{font-size:clamp(1.6rem,2.6vw,2.125rem);letter-spacing:-.01em}
+/* tags: the original row under the name, set as plain type — no pill shapes */
+.tags-wrap{overflow:hidden;margin-top:14px}
+.tags{--sep:28px;display:flex;flex-wrap:wrap;align-items:center;row-gap:4px;margin:0;margin-inline-start:calc(var(--sep) * -1);font-family:var(--font-head);font-size:.9375rem;line-height:1.7}
+.tags li{display:inline-flex;align-items:center;color:var(--green-900);font-weight:600}
+.tags li::before{content:"";flex:none;width:var(--sep);height:13px;background:radial-gradient(circle closest-side,var(--gold-600) 98%,transparent) center/4px 4px no-repeat}
+.tags li.is-key{color:var(--gold-600);font-weight:800;letter-spacing:.06em}
+.tags li.is-key + li.is-key::before{background:linear-gradient(rgba(19,75,54,.3),rgba(19,75,54,.3)) center/1px 13px no-repeat}
+.services .tags li{color:rgba(255,255,255,.9)}
+.services .tags li.is-key{color:var(--gold-500)}
+.services .tags li::before{background:radial-gradient(circle closest-side,var(--gold-700) 98%,transparent) center/4px 4px no-repeat}
+.services .tags li.is-key + li.is-key::before{background:linear-gradient(rgba(255,255,255,.3),rgba(255,255,255,.3)) center/1px 13px no-repeat}
+.services .profile__bio{color:rgba(255,255,255,.8)}
+.profile__bio{margin-top:22px;max-width:62ch;font-size:clamp(1rem,1.3vw,1.0938rem);line-height:1.95}
+/* inverted on the green band */
+.services .team-split__head .pg-intro{max-width:34ch}
+.services .profile{border-top-color:rgba(255,255,255,.16)}
+.services .profile__num{color:var(--gold-500)}
+.services .profile h3{color:#fff}
+.services .profile__role{color:var(--gold-700)}
+
+.crew-head h2{max-width:22ch}
+.crew{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.2vw,30px);margin-top:clamp(40px,5vw,60px);position:relative;z-index:1}
+.member{position:relative;display:flex;flex-direction:column;background:var(--white);border-radius:4px;padding:clamp(28px,2.8vw,40px) clamp(26px,2.6vw,36px) clamp(26px,2.6vw,34px);overflow:hidden;
+  transition:opacity .9s var(--ease),transform .5s var(--ease),box-shadow .5s var(--ease)}
+.member::before{content:"";position:absolute;inset-inline:0;top:0;height:3px;background:var(--gold-600);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+html[dir="rtl"] .member::before{transform-origin:right}
+.member.is-in:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(11,46,32,.4)}
+.member:hover::before{transform:scaleX(1)}
+.member__role{display:block;font-family:var(--font-head);font-weight:700;color:var(--gold-600);font-size:.875rem}
+.member h3{font-size:clamp(1.375rem,1.8vw,1.5rem);margin-top:6px;letter-spacing:-.01em}
+.member ul{margin-top:22px;padding-top:20px;border-top:1px solid rgba(19,75,54,.12);display:grid;gap:9px}
+.member li{position:relative;padding-inline-start:18px;font-size:.9375rem;color:var(--muted);line-height:1.6}
+.member li::before{content:"";position:absolute;inset-inline-start:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold-600)}
+.member li.is-key{color:var(--green-900);font-weight:700}
+@media (max-width:1024px){
+  .team-split{grid-template-columns:1fr}
+  .team-split__head{position:static}
+  .team-split__head h2{max-width:none}
+  .crew{grid-template-columns:repeat(2,1fr)}
+}
+/* ---- phones: less column of text, more composition ---- */
+@media (max-width:620px){
+  .team-split{gap:40px}
+  .profiles{gap:56px}
+  /* number sits in the corner opposite the text, level with the role line, instead of taking its own row */
+  .profile{grid-template-columns:1fr;position:relative;padding-top:42px}
+  .profile__num{position:absolute;inset-inline-end:0;top:33px;font-size:4.5rem;line-height:.9}
+  .profile__role{padding-inline-end:6.5rem}
+  .profile h3{font-size:1.875rem}
+  .crew{grid-template-columns:1fr;gap:14px}
+  .member{padding:28px 24px 24px}
+  .member h3{font-size:1.5rem}
+  .tags-wrap{margin-top:12px}
+  .tags{--sep:20px;font-size:.75rem}
+  .profile__bio{margin-top:18px;font-size:.875rem;line-height:1.9}
+
+}
+@media (prefers-reduced-motion:reduce){
+  .member,.member::before{transition:none}
+  .member.is-in:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+  <div class="navwrap">
+    <div class="wrap navbar">
+      <a class="brand" href="index.html"><img src="Sources/logo-rtl.webp" alt="مجموعة الخبراء العرب"></a>
+      <button class="navtoggle" type="button" id="navToggle" aria-expanded="false" aria-controls="primaryMenu" aria-label="القائمة">
+        <svg class="ico-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="ico-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+      <nav class="menu" id="primaryMenu">
+        <a href="index.html">الرئيسية</a>
+        <a href="index.html#why">لماذا نحن</a>
+        <span class="menu-item menu-item--sub">
+          <a href="about.html" aria-haspopup="true" aria-expanded="false" aria-controls="subAbout">من نحن<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega-panel sub-panel" id="subAbout">
+            <div class="mega-panel__card">
+              <div class="mega-col"><ul>
+                <li><a href="about.html">عن مجموعة الخبراء العرب</a></li>
+                <li><a href="team.html" aria-current="page">فريق العمل</a></li>
+                <li><a href="clients.html">عملاؤنا</a></li>
+              </ul></div>
+            </div>
+          </div>
+        </span>
+        <span class="menu-item">
+          <a href="index.html#services" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">خدماتنا<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega-panel" id="megaServices">
+            <div class="mega-panel__card">
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <span class="mega-col__num">01</span>
+                  <h4><a href="audit.html">التدقيق والمراجعة</a></h4>
+                  <ul>
+                    <li><a href="audit.html#financial-statements">تدقيق القوائم المالية والتقارير</a></li>
+                    <li><a href="audit.html#limited-reviews">المراجعات المحدودة للقوائم المرحلية</a></li>
+                    <li><a href="audit.html#agreed-upon-procedures">الإجراءات المتفق عليها والتقارير الخاصة</a></li>
+                    <li><a href="audit.html#internal-audit">التدقيق الداخلي وإدارة المخاطر</a></li>
+                    <li><a href="audit.html#due-diligence">الفحص النافي للجهالة والصفقات</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">02</span>
+                  <h4><a href="zakat-tax.html">الزكاة والخدمات الضريبية</a></h4>
+                  <ul>
+                    <li><a href="zakat-tax.html#compliance-review">الامتثال والمراجعة</a></li>
+                    <li><a href="zakat-tax.html#consulting-support">الاستشارات والدعم</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">03</span>
+                  <h4><a href="business-services.html">خدمات قطاع الأعمال</a></h4>
+                  <ul>
+                    <li><a href="business-services.html#feasibility">دراسات الجدوى والنماذج المالية</a></li>
+                    <li><a href="business-services.html#fixed-assets">جرد وتقييم الموجودات الثابتة</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">04</span>
+                  <h4><a href="financial-consulting.html">الاستشارات المالية</a></h4>
+                  <ul>
+                    <li><a href="financial-consulting.html#performance-financing">الأداء والتمويل</a></li>
+                    <li><a href="financial-consulting.html#control-development">الرقابة والتطوير</a></li>
+                    <li><a href="financial-consulting.html#accounting-reporting">المحاسبة والتقارير المالية</a></li>
+                    <li><a href="financial-consulting.html#governance-policies">الحوكمة والسياسات والإجراءات</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <span class="mega-col__num">05</span>
+                  <h4><a href="judicial-support.html">الدعم القضائي</a></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+        <a href="index.html#contact">تواصل معنا</a>
+        <a class="lang-switch" href="en/team.html" lang="en" hreflang="en">English</a>
+      </nav>
+      <a class="btn-quote" href="index.html#contact">اطلب عرض سعر</a>
+    </div>
+  </div>
+
+<section class="page-hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-pattern" data-par="-0.15"></div>
+    <div class="mark hero-mark" data-par="-0.2"></div>
+  </div>
+  <div class="wrap">
+    <span class="rule"></span>
+    <h1 class="hero-stage d1">الخبرات التي تدعم التزامنا <em>بالجودة والثقة.</em></h1>
+    <p class="lede hero-stage d2">خبرات متخصصة في المحاسبة، والتدقيق، والاستشارات المالية.</p>
+  </div>
+</section>
+
+<section class="pg pg-white" id="leadership">
+  <div class="rings" aria-hidden="true" data-par="-0.06"><i></i><i></i></div>
+  <div class="wrap team-split">
+    <div class="team-split__head reveal">
+      <span class="rule"></span>
+      <h2>قيادة برؤية استراتيجية</h2>
+    </div>
+    <div class="profiles">
+      <article class="profile reveal">
+        <span class="profile__num" aria-hidden="true">01</span>
+        <div>
+          <span class="profile__role">الرئيس التنفيذي</span>
+          <h3>بشار عبدالرحمن</h3>
+          <div class="tags-wrap"><ul class="tags"><li>القيادة التنفيذية</li><li>الإدارة الاستراتيجية</li><li>الإشراف المؤسسي</li></ul></div>
+          <p class="profile__bio">الرئيس التنفيذي المسؤول عن التوجه الاستراتيجي للمجموعة وخدماتها المهنية في التدقيق والمراجعة والاستشارات المالية، مع التركيز على الجودة وثقة العملاء والنمو المستدام.</p>
+        </div>
+      </article>
+      <article class="profile reveal">
+        <span class="profile__num" aria-hidden="true">02</span>
+        <div>
+          <span class="profile__role">مدير التدقيق</span>
+          <h3>عصام الملازم</h3>
+          <div class="tags-wrap"><ul class="tags"><li class="is-key"><bdi>CFA</bdi></li><li class="is-key"><bdi>CPA</bdi></li><li class="is-key"><bdi>CMA</bdi></li><li class="is-key"><bdi>CIA</bdi></li><li class="is-key"><bdi>JCPA</bdi></li><li>التدقيق الخارجي والداخلي</li><li>الفحص المالي النافي للجهالة</li><li>تقييم المخاطر</li></ul></div>
+          <p class="profile__bio">مدير التدقيق، حاصل على شهادات <bdi>CFA</bdi> و<bdi>CPA</bdi> و<bdi>CMA</bdi> و<bdi>CIA</bdi> و<bdi>JCPA</bdi>. متخصص في التدقيق والفحص المالي النافي للجهالة وتقييم المخاطر المالية واستشارات الصفقات، دعماً للتقارير الموثوقة والقرارات المدروسة.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="directors">
+  <div class="services-pattern" aria-hidden="true" data-par="-0.07"></div>
+  <div class="services-glaze" aria-hidden="true" data-par="-0.1"></div>
+  <div class="wrap team-split">
+    <div class="team-split__head reveal">
+      <span class="rule"></span>
+      <h2>خبرات مهنية.</h2>
+    </div>
+    <div class="profiles">
+      <article class="profile reveal">
+        <span class="profile__num" aria-hidden="true">03</span>
+        <div>
+          <span class="profile__role">مدير الضرائب</span>
+          <h3>إبراهيم عبدالله</h3>
+          <div class="tags-wrap"><ul class="tags"><li>الاستشارات الضريبية</li><li>ضريبة الاستقطاع</li><li>الامتثال الضريبي</li><li>الشؤون التنظيمية</li></ul></div>
+          <p class="profile__bio">خبرة تتجاوز 20 عاماً في التدقيق المالي والاستشارات الضريبية، يتمتع بخبرة في تقديم الاستشارات الضريبية والامتثال للأنظمة في المملكة العربية السعودية. تشمل مجالات خبرته ضريبة القيمة المضافة، وضريبة الاستقطاع، والامتثال للمتطلبات التنظيمية، ودعم الشركات في إدارة التزاماتها الضريبية.</p>
+        </div>
+      </article>
+      <article class="profile reveal">
+        <span class="profile__num" aria-hidden="true">04</span>
+        <div>
+          <span class="profile__role">المدير التنفيذي</span>
+          <h3>أحمد عبدالباقي</h3>
+          <div class="tags-wrap"><ul class="tags"><li class="is-key">أكثر من 15 عاماً من الخبرة</li><li>التدقيق</li><li>الاستشارات الضريبية</li><li>الحوكمة المؤسسية</li></ul></div>
+          <p class="profile__bio">خبرة تتجاوز 15 عاماً في التدقيق المالي والاستشارات الضريبية والزكوية والحوكمة المؤسسية وإعادة الهيكلة. يمتلك خبرة في الامتثال التنظيمي والاستشارات المالية وإعداد الموازنات، ويحمل درجة البكالوريوس في المحاسبة من جامعة القاهرة.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pg pg-cream" id="team">
+  <div class="mark sectors-mark" aria-hidden="true" data-par="0.09"></div>
+  <div class="wrap">
+    <div class="crew-head reveal">
+      <span class="rule"></span>
+      <h2>فريق متنوع يجمع بين الخبرة المهنية والتجربة العملية.</h2>
+    </div>
+    <div class="crew">
+      <article class="member reveal">
+        <span class="member__role">مدير الحسابات</span>
+        <h3>محمود لافي</h3>
+        <ul><li class="is-key">خبرة أكثر من 16 عاماً</li><li>التقارير المالية</li><li>استشارات ضريبة القيمة المضافة والضرائب</li></ul>
+      </article>
+      <article class="member reveal">
+        <span class="member__role">مدقق حسابات</span>
+        <h3>إيهاب محمد</h3>
+        <ul><li>القوائم المالية</li><li>الإقرارات الضريبية</li><li><bdi>One Audit &amp; CaseWare</bdi></li></ul>
+      </article>
+      <article class="member reveal">
+        <span class="member__role">مدقق حسابات</span>
+        <h3>أحمد جعفر</h3>
+        <ul><li><bdi>IFRS for SMEs</bdi></li><li>التدقيق المالي</li><li>الامتثال الضريبي و<bdi>CaseWare</bdi></li></ul>
+      </article>
+      <article class="member reveal">
+        <span class="member__role">مدقق حسابات</span>
+        <h3>لينا النويسر</h3>
+        <ul><li>مدقق مالي</li></ul>
+      </article>
+      <article class="member reveal">
+        <span class="member__role">مدقق حسابات</span>
+        <h3>وجدان هلال</h3>
+        <ul><li>مدقق مالي</li></ul>
+      </article>
+      <article class="member reveal">
+        <span class="member__role">مدقق حسابات</span>
+        <h3>شهد الدوسري</h3>
+        <ul><li>مدقق مالي</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="mark f-mark" aria-hidden="true" data-par="0.14"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-about">
+        <div class="f-brand"><img src="Sources/logo-rtl.webp" alt="مجموعة الخبراء العرب"></div>
+        <p>بيت خبرة مهني يقدّم خدمات التدقيق والمراجعة والضمان، والاستشارات المالية والضريبية والزكوية وخدمات الأعمال.</p>
+      </div>
+      <div class="f-subscribe">
+        <h3>اشترك الآن</h3>
+        <form id="subscribeForm">
+          <input type="email" id="subscribeEmail" placeholder="بريدك الإلكتروني" dir="ltr" required>
+          <button type="submit">اشتراك</button>
+        </form>
+        <p class="f-note" id="subscribeNote" role="status" aria-live="polite"></p>
+        <div class="f-socials">
+          <a href="#" aria-label="Facebook" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-9h3l1-4h-4V6c0-1 .5-2 2-2h2V1h-3c-3 0-4 2-4 5v3H7v4h3v9z"/></svg></a>
+          <a href="#" aria-label="X" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 2H21l-6.6 7.5L22 22h-6.4l-5-6.5L4.8 22H2l7-8L2 2h6.5l4.5 6zM17 20h1.6L7.1 3.9H5.4z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" title="قريباً"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 112.5 6 2.5 2.5 0 014.98 3.5zM3 8.98h4V21H3zM9 8.98h3.8v1.64h.05a4.2 4.2 0 013.78-2.07c4 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.1 1.43-2.1 2.9V21H9z"/></svg></a>
+          <a href="#" aria-label="Instagram" title="قريباً"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        </div>
+      </div>
+      <div class="f-links">
+        <h3>روابط حكومية مهمة</h3>
+        <ul>
+          <li><a href="https://mc.gov.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>وزارة التجارة</a></li>
+          <li><a href="https://zatca.gov.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>هيئة الزكاة والضريبة والجمارك</a></li>
+          <li><a href="https://socpa.org.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>الهيئة السعودية للمحاسبين القانونيين</a></li>
+          <li><a href="https://cma.org.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>هيئة السوق المالية</a></li>
+        </ul>
+      </div>
+      <div class="f-contact">
+        <h3>تواصل معنا</h3>
+        <ul>
+          <li><address><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.5 7-12A7 7 0 105 10c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>المركز الرئيسي: برج المملكة، طريق الملك فهد، حي العليا، الرياض</address></li>
+          <li><a href="mailto:info@ba-audit.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6.5L21 6"/></svg>info@ba-audit.com</a></li>
+          <li><a href="tel:+966112933360"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>+966 11 29 333 60</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-iso-row">
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO 9001:2015<br>إدارة الجودة</span></div>
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO 22301:2019<br>استمرارية الأعمال</span></div>
+      <div class="f-iso-badge"><span class="badge-ico" aria-hidden="true"></span><span>ISO/IEC 27001:2022<br>أمن المعلومات</span></div>
+    </div>
+
+    <nav class="f-bottom-nav">
+      <a href="index.html">الرئيسية</a><a href="about.html">من نحن</a><a href="index.html#why">لماذا نحن</a><a href="index.html#clients">شركاؤنا</a><a href="index.html#services">خدماتنا</a><a href="index.html#contact">تواصل معنا</a>
+    </nav>
+
+    <div class="f-copyright">
+      <span>مجموعة الخبراء العرب. جميع الحقوق محفوظة &copy; 2026 &mdash; سجل تجاري 1010600009</span>
+      <a href="#">سياسة الخصوصية</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var staged = document.querySelectorAll('.hero-stage, .hero-mark');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  staged.forEach(function(el){ el.setAttribute('data-armed',''); });
+  requestAnimationFrame(function(){ document.body.classList.add('is-ready'); });
+  setTimeout(function(){ document.body.classList.add('is-ready'); }, 1600);
+}
+
+var navwrap = document.querySelector('.navwrap');
+var reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+var parLayers = reduceMotion.matches ? [] : [].slice.call(document.querySelectorAll('[data-par],[data-par-b]'));
+
+function setScrolled(){
+  if (navwrap) navwrap.classList.toggle('is-scrolled', window.scrollY > 8);
+}
+
+/* Layers ease toward their scroll target rather than snapping to it — raw scroll
+   binding reads steppy on trackpads and momentum wheels. 0.18 is tight enough to
+   stay precise (this is an audit firm, not a floaty showreel) while killing jitter.
+   Only layers near the viewport are touched; the rest of the page costs nothing. */
+var EASE_FACTOR = 0.18;
+
+function setParallax(instant){
+  var vh = window.innerHeight;
+  var moving = false;
+  for (var i = 0; i < parLayers.length; i++) {
+    var el = parLayers[i];
+    var r = el.getBoundingClientRect();
+    if (r.bottom < -160 || r.top > vh + 160) continue;
+    var travel = r.top + r.height / 2 - vh / 2;
+    var a = el.getAttribute('data-par');
+    var b = el.getAttribute('data-par-b');
+    if (a) {
+      var ta = travel * parseFloat(a);
+      var ca = (instant || el._py == null) ? ta : el._py + (ta - el._py) * EASE_FACTOR;
+      if (Math.abs(ta - ca) > 0.2) moving = true;
+      el._py = ca;
+      el.style.setProperty('--py', ca.toFixed(1) + 'px');
+    }
+    if (b) {
+      var tb = travel * parseFloat(b);
+      var cb = (instant || el._pyb == null) ? tb : el._pyb + (tb - el._pyb) * EASE_FACTOR;
+      if (Math.abs(tb - cb) > 0.2) moving = true;
+      el._pyb = cb;
+      el.style.setProperty('--pyb', cb.toFixed(1) + 'px');
+    }
+  }
+  return moving;
+}
+
+/* The rAF loop idles out a few frames after everything settles, so a parked page
+   isn't burning a frame callback forever. */
+var rafId = null, idleFrames = 0;
+function loop(){
+  var moving = setParallax(false);
+  idleFrames = moving ? 0 : idleFrames + 1;
+  if (idleFrames > 8) { rafId = null; return; }
+  rafId = requestAnimationFrame(loop);
+}
+function kick(){
+  idleFrames = 0;
+  if (rafId === null) rafId = requestAnimationFrame(loop);
+}
+
+var motionOn = !reduceMotion.matches;
+function onScroll(){ setScrolled(); if (motionOn) kick(); }
+setScrolled();
+if (motionOn) { setParallax(true); }
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('resize', function(){
+  setScrolled();
+  if (motionOn) { setParallax(true); }
+}, { passive: true });
+
+var navToggle = document.getElementById('navToggle');
+var primaryMenu = document.getElementById('primaryMenu');
+if (navToggle && primaryMenu) {
+  navToggle.addEventListener('click', function(){
+    var open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    primaryMenu.classList.toggle('is-open', !open);
+  });
+  primaryMenu.addEventListener('click', function(e){
+    if (e.target.closest('a')) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      primaryMenu.classList.remove('is-open');
+    }
+  });
+}
+
+var subscribeForm = document.getElementById('subscribeForm');
+if (subscribeForm) {
+  subscribeForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var input = document.getElementById('subscribeEmail');
+    var note = document.getElementById('subscribeNote');
+    if (!input.checkValidity()) {
+      note.textContent = 'يرجى إدخال بريد إلكتروني صحيح.';
+      note.style.color = '#E8B9B9';
+      return;
+    }
+    note.textContent = 'شكراً لاشتراكك، سنوافيك بآخر مستجداتنا.';
+    note.style.color = 'rgba(255,255,255,.85)';
+    subscribeForm.reset();
+  });
+}
+
+document.querySelectorAll('.acc-item').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var row = btn.closest('.acc-row');
+    var open = row.classList.contains('is-open');
+    document.querySelectorAll('.acc-row').forEach(function(r){
+      r.classList.remove('is-open');
+      var b = r.querySelector('.acc-item');
+      b.setAttribute('aria-expanded', 'false');
+      b.querySelector('i').textContent = '+';
+    });
+    if (!open){
+      row.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.querySelector('i').textContent = '−';
+    }
+  });
+});
+
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var targets = document.querySelectorAll('.reveal');
+  targets.forEach(function(el){ el.setAttribute('data-armed',''); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+    });
+  }, {rootMargin: '0px 0px -12% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+}
+</script>
+<script>
+/* methodology timeline: the gold spine fills as the reader scrolls, and each node
+   lights once the line reaches it */
+(function(){
+  var tl = document.querySelector('.timeline');
+  if (!tl) return;
+  var items = [].slice.call(tl.querySelectorAll('.tl-item'));
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* the spine runs from the first node's centre to the last node's centre */
+  function spanPx(){ return Math.max(items[items.length - 1].offsetTop, 1); }
+  function paint(p){
+    var sp = spanPx();
+    tl.style.setProperty('--tl-span', sp + 'px');
+    tl.style.setProperty('--tl', p.toFixed(3));
+    var fillEnd = 28 + sp * p;
+    items.forEach(function(it){
+      var c = it.offsetTop + 28;
+      var lit = p > 0 && fillEnd >= c - 4;
+      it.classList.toggle('is-lit', lit);
+      if (lit) it.classList.add('is-seen');
+    });
+  }
+  function update(){
+    var vh = window.innerHeight || 1;
+    var r = tl.getBoundingClientRect();
+    var span = spanPx();
+    var p = (vh * 0.55 - r.top - 28) / span;
+    paint(p < 0 ? 0 : (p > 1 ? 1 : p));
+  }
+
+  if (reduce) { paint(1); return; }
+  tl.classList.add('is-armed');
+  function onScroll(){ update(); }
+  update();
+  window.addEventListener('load', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
+</script>
+<script>
+/* mega menu: close after choosing something. Without this, a same-page link (e.g. a sub-service
+   while already on that service page) leaves the pointer on the panel and focus on the link,
+   so :hover / :focus-within keep it open and it looks stuck. */
+(function(){
+  document.querySelectorAll('.menu-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+      if (!e.target.closest('.mega-panel a')) return;
+      item.classList.add('is-closed');
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    });
+    item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
+  });
+})();
+</script>
+<script>
+/* mobile: the services sub-menu is an expandable row inside the drop-down */
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.menu-item'));
+  var menu = document.getElementById('primaryMenu');
+  var toggle = document.getElementById('navToggle');
+  if (!items.length) return;
+  var mq = window.matchMedia('(max-width:900px)');
+  function set(item, on){
+    var link = item.querySelector(':scope > a');
+    item.classList.toggle('is-expanded', on);
+    if (link) link.setAttribute('aria-expanded', on ? 'true' : 'false');
+  }
+  function closeAll(except){ items.forEach(function(i){ if (i !== except) set(i, false); }); }
+  items.forEach(function(item){
+    var link = item.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function(e){
+      if (!mq.matches) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var on = !item.classList.contains('is-expanded');
+      closeAll(item);
+      set(item, on);
+    });
+  });
+  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) closeAll(); });
+  if (toggle) toggle.addEventListener('click', function(){ closeAll(); });
+  window.addEventListener('resize', function(){ if (!mq.matches) closeAll(); }, { passive: true });
+})();
+</script>
+</body>
+</html>

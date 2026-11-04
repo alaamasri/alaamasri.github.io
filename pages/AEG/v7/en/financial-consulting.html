@@ -639,6 +639,20 @@ h1,h2,h3,h4{line-height:1.18;letter-spacing:-.012em}
   .brand-lock .words b{font-size:1.25rem}
   .brand-lock .words i{font-size:.5rem;letter-spacing:.16em}
 }
+/* ---------- About Us sub-menu: the services panel's style, one column, sized to its links,
+   anchored to the start edge of its own link (right in Arabic, left in English) ---------- */
+@media (min-width:901px){
+  .menu-item.menu-item--sub{position:relative}
+  .sub-panel{left:auto;inset-inline-start:0;width:max-content;min-width:220px;transform:translateY(6px)}
+  .menu-item--sub:hover .sub-panel,.menu-item--sub:focus-within .sub-panel{transform:translateY(0)}
+  .menu .menu-item--sub.is-closed .sub-panel{transform:translateY(6px)}
+  .sub-panel .mega-panel__card{padding:14px 20px}
+  .sub-panel .mega-col ul{gap:6px}
+  .sub-panel .mega-col li{font-size:.9375rem}
+}
+@media (max-width:900px){
+  .sub-panel .mega-col ul{padding-inline-start:10px}
+}
 </style>
 </head>
 <body>
@@ -653,7 +667,18 @@ h1,h2,h3,h4{line-height:1.18;letter-spacing:-.012em}
       <nav class="menu" id="primaryMenu">
         <a href="index.html">Home</a>
         <a href="index.html#why">Why Us</a>
-        <a href="about.html">About Us</a>
+        <span class="menu-item menu-item--sub">
+          <a href="about.html" aria-haspopup="true" aria-expanded="false" aria-controls="subAbout">About Us<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega-panel sub-panel" id="subAbout">
+            <div class="mega-panel__card">
+              <div class="mega-col"><ul>
+                <li><a href="about.html">About Arab Experts Group</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="clients.html">Our Clients</a></li>
+              </ul></div>
+            </div>
+          </div>
+        </span>
         <span class="menu-item">
           <a href="index.html#services" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">Our Services<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="mega-panel" id="megaServices">
@@ -704,7 +729,6 @@ h1,h2,h3,h4{line-height:1.18;letter-spacing:-.012em}
             </div>
           </div>
         </span>
-        <a href="index.html#clients">Our Clients</a>
         <a href="index.html#contact">Contact Us</a>
         <a class="lang-switch" href="../financial-consulting.html" lang="ar" hreflang="ar">العربية</a>
       </nav>
@@ -1049,38 +1073,45 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
    while already on that service page) leaves the pointer on the panel and focus on the link,
    so :hover / :focus-within keep it open and it looks stuck. */
 (function(){
-  var item = document.querySelector('.menu-item');
-  if (!item) return;
-  item.addEventListener('click', function(e){
-    if (!e.target.closest('.mega-panel a')) return;
-    item.classList.add('is-closed');
-    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  document.querySelectorAll('.menu-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+      if (!e.target.closest('.mega-panel a')) return;
+      item.classList.add('is-closed');
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    });
+    item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
   });
-  item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
 })();
 </script>
 <script>
 /* mobile: the services sub-menu is an expandable row inside the drop-down */
 (function(){
-  var item = document.querySelector('.menu-item');
-  var link = item && item.querySelector(':scope > a');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.menu-item'));
   var menu = document.getElementById('primaryMenu');
   var toggle = document.getElementById('navToggle');
-  if (!item || !link) return;
+  if (!items.length) return;
   var mq = window.matchMedia('(max-width:900px)');
-  function set(on){
+  function set(item, on){
+    var link = item.querySelector(':scope > a');
     item.classList.toggle('is-expanded', on);
-    link.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (link) link.setAttribute('aria-expanded', on ? 'true' : 'false');
   }
-  link.addEventListener('click', function(e){
-    if (!mq.matches) return;
-    e.preventDefault();
-    e.stopPropagation();
-    set(!item.classList.contains('is-expanded'));
+  function closeAll(except){ items.forEach(function(i){ if (i !== except) set(i, false); }); }
+  items.forEach(function(item){
+    var link = item.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function(e){
+      if (!mq.matches) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var on = !item.classList.contains('is-expanded');
+      closeAll(item);
+      set(item, on);
+    });
   });
-  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
-  if (toggle) toggle.addEventListener('click', function(){ set(false); });
-  window.addEventListener('resize', function(){ if (!mq.matches) set(false); }, { passive: true });
+  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) closeAll(); });
+  if (toggle) toggle.addEventListener('click', function(){ closeAll(); });
+  window.addEventListener('resize', function(){ if (!mq.matches) closeAll(); }, { passive: true });
 })();
 </script>
 </body>

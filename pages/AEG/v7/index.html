@@ -494,6 +494,26 @@ section,footer{overflow-x:clip}
 @media (max-width:900px){.menu > a:last-child{border-bottom:0}}
 /* mobile header: logo sits 3px higher, in both the normal and the sticky (scrolled) state */
 @media (max-width:900px){.brand{position:relative;top:-3px}}
+/* ---------- clients: logo tiles (home preview + full page) ---------- */
+.client-grid img{max-height:none;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;margin-inline:0;border-radius:14px;background:#fff;box-shadow:0 0 0 1px rgba(19,75,54,.09)}
+.clients-more{display:flex;justify-content:center;margin-top:clamp(36px,5vw,56px)}
+.client-grid--all{grid-template-columns:repeat(5,1fr);margin-top:0}
+@media (max-width:900px){.client-grid--all{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.client-grid--all{grid-template-columns:repeat(2,1fr)}}
+/* ---------- About Us sub-menu: the services panel's style, one column, sized to its links,
+   anchored to the start edge of its own link (right in Arabic, left in English) ---------- */
+@media (min-width:901px){
+  .menu-item.menu-item--sub{position:relative}
+  .sub-panel{left:auto;inset-inline-start:0;width:max-content;min-width:220px;transform:translateY(6px)}
+  .menu-item--sub:hover .sub-panel,.menu-item--sub:focus-within .sub-panel{transform:translateY(0)}
+  .menu .menu-item--sub.is-closed .sub-panel{transform:translateY(6px)}
+  .sub-panel .mega-panel__card{padding:14px 20px}
+  .sub-panel .mega-col ul{gap:6px}
+  .sub-panel .mega-col li{font-size:.9375rem}
+}
+@media (max-width:900px){
+  .sub-panel .mega-col ul{padding-inline-start:10px}
+}
 </style>
 </head>
 <body>
@@ -508,7 +528,18 @@ section,footer{overflow-x:clip}
       <nav class="menu" id="primaryMenu">
         <a href="#top">الرئيسية</a>
         <a href="#why">لماذا نحن</a>
-        <a href="about.html">من نحن</a>
+        <span class="menu-item menu-item--sub">
+          <a href="about.html" aria-haspopup="true" aria-expanded="false" aria-controls="subAbout">من نحن<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+          <div class="mega-panel sub-panel" id="subAbout">
+            <div class="mega-panel__card">
+              <div class="mega-col"><ul>
+                <li><a href="about.html">عن مجموعة الخبراء العرب</a></li>
+                <li><a href="team.html">فريق العمل</a></li>
+                <li><a href="clients.html">عملاؤنا</a></li>
+              </ul></div>
+            </div>
+          </div>
+        </span>
         <span class="menu-item">
           <a href="#services" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">خدماتنا<svg class="mega-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
           <div class="mega-panel" id="megaServices">
@@ -559,7 +590,6 @@ section,footer{overflow-x:clip}
             </div>
           </div>
         </span>
-        <a href="#clients">عملاؤنا</a>
         <a href="#contact">تواصل معنا</a>
         <a class="lang-switch" href="en/index.html" lang="en" hreflang="en">English</a>
       </nav>
@@ -728,19 +758,20 @@ section,footer{overflow-x:clip}
       <p>نؤمن بالعلاقات طويلة الأمد التي تعكس نجاحنا وتمثل أهدافنا، فالثقة بيننا وبين عملائنا هي شغفنا الدائم.</p>
     </div>
     <div class="client-grid reveal">
-      <img src="../Sources/clients/partner-03.png" alt="وزارة الثقافة">
-      <img src="../Sources/clients/partner-04.png" alt="وزارة الصحة">
-      <img src="../Sources/clients/partner-05.png" alt="وزارة الدفاع">
-      <img src="../Sources/clients/partner-01.png" alt="الجري للنقليات">
-      <img src="../Sources/clients/partner-02.png" alt="الدريس">
-      <img src="../Sources/clients/partner-06.png" alt="دار الهندسة">
-      <img src="../Sources/clients/partner-07.png" alt="آل سعيدان للعقارات">
-      <img src="../Sources/clients/partner-08.png" alt="رابغ للصناعات المعدنية">
-      <img src="../Sources/clients/partner-09.png" alt="ذاخر للتطوير">
-      <img src="../Sources/clients/partner-11.png" alt="مجموعة وافر">
-      <img src="../Sources/clients/partner-12.png" alt="المجال العربي القابضة">
-      <img src="../Sources/clients/partner-13.png" alt="بالبيد للسيارات">
+      <img src="Sources/clients/client-01.webp" alt="الدريس" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-02.webp" alt="المحيسن" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-03.webp" alt="موّة" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-04.webp" alt="الجري" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-05.webp" alt="شركة آل سعدان للعقارات" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-06.webp" alt="لتر" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-07.webp" alt="شركة العليا" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-08.webp" alt="تجوري" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-09.webp" alt="Four Points by Sheraton Quebec Resort" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-10.webp" alt="Courtyard by Marriott" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-11.webp" alt="Zid" width="600" height="400" loading="lazy" decoding="async">
+      <img src="Sources/clients/client-12.webp" alt="Naseej" width="600" height="400" loading="lazy" decoding="async">
     </div>
+    <div class="clients-more reveal"><a class="btn btn-outline-gold" href="clients.html">عرض المزيد<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a></div>
   </div>
 </section>
 
@@ -943,38 +974,45 @@ if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: re
    while already on that service page) leaves the pointer on the panel and focus on the link,
    so :hover / :focus-within keep it open and it looks stuck. */
 (function(){
-  var item = document.querySelector('.menu-item');
-  if (!item) return;
-  item.addEventListener('click', function(e){
-    if (!e.target.closest('.mega-panel a')) return;
-    item.classList.add('is-closed');
-    if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  document.querySelectorAll('.menu-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+      if (!e.target.closest('.mega-panel a')) return;
+      item.classList.add('is-closed');
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    });
+    item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
   });
-  item.addEventListener('mouseleave', function(){ item.classList.remove('is-closed'); });
 })();
 </script>
 <script>
 /* mobile: the services sub-menu is an expandable row inside the drop-down */
 (function(){
-  var item = document.querySelector('.menu-item');
-  var link = item && item.querySelector(':scope > a');
+  var items = Array.prototype.slice.call(document.querySelectorAll('.menu-item'));
   var menu = document.getElementById('primaryMenu');
   var toggle = document.getElementById('navToggle');
-  if (!item || !link) return;
+  if (!items.length) return;
   var mq = window.matchMedia('(max-width:900px)');
-  function set(on){
+  function set(item, on){
+    var link = item.querySelector(':scope > a');
     item.classList.toggle('is-expanded', on);
-    link.setAttribute('aria-expanded', on ? 'true' : 'false');
+    if (link) link.setAttribute('aria-expanded', on ? 'true' : 'false');
   }
-  link.addEventListener('click', function(e){
-    if (!mq.matches) return;
-    e.preventDefault();
-    e.stopPropagation();
-    set(!item.classList.contains('is-expanded'));
+  function closeAll(except){ items.forEach(function(i){ if (i !== except) set(i, false); }); }
+  items.forEach(function(item){
+    var link = item.querySelector(':scope > a');
+    if (!link) return;
+    link.addEventListener('click', function(e){
+      if (!mq.matches) return;
+      e.preventDefault();
+      e.stopPropagation();
+      var on = !item.classList.contains('is-expanded');
+      closeAll(item);
+      set(item, on);
+    });
   });
-  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
-  if (toggle) toggle.addEventListener('click', function(){ set(false); });
-  window.addEventListener('resize', function(){ if (!mq.matches) set(false); }, { passive: true });
+  if (menu) menu.addEventListener('click', function(e){ if (e.target.closest('a')) closeAll(); });
+  if (toggle) toggle.addEventListener('click', function(){ closeAll(); });
+  window.addEventListener('resize', function(){ if (!mq.matches) closeAll(); }, { passive: true });
 })();
 </script>
 </body>
