@@ -46,7 +46,7 @@
   const actions = document.querySelector('.hx-actions');
   if (media && actions && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const [img1, img2, img3] = media.querySelectorAll('img');
-    const wide = matchMedia('(min-width: 768px)');
+    const wide = matchMedia('(min-width: 1024px)');
     const STRENGTH_1 = 0.25, STRENGTH_3 = 0.4; // share of the full offset; the 1st moves less than the 3rd
     const LIFT_3 = 25; // extra px the 3rd starts higher
     let d1 = 0, d3 = 0, range = 1, shown = 1, running = false;
@@ -58,7 +58,17 @@
       range = Math.max(400, media.getBoundingClientRect().top + scrollY + innerHeight * 0.35);
     };
     const target = () => 1 - Math.min(1, Math.max(0, scrollY / range));
+    // Phones: the photos form a filmstrip that slides left as the page scrolls, reaching the last photo
+    // by the time the strip has scrolled about two thirds of a screen.
     const paint = () => {
+      if (!wide.matches) {
+        img1.style.translate = img3.style.translate = '';
+        const travel = media.scrollWidth - media.clientWidth;
+        const p = Math.min(1, Math.max(0, scrollY / (innerHeight * 0.66)));
+        media.style.translate = `${(-p * travel).toFixed(1)}px 0`;
+        return;
+      }
+      media.style.translate = '';
       img1.style.translate = `0 ${(d1 * shown).toFixed(1)}px`;
       img3.style.translate = `0 ${(d3 * shown).toFixed(1)}px`;
     };
@@ -86,6 +96,19 @@
       const r = markN.parentElement.getBoundingClientRect();
       const p = (r.top + r.height / 2 - innerHeight / 2) / (innerHeight / 2 + r.height / 2); // -1..1 while visible
       markN.style.setProperty('--py', `${(-Math.max(-1, Math.min(1, p)) * RANGE / 2).toFixed(1)}px`); // lags behind the scroll
+    };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
+    drift();
+  }
+
+  // About hero: the faint NOVA letters sink a little slower than the page while the hero scrolls away
+  const markNova = document.querySelector('.a-mark');
+  if (markNova && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const RATE = 0.22; // px of drift per px scrolled
+    let ticking = false;
+    const drift = () => {
+      ticking = false;
+      markNova.style.setProperty('--py', `${(Math.min(scrollY, innerHeight) * RATE).toFixed(1)}px`);
     };
     addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(drift); } }, { passive: true });
     drift();
@@ -211,4 +234,26 @@
       });
     }
   }
+
+  // "Other applications" carousel: arrows step one card, progress line follows the scroll
+  document.querySelectorAll('[data-carousel]').forEach((root) => {
+    const track = root.querySelector('.rx-track');
+    const bar = root.querySelector('.rx-progress span');
+    const [prev, next] = root.querySelectorAll('.rx-btn');
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const seen = (track.scrollLeft + track.clientWidth) / track.scrollWidth;
+      bar.style.setProperty('--p', Math.min(1, seen).toFixed(3));
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max - 2;
+    };
+    root.querySelectorAll('.rx-btn').forEach((btn) => btn.addEventListener('click', () => {
+      const card = track.querySelector('.rx-card');
+      const step = card.offsetWidth + parseFloat(getComputedStyle(track).columnGap);
+      track.scrollBy({ left: step * Number(btn.dataset.dir) });
+    }));
+    track.addEventListener('scroll', update, { passive: true });
+    addEventListener('resize', update);
+    update();
+  });
 })();

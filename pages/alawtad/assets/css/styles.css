@@ -94,9 +94,10 @@ p { margin: 0; text-wrap: pretty; }
 ul { margin: 0; padding: 0; list-style: none; }
 
 :focus-visible { outline: 2px solid var(--plum-text); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--plum); color: #fff; }
 
 .container { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: clamp(72px, 9vw, 120px); }
+.section { padding-block: clamp(56px, 9vw, 120px); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .skip-link { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--plum); color: #fff; padding: 10px 16px; border-radius: 999px; }
 .skip-link:focus { top: 12px; }
@@ -183,7 +184,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .mobile-nav {
   position: fixed; inset: var(--header-h) 0 0 0; z-index: 49;
-  background: var(--bg); padding: 16px var(--gutter) 32px; overflow-y: auto;
+  background: rgb(255 255 255 / .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  padding: 16px var(--gutter) 32px; overflow-y: auto;
   opacity: 0; visibility: hidden; transform: translateY(-8px);
   transition: opacity .25s var(--ease), transform .3s var(--ease), visibility .25s;
 }
@@ -193,17 +195,22 @@ ul { margin: 0; padding: 0; list-style: none; }
 .mobile-nav details[open] summary i { transform: rotate(180deg); }
 .mobile-nav details a { display: block; padding: 10px 0 10px 4px; color: var(--ink-2); font-size: 17px; }
 .mobile-nav details ul { padding: 8px 0 12px; border-bottom: 1px solid var(--line); }
-.mobile-nav .btn { margin-top: 28px; width: 100%; justify-content: center; }
+.mobile-nav .btn { margin-top: 44px; width: 100%; justify-content: center; }
 
 @media (max-width: 1023px) {
   .nav, .header-cta { display: none; }
   .menu-toggle { display: inline-flex; }
 }
 body.nav-locked { overflow: hidden; }
+/* Mobile menu open: the header turns into the same frosted white as the menu panel, with the plum logo. */
+body.nav-locked .site-header.on-dark::before { opacity: 1; inset: 0; -webkit-mask-image: none; mask-image: none; background: rgb(255 255 255 / .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+body.nav-locked .site-header.on-dark .logo-light { display: block; }
+body.nav-locked .site-header.on-dark .logo-dark { display: none; }
+body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-color: var(--plum); color: #1e1720; }
 
 /* ---------- Hero (editorial type) ---------- */
 /* The site is light; the home hero is a brand-plum band, and the header joins it while over it. */
-.hero, .site-header.on-dark, .site-footer {
+.hero, .site-header.on-dark, .site-footer, .a-sec {
   --plum-text: #fff;
   --bg: #672666;
   --surface: rgb(255 255 255 / .08);
@@ -243,7 +250,7 @@ body.nav-locked { overflow: hidden; }
 }
 .hero .btn-primary, .site-header.on-dark .btn-primary { background: var(--on-plum); color: #2e0f2e; }
 .hero .btn-primary:hover, .site-header.on-dark .btn-primary:hover { background: #fff; }
-/* The header is always a translucent plum cloud; on the home page it starts clear over the hero and fades in on scroll. */
+/* The header is a translucent plum cloud; on every page it starts clear over the dark hero and fades in on scroll. */
 .site-header.on-dark { isolation: isolate; background: transparent; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .site-header.on-dark::before {
   content: ""; position: absolute; inset: 0 0 -26px; z-index: -1; pointer-events: none;
@@ -260,7 +267,7 @@ body.nav-locked { overflow: hidden; }
     radial-gradient(14% 130% at 30% 50%, rgb(248 116 247 / .1), transparent 72%),
     #6d126d;
 }
-.site-header.is-home:not(.is-scrolled)::before { opacity: 0; }
+.site-header.on-dark:not(.is-scrolled)::before { opacity: 0; }
 .site-header.on-dark .logo-light { display: none; }
 .site-header.on-dark .logo-dark { display: block; }
 /* The dropdown is a light panel even when the header is plum. */
@@ -283,25 +290,47 @@ body.nav-locked { overflow: hidden; }
   .hx-actions { margin-left: 24%; }
   .hx-caption { position: absolute; left: 0; bottom: .9rem; }
 }
-@media (max-width: 1023px) {
-  .hx-title .l2 { padding-left: 12%; }
-  .hx { display: flex; flex-direction: column; }
-  .hx-caption { order: 3; }
-  .hx-aside { margin-top: 32px; }
-  .hx-caption { margin-top: 28px; }
-}
+.hx-caption > span { display: block; }
 
+/* Phones and tablets (one breakpoint for the whole site: under 1024px = this single-column layout).
+   One centered column: a one-line "Alawtad Co · Est. 2005" caption, the title centered line by line,
+   then the photo filmstrip, the description and both buttons stacked. */
+@media (max-width: 1023px) {
+  #home > .container { display: flex; flex-direction: column; align-items: center; } /* home hero only; inner-page heroes stay left */
+  .hx { display: contents; }
+  .hx-caption { order: -1; margin: 0 0 22px; font-size: 11.5px; text-align: center; }
+  .hx-caption > span { display: inline; }
+  .hx-caption > span + span::before { content: "·"; margin-inline: .7em; }
+  .hx-caption > span:last-child { display: none; } /* Amman, Jordan: desktop only */
+  .hx-title { text-align: center; }
+  .hx-title .line { white-space: nowrap; }
+  .hx-title .l2 { padding-left: 0; }
+  .hx-media { order: 1; align-self: stretch; margin-top: 32px; }
+  .hx-aside { order: 2; margin-top: 28px; text-align: center; }
+  .hx-aside p { margin-inline: auto; }
+  .hx-actions { order: 3; align-self: stretch; display: grid; gap: 10px; margin-top: 24px; }
+  .hx-actions .btn { width: 80%; max-width: 420px; justify-content: center; margin: 0 auto 5px; }
+  .hx-aside p { max-width: 46ch; }
+}
 .hx-media { display: grid; gap: 16px; margin-top: clamp(40px, 5vw, 64px); grid-template-columns: 1fr 1fr; }
 .hx-media img { width: 100%; height: clamp(180px, 28vw, 400px); object-fit: cover; border-radius: var(--radius); }
 .hx-media img:nth-child(2) { grid-column: 1 / -1; grid-row: 1; }
-@media (min-width: 768px) {
+/* Phones and tablets: a filmstrip instead of a grid. The three photos sit in one row that runs off the right edge (the hero
+   band clips it); main.js slides the row left as the page scrolls, so each photo passes through view in turn. */
+@media (max-width: 1023px) {
+  .hx-media { display: flex; gap: 12px; margin-top: 44px; }
+  .hx-media img { flex: none; width: 74%; min-width: 0; height: auto; aspect-ratio: 4 / 5; border-radius: 18px; }
+  .hx-media img:nth-child(2) { grid-column: auto; grid-row: auto; }
+}
+@media (min-width: 600px) and (max-width: 1023px) { .hx-media img { width: 46%; } } /* tablets: about two photos in view */
+@media (min-width: 1024px) {
   .hx-media { grid-template-columns: 1fr 1.45fr 1fr; }
   .hx-media img:nth-child(2) { grid-column: auto; grid-row: auto; }
   .hx-media img:nth-child(1), .hx-media img:nth-child(3) { margin-top: clamp(24px, 4vw, 56px); height: calc(clamp(180px, 28vw, 400px) - clamp(24px, 4vw, 56px)); }
 }
 
 /* ---------- Numbers (the page's one dark color block) ---------- */
-.numbers { color: var(--on-plum); padding-block: clamp(72px, 9vw, 128px); }
+.numbers { color: var(--on-plum); padding-block: clamp(56px, 9vw, 128px); }
 /* Fades the shared clouds darker toward the bottom so the white text reads well; starts clear so there is no seam. */
 .hero-band .numbers {
   padding-top: clamp(24px, 4vw, 56px);
@@ -328,6 +357,7 @@ body.nav-locked { overflow: hidden; }
 }
 @media (max-width: 1023px) {
   .stat-col:last-child .stat:first-child { border-top: 1px solid rgb(255 255 255 / .12); }
+  .stat-col:first-child { margin-top: 72px; } /* keep the staggered columns of desktop on smaller screens */
 }
 @media (max-width: 479px) { .stat { padding: 22px 16px; min-height: 180px; } }
 
@@ -369,6 +399,11 @@ body.nav-locked { overflow: hidden; }
   .showcase-cards { gap: 28px; }
   .scard { aspect-ratio: auto; height: min(74vh, 640px); }
   .scard-body { padding: 36px; }
+}
+/* Phones and tablets: the cards stack as you scroll, each one sliding up over the last and covering it fully. */
+@media (max-width: 1023px) {
+  .showcase-cards { gap: 16px; }
+  .scard { position: sticky; top: calc(var(--header-h) + 12px); }
 }
 
 /* ---------- Markets marquee ---------- */
@@ -440,7 +475,7 @@ body.nav-locked { overflow: hidden; }
 }
 
 /* ---------- Contact ---------- */
-.contact { padding-top: clamp(72px, 9vw, 120px); }
+.contact { padding-top: clamp(56px, 9vw, 120px); }
 .contact-top { display: grid; gap: 48px; padding-bottom: clamp(56px, 7vw, 96px); }
 .contact-intro .lead { margin-top: 18px; max-width: 46ch; }
 .contact-info { display: grid; }
@@ -515,32 +550,63 @@ body.nav-locked { overflow: hidden; }
 .footer-top { display: grid; gap: 40px; }
 .footer-top .brand img { height: 34px; }
 .footer-about { margin-top: 18px; color: var(--muted); max-width: 38ch; font-size: 15.5px; }
-.footer-col h4 { font-size: 14px; font-weight: 600; color: var(--muted); margin-bottom: 14px; letter-spacing: 0; }
+.footer-col h4 { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 14px; letter-spacing: 0; }
 .footer-col li + li { margin-top: 8px; }
-.footer-col a { color: var(--ink-2); font-size: 15.5px; transition: color .2s; }
+.footer-col a, .footer-col li > span { color: var(--muted); font-size: 15.5px; transition: color .2s; }
 .footer-col a:hover { color: #e7b9e5; }
 .footer-bottom { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 14.5px; }
 @media (min-width: 900px) { .footer-top { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+/* Tablets in portrait (600–1023px) get the phone layouts; these keep them from stretching too wide. */
+@media (min-width: 600px) and (max-width: 899px) { .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 600px) and (max-width: 1023px) {
+  .a-story-grid, .a-products-grid { max-width: 680px; }
+}
 
 /* ---------- Inner pages ---------- */
 .crumbs { display: flex; align-items: center; gap: 8px; font-size: 14.5px; color: var(--muted); margin-bottom: 24px; }
 .crumbs a:hover { color: var(--plum-text); }
 .crumbs i { font-size: 12px; }
-.page-hero { padding-top: clamp(32px, 5vw, 64px); }
-.page-hero .lead { margin-top: 20px; }
-.banner { margin-top: clamp(36px, 5vw, 56px); border-radius: var(--radius); overflow: hidden; aspect-ratio: 1920 / 560; background: var(--surface-2); }
-.banner img { width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 719px) { .banner { aspect-ratio: 16 / 10; } }
 
 .prose-grid { display: grid; gap: 40px; }
 .prose-grid h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
 .prose-grid .body + .body { margin-top: 18px; }
 @media (min-width: 1024px) { .prose-grid { grid-template-columns: .85fr 1.15fr; gap: 80px; } }
 
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
-.chips li { display: inline-flex; align-items: center; height: 42px; padding: 0 18px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 15.5px; font-weight: 500; }
-.app-block + .app-block { margin-top: 40px; }
-.app-block h3 { font-size: 1.15rem; margin-bottom: 8px; letter-spacing: -0.01em; }
+/* Product pages: the category photo fills the hero; a plum shade from the left carries the type. */
+.p-hero { position: relative; isolation: isolate; overflow: clip; margin-top: calc(-1 * var(--header-h) - 1px); min-height: clamp(460px, 64svh, 640px); display: grid; align-items: end; background: #2e0f2e; }
+.p-hero-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+.p-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgb(46 15 46 / .55), rgb(46 15 46 / .2) 90px, transparent 150px), /* keeps the clear header readable over bright photos */
+    linear-gradient(90deg, rgb(46 15 46 / .94), rgb(66 20 65 / 0%) 54%, rgb(66 20 65 / .25) 66%, transparent 86%); }
+:is(.p-hero, .a-hero) .crumbs { margin-bottom: clamp(28px, 4vw, 48px); }
+:is(.p-hero, .a-hero) .crumbs span { color: var(--ink); }
+:is(.p-hero, .a-hero) h1 { font-size: clamp(2.8rem, 7vw, 4rem); text-wrap: balance; }
+:is(.p-hero, .a-hero) .lead { margin-top: 24px; max-width: 46ch; }
+.p-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; margin-top: clamp(32px, 4vw, 44px); }
+@media (min-width: 1024px) { :is(.p-hero, .a-hero) :is(h1, .lead) { max-width: 62%; } }
+/* About hero: the product hero's text layout on the plum cloud band, no photo. */
+.a-hero { position: relative; isolation: isolate; min-height: clamp(420px, 56svh, 580px); display: grid; align-items: end; }
+/* Faint NOVA letters (traced from the logo) on the right, set low; main.js drifts them on scroll via --py. */
+.a-mark { position: absolute; z-index: -1; right: var(--gutter); bottom: 111px; height: clamp(90px, 15vw, 210px); width: auto; translate: 0 var(--py, 0px); pointer-events: none; fill: #fff; fill-rule: evenodd; opacity: .06; }
+@media (max-width: 1023px) { .a-mark { bottom: 30px; opacity: .05; } }
+@media (max-width: 1023px) {
+  .p-hero, .a-hero { min-height: 0; } /* on phones the hero is as tall as its content, no empty band above the title */
+  .p-hero::before { background: linear-gradient(to top, rgb(46 15 46 / .74) 13%, rgb(46 15 46 / .48) 56%, rgb(46 15 46 / .15)); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .p-hero-bg { animation: hero-settle 2.6s var(--ease) both; }
+  @keyframes hero-settle { from { scale: 1.12; } }
+}
+
+.p-apps .prose-grid h2 { text-wrap: balance; }
+@media (min-width: 1024px) { .p-apps .prose-grid h2 { position: sticky; top: calc(var(--header-h) + 40px); align-self: start; } }
+.apps { display: grid; column-gap: 48px; border-top: 1px solid var(--line); }
+.apps li { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(1.05rem, 1.3vw, 1.2rem); font-weight: 500; letter-spacing: -0.01em; line-height: 1.35; }
+.apps li::before { content: ""; flex: none; width: 7px; height: 7px; translate: 0 -2px; rotate: 45deg; background: var(--plum); }
+@media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+.app-block + .app-block { margin-top: 56px; }
+.app-block h3 { font-size: 1.15rem; margin-bottom: 18px; letter-spacing: -0.01em; }
 .app-block p { color: var(--ink-2); margin-bottom: 18px; max-width: 60ch; }
 .formats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
 .formats li { padding: 22px; border-radius: var(--radius); background: var(--plum-soft); }
@@ -548,13 +614,34 @@ body.nav-locked { overflow: hidden; }
 .formats strong { display: block; margin-top: 12px; font-size: 1.1rem; }
 
 .related { background: var(--surface); border-top: 1px solid var(--line); }
-.related-row { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: thin; }
-.related-row a { scroll-snap-align: start; border-radius: var(--radius); overflow: hidden; background: var(--bg); border: 1px solid var(--line); transition: border-color .25s; }
-.related-row a:hover { border-color: var(--plum-text); }
-.related-row img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .8s var(--ease); }
-.related-row a:hover img { transform: scale(1.04); }
-.related-row .rmeta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; font-weight: 600; }
-.related-row .rmeta i { color: var(--plum-text); }
+
+/* Product pages: "Other applications" photo carousel with arrows and a progress line. */
+.related-x { background: var(--surface); border-top: 1px solid var(--line); }
+.rx-nav { display: flex; align-items: center; gap: 10px; }
+.rx-btn { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: 18px; cursor: pointer; transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), opacity .25s; }
+.rx-btn:hover:not(:disabled) { background: var(--plum); border-color: var(--plum); color: #fff; }
+.rx-btn:disabled { opacity: .35; cursor: default; }
+@media (hover: none) { .rx-nav { display: none; } }
+.rx-track { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; }
+.rx-track::-webkit-scrollbar { display: none; }
+@media (min-width: 720px) { .rx-track { grid-auto-columns: calc((100% - 2 * 20px) / 2.35); gap: 20px; } }
+@media (min-width: 1100px) { .rx-track { grid-auto-columns: calc((100% - 3 * 24px) / 3.35); gap: 24px; } }
+.rx-card { position: relative; display: block; scroll-snap-align: start; aspect-ratio: 4 / 5; border-radius: var(--radius); overflow: hidden; isolation: isolate; background: var(--surface-2); }
+.rx-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; scale: 1.02; transition: scale 1.1s var(--ease); }
+.rx-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(46 15 46 / .82), rgb(46 15 46 / .28) 38%, transparent 62%); transition: opacity .5s var(--ease); }
+.rx-meta { position: absolute; z-index: 1; inset: auto 0 0; display: flex; align-items: end; justify-content: space-between; gap: 16px; padding: clamp(20px, 2.4vw, 28px); color: #fff; }
+.rx-name { font-size: clamp(1.25rem, 1.8vw, 1.55rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; max-width: 12ch; text-wrap: balance; }
+.rx-go { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--plum); font-size: 18px; transition: rotate .5s var(--ease), background-color .3s var(--ease), color .3s var(--ease); }
+.rx-card:hover img, .rx-card:focus-visible img { scale: 1.09; }
+.rx-card:hover .rx-go, .rx-card:focus-visible .rx-go { rotate: 45deg; background: var(--plum); color: #fff; }
+.rx-progress { position: relative; height: 2px; margin-top: 28px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.rx-progress span { position: absolute; inset: 0; background: var(--plum); transform-origin: left; transform: scaleX(var(--p, .3)); transition: transform .3s var(--ease); }
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rx-card { animation: rx-in linear both; animation-timeline: view(inline); animation-range: entry 0% entry 70%; }
+    @keyframes rx-in { from { opacity: .4; scale: .9; } }
+  }
+}
 .related-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; }
 
 .cta-band { border-radius: var(--radius); background: var(--plum); color: #fff; padding: clamp(36px, 5vw, 64px); display: grid; gap: 28px; align-items: center; }
@@ -562,21 +649,90 @@ body.nav-locked { overflow: hidden; }
 .cta-band p { margin-top: 12px; color: rgb(255 255 255 / .82); max-width: 50ch; }
 @media (min-width: 900px) { .cta-band { grid-template-columns: 1fr auto; } }
 
-.about-split { display: grid; gap: 48px; align-items: center; }
-.about-split .media img { border-radius: var(--radius); aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
-@media (min-width: 1024px) { .about-split { grid-template-columns: 1fr 1fr; gap: 80px; } }
+/* About page: everything sits on the home page's plum. Hero + story share one cloud band, the quality gauge is a
+   deeper plum block, then products + closing share a second cloud band. */
+/* The closing quote band is a rounded card inset from the page edges, on the light page background. */
+/* White like the products section above, so the card doesn't sit in a grey strip of page background. */
+.a-close-wrap { background: var(--surface); padding-bottom: calc(clamp(40px, 5vw, 72px) + 50px); }
+.a-cloud { width: min(100% - 2 * var(--gutter), var(--max) - 2 * var(--gutter)); margin: 0 auto; border-radius: var(--radius); }
+.a-close .container { padding-inline: clamp(24px, 6vw, 96px); }
+.a-sec { position: relative; isolation: isolate; overflow: clip; padding-block: clamp(56px, 9vw, 128px); }
+.a-sec .section-mark { fill: #fff; opacity: .045; }
+.a-sec .eyebrow { color: #e7b9e5; }
+.a-big { font-size: clamp(1.3rem, 1.1rem + .9vw, 1.75rem); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; max-width: 100%; text-wrap: balance; }
+.a-mid { font-size: clamp(1.3rem, 1.1rem + .9vw, 1.75rem); font-weight: 500; line-height: 1.18; letter-spacing: -0.03em; max-width: 100%; margin-bottom: 28px; text-wrap: balance; }
+.a-side { color: var(--ink-2); font-size: 1.1rem; }
+/* Our story: two overlapping photos (large top-left, smaller inset bottom-right) beside the text column. */
+.a-story-grid { display: grid; gap: 56px; align-items: center; }
+.a-story-copy .a-big { margin-bottom: 24px; }
+/* "Our story" / "Our products" use the same .h2 as "Our quality gauge"; plum, with room before the statement. */
+/* "Our story" / "Our products": the home page's .tag label (plum rule + tracked caps, as on "Why choose us"), larger. */
+.a-title { display: inline-flex; align-items: center; gap: 14px; margin-bottom: clamp(20px, 2.4vw, 28px); font-size: clamp(15px, 1.3vw, 18px); font-weight: 600; line-height: 1.2; letter-spacing: .18em; text-transform: uppercase; color: var(--plum); }
+.a-title::before { content: ""; width: 48px; height: 2px; margin-left: 4px; background: currentColor; }
+/* About sections each carry one faint logo letter: N story, O gauge, V products, A closing quote. */
+.a-story, .a-gauge, .a-products { position: relative; isolation: isolate; overflow: clip; }
+.a-gauge .section-mark { fill: #fff; opacity: .045; }
+@media (max-width: 1023px) {
+  .a-gauge .section-mark { left: auto; right: 0; transform: translateX(28%); } /* the O sits on the right on phones */
+  .a-close .a-quote p { letter-spacing: 0; }
+}
+.a-duo { position: relative; padding-bottom: 9.2%; }
+.a-duo img { display: block; object-fit: cover; border-radius: var(--radius); }
+.a-duo-main { width: 68%; aspect-ratio: 1; }
+.a-duo-inset { position: absolute; right: 0; bottom: 0; width: 50%; aspect-ratio: 16 / 15; box-shadow: 0 30px 60px -24px rgb(20 4 20 / .45); }
+@media (max-width: 1023px) { .a-duo { padding-bottom: 20%; } } /* the inset sits lower on phones and tablets */
+/* Reveal: the big photo settles down into place, the inset rises up into it. */
+@media (prefers-reduced-motion: no-preference) {
+  .a-duo.reveal { opacity: 1; transform: none; }
+  .a-duo img { opacity: 0; transition: opacity .9s var(--ease), translate 1.3s var(--ease); }
+  .a-duo .a-duo-main { translate: 0 -56px; }
+  .a-duo .a-duo-inset { translate: 0 56px; transition-delay: .18s; }
+  .a-duo.is-in img { opacity: 1; translate: none; }
+}
+@media (min-width: 1024px) {
+  .a-story-grid { grid-template-columns: 1.1fr 1fr; gap: 96px; }
+}
 
-.gauge-light { display: grid; gap: 16px; grid-template-columns: 1fr; }
-.gauge-light li { padding: 28px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
-.gauge-light li:first-child { background: var(--plum); border-color: var(--plum); color: #fff; }
-.gauge-light li:first-child i { color: #f0c8ee; }
-.gauge-light i { font-size: 30px; color: var(--plum-text); }
-.gauge-light h3 { margin-top: 24px; font-size: 1.2rem; line-height: 1.3; letter-spacing: -0.01em; }
-@media (min-width: 720px) { .gauge-light { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1100px) { .gauge-light { grid-template-columns: 1.3fr 1fr 1fr 1fr; } }
+.a-gauge { --ink: #fff; --ink-2: #f0e2ef; --muted: #dcc6db; --line: rgb(255 255 255 / .22); --plum-text: #fff; background: var(--plum-strong); color: var(--ink); }
+.a-gauge-grid { display: grid; gap: 40px; }
+.a-gauge-intro .body { margin-top: 18px; color: var(--muted); }
+.a-gauge-list li { display: grid; grid-template-columns: 44px 1fr; gap: 20px; align-items: center; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.a-gauge-list li:first-child { border-top: 1px solid var(--line); }
+.a-gauge-list i { font-size: 28px; color: #e7b9e5; }
+.a-gauge-list h3 { font-size: clamp(1.15rem, 1.8vw, 1.5rem); font-weight: 500; letter-spacing: -0.015em; line-height: 1.3; }
+.a-gauge-close { color: var(--ink-2); }
+@media (min-width: 1024px) {
+  .a-gauge-grid { grid-template-columns: 1fr 1.4fr; column-gap: 96px; row-gap: 32px; }
+  .a-gauge-intro { grid-row: span 2; position: sticky; top: calc(var(--header-h) + 40px); align-self: start; }
+  .a-gauge-close { grid-column: 2; }
+}
 
-.quote-line { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -0.03em; line-height: 1.15; max-width: 26ch; }
-.quote-line .tone { color: var(--muted); }
+
+.a-products-grid { display: grid; gap: 48px; align-items: center; }
+.a-products-media { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface-2); box-shadow: 0 30px 60px -24px rgb(20 4 20 / .4); }
+.a-products-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.a-products .body + .body { margin-top: 16px; }
+@media (min-width: 1024px) {
+  .a-products-grid { grid-template-columns: .9fr 1.1fr; gap: 96px; }
+  .a-products-media img { aspect-ratio: 4 / 5; max-height: 640px; }
+}
+
+/* Closing statement: the page's last plum moment, a large pull quote with the second sentence in pink. */
+.a-close { padding-block: clamp(48px, 5.5vw, 88px) clamp(60px, 7vw, 112px); }
+.a-quote { margin: 0; }
+.a-quote i { display: block; margin-bottom: clamp(18px, 2.4vw, 28px); font-size: clamp(32px, 3.4vw, 46px); line-height: 1; color: #e7b9e5; }
+.a-quote p { max-width: 42ch; font-size: clamp(1.4rem, 1rem + 1.4vw, 2.1rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.18; text-wrap: balance; }
+.a-quote .tone { margin-top: .5em; color: #e7b9e5; }
+
+/* ---------- Touch targets ---------- */
+/* On touch screens, small text links get a taller hit area (about 44px) without moving anything: the padding is
+   cancelled by an equal negative margin, so the visual layout is unchanged. */
+@media (pointer: coarse) {
+  .crumbs a, .contact-block a { display: inline-block; padding-block: 10px; margin-block: -10px; }
+  .p-hero .link-arrow { padding-block: 10px; margin-block: -10px; }
+  .footer-col li + li { margin-top: 0; }
+  .footer-col a, .footer-col li > span { display: inline-block; padding-block: 9px; }
+}
 
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: no-preference) {
