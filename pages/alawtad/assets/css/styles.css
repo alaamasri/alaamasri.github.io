@@ -624,8 +624,8 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 /* Product pages: "Other applications" photo carousel with arrows. */
 .related-x { background: var(--surface); border-top: 1px solid var(--line); }
 .rx-nav { display: flex; align-items: center; gap: 10px; }
-.rx-btn { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: 18px; cursor: pointer; transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), opacity .25s; }
-.rx-btn:hover:not(:disabled) { background: var(--plum); border-color: var(--plum); color: #fff; }
+.rx-btn { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--plum); background: var(--plum); color: #fff; font-size: 18px; cursor: pointer; transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), opacity .25s; }
+.rx-btn:hover:not(:disabled) { background: var(--plum-strong); border-color: var(--plum-strong); }
 .rx-btn:disabled { opacity: .35; cursor: default; }
 @media (hover: none) { .rx-nav { display: none; } }
 .rx-track { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; overscroll-behavior-x: contain; scrollbar-width: none; }
@@ -646,7 +646,7 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
     @keyframes rx-in { from { opacity: .4; scale: .9; } }
   }
 }
-.related-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; }
+.related-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 32px; }
 
 .cta-band { border-radius: var(--radius); background: var(--plum); color: #fff; padding: clamp(36px, 5vw, 64px); display: grid; gap: 28px; align-items: center; }
 .cta-band h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); max-width: 20ch; color: #fff; }
