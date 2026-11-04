@@ -163,6 +163,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .nav > a:hover, .nav-drop > button:hover, .nav-drop.is-open > button { color: var(--ink); background: var(--surface-2); }
 .nav > a[aria-current="page"] { color: var(--ink); }
+.site-header.on-dark:not(.is-scrolled) :is(.nav > a, .nav-drop > button) { color: #fff; } /* pure white while the header is transparent over the hero */
 .nav-drop { position: static; }
 .nav-drop > button i { font-size: 13px; transition: transform .25s var(--ease); }
 .nav-drop.is-open > button i { transform: rotate(180deg); }
@@ -577,7 +578,7 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 .p-hero-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .p-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: #00000050; } /* desktop: an even ~31% black over the photo; phones get the bottom-up plum shade below */
 .p-hero .crumbs, .p-hero .crumbs a, .p-hero .lead { color: #fff; }
-.p-cta-sec { background: var(--surface); } /* white like the carousel section above it */
+.p-cta-sec { background: var(--surface); padding-top: 0; } /* white like the carousel section above it, so its bottom padding is the only gap */
 :is(.p-hero, .a-hero) .crumbs { margin-bottom: clamp(28px, 4vw, 48px); }
 :is(.p-hero, .a-hero) .crumbs span { color: var(--ink); }
 :is(.p-hero, .a-hero) h1 { font-size: clamp(2.8rem, 7vw, 4rem); text-wrap: balance; }
@@ -604,6 +605,12 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 .apps li { display: flex; align-items: baseline; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(1.05rem, 1.3vw, 1.2rem); font-weight: 500; letter-spacing: -0.01em; line-height: 1.35; }
 .apps li::before { content: ""; flex: none; width: 7px; height: 7px; translate: 0 -2px; rotate: 45deg; background: var(--plum); }
 @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
+/* Phones and tablets: two columns, tighter items, no rule under each item. */
+@media (max-width: 1023px) {
+  .apps { grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .apps li { gap: 10px; padding: 20px 2px; border-bottom: 0; font-size: 16px; }
+  .apps li::before { width: 6px; height: 6px; }
+}
 .app-block + .app-block { margin-top: 56px; }
 .app-block h3 { font-size: 1.15rem; margin-bottom: 18px; letter-spacing: -0.01em; }
 .app-block p { color: var(--ink-2); margin-bottom: 18px; max-width: 60ch; }
