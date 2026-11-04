@@ -1,4 +1,17 @@
 (() => {
+  // Hero entrance animations start hidden (opacity 0 / pushed below the line). On a reload the browser restores the
+  // scroll position, the hero loads off screen, and some of those animations can stay stuck on their first frame, so
+  // the text never appears. Finish them right away when the page loads away from the hero, and as a safety net after
+  // the intro would have ended anyway.
+  const intro = document.querySelectorAll('.hero .load');
+  if (intro.length && 'getAnimations' in Element.prototype) {
+    const finishIntro = () => intro.forEach((el) => el.getAnimations().forEach((a) => { if (a.playState !== 'finished') a.finish(); }));
+    addEventListener('load', () => {
+      if (scrollY > innerHeight / 2) finishIntro();
+      setTimeout(finishIntro, 2500);
+    });
+  }
+
   const header = document.querySelector('.site-header');
   const menuBtn = document.querySelector('.menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
