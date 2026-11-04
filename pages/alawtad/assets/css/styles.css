@@ -607,8 +607,8 @@ body.nav-locked .site-header.on-dark .menu-toggle { background: initial; border-
 @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
 /* Phones and tablets: two columns, tighter items, no rule under each item. */
 @media (max-width: 1023px) {
-  .apps { grid-template-columns: 1fr 1fr; column-gap: 16px; }
-  .apps li { gap: 10px; padding: 20px 2px; border-bottom: 0; font-size: 16px; }
+  .apps { grid-template-columns: 1fr 1fr; column-gap: 16px; padding-top: 10px; }
+  .apps li { gap: 10px; padding: 20px 5px 10px 2px; border-bottom: 0; font-size: 16px; }
   .apps li::before { width: 6px; height: 6px; }
 }
 .app-block + .app-block { margin-top: 56px; }
